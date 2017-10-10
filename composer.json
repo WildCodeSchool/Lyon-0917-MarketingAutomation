@@ -1,0 +1,19 @@
+{
+    "name": "wcs/marketingautomation",
+    "description": "Project with composer",
+    "type": "project",
+    "authors": [
+        {
+            "name": "AR6A",
+            "email": "raza.andy@gmail.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.4"
+    },
+    
+    "autoload": {
+	"psr-4": {"wcs\\": "src/"}
+    }
+
+}
