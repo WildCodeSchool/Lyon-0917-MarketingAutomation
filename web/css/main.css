@@ -555,3 +555,16 @@ textarea {
 .noUi-horizontal .noUi-active .noUi-tooltip span,
 .noUi-vertical .noUi-active .noUi-tooltip span {
   opacity: 1; }
+
+#topbarsearch .input-field .prefix {
+  width: 0rem !important; }
+#topbarsearch nav ul li:hover {
+  background-color: none !important; }
+
+nav ul li.active {
+  background-color: none !important; }
+
+.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
+  margin-left: 1rem !important; }
+
+/*# sourceMappingURL=main.css.map */
