@@ -25,321 +25,160 @@
 
 <!-- Page Layout here -->
 <div class="row">
-    <div class="valign-wrapper">
         <div class="grid-example col s12 m4 l3"></div>
         <div class="col s12 m8 l9">
             <div class ="title">
                 <h1>Page Listing Logiciels</h1>
             </div>
         </div>
-    </div>
 </div>
 
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+<div class="row">
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
             </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-              <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m4 l2">
+        <div class="card">
+            <div class="card-image">
+                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png">
+                <a class="btn-floating halfway-fab waves-effect waves-light blue"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+                <span class="card-title">Card Title</span>
+                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
             </div>
         </div>
     </div>
 </div>
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2 m8 l11">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10 m4 l1">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="col s12 m6 l3">
-    <div class="card-panel grey lighten-5 z-depth-1">
-        <div class="row valign-wrapper">
-            <div class="col s2">
-                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
-            </div>
-            <div class="col s10">
-                <h2>Logiciel_name</h2>
-                <span class="black-text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              </span>
-            </div>
-        </div>
-    </div>
-</div>
-
 
 
 
