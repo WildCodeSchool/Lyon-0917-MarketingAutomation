@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} - Fiche Logiciel {% endblock %}
+{%  block body %}
+
+    <h1>Tout savoir sur le logiciel Bidule</h1>
+
+    <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire envie. </p>
+
+{% include 'table.html.twig' %}
+
+{% endblock %}
