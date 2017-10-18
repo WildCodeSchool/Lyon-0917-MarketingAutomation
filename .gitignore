@@ -17,4 +17,4 @@
 /web/bundles/
 .idea
 .DS_Store
-.sass-cache
+/.sass-cache/
