@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} - Résultats {% endblock %}
+{% block body %}
+        <h1>Votre recherche: <!-- insérer ici en php la requete tappée avec les critères --></h1>
+        <div class="row">
+
+            {% include('filters.html.twig') %}
+            <div class="col s12 m6 l9">
+                <div class="collection">
+                    <!-- Faire boucler chaque balise <a> par logiciel et définir un nombre max par page avant pagination. Selectionner également quels critères seront disponibles en apperçu, faire que le lien amene vers la page software unique -->
+                    <a href="#!" class="collection-item">
+                        <h3>Nom du logiciel</h3>
+                        <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire
+                            envie. </p>
+                    </a>
+                    <a href="#!" class="collection-item">
+                        <h3>Nom du logiciel</h3>
+                        <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire
+                            envie. </p>
+                    </a>
+                    <a href="#!" class="collection-item">
+                        <h3>Nom du logiciel</h3>
+                        <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire
+                            envie. </p>
+                    </a>
+                    <a href="#!" class="collection-item">
+                        <h3>Nom du logiciel</h3>
+                        <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire
+                            envie. </p>
+                    </a>
+                </div>
+            </div>
+            <div class = "pagination col s12"><!-- voir pour intégrer la pagination bien proprement dynamiquement sur la meme page-->
+                <ul class="center-align">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts  %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/application.filters.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/nouislider.min.js') }}"></script>
+{% endblock %}
