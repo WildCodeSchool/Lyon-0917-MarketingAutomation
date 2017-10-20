@@ -196,6 +196,11 @@ textarea {
     margin-top: 0;
     margin-bottom: 0; }
 
+#filters .collapsible-body {
+  background-color: white; }
+  #filters .collapsible-body label {
+    color: darkslategrey; }
+
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
