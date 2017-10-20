@@ -188,6 +188,19 @@ textarea {
   overflow: auto;
   *font-family: sans-serif; }
 
+.page-footer {
+  padding-top: 15px;
+  width: 100%;
+  background-color: #151f30; }
+  .page-footer .row {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+#filters .collapsible-body {
+  background-color: white; }
+  #filters .collapsible-body label {
+    color: darkslategrey; }
+
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
@@ -556,15 +569,43 @@ textarea {
 .noUi-vertical .noUi-active .noUi-tooltip span {
   opacity: 1; }
 
-#topbarsearch .input-field .prefix {
-  width: 0rem !important; }
-#topbarsearch nav ul li:hover {
-  background-color: none !important; }
+#navBar {
+  background-color: #151f30; }
+  #navBar #topbarsearch .input-field .prefix {
+    width: 0rem !important; }
+  #navBar #topbarsearch nav ul li:hover {
+    background-color: none !important; }
+  #navBar nav ul li.active {
+    background-color: none !important; }
+  #navBar .input-field .prefix ~ input, #navBar .input-field .prefix ~ textarea, #navBar .input-field .prefix ~ label, #navBar .input-field .prefix ~ .validate ~ label, #navBar .input-field .prefix ~ .autocomplete-content {
+    margin-left: 1rem !important; }
 
-nav ul li.active {
-  background-color: none !important; }
+#home {
+  background-image: url("../img/background_homepage2.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 81vh; }
+  #home h1 {
+    color: white; }
+  #home #searchBar {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
+    #home #searchBar input {
+      color: white; }
 
-.input-field .prefix ~ input, .input-field .prefix ~ textarea, .input-field .prefix ~ label, .input-field .prefix ~ .validate ~ label, .input-field .prefix ~ .autocomplete-content {
-  margin-left: 1rem !important; }
+#results {
+  min-height: 81vh; }
 
-/*# sourceMappingURL=main.css.map */
+#software {
+  min-height: 81vh; }
+
+#tags {
+  min-height: 81vh; }
+
+html {
+  min-height: 100%; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
+  background-size: cover;
+  background-repeat: no-repeat; }

@@ -1,0 +1,21 @@
+#navBar {
+  background-color: rgb(21, 31, 48);
+  #topbarsearch {
+    .input-field .prefix {
+      width: 0rem !important;
+    }
+    nav ul li:hover {
+      background-color: none !important;
+    }
+  }
+
+  nav ul li.active {
+    background-color: none !important;
+  }
+
+  .input-field .prefix ~ {
+    input, textarea, label, .validate ~ label, .autocomplete-content {
+      margin-left: 1rem !important;
+    }
+  }
+}

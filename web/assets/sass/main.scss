@@ -1,5 +1,23 @@
 @import 'partials/reset';
 @import 'partials/variables';
-@import 'partials/views/footer';
+@import 'partials/Components/footer';
+@import 'partials/Components/filters';
 @import 'partials/Components/nouislider';
-@import 'partials/views/nav';
+@import 'partials/Components/nav';
+@import "partials/views/home";
+@import "partials/views/results";
+@import "partials/views/software";
+@import "partials/views/tags";
+
+
+
+html{
+  min-height: 100%;
+}
+body{
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
+  background-size: cover;
+  background-repeat: no-repeat;
+
+}
