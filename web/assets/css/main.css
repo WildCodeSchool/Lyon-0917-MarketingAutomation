@@ -581,10 +581,7 @@ textarea {
     margin-left: 1rem !important; }
 
 #home {
-  background-image: url("../img/background_homepage2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 81vh; }
+  min-height: 100vh; }
   #home h1 {
     color: white; }
   #home #searchBar {
@@ -592,14 +589,20 @@ textarea {
     #home #searchBar input {
       color: white; }
 
+#topbarsearch {
+  display: none; }
+
+#lowBarSearch {
+  display: none; }
+
 #results {
-  min-height: 81vh; }
+  min-height: 100vh; }
 
 #software {
-  min-height: 81vh; }
+  min-height: 100vh; }
 
 #tags {
-  min-height: 81vh; }
+  min-height: 100vh; }
 
 html {
   min-height: 100%; }

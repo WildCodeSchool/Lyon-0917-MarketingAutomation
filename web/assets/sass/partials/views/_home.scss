@@ -1,15 +1,18 @@
 #home {
-  background-image: url("../img/background_homepage2.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  min-height: 81vh;
+  min-height: 100vh;
   h1 {
     color: white;
   }
   #searchBar {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
-    input{
+    input {
       color: white;
     }
   }
+}
+#topbarsearch {
+  display: none;
+}
+#lowBarSearch {
+  display: none;
 }

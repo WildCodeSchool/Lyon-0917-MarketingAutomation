@@ -1,5 +1,14 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        body{
+            background-image: url("{{ asset('assets/img/background_homepage2.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+    </style>
+{% endblock %}
 {% block title %}{{ parent() }} - Home {% endblock %}
 {% block body %}
     <div id="home">
@@ -20,7 +29,6 @@
                                        placeholder="Ecrivez ici votre recherche...">
                                 <a href="/results" class="btn-large"><i
                                             class="large material-icons right">search</i>Rechercher</a>
-
                             </div>
                         </form>
                     </div>
