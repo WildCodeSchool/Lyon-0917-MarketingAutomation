@@ -62,4 +62,15 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("mentions-legales", name="mentionslegales")
+     */
+    public function mentionsLegalesAction(Request $request)
+    {
+        // replace this example code with whatever you need
+        return $this->render('default/mentions_legales.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+        ]);
+    }
 }
