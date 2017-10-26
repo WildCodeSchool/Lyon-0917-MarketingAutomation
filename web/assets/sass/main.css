@@ -200,7 +200,6 @@ textarea {
   background-color: white; }
   #filters .collapsible-body label {
     color: darkslategrey; }
-
 #filters h2 {
   text-align: center; }
 
@@ -575,7 +574,7 @@ textarea {
 #navBar {
   background-color: #151f30; }
   #navBar #topbarsearch .input-field .prefix {
-    width: 0 !important; }
+    width: 0rem !important; }
   #navBar #topbarsearch nav ul li:hover {
     background-color: none !important; }
   #navBar nav ul li.active {
@@ -605,7 +604,6 @@ textarea {
     font-size: x-large;
     margin-top: 5%;
     margin-bottom: 8%; } }
-
 #results {
   min-height: 100vh; }
 
@@ -650,7 +648,6 @@ h3 {
     font-size: x-large;
     margin-top: 5%;
     margin-bottom: 8%; } }
-
 @media (min-width: 400px) and (max-width: 1024px) {
   #results h1 {
     text-align: center;
@@ -659,7 +656,6 @@ h3 {
     font-size: x-large;
     margin-top: 5%;
     margin-bottom: 5%; } }
-
 #table {
   min-height: 100vh; }
 
@@ -671,3 +667,5 @@ body {
   background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
   background-size: cover;
   background-repeat: no-repeat; }
+
+/*# sourceMappingURL=main.css.map */
