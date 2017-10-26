@@ -2,9 +2,14 @@
 {% block title %}{{ parent() }} - Fiche Logiciel {% endblock %}
 {% block body %}
     <div id="software">
-        <h1>Tout savoir sur le logiciel Bidule</h1>
-
-        <p>Ceci est la description du logiciel. C'est une description très intéressante, qui peut faire envie. </p>
+        <div class="container">
+            <div class="row center-align">
+                <h1>Tout savoir sur le logiciel Bidule</h1>
+            </div>
+            <div class="row center-align">
+                <p>Ceci est la description du logiciel. C'est une description très intéressante, qui doit faire envie.</p><br />
+            </div>
+        </div>
 
         {% include 'table.html.twig' %}
     </div>
