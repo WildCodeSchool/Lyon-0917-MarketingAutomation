@@ -201,6 +201,12 @@ textarea {
   #filters .collapsible-body label {
     color: darkslategrey; }
 
+.filters-responsive p {
+  padding-left: 10px; }
+
+.filters-responsive-btn a {
+  margin-top: 20px; }
+
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
  * Copyright 2014-2015 Materialize
