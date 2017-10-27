@@ -1,5 +1,7 @@
 $(document).ready(function () {
-    $(".button-collapse").sideNav();
+    $(".button-collapse").sideNav({
+        menuWidth: 200
+    });
 
     $('input.autocomplete').autocomplete({
         data: {
