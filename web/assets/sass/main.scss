@@ -13,7 +13,7 @@
 @import "queries/_tablette.scss";
 @import "partials/Components/table";
 
-
+//node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
 html{
   min-height: 100%;
@@ -23,5 +23,5 @@ body{
   background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
   background-size: cover;
   background-repeat: no-repeat;
-
 }
+

@@ -575,7 +575,7 @@ textarea {
 #navBar {
   background-color: #151f30; }
   #navBar #topbarsearch .input-field .prefix {
-    width: 0rem !important; }
+    width: 0 !important; }
   #navBar #topbarsearch nav ul li:hover {
     background-color: none !important; }
   #navBar nav ul li.active {
