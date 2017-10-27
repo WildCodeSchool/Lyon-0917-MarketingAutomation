@@ -13,4 +13,19 @@
 
         {% include 'table.html.twig' %}
     </div>
+    <aside id="share">
+        <a href=https://twitter.com/share?url= $lien &text=$titre &via=VOTRE-NOM-TWITTER" rel="nofollow"
+           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
+        <a href="http://www.facebook.com/sharer.php?u=https://www.google.fr/" rel="nofollow"
+           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" class="mdi mdi-facebook mdi-36px mdi-light hidden"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url= $lien &title= $titre" rel="nofollow"
+           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" class="mdi mdi-linkedin mdi-36px mdi-light hidden "></a>
+        <a href="https://buffer.com/add?text={title}&url={url}" rel="nofollow"
+           onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" class="mdi mdi-buffer mdi-36px mdi-light hidden "></a>
+        <a class="mdi mdi-share-variant mdi-36px mdi-light "></a>
+    </aside>
+
+{% endblock %}
+{% block javascripts  %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/social.js') }}"></script>
 {% endblock %}
