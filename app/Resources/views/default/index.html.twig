@@ -7,6 +7,12 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+        #topbarsearch {
+            display: none;
+        }
+        #lowBarSearch {
+            display: none;
+        }
     </style>
 {% endblock %}
 {% block title %}{{ parent() }} - Home {% endblock %}
@@ -26,7 +32,7 @@
                         <form id="search-site" action='search' method='get'>
                             <div class="input-group">
                                 <input id="search" type="search" name='search'
-                                       placeholder="Ecrivez ici votre recherche...">
+                                       placeholder="Recherchez ce que vous souhaitez trouver...">
                                 <a href="/results" class="btn-large"><i
                                             class="large material-icons right">search</i>Rechercher</a>
                             </div>

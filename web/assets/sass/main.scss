@@ -4,13 +4,24 @@
 @import 'partials/Components/filters';
 @import 'partials/Components/nouislider';
 @import 'partials/Components/nav';
+@import 'partials/Components/icons';
+@import 'partials/Components/share';
 @import "partials/views/home";
 @import "partials/views/results";
 @import "partials/views/software";
+
 @import "partials/views/tags";
 @import "partials/views/mentions_legales";
 
 
+@import "partials/views/_tags.scss";
+@import "partials/views/listing-software";
+@import "queries/_smartphone.scss";
+@import "queries/_tablette.scss";
+@import "partials/Components/table";
+
+
+//node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
 html{
   min-height: 100%;
@@ -20,5 +31,5 @@ body{
   background: white; //
   background-size: cover;
   background-repeat: no-repeat;
-
 }
+
