@@ -8,6 +8,7 @@
 @import "partials/views/results";
 @import "partials/views/software";
 @import "partials/views/tags";
+@import "partials/views/mentions_legales";
 
 
 
@@ -16,7 +17,7 @@ html{
 }
 body{
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
+  background: white; //
   background-size: cover;
   background-repeat: no-repeat;
 
