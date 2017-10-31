@@ -207,6 +207,14 @@ textarea {
 .filters-responsive-btn a {
   margin-top: 20px; }
 
+.filters-responsive-btn h2 {
+  text-align: center; }
+
+
+.filters-responsive-btn h2 {
+  text-align: center; }
+
+
 .full-label label {
   width: 100%; }
 
@@ -7060,6 +7068,40 @@ nav {
   min-height: 100vh; }
   #software h1 {
     margin-top: 8%; }
+
+#tags {
+  min-height: 100vh; }
+  #tags h1 {
+    font-size: xx-large;
+    margin-top: 6%;
+    margin-bottom: 3%;
+    text-align: center; }
+  #tags h3 {
+    margin-left: 2%;
+    margin-top: 4%; }
+  #tags a {
+    margin-left: 6%; }
+  #tags .last {
+    margin-bottom: 10%; }
+
+#mentions-legales {
+  min-height: 100vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  text-align: justify; }
+  #mentions-legales h1 {
+    font-size: 60px;
+    margin-top: 2vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h2 {
+    font-size: 40px;
+    margin-top: 4vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 2vh; }
 
 #tags {
   min-height: 100vh; }
