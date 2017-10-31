@@ -207,13 +207,13 @@ textarea {
 .filters-responsive-btn a {
   margin-top: 20px; }
 
-
 .filters-responsive-btn h2 {
   text-align: center; }
 
 
 .filters-responsive-btn h2 {
   text-align: center; }
+
 
 .full-label label {
   width: 100%; }
@@ -597,7 +597,11 @@ nav {
   nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
     margin-left: 1rem !important; }
   nav li a {
-    font-size: 20px; }
+    font-size: 1.3em; }
+
+.nav-wrapper {
+  margin-left: 30px;
+  margin-right: 30px; }
 
 /* MaterialDesignIcons.com */
 @font-face {
@@ -7046,6 +7050,19 @@ nav {
   min-height: 100vh; }
   #results h1 {
     margin-bottom: 4%; }
+  #results .card-image {
+    margin: auto 0;
+    right: 0; }
+  #results .card-content {
+    padding: 10px 24px; }
+  #results .card-action {
+    padding-bottom: 0; }
+  #results .pagination {
+    margin-bottom: 40px; }
+  #results h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em; }
 
 #software {
   min-height: 100vh; }
