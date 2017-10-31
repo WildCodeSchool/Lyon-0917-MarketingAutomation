@@ -7066,6 +7066,8 @@ nav {
     margin-left: 6%; }
   #tags .last {
     margin-bottom: 10%; }
+  #tags .logicielTagView {
+    margin-top: 20px; }
 
 #mentions-legales {
   min-height: 100vh;
