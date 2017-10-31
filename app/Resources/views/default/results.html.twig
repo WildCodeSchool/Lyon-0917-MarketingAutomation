@@ -4,15 +4,13 @@
 
     <div id="results">
         <div class="row">
-            <div class="col s12 m12 l12 center-align">
-                <h1>Votre recherche: <!-- insérer ici en php la requete tappée avec les critères --></h1>
-            </div>
-        </div>
-        <div class="row">
+
 
             {% include('filters.html.twig') %}
 
-            <div class="col s12 m5 l7">
+            <div class="col s12 m7 l7">
+                <h1>Résultat de votre recherche : <!-- insérer ici le mot-clé recherché --></h1>
+
                 <div class="collection">
                     <!-- Faire boucler chaque balise <a> par logiciel et définir un nombre max par page avant pagination. Selectionner également quels critères seront disponibles en apperçu, faire que le lien amene vers la page software unique -->
                     <a href="#!" class="collection-item">

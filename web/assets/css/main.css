@@ -586,16 +586,18 @@ textarea {
 .noUi-vertical .noUi-active .noUi-tooltip span {
   opacity: 1; }
 
-#navBar {
+nav {
   background-color: #151f30; }
-  #navBar #topbarsearch .input-field .prefix {
+  nav #topbarsearch .input-field .prefix {
     width: 0 !important; }
-  #navBar #topbarsearch nav ul li:hover {
+  nav #topbarsearch nav ul li:hover {
     background-color: none !important; }
-  #navBar nav ul li.active {
+  nav nav ul li.active {
     background-color: none !important; }
-  #navBar .input-field .prefix ~ input, #navBar .input-field .prefix ~ textarea, #navBar .input-field .prefix ~ label, #navBar .input-field .prefix ~ .validate ~ label, #navBar .input-field .prefix ~ .autocomplete-content {
+  nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
     margin-left: 1rem !important; }
+  nav li a {
+    font-size: 20px; }
 
 /* MaterialDesignIcons.com */
 @font-face {
@@ -7025,7 +7027,8 @@ textarea {
 #home {
   min-height: 100vh; }
   #home h1 {
-    color: white; }
+    color: white;
+    margin-top: 4%; }
   #home #searchBar {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
     #home #searchBar input {
@@ -7041,15 +7044,8 @@ textarea {
 
 #results {
   min-height: 100vh; }
-
-h1 {
-  font-size: xx-large;
-  margin-top: 4%; }
-
-h3 {
-  font-size: x-large;
-  margin-top: 3%;
-  margin-bottom: 3%; }
+  #results h1 {
+    margin-bottom: 4%; }
 
 #software {
   min-height: 100vh; }
@@ -7138,3 +7134,5 @@ body {
   background: white;
   background-size: cover;
   background-repeat: no-repeat; }
+  body h1 {
+    font-size: xx-large; }
