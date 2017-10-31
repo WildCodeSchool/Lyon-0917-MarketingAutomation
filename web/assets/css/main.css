@@ -207,8 +207,16 @@ textarea {
 .filters-responsive-btn a {
   margin-top: 20px; }
 
+
 .filters-responsive-btn h2 {
   text-align: center; }
+
+
+.filters-responsive-btn h2 {
+  text-align: center; }
+
+.full-label label {
+  width: 100%; }
 
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
