@@ -1,8 +1,10 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ parent() }} - Tags {% endblock %}
+        {% block h1 %}
+            <h1>Liste des logiciels classés par tag</h1>
+        {% endblock %}
 {% block body %}
     <div id="tags">
-        <h1>Tags</h1>
 
         <div class="container">
             <div class="row">

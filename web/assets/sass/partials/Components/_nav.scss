@@ -1,4 +1,4 @@
-#navBar {
+nav {
   background-color: rgb(21, 31, 48);
   #topbarsearch {
     .input-field .prefix {
@@ -16,6 +16,11 @@
   .input-field .prefix ~ {
     input, textarea, label, .validate ~ label, .autocomplete-content {
       margin-left: 1rem !important;
+    }
+  }
+  li {
+    a {
+      font-size: 1.3em;
     }
   }
 }
