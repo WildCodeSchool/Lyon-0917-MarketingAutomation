@@ -625,35 +625,6 @@ textarea {
 .mdi-account-box:before {
   content: "\F006"; }
 
-
-#mentions-legales {
-  min-height: 100vh;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
-  text-align: justify; }
-  #mentions-legales h1 {
-    font-size: 60px;
-    margin-top: 2vh;
-    margin-bottom: 2vh; }
-  #mentions-legales h2 {
-    font-size: 40px;
-    margin-top: 4vh;
-    margin-bottom: 2vh; }
-  #mentions-legales h3 {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 3vh;
-    margin-bottom: 2vh; }
-
-html {
-  min-height: 100%; }
-
-body {
-  font-family: 'Lato', sans-serif;
-  background: white;
-  background-size: cover;
-  background-repeat: no-repeat; }
-
 .mdi-account-box-outline:before {
   content: "\F007"; }
 
@@ -7095,6 +7066,40 @@ h3 {
   #tags .last {
     margin-bottom: 10%; }
 
+#mentions-legales {
+  min-height: 100vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  text-align: justify; }
+  #mentions-legales h1 {
+    font-size: 60px;
+    margin-top: 2vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h2 {
+    font-size: 40px;
+    margin-top: 4vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 2vh; }
+
+#tags {
+  min-height: 100vh; }
+  #tags h1 {
+    font-size: xx-large;
+    margin-top: 6%;
+    margin-bottom: 3%;
+    text-align: center; }
+  #tags h3 {
+    margin-left: 2%;
+    margin-top: 4%; }
+  #tags a {
+    margin-left: 6%; }
+  #tags .last {
+    margin-bottom: 10%; }
+
 #listing {
   min-height: 100vh; }
   #listing h1 {
@@ -7125,8 +7130,6 @@ html {
 
 body {
   font-family: 'Lato', sans-serif;
-  background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
+  background: white;
   background-size: cover;
   background-repeat: no-repeat; }
-
-/*# sourceMappingURL=main.css.map */
