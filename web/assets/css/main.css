@@ -591,6 +591,10 @@ nav {
   nav li a {
     font-size: 1.3em; }
 
+.nav-wrapper {
+  margin-left: 30px;
+  margin-right: 30px; }
+
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
