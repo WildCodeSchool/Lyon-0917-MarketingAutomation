@@ -15,7 +15,7 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -24,9 +24,9 @@ class DefaultController extends Controller
      */
     public function softwareSoloAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('default/software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -35,9 +35,9 @@ class DefaultController extends Controller
      */
     public function listingSoftwareAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('default/listing-software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -46,9 +46,9 @@ class DefaultController extends Controller
      */
     public function resultsAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('default/results.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -57,9 +57,20 @@ class DefaultController extends Controller
      */
     public function listingTagsAction(Request $request)
     {
-        // replace this example code with whatever you need
+
         return $this->render('default/tags.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("mentions-legales", name="mentionslegales")
+     */
+    public function mentionsLegalesAction(Request $request)
+    {
+
+        return $this->render('default/mentions-legales.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 }
