@@ -7065,6 +7065,8 @@ h3 {
     margin-left: 6%; }
   #tags .last {
     margin-bottom: 10%; }
+  #tags .logicielTagView {
+    margin-top: 20px; }
 
 #listing {
   min-height: 100vh; }
