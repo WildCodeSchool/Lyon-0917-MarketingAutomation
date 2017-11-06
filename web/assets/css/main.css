@@ -7131,3 +7131,7 @@ body {
   background-repeat: no-repeat; }
 body h1 {
   font-size: xx-large; }
+body h2 {
+  font-size: x-large;
+  margin-top: 20px;
+  margin-bottom: 20px; }
