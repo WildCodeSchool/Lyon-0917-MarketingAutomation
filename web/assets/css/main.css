@@ -7038,7 +7038,11 @@ nav {
   #results h3 {
     font-size: x-large;
     margin-top: 5%;
-    margin-bottom: 8%; } }
+
+    margin-bottom: 8%; }
+  nav .nav-wrapper {
+    margin-left: 0;
+    margin-right: 0; } }
 #results {
   min-height: 100vh; }
   #results h1 {
@@ -7108,7 +7112,12 @@ nav {
   #results h3 {
     font-size: x-large;
     margin-top: 5%;
-    margin-bottom: 8%; } }
+    margin-bottom: 8%; }
+  nav .nav-wrapper {
+    margin-left: 0;
+    margin-right: 0; } }
+
+
 @media (min-width: 400px) and (max-width: 1024px) {
   #results h1 {
     text-align: center;
