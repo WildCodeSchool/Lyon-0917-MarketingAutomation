@@ -9,9 +9,10 @@
 @import "partials/views/home";
 @import "partials/views/results";
 @import "partials/views/software";
-
 @import "partials/views/tags";
 @import "partials/views/mentionsLegales";
+@import "partials/views/error404";
+
 
 
 @import "partials/views/_tags.scss";
@@ -19,7 +20,6 @@
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
 @import "partials/Components/table";
-
 
 //node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
