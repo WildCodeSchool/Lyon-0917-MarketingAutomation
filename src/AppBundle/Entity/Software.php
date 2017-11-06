@@ -28,14 +28,14 @@ class Software
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=30, unique=true)
+     * @ORM\Column(name="name", type="string", length=90, unique=true)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="string", length=30)
+     * @ORM\Column(name="company", type="string", length=90)
      */
     private $company;
 
