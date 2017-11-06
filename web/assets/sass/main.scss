@@ -10,7 +10,6 @@
 @import "partials/views/tags";
 @import "partials/views/mentions_legales";
 @import "partials/views/error404";
-@import "partials/views/exception";
 
 
 html{
@@ -18,7 +17,7 @@ html{
 }
 body{
   font-family: 'Lato', sans-serif;
-  background: white; //
+  background: white;
   background-size: cover;
   background-repeat: no-repeat;
 

@@ -624,34 +624,26 @@ textarea {
     margin-bottom: 2vh; }
 
 #container {
-  position: absolute;
-  height: 100%;
-  width: 100%; }
-  #container #error {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    height: 50%;
-    width: 100%;
-    background: rgba(10, 10, 10, 0.8);
-    border-top: 1px #fff solid;
-    border-bottom: 1px #fff solid; }
-  #container .desc {
-    color: #fff;
-    text-align: center;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-transform: uppercase;
-    font-size: 60px; }
-  #container .sub_desc {
-    color: #fff;
-    text-align: center;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    text-transform: uppercase;
-    font-size: 30px; }
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #EBEBEB; }
+  #container h1, #container h2, #container p {
+    text-align: center; }
+  #container h1 {
+    font-size: 65px;
+    color: #151f30;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #container h2 {
+    font-size: 50px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #container p {
+    font-size: 25px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px; }
 
 html {
   min-height: 100%; }
