@@ -1,0 +1,15 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} - Page Error {% endblock %}
+
+{% block body %}
+
+    <div id="container">
+        <div id="error">
+            <h1 class="desc">Erreur 404 !</h1>
+            <h2 class="sub_desc">Page non rencontrée</h2>
+            <p>Veuillez vous diriger vers une autre page</p>
+        </div>
+    </div>
+
+{% endblock %}
