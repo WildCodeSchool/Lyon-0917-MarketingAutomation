@@ -3,37 +3,40 @@
     {{ parent() }}
     <style>
         body{
-            background-image: url("{{ asset('assets/img/background_homepage2.jpg') }}");
+            background-image: url("{{ asset('assets/img/background_homepage3.jpg') }}");
             background-size: cover;
             background-repeat: no-repeat;
         }
+        #topbarsearch {
+            display: none;
+        }
+        #lowBarSearch {
+            display: none;
+        }
+        #navBar {
+            background-color: RGBA(0,0,0,0);
+        }
+
     </style>
 {% endblock %}
 {% block title %}{{ parent() }} - Home {% endblock %}
 {% block body %}
     <div id="home">
-        <div class="center-align">
-            <div class="row">
-                <div class="col s12 m8 offset-m2 l6 offset-l3">
-                    <h1 class="search_bar">Homepage</h1>
-                </div>
-            </div>
+        <div class="row">
+                    <h1 class="center-align col s10 m6 offset-s1 offset-m3">Marketing automation : découvrez tous les logiciels</h1>
         </div>
-        <div class="center-align">
-            <div class="row">
+            <div class="row center-align">
                 <div class="col s12 m8 offset-m2 l6 offset-l3 ">
                     <div class="card-panel" id="searchBar">
                         <form id="search-site" action='search' method='get'>
                             <div class="input-group">
                                 <input id="search" type="search" name='search'
-                                       placeholder="Ecrivez ici votre recherche...">
-                                <a href="/results" class="btn-large"><i
-                                            class="large material-icons right">search</i>Rechercher</a>
+                                       placeholder="Ex: Mailchimp, envoi de sms...">
+                                <a href="{{ path('results') }}" class="btn-large"><i class="large material-icons right">search</i>Rechercher</a>
                             </div>
                         </form>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 {% endblock %}
