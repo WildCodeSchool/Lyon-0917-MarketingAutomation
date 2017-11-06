@@ -9,14 +9,14 @@
 @import "partials/views/home";
 @import "partials/views/results";
 @import "partials/views/software";
-
 @import "partials/views/tags";
+@import "partials/views/mentionsLegales";
 @import "partials/views/error404";
-@import "partials/views/mentions-legales";
+
 
 
 @import "partials/views/_tags.scss";
-@import "partials/views/listing-software";
+@import "partials/views/listingSoftware";
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
 @import "partials/Components/table";
