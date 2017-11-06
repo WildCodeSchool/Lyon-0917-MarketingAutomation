@@ -1,0 +1,616 @@
+/*!
+ * CSS Reset 2011-12-25
+ * https://gist.github.com/gists/1360380
+ *
+ * Author:  Takeru Suzuki, http://terkel.jp/
+ * License: Public domain
+ *
+ * Inspired by Normalize.css: http://necolas.github.com/normalize.css/
+ */
+/* HTML5 display definitions */
+section, nav, article, aside, hgroup,
+header, footer, figure, figcaption, details {
+  display: block; }
+
+video, audio, canvas {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1; }
+
+audio:not([controls]) {
+  display: none; }
+
+[hidden] {
+  display: none; }
+
+/* The root element */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+/* Sections */
+body {
+  font-family: sans-serif;
+  margin: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 1em;
+  margin: 0; }
+
+/* Grouping content */
+p, blockquote, dl, dd, figure {
+  margin: 0; }
+
+hr {
+  color: inherit;
+  height: auto;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+pre {
+  font-family: monospace, sans-serif;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  margin: 0; }
+
+ol, ul {
+  padding: 0;
+  margin: 0; }
+
+li {
+  list-style: none; }
+
+/* Text-level semantics */
+a:focus {
+  outline: thin dotted; }
+
+a:hover, a:active {
+  outline: 0; }
+
+strong, b {
+  font-weight: bold; }
+
+small {
+  font-size: 0.83em; }
+
+q {
+  quotes: none; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+code, samp, kbd {
+  font-family: monospace, sans-serif; }
+
+mark {
+  color: black;
+  background-color: yellow; }
+
+sub, sup {
+  font-size: 0.83em;
+  line-height: 0;
+  vertical-align: baseline;
+  position: relative; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+br {
+  *letter-spacing: 0; }
+
+/* Embedded content */
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+/* Tabular data */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+caption {
+  padding: 0;
+  text-align: left; }
+
+th, td {
+  text-align: left;
+  vertical-align: baseline;
+  padding: 0; }
+
+/* Forms */
+form {
+  margin: 0; }
+
+fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0; }
+
+legend {
+  border: 0;
+  *margin-left: -7px; }
+
+input, button, select, textarea {
+  font-family: inherit;
+  font-size: 1em;
+  color: inherit;
+  margin: 0; }
+
+input, button {
+  line-height: normal;
+  vertical-align: inherit;
+  *vertical-align: middle; }
+
+input::-moz-focus-inner,
+button::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type="search"]:focus {
+  outline-offset: -2px; }
+
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type="submit"],
+input[type="reset"],
+input[type="button"],
+button {
+  cursor: pointer;
+  -webkit-appearance: button;
+  *overflow: visible; }
+
+select {
+  background-color: inherit;
+  line-height: normal; }
+
+textarea {
+  vertical-align: top;
+  overflow: auto;
+  *font-family: sans-serif; }
+
+.page-footer {
+  padding-top: 15px;
+  width: 100%;
+  background-color: #151f30; }
+  .page-footer .row {
+    margin-top: 0;
+    margin-bottom: 0; }
+
+#filters .collapsible-body {
+  background-color: white; }
+  #filters .collapsible-body label {
+    color: darkslategrey; }
+
+/*!
+ * Materialize v0.100.2 (http://materializecss.com)
+ * Copyright 2014-2015 Materialize
+ * MIT License (https://raw.githubusercontent.com/Dogfalo/materialize/master/LICENSE)
+ */
+/*! nouislider - 9.1.0 - 2016-12-10 16:00:32 */
+/* Functional styling;
+ * These styles are required for noUiSlider to function.
+ * You don't need to change these rules to apply your design.
+ */
+.noUi-target,
+.noUi-target * {
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  -ms-touch-action: none;
+  touch-action: none;
+  -ms-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.noUi-target {
+  position: relative;
+  direction: ltr; }
+
+.noUi-base {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+  /* Fix 401 */ }
+
+.noUi-connect {
+  position: absolute;
+  right: 0;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+.noUi-origin {
+  position: absolute;
+  height: 0;
+  width: 0; }
+
+.noUi-handle {
+  position: relative;
+  z-index: 1; }
+
+.noUi-state-tap .noUi-connect,
+.noUi-state-tap .noUi-origin {
+  -webkit-transition: top 0.25s, right 0.25s, bottom 0.25s, left 0.25s;
+  transition: top 0.25s, right 0.25s, bottom 0.25s, left 0.25s; }
+
+.noUi-state-drag * {
+  cursor: inherit !important; }
+
+.noUi-handle-touch-area {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  left: -15px;
+  top: -15px; }
+
+/* Painting and performance;
+ * Browsers can paint handles in their own layer.
+ */
+.noUi-base,
+.noUi-handle {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
+
+/* Slider size and handle placement;
+ */
+.noUi-horizontal {
+  height: 18px; }
+
+.noUi-horizontal .noUi-handle {
+  width: 34px;
+  height: 28px;
+  left: -17px;
+  top: -6px; }
+
+.noUi-vertical {
+  width: 1px; }
+
+.noUi-vertical .noUi-handle {
+  width: 28px;
+  height: 34px;
+  left: -6px;
+  top: -17px; }
+
+/* Styling;
+ */
+.noUi-target {
+  background: #cdcdcd;
+  border-radius: 4px;
+  border: 1px solid transparent; }
+
+.noUi-connect {
+  background: #26A69A;
+  -webkit-transition: background 450ms;
+  transition: background 450ms; }
+
+/* Handles and cursors;
+ */
+.noUi-draggable {
+  cursor: ew-resize; }
+
+.noUi-vertical .noUi-draggable {
+  cursor: ns-resize; }
+
+.noUi-handle {
+  border: 1px solid #D9D9D9;
+  border-radius: 3px;
+  background: #FFF;
+  cursor: default;
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB; }
+
+.noUi-active {
+  box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #DDD, 0 3px 6px -3px #BBB; }
+
+/* Handle stripes
+ */
+.noUi-handle:before,
+.noUi-handle:after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 14px;
+  width: 1px;
+  background: #E8E7E6;
+  left: 14px;
+  top: 6px; }
+
+.noUi-handle:after {
+  left: 17px; }
+
+.noUi-vertical .noUi-handle:before,
+.noUi-vertical .noUi-handle:after {
+  width: 14px;
+  height: 1px;
+  left: 6px;
+  top: 14px; }
+
+.noUi-vertical .noUi-handle:after {
+  top: 17px; }
+
+/* Disabled state;
+ */
+[disabled] .noUi-connect {
+  background: #B8B8B8; }
+
+[disabled].noUi-target,
+[disabled].noUi-handle,
+[disabled] .noUi-handle {
+  cursor: not-allowed; }
+
+/* Base;
+ *
+ */
+.noUi-pips,
+.noUi-pips * {
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.noUi-pips {
+  position: absolute;
+  color: #999; }
+
+/* Values;
+ *
+ */
+.noUi-value {
+  position: absolute;
+  text-align: center; }
+
+.noUi-value-sub {
+  color: #ccc;
+  font-size: 10px; }
+
+/* Markings;
+ *
+ */
+.noUi-marker {
+  position: absolute;
+  background: #CCC; }
+
+.noUi-marker-sub {
+  background: #AAA; }
+
+.noUi-marker-large {
+  background: #AAA; }
+
+/* Horizontal layout;
+ *
+ */
+.noUi-pips-horizontal {
+  padding: 10px 0;
+  height: 80px;
+  top: 100%;
+  left: 0;
+  width: 100%; }
+
+.noUi-value-horizontal {
+  -webkit-transform: translate3d(-50%, 50%, 0);
+  transform: translate3d(-50%, 50%, 0); }
+
+.noUi-marker-horizontal.noUi-marker {
+  margin-left: -1px;
+  width: 2px;
+  height: 5px; }
+
+.noUi-marker-horizontal.noUi-marker-sub {
+  height: 10px; }
+
+.noUi-marker-horizontal.noUi-marker-large {
+  height: 15px; }
+
+/* Vertical layout;
+ *
+ */
+.noUi-pips-vertical {
+  padding: 0 10px;
+  height: 100%;
+  top: 0;
+  left: 100%; }
+
+.noUi-value-vertical {
+  -webkit-transform: translate3d(0, 50%, 0);
+  transform: translate3d(0, 50%, 0);
+  padding-left: 25px; }
+
+.noUi-marker-vertical.noUi-marker {
+  width: 5px;
+  height: 2px;
+  margin-top: -1px; }
+
+.noUi-marker-vertical.noUi-marker-sub {
+  width: 10px; }
+
+.noUi-marker-vertical.noUi-marker-large {
+  width: 15px; }
+
+.noUi-tooltip {
+  display: block;
+  position: absolute;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: #fff;
+  color: #000;
+  padding: 5px;
+  text-align: center; }
+
+.noUi-horizontal .noUi-tooltip {
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  left: 50%;
+  bottom: 120%; }
+
+.noUi-vertical .noUi-tooltip {
+  -webkit-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  top: 50%;
+  right: 120%; }
+
+/* Materialize Styles */
+.noUi-target {
+  border: 0;
+  border-radius: 0; }
+
+.noUi-horizontal {
+  height: 3px; }
+
+.noUi-vertical {
+  height: 100%;
+  width: 3px; }
+
+.noUi-horizontal .noUi-handle,
+.noUi-vertical .noUi-handle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  box-shadow: none;
+  background-color: #26A69A;
+  border: none;
+  left: -5px;
+  top: -6px;
+  transition: width 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), height 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), left 0.2s cubic-bezier(0.215, 0.61, 0.355, 1), top 0.2s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.noUi-handle:before {
+  content: none; }
+
+.noUi-handle:after {
+  content: none; }
+
+.noUi-target .noUi-active.noUi-handle {
+  width: 3px;
+  height: 3px;
+  left: 0;
+  top: 0; }
+
+.noUi-target.noUi-horizontal .noUi-tooltip {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: -17px;
+  left: -2px;
+  background-color: #26A69A;
+  border-radius: 50%;
+  transition: border-radius 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(0.5) rotate(-45deg);
+  transform-origin: 50% 100%; }
+
+.noUi-target.noUi-horizontal .noUi-active .noUi-tooltip {
+  border-radius: 15px 15px 15px 0;
+  transform: rotate(-45deg) translate(23px, -25px); }
+
+.noUi-tooltip span {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  position: absolute;
+  top: 6px;
+  left: -1px;
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.noUi-horizontal .noUi-tooltip span {
+  transform: rotate(45deg); }
+
+.noUi-vertical .noUi-tooltip span {
+  transform: rotate(135deg); }
+
+.noUi-target.noUi-vertical .noUi-tooltip {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  top: -17px;
+  left: -2px;
+  background-color: #26A69A;
+  border-radius: 50%;
+  transition: border-radius 0.25s cubic-bezier(0.215, 0.61, 0.355, 1), transform 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transform: scale(0.5) rotate(-45deg);
+  transform-origin: 50% 100%; }
+
+.noUi-target.noUi-vertical .noUi-active .noUi-tooltip {
+  border-radius: 15px 15px 15px 0;
+  transform: rotate(-135deg) translate(35px, -10px); }
+
+.noUi-vertical .noUi-tooltip span {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 12px;
+  transform: rotate(135deg);
+  opacity: 0;
+  position: absolute;
+  top: 7px;
+  left: -1px;
+  transition: opacity 0.25s cubic-bezier(0.215, 0.61, 0.355, 1); }
+
+.noUi-horizontal .noUi-active .noUi-tooltip span,
+.noUi-vertical .noUi-active .noUi-tooltip span {
+  opacity: 1; }
+
+#navBar {
+  background-color: #151f30; }
+  #navBar #topbarsearch .input-field .prefix {
+    width: 0rem !important; }
+  #navBar #topbarsearch nav ul li:hover {
+    background-color: none !important; }
+  #navBar nav ul li.active {
+    background-color: none !important; }
+  #navBar .input-field .prefix ~ input, #navBar .input-field .prefix ~ textarea, #navBar .input-field .prefix ~ label, #navBar .input-field .prefix ~ .validate ~ label, #navBar .input-field .prefix ~ .autocomplete-content {
+    margin-left: 1rem !important; }
+
+#home {
+  min-height: 100vh; }
+  #home h1 {
+    color: white; }
+  #home #searchBar {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
+    #home #searchBar input {
+      color: white; }
+
+#topbarsearch {
+  display: none; }
+
+#lowBarSearch {
+  display: none; }
+
+#results {
+  min-height: 100vh; }
+
+#software {
+  min-height: 100vh; }
+
+#tags {
+  min-height: 100vh; }
+
+html {
+  min-height: 100%; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: linear-gradient(rgba(21, 31, 48, 0.5), rgba(160, 190, 239, 0.5));
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+/*# sourceMappingURL=main.css.map */
