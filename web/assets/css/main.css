@@ -7129,6 +7129,28 @@ nav {
 #table {
   min-height: 100vh; }
 
+#container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #EBEBEB; }
+  #container h1, #container h2, #container p {
+    text-align: center; }
+  #container h1 {
+    font-size: 65px;
+    color: #151f30;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #container h2 {
+    font-size: 50px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #container p {
+    font-size: 25px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px; }
+
 html {
   min-height: 100%; }
 
@@ -7137,11 +7159,14 @@ body {
   background: white;
   background-size: cover;
   background-repeat: no-repeat; }
-  body h1 {
+
+body h1 {
     font-size: xx-large; }
   body h2 {
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px; }
 
+
 /*# sourceMappingURL=main.css.map */
+
