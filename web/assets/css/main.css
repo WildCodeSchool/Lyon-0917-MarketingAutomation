@@ -7071,20 +7071,11 @@ nav {
 
 #mentions-legales {
   min-height: 100vh;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
   text-align: justify; }
-  #mentions-legales h1 {
-    font-size: 60px;
-    margin-top: 2vh;
-    margin-bottom: 2vh; }
   #mentions-legales h2 {
-    font-size: 40px;
-    margin-top: 4vh;
-    margin-bottom: 2vh; }
+    font-weight: bold; }
   #mentions-legales h3 {
     font-size: 22px;
-    font-weight: bold;
     margin-top: 3vh;
     margin-bottom: 2vh; }
 
@@ -7098,8 +7089,6 @@ nav {
 
 #listing {
   min-height: 100vh; }
-  #listing h1 {
-    margin-top: 8%; }
 
 @media (max-width: 400px) {
   #results h1 {
