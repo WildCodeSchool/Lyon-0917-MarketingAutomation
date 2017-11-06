@@ -7,7 +7,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Tag;
 
-class LoadTagData extends Fixture
+class TagFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
@@ -16,6 +16,9 @@ class LoadTagData extends Fixture
         $tagTop->setDescription('les meilleurs logiciels');
 
         $manager->persist($tagTop);
+
         $manager->flush();
+
+        $this->addReference('tag1', $tagTop);
     }
 }

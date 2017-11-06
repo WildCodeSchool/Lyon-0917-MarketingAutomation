@@ -42,7 +42,7 @@ class Software
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255, unique=true)
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
      */
     private $logo;
 
@@ -88,9 +88,9 @@ class Software
     private $tags;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="languages", type="array", length=30)
+     * @ORM\Column(name="languages", type="string", length=30)
      */
     private $languages;
 
@@ -100,6 +100,15 @@ class Software
      * @ORM\Column(name="url", type="string", length=255, nullable=true)
      */
     private $url;
+
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -304,33 +313,9 @@ class Software
     }
 
     /**
-     * Set tags
-     *
-     * @param array $tags
-     *
-     * @return Software
-     */
-    public function setTags($tags)
-    {
-        $this->tags = $tags;
-
-        return $this;
-    }
-
-    /**
-     * Get tags
-     *
-     * @return array
-     */
-    public function getTags()
-    {
-        return $this->tags;
-    }
-
-    /**
      * Set languages
      *
-     * @param array $languages
+     * @param string $languages
      *
      * @return Software
      */
@@ -344,7 +329,7 @@ class Software
     /**
      * Get languages
      *
-     * @return array
+     * @return string
      */
     public function getLanguages()
     {
@@ -373,5 +358,39 @@ class Software
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Add tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     *
+     * @return Software
+     */
+    public function addTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tags[] = $tag;
+
+        return $this;
+    }
+
+    /**
+     * Remove tag
+     *
+     * @param \AppBundle\Entity\Tag $tag
+     */
+    public function removeTag(\AppBundle\Entity\Tag $tag)
+    {
+        $this->tags->removeElement($tag);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTags()
+    {
+        return $this->tags;
     }
 }
