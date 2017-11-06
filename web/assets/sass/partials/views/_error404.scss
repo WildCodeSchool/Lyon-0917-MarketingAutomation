@@ -1,0 +1,31 @@
+#container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background-color: #EBEBEB;
+
+  h1, h2, p {
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 65px;
+    color: #151f30;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h2{
+    font-size: 50px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  p{
+    font-size: 25px;
+    color: dimgrey;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
