@@ -74,23 +74,4 @@ class DefaultController extends Controller
         ]);
     }
 
-    /**
-     * @Route("error404", name="error404")
-     */
-    public function error404Action(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('Exception/error404.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-    }
-
-    public function exceptionAction(Request $request)
-    {
-        // replace this example code with whatever you need
-        return $this->render('Exception/exception.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
-    }
-
 }
