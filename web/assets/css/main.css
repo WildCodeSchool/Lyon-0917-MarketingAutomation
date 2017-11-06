@@ -192,14 +192,14 @@ textarea {
   padding-top: 15px;
   width: 100%;
   background-color: #151f30; }
-.page-footer .row {
-  margin-top: 0;
-  margin-bottom: 0; }
+  .page-footer .row {
+    margin-top: 0;
+    margin-bottom: 0; }
 
 #filters .collapsible-body {
   background-color: white; }
-#filters .collapsible-body label {
-  color: darkslategrey; }
+  #filters .collapsible-body label {
+    color: darkslategrey; }
 
 .filters-responsive p {
   padding-left: 10px; }
@@ -580,16 +580,16 @@ textarea {
 
 nav {
   background-color: #151f30; }
-nav #topbarsearch .input-field .prefix {
-  width: 0 !important; }
-nav #topbarsearch nav ul li:hover {
-  background-color: none !important; }
-nav nav ul li.active {
-  background-color: none !important; }
-nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
-  margin-left: 1rem !important; }
-nav li a {
-  font-size: 1.3em; }
+  nav #topbarsearch .input-field .prefix {
+    width: 0 !important; }
+  nav #topbarsearch nav ul li:hover {
+    background-color: none !important; }
+  nav nav ul li.active {
+    background-color: none !important; }
+  nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
+    margin-left: 1rem !important; }
+  nav li a {
+    font-size: 1.3em; }
 
 .nav-wrapper {
   margin-left: 30px;
@@ -7022,13 +7022,13 @@ nav li a {
 
 #home {
   min-height: 100vh; }
-#home h1 {
-  color: white;
-  margin-top: 4%; }
-#home #searchBar {
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
-#home #searchBar input {
-  color: white; }
+  #home h1 {
+    color: white;
+    margin-top: 4%; }
+  #home #searchBar {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
+    #home #searchBar input {
+      color: white; }
 
 @media (max-width: 400px) {
   #results h1 {
@@ -7040,66 +7040,66 @@ nav li a {
 
 #results {
   min-height: 100vh; }
-#results h1 {
-  margin-bottom: 4%; }
-#results .card-image {
-  margin: auto 0;
-  right: 0; }
-#results .card-content {
-  padding: 10px 24px; }
-#results .card-action {
-  padding-bottom: 0; }
-#results .pagination {
-  margin-bottom: 40px; }
-#results h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.3em; }
+  #results h1 {
+    margin-bottom: 4%; }
+  #results .card-image {
+    margin: auto 0;
+    right: 0; }
+  #results .card-content {
+    padding: 10px 24px; }
+  #results .card-action {
+    padding-bottom: 0; }
+  #results .pagination {
+    margin-bottom: 40px; }
+  #results h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.3em; }
 
 #software {
   min-height: 100vh; }
-#software h1 {
-  margin-top: 8%; }
+  #software h1 {
+    margin-top: 8%; }
 
 #tags {
   min-height: 100vh; }
-#tags .logicielTagView {
-  margin-top: 20px; }
-#tags h2 {
-  font-size: xx-large;
-  margin-top: 10px; }
+  #tags .logicielTagView {
+    margin-top: 20px; }
+  #tags h2 {
+    font-size: xx-large;
+    margin-top: 10px; }
 
 #mentions-legales {
   min-height: 100vh;
   margin-top: 10vh;
   margin-bottom: 10vh;
   text-align: justify; }
-#mentions-legales h1 {
-  font-size: 60px;
-  margin-top: 2vh;
-  margin-bottom: 2vh; }
-#mentions-legales h2 {
-  font-size: 40px;
-  margin-top: 4vh;
-  margin-bottom: 2vh; }
-#mentions-legales h3 {
-  font-size: 22px;
-  font-weight: bold;
-  margin-top: 3vh;
-  margin-bottom: 2vh; }
+  #mentions-legales h1 {
+    font-size: 60px;
+    margin-top: 2vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h2 {
+    font-size: 40px;
+    margin-top: 4vh;
+    margin-bottom: 2vh; }
+  #mentions-legales h3 {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 3vh;
+    margin-bottom: 2vh; }
 
 #tags {
   min-height: 100vh; }
-#tags .logicielTagView {
-  margin-top: 20px; }
-#tags h2 {
-  font-size: xx-large;
-  margin-top: 10px; }
+  #tags .logicielTagView {
+    margin-top: 20px; }
+  #tags h2 {
+    font-size: xx-large;
+    margin-top: 10px; }
 
 #listing {
   min-height: 100vh; }
-#listing h1 {
-  margin-top: 8%; }
+  #listing h1 {
+    margin-top: 8%; }
 
 @media (max-width: 400px) {
   #results h1 {
@@ -7129,8 +7129,10 @@ body {
   background: white;
   background-size: cover;
   background-repeat: no-repeat; }
+
 body h1 {
   font-size: xx-large; }
+
 body h2 {
   font-size: x-large;
   margin-top: 20px;
