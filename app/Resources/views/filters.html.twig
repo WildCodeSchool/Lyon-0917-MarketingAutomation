@@ -1,4 +1,4 @@
-<div class="col s12 m6 l3" id="filters">
+<div class="offset-m1 offset-l1 col s12 m4 l3 hide-on-small-only full-label" id="filters">
     <h2>Affinez votre recherche avec des critères</h2>
     <ul class="collapsible" data-collapsible="accordion">
         <li>
@@ -67,4 +67,77 @@
     </ul>
     <p>Indiquez une fourchette de prix:</p><br>
     <div id="test-slider"></div>
+
+    <div class="center-align">
+        <div class="filters-responsive-btn ">
+            <a class="waves-effect waves-light btn">Chercher</a>
+        </div>
+    </div>
+
 </div>
+
+<div class="center-align hide-on-med-and-up">
+<a href="#" data-activates="slide-out" class="button-collapse btn-large"><i class="material-icons">edit</i>Plus de critères</a>
+</div>
+
+{# Filters bar for responsive only ! #}
+
+<ul id="slide-out" class="side-nav full-label">
+    <div class="center-align">
+    <li>Sélectionnez vos critères</li>
+    </div>
+    <div class="collapsible" data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>Spécialités
+            </div>
+            <div class="collapsible-body filters-responsive">
+        <form action="#">
+            <p>
+                <input type="checkbox" class="filled-in" id="checkbox1"/>
+                <label for="checkbox1">Sms</label>
+            </p>
+            <p>
+                <input type="checkbox" class="filled-in" id="checkbox2"/>
+                <label for="checkbox2">Mail</label>
+            </p>
+            <p>
+                <input type="checkbox" class="filled-in" id="checkbox3"/>
+                <label for="checkbox3">Pigeon voyageur</label>
+            </p>
+        </form>
+            </div>
+    </li>
+         <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Prix
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" id="checkbox4"/>
+                        <label for="checkbox4">Sms</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" id="checkbox5"/>
+                        <label for="checkbox5">Mail</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" id="checkbox6"/>
+                        <label for="checkbox6">Pigeon voyageur</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+    </div>
+    <div class="filters-responsive">
+    <p>Indiquez une fourchette de prix:</p><br>
+        <div id="range-responsive"></div>
+    </div>
+<div class="center-align">
+    <div class="filters-responsive-btn ">
+        <a class="waves-effect waves-light btn">Chercher</a>
+    </div>
+</div>
+</ul>

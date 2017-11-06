@@ -1,42 +1,174 @@
 {% extends 'base.html.twig' %}
 {% block title %}{{ parent() }} - Tags {% endblock %}
+        {% block h1 %}
+            <h1>Liste des logiciels classés par tag</h1>
+        {% endblock %}
 {% block body %}
     <div id="tags">
-        <h1> Tags</h1>
 
-        <div class="row">
-            <div class="container">
+        <div class="container">
+            <div class="row">
                 <div class="card-panel col s12">
-                    <h5>Tag 1</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
-                    <h5>Tag 2</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
-                    <h5>Tag 3</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
-                    <h5>Tag 4</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
-                    <h5>Tag 5</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
-                    <h5>Tag 6</h5>
-                    <ul>
-                        <li><a href="/tag/description1" rel="tag">Description 1</a></li>
-                        <li><a href="/tag/description2" rel="tag">Description 2</a></li>
-                    </ul>
+                    <section class="tagAndSofwtares collection">
+                        <ul>
+                            <h2 class="col s12">#Tag 1</h2>
+                            <p class="col s12">Description précise d'un tag</p>
+                            <div class="row listeLogiciel">
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                            <p class="logiciel-title center-align">Logiciel X</p>
+                                        </div>
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section class="tagAndSofwtares collection">
+                        <h2 class="col s12">#Tag 2</h2>
+                        <p class="col s12">Description précise d'un tag</p>
+                        <ul>
+                            <div class="row listeLogiciel">
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </section>
+                    <section class="tagAndSofwtares collection">
+                        <h2 class="col s12">#Tag 3</h2>
+                        <p class="col s12">Description précise d'un tag</p>
+                        <ul>
+                            <div class="row listeLogiciel">
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="col l2 m4 s6">
+                                    <div class="logicielTagView">
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-image">
+                                                <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png"
+                                                     class="responsive-img">
+                                            </div>
+                                        </a>
+                                        <a href="{{ path('softwareSolo') }}">
+                                            <div class="card-content">
+                                                <p class="logiciel-title center-align">Logiciel X</p>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </li>
+                            </div>
+                        </ul>
+                    </section>
                 </div>
             </div>
         </div>
