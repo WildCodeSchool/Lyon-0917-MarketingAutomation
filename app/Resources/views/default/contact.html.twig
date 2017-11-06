@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ parent() }} Contactez-nous! {% endblock %}
+        {% block h1 %}
+            <h1>Contactez-nous !</h1>
+        {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div id="software">
+            <div class="row">
+                <div class="col m6 s12">
+                Si vous avez une question ou besoin d'une information, n'hésitez pas une seconde et remplissez ce formulaire de contact. Nous vous répondrons dans les plus brefs délais.
+                </div>
+
+            <div class="col m6 s12">
+
+                <img class="responsive-img" src="http://2.bp.blogspot.com/-tFSfukQ1xvA/VHSjD5vqe6I/AAAAAAABHXI/JEfDfPBLGu8/s1600/Women%2BTelephone%2BOperators%2Bat%2BWork%2B(12).jpgg">
+             </div>
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
+{% block javascripts %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/social.js') }}"></script>
+{% endblock %}
