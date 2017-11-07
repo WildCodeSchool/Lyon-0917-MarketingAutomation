@@ -12,7 +12,7 @@
 @import "partials/views/tags";
 @import "partials/views/mentionsLegales";
 @import "partials/views/error404";
-
+@import "partials/views/contact";
 
 
 @import "partials/views/_tags.scss";
@@ -23,20 +23,23 @@
 
 //node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
-html{
-  min-height: 100%;
-}
+
 body{
   font-family: 'Lato', sans-serif;
   background: white;
   background-size: cover;
   background-repeat: no-repeat;
+
   h1{font-size: xx-large; }
 
   h2{
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+  section{
+    min-height: 100vh;
+
   }
 }
 
