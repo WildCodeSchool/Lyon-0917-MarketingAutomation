@@ -1,23 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}
     {{ parent() }}
-    <style>
-        body{
-            background-image: url("{{ asset('assets/img/background_homepage3.jpg') }}");
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        #topbarsearch {
-            display: none;
-        }
-        #lowBarSearch {
-            display: none;
-        }
-        #navBar {
-            background-color: RGBA(0,0,0,0);
-        }
+    <link rel="stylesheet" href="{{ asset('assets/css/index.css') }}">
 
-    </style>
 {% endblock %}
 {% block title %}{{ parent() }} - Home {% endblock %}
 {% block body %}
