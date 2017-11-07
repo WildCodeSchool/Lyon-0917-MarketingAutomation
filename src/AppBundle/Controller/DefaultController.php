@@ -74,4 +74,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("contact", name="contact")
+     */
+    public function contactAction(Request $request)
+    {
+
+        return $this->render('default/contact.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 }
