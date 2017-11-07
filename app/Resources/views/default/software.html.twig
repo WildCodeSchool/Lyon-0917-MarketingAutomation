@@ -63,16 +63,16 @@
             </div>
             <aside id="share">
                 <div class="hide-on-med-and-down">
-                    <a href=https://twitter.com/share?url= $lien &text=$titre &via=VOTRE-NOM-TWITTER" rel="nofollow"
+                    <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                        class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
-                    <a href="http://www.facebook.com/sharer.php?u=https://www.google.fr/" rel="nofollow"
+                    <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" rel="nofollow"
                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                        class="mdi mdi-facebook mdi-36px mdi-light hidden"></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url= $lien &title= $titre" rel="nofollow"
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri }}" rel="nofollow"
                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                        class="mdi mdi-linkedin mdi-36px mdi-light hidden "></a>
-                    <a href="https://buffer.com/add?text={title}&url={url}" rel="nofollow"
+                    <a href="https://buffer.com/add?url={{ app.request.uri }}" rel="nofollow"
                        onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                        class="mdi mdi-buffer mdi-36px mdi-light hidden "></a>
                     <a class="mdi mdi-share-variant mdi-36px mdi-light "></a>
@@ -80,15 +80,15 @@
 
 
                 <div class="hide-on-large-only mobile">
-                    <a href=https://twitter.com/share?url= $lien &text=$titre &via=VOTRE-NOM-TWITTER" target="_blank"
+                    <a href=https://twitter.com/share?url= {{ app.request.uri }} &via=Marketing_automation" target="_blank"
                        rel="nofollow"
                        class="mdi mdi-twitter mdi-24px mdi-light hidden social"></a>
-                    <a href="http://www.facebook.com/sharer.php?u=https://www.google.fr/" target="_blank" rel="nofollow"
+                    <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" target="_blank" rel="nofollow"
                        class="mdi mdi-facebook mdi-24px mdi-light hidden"></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url= $lien &title= $titre" target="_blank"
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url= {{ app.request.uri }}" target="_blank"
                        rel="nofollow"
                        class="mdi mdi-linkedin mdi-24px mdi-light hidden social"></a>
-                    <a href="https://buffer.com/add?text={title}&url={url}" target="_blank" rel="nofollow"
+                    <a href="https://buffer.com/add?text={{ app.request.uri }}" target="_blank" rel="nofollow"
                        class="mdi mdi-buffer mdi-24px mdi-light hidden social"></a>
                     <a class="mdi mdi-share-variant mdi-24px mdi-light "></a>
                 </div>
