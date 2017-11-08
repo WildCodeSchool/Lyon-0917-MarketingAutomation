@@ -1,13 +1,16 @@
 #home {
+
+
   h1 {
     color: white;
-    margin-top: 4%;
+    margin-top: 15%;
   }
 
   #searchBar {
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     input {
       color: white;
+      text-align: center
     }
   }
 
@@ -34,5 +37,10 @@
       margin-top: 20px;
     }
   }
-}
 
+  .homesearch {
+    height: 70vh;
+  }
+
+
+}
