@@ -1,5 +1,16 @@
 <ul class="breadcrumb">
+<ol itemscope itemtype="http://schema.org/BreadcrumbList">
     <li><a href="{{ path('homepage') }}">Accueil</a></li>
-    <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
-    <li>{{ slug }}</li>
+    <li itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem">
+        <a itemprop="item" href={{ path('listingSoftware') }}>
+            <span itemprop="name">Logiciels de Marketing Automation</span></a>
+        <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope
+        itemtype="http://schema.org/ListItem">
+            <span itemprop="name">{{ slug }}</span>
+        <meta itemprop="position" content="2" />
+    </li>
+</ol>
 </ul>
