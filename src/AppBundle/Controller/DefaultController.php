@@ -24,9 +24,9 @@ class DefaultController extends Controller
      */
     public function softwareSoloAction(Request $request)
     {
-
+        $slug = 'slug';
         return $this->render('default/software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'slug' => $slug,
         ]);
     }
 
