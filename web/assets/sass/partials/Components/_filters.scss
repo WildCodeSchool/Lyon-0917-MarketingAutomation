@@ -1,0 +1,30 @@
+#filters{
+  .collapsible-body{
+    background-color: white;
+   label{
+     color: darkslategrey;
+   }
+  }
+}
+
+.filters-responsive {
+  p {
+    padding-left: 10px;
+  }
+
+}
+
+.filters-responsive-btn {
+  a {
+    margin-top: 20px;
+
+  }
+
+
+}
+
+.full-label{
+  label{
+    width: 100%;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    {% endblock %}
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Marketing Automation{% endblock %}</title>
+    {% block stylesheets %}
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    {% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+</head>
+<body>
+{% block navBar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
+<div class="row">
+    <div class="col m10 s12 offset-m2">
+{% block h1 %}
+{% endblock %}
+    </div>
+</div>
+<section>
+{% block body %}
+{% endblock %}
+</section>
+{% block footer %}
+    {% include 'footer.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/main.js') }}"></script>
+{% endblock %}
+</body>
+</html>

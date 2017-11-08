@@ -1,0 +1,46 @@
+@import 'partials/reset';
+@import 'partials/variables';
+@import 'partials/Components/footer';
+@import 'partials/Components/filters';
+@import 'partials/Components/nouislider';
+@import 'partials/Components/nav';
+@import 'partials/Components/icons';
+@import 'partials/Components/share';
+@import "partials/views/home";
+@import "partials/views/results";
+@import "partials/views/software";
+@import "partials/views/tags";
+@import "partials/views/mentionsLegales";
+@import "partials/views/error404";
+@import "partials/views/contact";
+
+
+@import "partials/views/_tags.scss";
+@import "partials/views/listingSoftware";
+@import "queries/_smartphone.scss";
+@import "queries/_tablette.scss";
+@import "partials/Components/table";
+
+//node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
+
+
+body{
+  font-family: 'Lato', sans-serif;
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  h1{font-size: xx-large; }
+
+  h2{
+    font-size: x-large;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  section{
+    min-height: 100vh;
+
+
+  }
+}
+
