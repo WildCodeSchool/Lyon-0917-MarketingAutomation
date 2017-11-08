@@ -7126,7 +7126,7 @@ nav {
   .breadcrumb ul {
     padding: 10px 16px;
     list-style: none;
-    background-color: #eee; }
+    margin-bottom: 10px; }
   .breadcrumb li {
     display: inline;
     font-size: 18px;
