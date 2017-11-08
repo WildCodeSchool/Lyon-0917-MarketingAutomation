@@ -195,6 +195,9 @@ textarea {
   position: relative;
   bottom: 0; }
 
+.footer-copyright {
+  margin-top: -15px; }
+
 #filters .collapsible-body {
   background-color: white; }
   #filters .collapsible-body label {
