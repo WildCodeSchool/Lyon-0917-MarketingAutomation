@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ parent() }} - Fiche Logiciel {% endblock %}
+{% block title %}Nom du logiciel - logiciel de marketing automation {% endblock %}
         {% block h1 %}
             <h1>Tout sur le logiciel MailChimp</h1>
         {% endblock %}
@@ -13,28 +13,29 @@
                          width="250" class="responsive-img">
                 </div>
                 <div class="col m9 s12">
-                    <p>A brain that automatically <b>helps you find and connect with your audience </b>so you can build
-                        your brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of
-                        our most powerful automations that handle the marketing stuff so you can focus on the rest of
-                        your business.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis, ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
                 </div>
             </div>
-                    <h2>Notre avis sur MailChimp</h2>
-                    <p>A brain that automatically helps you find and connect with your audience so you can build your
-                        brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our
-                        most powerful automations that handle the marketing stuff so you can focus on the rest of your
-                        business.</p>
-                    <p>A brain that automatically helps you find and connect with your audience so you can build your
-                        brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our
-                        most powerful automations that handle the marketing stuff so you can focus on the rest of your
-                        business.</p>
+                    <h2>Notre commentaire sur MailChimp</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel orci sit amet mauris porta ullamcorper quis sit amet diam. Sed commodo dolor libero, nec sodales lorem ultricies ut. Ut nec pharetra sapien, id convallis tellus. Nulla quis lacinia dui, ut facilisis quam. Etiam feugiat dolor eget pharetra vulputate. Aenean pellentesque euismod lectus et rhoncus. Cras vulputate ullamcorper massa nec vehicula. Praesent pulvinar nibh justo, ultricies scelerisque felis lacinia in. Ut tincidunt lectus justo, id mollis nulla consequat vel. Nam convallis arcu sapien, tincidunt sagittis nulla imperdiet ut. Sed accumsan, mauris at lobortis finibus, leo neque tristique arcu, sit amet.</p>
+
+                    <h2>Informations générales sur MailChimp</h2>
+
+                                {% include 'table.html.twig' %}
+
+                    <h2>Canaux de communication inbound de MailChimp</h2>
+
+                                {% include 'table.html.twig' %}
 
 
-        <div class="row">
-            <div class="col s12">
-                {% include 'table.html.twig' %}
-            </div>
-        </div>
+                         <h2>Canaux de communication outbound de MailChimp</h2>
+
+                                {% include 'table.html.twig' %}
+
+
+                    <h2>Autres fonctionnalités de MailChimp</h2>
+
+                                {% include 'table.html.twig' %}
 
 
         <div class="row">
@@ -60,6 +61,12 @@
                     business.</p>
 
             </div>
+        </div>
+
+            <h2>Voir d'autres logiciels de marketing automation :</h2>
+
+            <h2>Commparer MailChimp avec d'autres logiciels de marketing automation</h2>
+
             <aside id="share">
                 <div class="hide-on-med-and-down">
                     <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
@@ -92,7 +99,6 @@
                     <a class="mdi mdi-share-variant mdi-24px mdi-light "></a>
                 </div>
             </aside>
-
     </div>
 
     </div>
