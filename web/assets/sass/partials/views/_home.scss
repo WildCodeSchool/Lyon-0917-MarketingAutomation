@@ -8,6 +8,7 @@
     background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
     input {
       color: white;
+      text-align: center
     }
   }
 
@@ -34,5 +35,10 @@
       margin-top: 20px;
     }
   }
-}
 
+  .homesearch {
+    height: 100vh;
+  }
+
+
+}
