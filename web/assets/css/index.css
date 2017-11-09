@@ -1,0 +1,17 @@
+
+body{
+    background-image: url("../img/background_homepage3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#topbarsearch {
+    display: none;
+}
+#lowBarSearch {
+    display: none;
+}
+#navBar {
+    background-color: RGBA(0,0,0,0);
+}
+
+
