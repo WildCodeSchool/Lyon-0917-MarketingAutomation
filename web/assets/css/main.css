@@ -7165,6 +7165,12 @@ nav {
 #table {
   min-height: 100vh; }
 
+#compare th {
+  width: 34%; }
+
+#compare td {
+  width: 33%; }
+
 body {
   font-family: 'Lato', sans-serif;
   background: white;

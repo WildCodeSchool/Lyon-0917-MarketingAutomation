@@ -5,66 +5,222 @@
         {% endblock %}
 
 {% block body %}
-<div class="container">
     <div id="compare">
-    <p>Stupéfiant ! Ce comparatif va vous permettre de connaître exactement les avantages et inconvénients des deux logiciels qui vous intéressent, grâce à notre expertise totalement géniale sur les logiciels de marketing automation.  </p>
+        <div class="container">
+            <p>Stupéfiant ! Ce comparatif va vous permettre de connaître exactement les avantages et inconvénients des
+                deux logiciels qui vous intéressent, grâce à notre expertise totalement géniale sur les logiciels de
+                marketing automation. </p>
+            <div id="tableVersus" class="row">
+                <h2>Informations générales sur *logiciel-1* et *logiciel-2</h2>
+                <table class="striped border">
+                        <tr>
+                            <th>Logiciel</th>
+                            <td>MainChimp</td>
+                            <td>Mautic</td>
+                        </tr>
+                    <tr>
+                        <th>Type</th>
+                        <td>Logiciel généraliste</td>
+                        <td>Logiciel généraliste</td>
+                    </tr>
+                    <tr>
+                        <th>Pour qui? </th>
+                        <td>Equipe bien organisée</td>
+                        <td>Equipe bien organisée</td>
+                    </tr>
+                    <tr>
+                        <th>Hébergement des données</th>
+                        <td>Île Caïman</td>
+                        <td>La terre du milieu</td>
+                    </tr>
+                    <tr>
+                        <th>Date de création</th>
+                        <td>1650</td>
+                        <td>1950</td>
+                    </tr>
+                    <tr>
+                        <th>CA annuel</th>
+                        <td>10</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <th>Coût de la configuration</th>
+                        <td>800 €</td>
+                        <td>8000 €</td>
+                    </tr>
+                    <tr>
+                        <th>Abonnement à partir de ...</th>
+                        <td>800 €</td>
+                        <td>80 €</td>
+                    </tr>
+                    <tr>
+                        <th>Coût de la formation</th>
+                        <td>800 €</td>
+                        <td>80 €</td>
+                    </tr>
+                    <tr>
+                        <th>Site web</th>
+                        <td><a href="http://mailchimp.fr">mailchimp.fr</a></td>
+                        <td><a href="http://mautic.fr">mautic.fr</a></td>
+                    </tr>
+                    <tr>
+                        <th>Les plus</th>
+                        <td>800</td>
+                        <td>80</td>
+                    </tr>
+                    <tr>
+                        <th>Les moins</th>
+                        <td>800</td>
+                        <td>8</td>
+                </table>
+                <h2>Canaux de communication inbound</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>Page d'atterrissage</th>
+                        <td>oui</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Formulaire </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Code de suivi </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Live chat </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                </table>
+                <h2>Canaux de communication outbound</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>Email</th>
+                        <td>oui</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Sms </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Popin sur site </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Courrier postal </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Centre d'appel </th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Notifications push mobile</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>Appel API</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                </table>
+                <h2>Autres fonctionnalités</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>Segmentation des contacts</th>
+                        <td>oui</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Tablette en magasin </th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Lead scoring</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Tests A/B</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
 
-    <table id="desktopVersus" class="striped highlight tableVersus">
-        <tbody>
-        <tr>
-            <th>Logiciel</th>
-            <th>MailChimp</th>
-            <th>MailChimp</th>
-        </tr>
-        <tr>
-            <th>Nationalité</th>
-            <td>Américaine</td>
-            <td>Américaine</td>
-        </tr>
-        <tr>
-            <th>Spécialités</th>
-            <td>Logiciel d'emailing</td>
-            <td>Logiciel d'emailing</td>
-        </tr>
-        <tr>
-            <th>Type d'abonnement</th>
-            <td>Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable </td>
-            <td>Licence renouvelable</td>
-        </tr>
+                    <tr>
+                        <th>Contact management </th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
 
-    </table>
-    <table id="smartphoneVersus" class="striped highlight tableVersus">
-        <tbody>
-        <tr>
-            <th colspan="2">Logiciel</th>
-        </tr>
-        <tr>
-            <th>MailChimp</th>
-            <th>MailChimp</th>
-        </tr>
-        <tr>
-            <th colspan="2">Nationalité</th>
-        </tr>
-        <tr>
-            <td>Américaine</td>
-            <td>Américaine</td>
-        </tr>
-        <tr>
-            <th colspan="2">Spécialités</th>
-        </tr>
-        <tr>
-            <td>Logiciel d'emailing</td>
-            <td>Logiciel d'emailing</td>
-        </tr>
-        <tr>
-            <th colspan="2">Type d'abonnement</th>
-        </tr>
-        <tr>
-            <td>Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable Licence renouvelable </td>
-            <td>Licence renouvelable</td>
-        </tr>
-    </table>
+                    <tr>
+                        <th>List management</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Smart Contact Capture Form</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Intégration social media</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>CRM integration</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Integration CMS</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Choix du provider email</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Intégration e-commerce</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Choix du provider email</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Automated drip marketing</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Lead Stages</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>Campagne Email</th>
+                        <td>non</td>
+                        <td>oui</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </div>
-</div>
 
 {% endblock %}
