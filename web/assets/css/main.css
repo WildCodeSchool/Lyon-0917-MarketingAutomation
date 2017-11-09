@@ -7041,6 +7041,7 @@ nav {
 
 #home h1 {
   color: white;
+
   margin-top: 15%; }
 
 #home #searchBar {
@@ -7068,6 +7069,7 @@ nav {
 
 #home .homesearch {
   height: 70vh; }
+
 
 @media (max-width: 400px) {
   #results h1 {
@@ -7184,3 +7186,6 @@ body {
     margin-bottom: 20px; }
   body section {
     min-height: 100vh; }
+
+/*# sourceMappingURL=main.css.map */
+
