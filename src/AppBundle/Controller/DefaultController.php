@@ -85,4 +85,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("comparatifs", name="listingVersus")
+     */
+    public function listingVersusAction(Request $request)
+    {
+
+        return $this->render('default/listing-versus.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 }
