@@ -64,7 +64,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("tag", name="uniqueTag")
+     * @Route("tag", name="tagSolo")
      */
     public function tagAction(Request $request)
     {
