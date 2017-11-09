@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Service\SiteMap;
 
 class DefaultController extends Controller
 {
@@ -96,4 +97,16 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * Generate SiteMap
+     *
+     * @Route("/sitemap", name="front_sitemap")
+     */
+    public function siteMapAction(SiteMap $siteMap)
+    {
+        $urls = $siteMap->generate();
+        return $this->render('default/sitemap.html.twig', [
+            'urls' => $urls,
+        ]);
+    }
 }
