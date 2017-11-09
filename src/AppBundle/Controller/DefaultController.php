@@ -53,16 +53,26 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("tags", name="listingTags")
+     * @Route("listing-tags", name="listingTags")
      */
     public function listingTagsAction(Request $request)
     {
 
-        return $this->render('default/tags.html.twig', [
+        return $this->render('default/listing-tags.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
+    /**
+     * @Route("tag", name="uniqueTag")
+     */
+    public function tagAction(Request $request)
+    {
+
+        return $this->render('default/unique-tag.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
     /**
      * @Route("mentionsLegales", name="mentionsLegales")
      */

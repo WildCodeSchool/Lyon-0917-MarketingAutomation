@@ -7041,7 +7041,6 @@ nav {
 
 #home h1 {
   color: white;
-
   margin-top: 15%; }
 
 #home #searchBar {
@@ -7069,7 +7068,6 @@ nav {
 
 #home .homesearch {
   height: 70vh; }
-
 
 @media (max-width: 400px) {
   #results h1 {
@@ -7109,7 +7107,6 @@ nav {
 #software table {
   margin-top: 5%; }
 
-
 #mentions-legales {
   text-align: justify; }
   #mentions-legales h2 {
@@ -7136,7 +7133,6 @@ nav {
 
 .contact {
   margin-top: 20px; }
-
 
 @media (max-width: 400px) {
   #results h1 {
@@ -7174,5 +7170,3 @@ body {
     margin-bottom: 20px; }
   body section {
     min-height: 100vh; }
-/*# sourceMappingURL=main.css.map */
-
