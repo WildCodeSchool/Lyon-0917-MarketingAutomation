@@ -9,10 +9,11 @@
         <div id="software">
             <div class="row">
                 <div class="col m3 s12 l3">
-                    <img src="https://www.acd-groupe.fr/galerie/produits/logo_expert_comptabilite.png" height="250"
+                    <img src="{{ asset('assets/img/mailchimp.png') }}" height="250"
                          width="250" class="responsive-img">
                 </div>
                 <div class="col m9 s12">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis, ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis, ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
                 </div>
             </div>
@@ -21,51 +22,49 @@
 
                     <h2>Informations générales sur MailChimp</h2>
 
-                                {% include 'table.html.twig' %}
+                                {% include 'table-software-identity.html.twig' %}
 
                     <h2>Canaux de communication inbound de MailChimp</h2>
 
-                                {% include 'table.html.twig' %}
+                                {% include 'table-software-inbound.html.twig' %}
 
 
                          <h2>Canaux de communication outbound de MailChimp</h2>
 
-                                {% include 'table.html.twig' %}
+                                {% include 'table-software-outbound.html.twig' %}
 
 
                     <h2>Autres fonctionnalités de MailChimp</h2>
 
-                                {% include 'table.html.twig' %}
+                                {% include 'table-software-functions.html.twig' %}
 
 
         <div class="row">
             <div class="col m12 s12 l12">
-                <h2>Notre avis sur MailChimp</h2>
-                <p>A brain that automatically helps you find and connect with your audience so you can build your
-                    brand
-                    and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our most
-                    powerful
-                    automations that handle the marketing stuff so you can focus on the rest of your business.</p>
-                <p>A brain that automatically helps you find and connect with your audience so you can build your
-                    brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our
-                    most powerful automations that handle the marketing stuff so you can focus on the rest of your
-                    business.</p>
-                <h2>Notre avis sur MailChimp</h2>
-                <p>A brain that automatically helps you find and connect with your audience so you can build your
-                    brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our
-                    most powerful automations that handle the marketing stuff so you can focus on the rest of your
-                    business.</p>
-                <p>A brain that automatically helps you find and connect with your audience so you can build your
-                    brand and sell more stuff. Activating your MailChimp brain is free and easy. Explore 10 of our
-                    most powerful automations that handle the marketing stuff so you can focus on the rest of your
-                    business.</p>
+                <h2>Une question sur MailChimp ? Contactez-nous !</h2>
+                <p>Formulaire à nous fournir.</p>
 
             </div>
         </div>
 
             <h2>Voir d'autres logiciels de marketing automation :</h2>
+            <div class="row">
 
-            <h2>Commparer MailChimp avec d'autres logiciels de marketing automation</h2>
+                {% for i in range(1, 4) %}
+                    {% include('software-card.html.twig') %}
+                {% endfor %}
+
+            </div>
+        </div>
+            <h2>Comparer MailChimp avec d'autres logiciels de marketing automation</h2>
+        <div class="row">
+
+            {% for i in range(1, 4) %}
+                {% include('software-card.html.twig') %}
+            {% endfor %}
+
+        </div>
+    </div>
 
             <aside id="share">
                 <div class="hide-on-med-and-down">
