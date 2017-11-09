@@ -223,7 +223,6 @@ textarea {
 .noUi-target * {
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
-
   -webkit-user-select: none;
   -ms-touch-action: none;
   touch-action: none;
@@ -7176,3 +7175,4 @@ body {
   body section {
     min-height: 100vh; }
 /*# sourceMappingURL=main.css.map */
+
