@@ -96,4 +96,15 @@ class DefaultController extends Controller
         ]);
     }
 
+    /**
+     * @Route("comparatif", name="Versus")
+     */
+    public function VersusAction(Request $request)
+    {
+
+        return $this->render('default/compare.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
 }
