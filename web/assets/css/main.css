@@ -195,6 +195,9 @@ textarea {
   position: relative;
   bottom: 0; }
 
+.footer-copyright {
+  margin-top: -15px; }
+
 #filters .collapsible-body {
   background-color: white; }
   #filters .collapsible-body label {
@@ -7110,6 +7113,14 @@ nav {
   margin-top: 5%; }
 
 
+#tags .logicielTagView {
+  margin-top: 20px; }
+
+#tags h2 {
+  font-size: xx-large;
+  margin-top: 10px; }
+
+
 #mentions-legales {
   text-align: justify; }
   #mentions-legales h2 {
@@ -7136,6 +7147,14 @@ nav {
 
 .contact {
   margin-top: 20px; }
+
+
+#tags .logicielTagView {
+  margin-top: 20px; }
+
+#tags h2 {
+  font-size: xx-large;
+  margin-top: 10px; }
 
 
 @media (max-width: 400px) {
@@ -7174,5 +7193,6 @@ body {
     margin-bottom: 20px; }
   body section {
     min-height: 100vh; }
+
 /*# sourceMappingURL=main.css.map */
 
