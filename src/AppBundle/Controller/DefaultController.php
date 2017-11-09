@@ -20,7 +20,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("software", name="softwareSolo")
+     * @Route("/logiciels/slug-logiciel", name="softwareSolo")
      */
     public function softwareSoloAction(Request $request)
     {
@@ -31,7 +31,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("listing-software", name="listingSoftware")
+     * @Route("logiciels", name="listingSoftware")
      */
     public function listingSoftwareAction(Request $request)
     {
