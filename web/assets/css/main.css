@@ -7112,6 +7112,10 @@ nav {
 
 #software table {
   margin-top: 5%; }
+  #software table th {
+    width: 34%; }
+  #software table td {
+    width: 33%; }
 
 #mentions-legales {
   text-align: justify; }
