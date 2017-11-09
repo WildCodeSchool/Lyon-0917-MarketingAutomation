@@ -7081,14 +7081,17 @@ nav {
     margin-bottom: 8%; }
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
+    margin-right: 0; }
+  .result-logo-responsive {
+    display: none; } }
 
 #results h1 {
   margin-bottom: 4%; }
 
 #results .card-image {
   margin: auto 0;
-  right: 0; }
+  right: 0;
+  margin-left: 5px; }
 
 #results .card-content {
   padding: 10px 24px; }
@@ -7146,7 +7149,9 @@ nav {
     margin-bottom: 8%; }
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
+    margin-right: 0; }
+  .result-logo-responsive {
+    display: none; } }
 
 @media (min-width: 400px) and (max-width: 1024px) {
   #results h1 {
