@@ -7165,6 +7165,28 @@ nav {
 #table {
   min-height: 100vh; }
 
+#compare h1 {
+  margin-top: 8%; }
+
+#compare table {
+  margin-top: 5%; }
+
+#compare .labelcomparatif {
+  margin-top: 20px; }
+
+#compare img {
+  margin-top: 20px;
+  margin-bottom: 20px; }
+
+#compare .selectsoft {
+  border-style: none;
+  border-radius: 5px;
+  border-color: grey;
+  background-color: ghostwhite; }
+
+#compare img {
+  height: 100px; }
+
 body {
   font-family: 'Lato', sans-serif;
   background: white;
