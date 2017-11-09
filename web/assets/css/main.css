@@ -7112,6 +7112,10 @@ nav {
 
 #software table {
   margin-top: 5%; }
+  #software table th {
+    width: 34%; }
+  #software table td {
+    width: 33%; }
 
 #mentions-legales {
   text-align: justify; }
@@ -7165,27 +7169,28 @@ nav {
 #table {
   min-height: 100vh; }
 
-#compare h1 {
-  margin-top: 8%; }
-
-#compare table {
-  margin-top: 5%; }
-
-#compare .labelcomparatif {
-  margin-top: 20px; }
-
-#compare img {
-  margin-top: 20px;
-  margin-bottom: 20px; }
-
-#compare .selectsoft {
-  border-style: none;
-  border-radius: 5px;
-  border-color: grey;
-  background-color: ghostwhite; }
-
-#compare img {
-  height: 100px; }
+#compare {
+  margin-bottom: 5%; }
+  #compare th {
+    width: 34%; }
+  #compare td {
+    width: 33%; }
+  #compare h1 {
+    margin-top: 8%; }
+  #compare table {
+    margin-top: 5%; }
+  #compare .labelcomparatif {
+    margin-top: 20px; }
+  #compare img {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #compare .selectsoft {
+    border-style: none;
+    border-radius: 5px;
+    border-color: grey;
+    background-color: ghostwhite; }
+  #compare img {
+    height: 100px; }
 
 body {
   font-family: 'Lato', sans-serif;

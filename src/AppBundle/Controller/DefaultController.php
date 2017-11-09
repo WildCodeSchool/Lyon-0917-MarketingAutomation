@@ -97,7 +97,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/slug-vs-slug", name="Versus")
+     * @Route("comparatifs/slug-vs-slug", name="versus")
      */
     public function VersusAction(Request $request)
     {

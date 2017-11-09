@@ -1,22 +1,31 @@
-#compare{
-  h1{margin-top: 8%;}
-  table{
+#compare {
+  margin-bottom: 5%;
+  th {
+    width: 34%;
+  }
+  td {
+    width: 33%;
+  }
+  h1 {
+    margin-top: 8%;
+  }
+  table {
     margin-top: 5%;
   }
-  .labelcomparatif{
+  .labelcomparatif {
     margin-top: 20px;
   }
-  img{
+  img {
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  .selectsoft{
-    border-style:none;
+  .selectsoft {
+    border-style: none;
     border-radius: 5px;
     border-color: grey;
     background-color: ghostwhite;
   }
-  img{
-    height:100px;
+  img {
+    height: 100px;
   }
 }
