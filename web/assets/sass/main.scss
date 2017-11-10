@@ -13,9 +13,12 @@
 @import "partials/views/mentionsLegales";
 @import "partials/views/error404";
 @import "partials/views/contact";
+@import "partials/Components/breadcrumb";
+
 @import "partials/views/uniqueTag";
 
 @import "partials/views/listingTags";
+
 @import "partials/views/listingSoftware";
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
