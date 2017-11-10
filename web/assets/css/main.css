@@ -582,6 +582,7 @@ textarea {
 
 nav {
   background-color: #151f30;
+  box-shadow: none;
   color: black; }
   nav .input-field {
     background-color: white;
