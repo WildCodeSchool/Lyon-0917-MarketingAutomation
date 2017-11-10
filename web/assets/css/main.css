@@ -597,9 +597,9 @@ nav {
   margin-left: 30px;
   margin-right: 30px; }
 
-
 .navbar-fixed {
   z-index: 998; }
+
 #mobile-demo a:active {
   background-color: lightblue; }
 
@@ -7070,13 +7070,16 @@ nav {
 
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
+    margin-right: 0; }
+
+  .result-logo-responsive {
+    display: none; } }
 #results h1 {
   margin-bottom: 4%; }
 #results .card-image {
   margin: auto 0;
-
-  right: 0; }
+  right: 0;
+  margin-left: 5px; }
 #results .card-content {
   padding: 10px 24px; }
 #results .card-action {
@@ -7092,7 +7095,6 @@ nav {
   margin-top: 8%; }
 #software table {
   margin-top: 5%; }
-
   #software table th {
     width: 34%; }
   #software table td {
@@ -7138,10 +7140,12 @@ nav {
 
   nav .nav-wrapper {
     margin-left: 0;
+    margin-right: 0; }
 
-    margin-right: 0; } }
+  .result-logo-responsive {
+    display: none; } }
 @media (min-width: 400px) and (max-width: 990px) {
-  .navmob {
+  .AAAA {
     height: 75px; }
 
   #results h1 {
@@ -7191,4 +7195,5 @@ body {
     margin-bottom: 20px; }
   body section {
     min-height: 100vh; }
+
 /*# sourceMappingURL=main.css.map */

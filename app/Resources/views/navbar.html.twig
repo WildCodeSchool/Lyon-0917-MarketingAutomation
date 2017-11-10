@@ -48,7 +48,7 @@
                 <a href="{{ path('listingTags') }}">Tags</a>
                     <div class="divider"></div>
                 </li>
-                <li{% if app.request.attributes.get('_route') == '#' %} class="active" {% endif %}>
+                <li{% if app.request.attributes.get('_route') == 'comparatifs/slug-vs-slug' %} class="active" {% endif %}>
                 <a href="{{ path('versus') }}">Comparatif</a>
                     <div class="divider"></div>
                 </li>
@@ -68,7 +68,7 @@
                     <input type="search" required id="autocomplete-input" class="autocomplete">
                     <!--    <label class="label-icon" for="search"></label>-->
                 </div>
-            </form>
+            </form>z
         </div>
     </nav>
 </div>
