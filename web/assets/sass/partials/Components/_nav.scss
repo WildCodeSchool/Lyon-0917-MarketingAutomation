@@ -1,35 +1,38 @@
 nav {
   background-color: rgb(21, 31, 48);
-  #topbarsearch {
-    .input-field .prefix {
-      width: 0 !important;
-    }
-    nav ul li:hover {
-      background-color: none !important;
-    }
+  box-shadow: none;
+  color: black;
+
+  .input-field {
+    background-color: white;
+    height: 51px;
+    margin-top: 7px;
   }
 
-  nav ul li.active {
-    background-color: none !important;
-  }
-
-  .input-field .prefix ~ {
-    input, textarea, label, .validate ~ label, .autocomplete-content {
-      margin-left: 1rem !important;
-    }
-  }
   li {
     a {
       font-size: 1.3em;
     }
+      }
+  #topsearchbar {
+
+  }
+
+  #lowsearchbar {
+    input {
+      text-align: center;
+    }
   }
 
 }
 
-.nav-wrapper{
+.nav-wrapper {
   margin-left: 30px;
   margin-right: 30px;
 }
+
+.navbar-fixed {
+  z-index: 998;
 
 #mobile-demo a:active {
   background-color: lightblue;
