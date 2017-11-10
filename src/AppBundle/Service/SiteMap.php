@@ -30,8 +30,7 @@ class SiteMap
     public function generate()
     {
 
-        $urls = $this->router->getRouteCollection();
-
-        return $urls;
+        $routes = $this->router->getRouteCollection()->all();
+        return $routes;
     }
 }

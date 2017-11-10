@@ -104,9 +104,9 @@ class DefaultController extends Controller
      */
     public function siteMapAction(SiteMap $siteMap)
     {
-        $urls = $siteMap->generate();
+        $routes = $siteMap->generate();
         return $this->render('default/sitemap.html.twig', [
-            'urls' => $urls,
+            'routes' => $routes,
         ]);
     }
 }

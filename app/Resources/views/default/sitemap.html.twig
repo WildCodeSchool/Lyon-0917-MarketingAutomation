@@ -1,2 +1,8 @@
 
-{{ dump(urls) }}
+{{ dump(routes) }}
+
+{% for route in routes %}
+
+        {{ route.path }}
+
+{% endfor %}
