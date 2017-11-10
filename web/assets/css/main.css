@@ -581,17 +581,16 @@ textarea {
   opacity: 1; }
 
 nav {
-  background-color: #151f30; }
-  nav #topbarsearch .input-field .prefix {
-    width: 0 !important; }
-  nav #topbarsearch nav ul li:hover {
-    background-color: none !important; }
-  nav nav ul li.active {
-    background-color: none !important; }
-  nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
-    margin-left: 1rem !important; }
+  background-color: #151f30;
+  color: black; }
+  nav .input-field {
+    background-color: white;
+    height: 51px;
+    margin-top: 7px; }
   nav li a {
     font-size: 1.3em; }
+  nav #lowsearchbar input {
+    text-align: center; }
 
 .nav-wrapper {
   margin-left: 30px;
