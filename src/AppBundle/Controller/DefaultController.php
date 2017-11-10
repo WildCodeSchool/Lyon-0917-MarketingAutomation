@@ -20,7 +20,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("software", name="softwareSolo")
+     * @Route("/logiciels/slug-logiciel", name="softwareSolo")
      */
     public function softwareSoloAction(Request $request)
     {
@@ -31,7 +31,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("listing-software", name="listingSoftware")
+     * @Route("logiciels", name="listingSoftware")
      */
     public function listingSoftwareAction(Request $request)
     {
@@ -81,6 +81,28 @@ class DefaultController extends Controller
     {
 
         return $this->render('default/contact.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("comparatifs", name="listingVersus")
+     */
+    public function listingVersusAction(Request $request)
+    {
+
+        return $this->render('default/listing-versus.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("comparatifs/slug-vs-slug", name="versus")
+     */
+    public function VersusAction(Request $request)
+    {
+
+        return $this->render('default/compare.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
