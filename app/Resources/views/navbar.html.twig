@@ -22,7 +22,7 @@
                     </li>
                     <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
                     <li><a href="{{ path('listingTags') }}">Tags</a></li>
-                    <li><a href="{{ path('versus') }}">Comparatifs</a></li>
+                    <li><a href="{{ path('versus') }}">Comparatif</a></li>
                     <li><a href="{{ path('contact') }}">Contact</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
@@ -40,7 +40,7 @@
                         <a href="{{ path('listingTags') }}">Tags</a><div class="divider"></div>
                     </li>
                     <li{% if app.request.attributes.get('_route') == '#' %} class="active" {% endif %}>
-                        <a href="#">Comparatifs</a><div class="divider"></div>
+                        <a href="#">Comparatif</a><div class="divider"></div>
                     </li>
                     <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>
                         <a href="{{ path('contact') }}">Contact</a><div class="divider"></div>

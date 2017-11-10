@@ -7176,7 +7176,8 @@ nav {
   #compare th {
     width: 34%; }
   #compare td {
-    width: 33%; }
+    width: 33%;
+    text-align: center; }
   #compare h1 {
     margin-top: 8%; }
   #compare table {
