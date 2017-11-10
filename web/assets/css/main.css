@@ -585,13 +585,18 @@ nav {
   box-shadow: none;
   color: black; }
   nav .input-field {
-    background-color: white;
-    height: 51px;
-    margin-top: 7px; }
+    background-color: white; }
   nav li a {
     font-size: 1.3em; }
-  nav #lowsearchbar input {
+  nav #topBarSearch .input-field {
+    border-radius: 4px;
+    height: 51px;
+    margin-top: 7px;
+    vertical-align: middle; }
+  nav #lowBarSearch input {
     text-align: center; }
+  nav .left li {
+    display: inline-block; }
 
 .nav-wrapper {
   margin-left: 30px;
@@ -7058,7 +7063,7 @@ nav {
   height: 70vh; }
 
 @media (max-width: 400px) {
-  .AAAA {
+  .navmob {
     height: 75px; }
 
   #results h1 {
@@ -7128,7 +7133,7 @@ nav {
   margin-top: 20px; }
 
 @media (max-width: 400px) {
-  .AAAA {
+  .navmob {
     height: 75px; }
 
   #results h1 {
@@ -7144,8 +7149,8 @@ nav {
 
   .result-logo-responsive {
     display: none; } }
-@media (min-width: 400px) and (max-width: 990px) {
-  .AAAA {
+@media (min-width: 400px) and (max-width: 1056px) {
+  .navmob {
     height: 75px; }
 
   #results h1 {
@@ -7154,7 +7159,11 @@ nav {
   #results h3 {
     font-size: x-large;
     margin-top: 5%;
-    margin-bottom: 5%; } }
+    margin-bottom: 5%; }
+
+  nav .nav-wrapper {
+    margin-left: 0;
+    margin-right: 0; } }
 #table {
   min-height: 100vh; }
 

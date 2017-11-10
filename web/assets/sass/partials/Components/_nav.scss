@@ -5,23 +5,34 @@ nav {
 
   .input-field {
     background-color: white;
-    height: 51px;
-    margin-top: 7px;
   }
 
   li {
     a {
       font-size: 1.3em;
     }
-      }
-  #topsearchbar {
+  }
+  #topBarSearch{
+    .input-field {
+      border-radius: 4px;
+      height: 51px;
+      margin-top: 7px;
+      vertical-align: middle
+    }
 
   }
 
-  #lowsearchbar {
+  #lowBarSearch {
     input {
       text-align: center;
     }
+  }
+
+  .left {
+    li {
+      display: inline-block;
+    }
+  ;
   }
 
 }
