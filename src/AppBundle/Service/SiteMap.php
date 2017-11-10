@@ -23,7 +23,7 @@ class SiteMap
     }
 
     /**
-     * Generate all routes of website
+     * Generate all routes of website list in controller
      *
      * @return array
      */
@@ -31,6 +31,15 @@ class SiteMap
     {
 
         $routes = $this->router->getRouteCollection()->all();
-        return $routes;
+        $urls = [];
+        foreach($routes as $route) {
+            $pattern = '(^(\/_))';
+            $path = $route->getPath();
+                if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path))) {
+                    $urls[] = $path;
+                };
+            }
+
+        return $urls;
     }
 }

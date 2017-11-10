@@ -98,15 +98,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * Generate SiteMap
+     * Generate sitemap for site
      *
-     * @Route("/sitemap", name="front_sitemap")
+     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
      */
     public function siteMapAction(SiteMap $siteMap)
     {
-        $routes = $siteMap->generate();
+        $urls = $siteMap->generate();
+
         return $this->render('default/sitemap.html.twig', [
-            'routes' => $routes,
+            'urls' => $urls,
         ]);
     }
+
 }
