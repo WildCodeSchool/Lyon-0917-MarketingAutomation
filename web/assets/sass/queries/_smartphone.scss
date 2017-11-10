@@ -1,4 +1,7 @@
 @media (max-width: 400px) {
+  .AAAA{
+    height: 75px;
+  }
   #results {
     h1 {
       margin-top: 8%;
@@ -8,11 +11,15 @@
       margin-top: 5%;
       margin-bottom: 8%;
     }
+
   }
   nav {
     .nav-wrapper {
       margin-left: 0;
       margin-right: 0;
     }
+  }
+  .result-logo-responsive {
+    display: none;
   }
 }
