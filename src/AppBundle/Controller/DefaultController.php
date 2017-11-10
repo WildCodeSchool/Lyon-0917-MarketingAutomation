@@ -118,7 +118,10 @@ class DefaultController extends Controller
 
         return $this->render('default/sitemap.html.twig', [
             'urls' => $urls,
+        ]);
+    }
 
+    /**
      * @Route("comparatifs/slug-vs-slug", name="versus")
      */
     public function VersusAction(Request $request)
