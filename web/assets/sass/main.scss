@@ -20,6 +20,7 @@
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
 @import "partials/Components/table";
+@import "partials/views/compare";
 
 //node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
@@ -37,9 +38,8 @@ body{
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  section{
+  section {
     min-height: 100vh;
-
 
   }
 }
