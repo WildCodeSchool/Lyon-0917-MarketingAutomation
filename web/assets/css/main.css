@@ -7054,6 +7054,9 @@ nav {
   height: 70vh; }
 
 @media (max-width: 400px) {
+  .AAAA {
+    height: 75px; }
+
   #results h1 {
     margin-top: 8%; }
   #results h3 {
@@ -7113,6 +7116,9 @@ nav {
   margin-top: 20px; }
 
 @media (max-width: 400px) {
+  .AAAA {
+    height: 75px; }
+
   #results h1 {
     margin-top: 8%; }
   #results h3 {
@@ -7123,7 +7129,10 @@ nav {
   nav .nav-wrapper {
     margin-left: 0;
     margin-right: 0; } }
-@media (min-width: 400px) and (max-width: 1024px) {
+@media (min-width: 400px) and (max-width: 990px) {
+  .AAAA {
+    height: 75px; }
+
   #results h1 {
     text-align: center;
     margin-top: 6%; }
