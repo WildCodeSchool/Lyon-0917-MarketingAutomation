@@ -20,7 +20,7 @@
             </li>
             <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
             <li><a href="{{ path('listingTags') }}">Tags</a></li>
-            <li><a href="#">Comparatifs</a></li>
+            <li><a href="{{ path('versus') }}">Comparatif</a></li>
             <li><a href="{{ path('contact') }}">Contact</a></li>
         </ul>
     </nav>
@@ -49,7 +49,7 @@
                     <div class="divider"></div>
                 </li>
                 <li{% if app.request.attributes.get('_route') == '#' %} class="active" {% endif %}>
-                <a href="#">Comparatifs</a>
+                <a href="{{ path('versus') }}">Comparatif</a>
                     <div class="divider"></div>
                 </li>
                 <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>
