@@ -31,22 +31,28 @@
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="{{ path('homepage') }}" class="center-align">Logo</a>
+                <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
+                <a href="{{ path('homepage') }}" class="center-align">Logo</a>
                     <div class="divider"></div>
                 </li>
-                <li><a href="{{ path('homepage') }}">Home</a>
+                <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
+                <a href="{{ path('homepage') }}">Home</a>
                     <div class="divider"></div>
                 </li>
-                <li><a href="{{ path('listingSoftware') }}">Logiciels</a>
+                <li{% if app.request.attributes.get('_route') == 'listingSoftware' %} class="active" {% endif %}>
+                <a href="{{ path('listingSoftware') }}">Logiciels</a>
                     <div class="divider"></div>
                 </li>
-                <li><a href="{{ path('listingTags') }}">Tags</a>
+                <li{% if app.request.attributes.get('_route') == 'listingTags' %} class="active" {% endif %}>
+                <a href="{{ path('listingTags') }}">Tags</a>
                     <div class="divider"></div>
                 </li>
-                <li><a href="#">Comparatifs</a>
+                <li{% if app.request.attributes.get('_route') == '#' %} class="active" {% endif %}>
+                <a href="#">Comparatifs</a>
                     <div class="divider"></div>
                 </li>
-                <li><a href="{{ path('contact') }}">Contact</a>
+                <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>
+                <a href="{{ path('contact') }}">Contact</a>
                     <div class="divider>"></div>
                 </li>
             </ul>
