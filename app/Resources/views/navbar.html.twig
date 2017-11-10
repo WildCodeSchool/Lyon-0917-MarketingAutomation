@@ -26,14 +26,25 @@
                     <li><a href="{{ path('contact') }}">Contact</a></li>
                 </ul>
                 <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}" class="center-align">Logo</a><div class="divider"></div></li>
-                    <li><a href="{{ path('homepage') }}">Home</a><div class="divider"></div></li>
-                    <li><a href="{{ path('listingSoftware') }}">Logiciels</a><div class="divider"></div></li>
-                    <li><a href="{{ path('listingTags') }}">Tags</a><div class="divider"></div></li>
-                    <li><a href="#">Comparatifs</a><div class="divider"></div></li>
-                    <li><a href="{{ path('contact') }}">Contact</a><div class="divider>"></div></li>
+                    <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
+                        <a href="{{ path('homepage') }}" class="center-align">Logo</a><div class="divider"></div>
+                    </li>
+                    <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
+                        <a href="{{ path('homepage') }}">Home</a><div class="divider"></div>
+                    </li>
+                    <li{% if app.request.attributes.get('_route') == 'listingSoftware' %} class="active" {% endif %}>
+                        <a href="{{ path('listingSoftware') }}">Logiciels</a><div class="divider"></div>
+                    </li>
+                    <li{% if app.request.attributes.get('_route') == 'listingTags' %} class="active" {% endif %}>
+                        <a href="{{ path('listingTags') }}">Tags</a><div class="divider"></div>
+                    </li>
+                    <li{% if app.request.attributes.get('_route') == '#' %} class="active" {% endif %}>
+                        <a href="#">Comparatifs</a><div class="divider"></div>
+                    </li>
+                    <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>
+                        <a href="{{ path('contact') }}">Contact</a><div class="divider"></div>
+                    </li>
                 </ul>
-
             </div>
         </nav>
         <div class="hide-on-large-only" id="lowBarSearch">
