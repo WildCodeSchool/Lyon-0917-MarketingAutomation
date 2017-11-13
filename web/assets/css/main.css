@@ -7169,7 +7169,11 @@ nav {
     margin-bottom: 20px; }
 
 .contact {
-  margin-top: 20px; }
+  margin-top: 9px; }
+
+figcaption {
+  font-size: 0.6em;
+  text-align: right; }
 
 .breadcrumb {
   /* Style the list */
