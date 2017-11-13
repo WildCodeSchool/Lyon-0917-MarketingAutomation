@@ -198,10 +198,12 @@ textarea {
 .footer-copyright {
   margin-top: -15px; }
 
-#filters .collapsible-body {
-  background-color: white; }
-  #filters .collapsible-body label {
-    color: darkslategrey; }
+#filters {
+  margin-top: 4%; }
+  #filters .collapsible-body {
+    background-color: white; }
+    #filters .collapsible-body label {
+      color: darkslategrey; }
 
 .filters-responsive p {
   padding-left: 10px; }
@@ -211,6 +213,14 @@ textarea {
 
 .full-label label {
   width: 100%; }
+
+#slider {
+  margin-bottom: 4px; }
+
+.filters-responsive {
+  margin-top: 10px; }
+  .filters-responsive #range-responsive {
+    margin-bottom: 20px; }
 
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
@@ -7071,6 +7081,34 @@ nav {
 .softwareCard .card-image {
   padding: 10px; }
 
+.breadcrumb {
+  /* Style the list */
+  /* Display list items side by side */
+  /* Add a slash symbol (/) before/behind each list item */
+  /* Add a color to all links inside the list */
+  /* Add a color on mouse-over */ }
+  .breadcrumb ul {
+    padding: 10px 16px;
+    list-style: none;
+    margin-bottom: 10px; }
+  .breadcrumb li {
+    display: inline;
+    font-size: 18px;
+    color: black; }
+  .breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0"; }
+  .breadcrumb a {
+    color: #0275d8;
+    text-decoration: none; }
+  .breadcrumb a:hover {
+    color: #01447e;
+    text-decoration: underline; }
+
+#table {
+  min-height: 100vh; }
+
 #home h1 {
   color: white;
   margin-top: 15%; }
@@ -7131,6 +7169,7 @@ nav {
   padding-bottom: 0; }
 
 #results .pagination {
+  margin-top: 40px;
   margin-bottom: 40px; }
 
 #results h2 {
@@ -7138,15 +7177,27 @@ nav {
   margin-bottom: 20px;
   font-size: 1.3em; }
 
-#software h1 {
-  margin-top: 8%; }
-
 #software table {
   margin-top: 5%; }
   #software table th {
-    width: 34%; }
+    width: 34%;
+    padding-left: 10px;
+    padding-right: 10px; }
   #software table td {
-    width: 33%; }
+    width: 66%;
+    text-align: center; }
+
+.softwareh1 {
+  margin-top: 0%; }
+
+#listing-tags .chip {
+  margin-left: 5px; }
+
+#listing-tags a {
+  font-size: large; }
+
+#listing-tags li {
+  margin-top: 10px; }
 
 #mentions-legales {
   text-align: justify; }
@@ -7179,30 +7230,23 @@ figcaption {
   font-size: 0.6em;
   text-align: right; }
 
-.breadcrumb {
-  /* Style the list */
-  /* Display list items side by side */
-  /* Add a slash symbol (/) before/behind each list item */
-  /* Add a color to all links inside the list */
-  /* Add a color on mouse-over */ }
-  .breadcrumb ul {
-    padding: 10px 16px;
-    list-style: none;
-    margin-bottom: 10px; }
-  .breadcrumb li {
-    display: inline;
-    font-size: 18px;
-    color: black; }
-  .breadcrumb li + li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0"; }
-  .breadcrumb a {
-    color: #0275d8;
-    text-decoration: none; }
-  .breadcrumb a:hover {
-    color: #01447e;
-    text-decoration: underline; }
+#listing-versus a {
+  font-size: large; }
+
+#listing-versus li {
+  margin-top: 10px; }
+
+#tag #listSoftsByTags {
+  margin-top: 4%; }
+
+#listing-tags .chip {
+  margin-left: 5px; }
+
+#listing-tags a {
+  font-size: large; }
+
+#listing-tags li {
+  margin-top: 10px; }
 
 @media (max-width: 400px) {
   .navmob {
@@ -7233,13 +7277,12 @@ figcaption {
     margin-left: 0;
     margin-right: 0; } }
 
-#table {
-  min-height: 100vh; }
-
 #compare {
   margin-bottom: 5%; }
   #compare th {
-    width: 34%; }
+    width: 34%;
+    padding-left: 10px;
+    padding-right: 10px; }
   #compare td {
     width: 33%;
     text-align: center; }
