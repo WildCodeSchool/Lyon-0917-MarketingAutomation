@@ -191,10 +191,15 @@ textarea {
 .page-footer {
   padding-top: 15px;
   width: 100%;
-  background-color: #151f30; }
-  .page-footer .row {
-    margin-top: 0;
-    margin-bottom: 0; }
+  background-color: #151f30;
+  position: relative;
+  bottom: 0; }
+
+.page-footer a {
+  color: white; }
+
+.footer-copyright {
+  margin-top: -15px; }
 
 #filters .collapsible-body {
   background-color: white; }
@@ -579,21 +584,43 @@ textarea {
   opacity: 1; }
 
 nav {
-  background-color: #151f30; }
-  nav #topbarsearch .input-field .prefix {
-    width: 0 !important; }
-  nav #topbarsearch nav ul li:hover {
-    background-color: none !important; }
-  nav nav ul li.active {
-    background-color: none !important; }
-  nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
-    margin-left: 1rem !important; }
+  background-color: #151f30;
+  box-shadow: none;
+  color: black; }
+  nav .input-field {
+    background-color: white; }
   nav li a {
     font-size: 1.3em; }
+  nav #topBarSearch .input-field {
+    border-radius: 4px;
+    height: 51px;
+    margin-top: 7px;
+    vertical-align: middle; }
+  nav #topBarSearch .input-field .prefix {
+    position: absolute;
+    margin-left: 92%; }
+  nav #topBarSearch input {
+    margin-left: 1.5rem;
+    width: calc(100% - 4rem); }
+  nav #lowBarSearch .input-field .prefix {
+    position: absolute;
+    margin-left: 90%; }
+  nav #lowBarSearch input {
+    text-align: center;
+    margin-left: 1.5rem;
+    width: calc(100% - 4rem); }
+  nav .left li {
+    display: inline-block; }
 
 .nav-wrapper {
   margin-left: 30px;
   margin-right: 30px; }
+
+.navbar-fixed {
+  z-index: 998; }
+
+#mobile-demo a:active {
+  background-color: lightblue; }
 
 /* MaterialDesignIcons.com */
 @font-face {
@@ -7022,17 +7049,40 @@ nav {
   -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
   transform: rotate(0deg) translate(-100px) rotate(0deg); }
 
-#home {
-  min-height: 100vh; }
-  #home h1 {
+.softwareCard .card-image {
+  padding: 10px; }
+
+#home h1 {
+  color: white;
+  margin-top: 15%; }
+#home #searchBar {
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
+  #home #searchBar input {
     color: white;
-    margin-top: 4%; }
-  #home #searchBar {
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
-    #home #searchBar input {
-      color: white; }
+    text-align: center; }
+#home .presentation {
+  margin-top: 30px;
+  margin-bottom: 30px; }
+  #home .presentation .block {
+    margin-top: 40px;
+    margin-bottom: 20px; }
+  #home .presentation h2 {
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 30px; }
+  #home .presentation h3 {
+    text-align: center;
+    font-size: 30px; }
+  #home .presentation p {
+    text-align: justify;
+    margin-top: 20px; }
+#home .homesearch {
+  height: 70vh; }
 
 @media (max-width: 400px) {
+  .navmob {
+    height: 75px; }
+
   #results h1 {
     margin-top: 8%; }
   #results h3 {
@@ -7042,40 +7092,37 @@ nav {
 
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
-#results {
-  min-height: 100vh; }
-  #results h1 {
-    margin-bottom: 4%; }
-  #results .card-image {
-    margin: auto 0;
-    right: 0; }
-  #results .card-content {
-    padding: 10px 24px; }
-  #results .card-action {
-    padding-bottom: 0; }
-  #results .pagination {
-    margin-bottom: 40px; }
-  #results h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.3em; }
+    margin-right: 0; }
 
-#software {
-  min-height: 100vh; }
-  #software h1 {
-    margin-top: 8%; }
+  .result-logo-responsive {
+    display: none; } }
+#results h1 {
+  margin-bottom: 4%; }
+#results .card-image {
+  margin: auto 0;
+  right: 0;
+  margin-left: 5px; }
+#results .card-content {
+  padding: 10px 24px; }
+#results .card-action {
+  padding-bottom: 0; }
+#results .pagination {
+  margin-bottom: 40px; }
+#results h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.3em; }
 
-#tags {
-  min-height: 100vh; }
-  #tags .logicielTagView {
-    margin-top: 20px; }
-  #tags h2 {
-    font-size: xx-large;
-    margin-top: 10px; }
+#software h1 {
+  margin-top: 8%; }
+#software table {
+  margin-top: 5%; }
+  #software table th {
+    width: 34%; }
+  #software table td {
+    width: 33%; }
 
 #mentions-legales {
-  min-height: 100vh;
   text-align: justify; }
   #mentions-legales h2 {
     font-weight: bold; }
@@ -7084,40 +7131,53 @@ nav {
     margin-top: 3vh;
     margin-bottom: 2vh; }
 
-#container {
-  margin-top: 50px;
-  margin-bottom: 50px;
+#notfound {
   background-color: #EBEBEB; }
-  #container h1, #container h2, #container p {
+  #notfound h1, #notfound h2, #notfound p {
     text-align: center; }
-  #container h1 {
+  #notfound h1 {
     font-size: 65px;
     color: #151f30;
     margin-top: 20px;
     margin-bottom: 20px; }
-  #container h2 {
+  #notfound h2 {
     font-size: 50px;
     color: dimgrey;
     margin-top: 20px;
     margin-bottom: 20px; }
-  #container p {
-    font-size: 25px;
-    color: dimgrey;
-    margin-top: 20px;
-    margin-bottom: 20px; }
 
-#tags {
-  min-height: 100vh; }
-  #tags .logicielTagView {
-    margin-top: 20px; }
-  #tags h2 {
-    font-size: xx-large;
-    margin-top: 10px; }
+.contact {
+  margin-top: 20px; }
 
-#listing {
-  min-height: 100vh; }
+.breadcrumb {
+  /* Style the list */
+  /* Display list items side by side */
+  /* Add a slash symbol (/) before/behind each list item */
+  /* Add a color to all links inside the list */
+  /* Add a color on mouse-over */ }
+  .breadcrumb ul {
+    padding: 10px 16px;
+    list-style: none;
+    margin-bottom: 10px; }
+  .breadcrumb li {
+    display: inline;
+    font-size: 18px;
+    color: black; }
+  .breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0"; }
+  .breadcrumb a {
+    color: #0275d8;
+    text-decoration: none; }
+  .breadcrumb a:hover {
+    color: #01447e;
+    text-decoration: underline; }
 
 @media (max-width: 400px) {
+  .navmob {
+    height: 75px; }
+
   #results h1 {
     margin-top: 8%; }
   #results h3 {
@@ -7127,20 +7187,51 @@ nav {
 
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
-@media (min-width: 400px) and (max-width: 1024px) {
+    margin-right: 0; }
+
+  .result-logo-responsive {
+    display: none; } }
+@media (min-width: 400px) and (max-width: 1056px) {
+  .navmob {
+    height: 75px; }
+
   #results h1 {
     text-align: center;
     margin-top: 6%; }
   #results h3 {
     font-size: x-large;
     margin-top: 5%;
-    margin-bottom: 5%; } }
+    margin-bottom: 5%; }
+
+  nav .nav-wrapper {
+    margin-left: 0;
+    margin-right: 0; } }
 #table {
   min-height: 100vh; }
 
-html {
-  min-height: 100%; }
+#compare {
+  margin-bottom: 5%; }
+  #compare th {
+    width: 34%; }
+  #compare td {
+    width: 33%;
+    text-align: center; }
+  #compare h1 {
+    margin-top: 8%; }
+  #compare table {
+    margin-top: 5%; }
+  #compare .labelcomparatif {
+    margin-top: 20px; }
+  #compare img {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  #compare .selectsoft {
+    border-style: none;
+    border-radius: 5px;
+    border-color: grey;
+    background-color: ghostwhite; }
+  #compare img {
+    height: 100px; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -7148,10 +7239,13 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
   body h1 {
-    font-size: xx-large; }
+    font-size: xx-large;
+    margin-top: 4%; }
   body h2 {
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px; }
+  body section {
+    min-height: 100vh; }
 
 /*# sourceMappingURL=main.css.map */
