@@ -15,7 +15,7 @@ class SiteMap
     private $em;
     private $controller;
 
-    public function __construct(Router $router, ObjectManager $em, Controller $controller)
+    public function __construct(RouterInterface $router, ObjectManager $em, Controller $controller)
     {
         $this->router = $router;
         $this->em = $em;
@@ -35,7 +35,8 @@ class SiteMap
         foreach($routes as $route) {
             $pattern = '(^(\/_))';
             $path = $route->getPath();
-                if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path))) {
+                if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/\/slug/', $path)))
+                {
                     $urls[] = $path;
                 };
             }
