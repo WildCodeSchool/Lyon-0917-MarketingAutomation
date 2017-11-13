@@ -1,47 +1,71 @@
-
-    <div>
-        <nav id="navBar">
-            <div class="nav-wrapper">
-                <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
-                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                        <form action="">
-                            <div class="center row">
-                                <div class="col s12 ">
-                                    <div class="row" id="topbarsearch">
-                                        <div class="input-field col s6 s12 ">
-                                            <i class="material-icons prefix">search</i>
-                                            <input type="text" placeholder="Recherche" id="autocomplete-input"
-                                                   class="autocomplete" style="text-align:center">
-                                        </div>
-                                    </div>
-                                </div>
+<div class="hide-on-med-and-down">
+    <nav id="navBar">
+        <div class="nav-wrapper">
+            <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
+            <ul class="right">
+                <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
+                <li><a href="{{ path('listingTags') }}">Tags</a></li>
+                <li><a href="{{ path('versus') }}">Comparatif</a></li>
+                <li><a href="{{ path('contact') }}">Contact</a></li>
+            </ul>
+            <div class="row">
+                <div class="col offset-m1 m6" id="topBarSearch">
+                    <form action="">
+                            <div class="input-field">
+                                <i class="material-icons prefix">search</i>
+                                <input type="text" placeholder="Recherche" id="autocomplete-input"
+                                       class="autocomplete">
                             </div>
-                        </form>
-                    </li>
-                    <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
-                    <li><a href="{{ path('listingTags') }}">Tags</a></li>
-                    <li><a href="#">Comparatifs</a></li>
-                    <li><a href="{{ path('contact') }}">Contact</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo">
-                    <li><a href="{{ path('homepage') }}" class="center-align">Logo</a><div class="divider"></div></li>
-                    <li><a href="{{ path('homepage') }}">Home</a><div class="divider"></div></li>
-                    <li><a href="{{ path('listingSoftware') }}">Logiciels</a><div class="divider"></div></li>
-                    <li><a href="{{ path('listingTags') }}">Tags</a><div class="divider"></div></li>
-                    <li><a href="#">Comparatifs</a><div class="divider"></div></li>
-                    <li><a href="{{ path('contact') }}">Contact</a><div class="divider>"></div></li>
-                </ul>
-
+                        </div>
+                    </form>
+                </div>
             </div>
-        </nav>
-        <div class="hide-on-large-only" id="lowBarSearch">
+        </div>
+    </nav>
+</div>
+<div class="navbar-fixed hide-on-large-only">
+    <nav id="navBar">
+        <div class="nav-wrapper">
+            <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+
+            <ul class="side-nav" id="mobile-demo">
+                <li>
+                    <a href="{{ path('homepage') }}" class="center-align">Logo</a>
+                    <div class="divider"></div>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
+                    <a href="{{ path('homepage') }}">Home</a>
+                    <div class="divider"></div>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'listingSoftware' %} class="active" {% endif %}>
+                    <a href="{{ path('listingSoftware') }}">Logiciels</a>
+                    <div class="divider"></div>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'listingTags' %} class="active" {% endif %}>
+                    <a href="{{ path('listingTags') }}">Tags</a>
+                    <div class="divider"></div>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'comparatifs/slug-vs-slug' %} class="active" {% endif %}>
+                    <a href="{{ path('versus') }}">Comparatif</a>
+                    <div class="divider"></div>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>
+                    <a href="{{ path('contact') }}">Contact</a>
+                    <div class="divider>"></div>
+                </li>
+            </ul>
+
+
+        </div>
+        <div  id="lowBarSearch">
             <form>
                 <div class="input-field">
-                    <input type="search" required id="autocomplete-input" class="autocomplete" style="text-align:center">
-                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons prefix">search</i>
+                    <input type="search" required id="autocomplete-input" class="autocomplete">
+                    <!--    <label class="label-icon" for="search"></label>-->
                 </div>
             </form>
         </div>
-    </div>
+    </nav>
+</div>
