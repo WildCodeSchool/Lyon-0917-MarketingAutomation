@@ -199,7 +199,7 @@ textarea {
   margin-top: -15px; }
 
 #filters {
-  margin-top: 4% gcamgc; }
+  margin-top: 4%; }
   #filters .collapsible-body {
     background-color: white; }
     #filters .collapsible-body label {
@@ -215,7 +215,12 @@ textarea {
   width: 100%; }
 
 #slider {
-  margin-bottom: 2em; }
+  margin-bottom: 4px; }
+
+.filters-responsive {
+  margin-top: 10px; }
+  .filters-responsive #range-responsive {
+    margin-bottom: 20px; }
 
 /*!
  * Materialize v0.100.2 (http://materializecss.com)
