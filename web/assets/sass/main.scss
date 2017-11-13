@@ -6,44 +6,40 @@
 @import 'partials/Components/nav';
 @import 'partials/Components/icons';
 @import 'partials/Components/share';
-@import 'partials/Components/softwareCard';
-
 @import "partials/views/home";
 @import "partials/views/results";
 @import "partials/views/software";
-@import "partials/views/listingTags";
+@import "partials/views/tags";
 @import "partials/views/mentionsLegales";
 @import "partials/views/error404";
 @import "partials/views/contact";
-@import "partials/Components/breadcrumb";
-@import "partials/views/uniqueTag";
-@import "partials/views/listingTags";
+
+
+@import "partials/views/_tags.scss";
 @import "partials/views/listingSoftware";
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
 @import "partials/Components/table";
-@import "partials/views/compare";
 
 //node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
-body {
+
+body{
   font-family: 'Lato', sans-serif;
   background: white;
   background-size: cover;
   background-repeat: no-repeat;
 
-  h1 {
-    font-size: xx-large;
-    margin-top: 4%;
-  }
+  h1{font-size: xx-large; }
 
-  h2 {
+  h2{
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  section {
+  section{
     min-height: 100vh;
+
 
   }
 }

@@ -1,11 +1,10 @@
 
 body{
-    background-image: url("../img/background_homepage4.jpg");
-    background-attachment: fixed;
+    background-image: url("../img/background_homepage3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
-#topBarSearch {
+#topbarsearch {
     display: none;
 }
 #lowBarSearch {

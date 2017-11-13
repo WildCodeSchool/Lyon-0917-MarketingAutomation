@@ -1,17 +1,11 @@
-@media (min-width: 400px) and (max-width: 1056px)
+@media (min-width: 400px) and (max-width: 1024px)
 {
-  .navmob{
-    height: 75px;
-  }
   #results{
     h1{text-align: center; margin-top: 6%;}
     h3{font-size: x-large; margin-top: 5%; margin-bottom: 5%;}
   }
 
-  nav {
-    .nav-wrapper {
-      margin-left: 0;
-      margin-right: 0;
-    }
+  #listing{
+
   }
 }
