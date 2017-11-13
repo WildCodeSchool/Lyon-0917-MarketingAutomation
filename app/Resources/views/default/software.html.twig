@@ -1,14 +1,15 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Nom du logiciel - logiciel de marketing automation {% endblock %}
+{% block metadesc %}%nom% est un logiciel de marketing automation spécialisé dans ... {% endblock %}
 {% block breadcrumb %}
     {% include('breadcrumb.html.twig') %}
 {% endblock %}
-        {% block h1 %}
-            <h1>Tout sur le logiciel MailChimp</h1>
-        {% endblock %}
+            {% block h1 %}
+                <h1 class="softwareh1">Tout sur le logiciel MailChimp</h1>
+            {% endblock %}
 
 {% block body %}
+
     <div class="container">
         <div id="software">
             <div class="row">
