@@ -1,10 +1,12 @@
-#filters{
-  .collapsible-body{
+#filters {
+  .collapsible-body {
     background-color: white;
-   label{
-     color: darkslategrey;
-   }
+    label {
+      color: darkslategrey;
+    }
   }
+  margin-top: 4%;
+
 }
 
 .filters-responsive {
@@ -20,11 +22,22 @@
 
   }
 
+}
+
+.full-label {
+  label {
+    width: 100%;
+  }
 
 }
 
-.full-label{
-  label{
-    width: 100%;
+#slider {
+  margin-bottom: 4px;
+}
+
+.filters-responsive {
+margin-top: 10px;
+  #range-responsive {
+    margin-bottom: 20px;
   }
 }

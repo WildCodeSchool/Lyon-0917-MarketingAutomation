@@ -1,6 +1,6 @@
 $(document).ready(function () {
     $('select').material_select();
-    var slider = document.getElementById('test-slider');
+    var slider = document.getElementById('slider');
     noUiSlider.create(slider, {
         start: [20, 80],
         connect: true,
