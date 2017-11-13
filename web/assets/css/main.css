@@ -7210,6 +7210,9 @@ figcaption {
     color: #01447e;
     text-decoration: underline; }
 
+#tag #listSoftsByTags {
+  margin-top: 4%; }
+
 @media (max-width: 400px) {
   .navmob {
     height: 75px; }
