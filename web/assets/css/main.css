@@ -195,6 +195,9 @@ textarea {
   position: relative;
   bottom: 0; }
 
+.page-footer a {
+  color: white; }
+
 .footer-copyright {
   margin-top: -15px; }
 
