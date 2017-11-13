@@ -7067,6 +7067,34 @@ nav {
 .softwareCard .card-image {
   padding: 10px; }
 
+.breadcrumb {
+  /* Style the list */
+  /* Display list items side by side */
+  /* Add a slash symbol (/) before/behind each list item */
+  /* Add a color to all links inside the list */
+  /* Add a color on mouse-over */ }
+  .breadcrumb ul {
+    padding: 10px 16px;
+    list-style: none;
+    margin-bottom: 10px; }
+  .breadcrumb li {
+    display: inline;
+    font-size: 18px;
+    color: black; }
+  .breadcrumb li + li:before {
+    padding: 8px;
+    color: black;
+    content: "/\00a0"; }
+  .breadcrumb a {
+    color: #0275d8;
+    text-decoration: none; }
+  .breadcrumb a:hover {
+    color: #01447e;
+    text-decoration: underline; }
+
+#table {
+  min-height: 100vh; }
+
 #home h1 {
   color: white;
   margin-top: 15%; }
@@ -7144,6 +7172,15 @@ nav {
   #software table td {
     width: 33%; }
 
+#listing-tags .chip {
+  margin-left: 5px; }
+
+#listing-tags a {
+  font-size: large; }
+
+#listing-tags li {
+  margin-top: 10px; }
+
 #mentions-legales {
   text-align: justify; }
   #mentions-legales h2 {
@@ -7171,30 +7208,20 @@ nav {
 .contact {
   margin-top: 20px; }
 
-.breadcrumb {
-  /* Style the list */
-  /* Display list items side by side */
-  /* Add a slash symbol (/) before/behind each list item */
-  /* Add a color to all links inside the list */
-  /* Add a color on mouse-over */ }
-  .breadcrumb ul {
-    padding: 10px 16px;
-    list-style: none;
-    margin-bottom: 10px; }
-  .breadcrumb li {
-    display: inline;
-    font-size: 18px;
-    color: black; }
-  .breadcrumb li + li:before {
-    padding: 8px;
-    color: black;
-    content: "/\00a0"; }
-  .breadcrumb a {
-    color: #0275d8;
-    text-decoration: none; }
-  .breadcrumb a:hover {
-    color: #01447e;
-    text-decoration: underline; }
+#listing-versus a {
+  font-size: large; }
+
+#listing-versus li {
+  margin-top: 10px; }
+
+#listing-tags .chip {
+  margin-left: 5px; }
+
+#listing-tags a {
+  font-size: large; }
+
+#listing-tags li {
+  margin-top: 10px; }
 
 @media (max-width: 400px) {
   .navmob {
@@ -7224,9 +7251,6 @@ nav {
   nav .nav-wrapper {
     margin-left: 0;
     margin-right: 0; } }
-
-#table {
-  min-height: 100vh; }
 
 #compare {
   margin-bottom: 5%; }

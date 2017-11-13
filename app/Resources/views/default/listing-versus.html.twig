@@ -4,28 +4,20 @@
             <h1>Liste des Comparatifs :</h1>
         {% endblock %}
 {% block body %}
-    <div id="tags">
+    <div id="listing-versus">
 
         <div class="container">
             <h2>Cliquez sur un comparatif pour voir le détail :</h2>
             <div class="row">
-                <div class="collection">
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-                    <a href="#" class="collection-item col s12 m6  l4 ">Logiciel 1 comparé au Logiciel 2 </a>
-
-
-                </div>
+                <ul>
+                    {% for i in range(0, 7) %}
+                        <li class="col l4 m6 s12">
+                            <a href="{{ path('versus') }}">Logiciel 1 comparé au logiciel 2</a>
+                        </li>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}
