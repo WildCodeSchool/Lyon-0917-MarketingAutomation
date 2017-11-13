@@ -7138,12 +7138,18 @@ nav {
   margin-bottom: 20px;
   font-size: 1.3em; }
 
+#software h1 {
+  margin-top: 8%; }
+
 #software table {
   margin-top: 5%; }
   #software table th {
-    width: 34%; }
+    width: 34%;
+    padding-left: 10px;
+    padding-right: 10px; }
   #software table td {
-    width: 33%; }
+    width: 66%;
+    text-align: center; }
 
 .softwareh1 {
   margin-top: 0%; }
@@ -7239,7 +7245,9 @@ figcaption {
 #compare {
   margin-bottom: 5%; }
   #compare th {
-    width: 34%; }
+    width: 34%;
+    padding-left: 10px;
+    padding-right: 10px; }
   #compare td {
     width: 33%;
     text-align: center; }
