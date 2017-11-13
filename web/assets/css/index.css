@@ -1,6 +1,12 @@
 
 body{
+<<<<<<< HEAD
     background-image: url("../img/background_homepage3.jpg");
+=======
+    background-image: url("../img/background_homepage4.jpg");
+    background-attachment: fixed;
+
+>>>>>>> 6636e02d60b8e0e36de46a62eae5c2a4d8fcc3dd
     background-size: cover;
     background-repeat: no-repeat;
 }
