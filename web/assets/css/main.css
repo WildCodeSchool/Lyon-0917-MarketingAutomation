@@ -597,6 +597,19 @@ nav {
   margin-left: 30px;
   margin-right: 30px; }
 
+<<<<<<< HEAD
+=======
+.navbar-fixed {
+  z-index: 998; }
+
+#mobile-demo a:active {
+  background-color: lightblue; }
+
+.side-nav {
+  width: 85vw;
+  max-width: 340px; }
+
+>>>>>>> 6636e02d60b8e0e36de46a62eae5c2a4d8fcc3dd
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
@@ -7107,11 +7120,11 @@ nav {
   margin-bottom: 20px;
   font-size: 1.3em; }
 
-#software h1 {
-  margin-top: 8%; }
-
 #software table {
   margin-top: 5%; }
+
+.softwareh1 {
+  margin-top: 0%; }
 
 #mentions-legales {
   text-align: justify; }
@@ -7138,7 +7151,11 @@ nav {
     margin-bottom: 20px; }
 
 .contact {
-  margin-top: 20px; }
+  margin-top: 9px; }
+
+figcaption {
+  font-size: 0.6em;
+  text-align: right; }
 
 @media (max-width: 400px) {
   #results h1 {
