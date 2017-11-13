@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Service\SiteMap;
 
 class DefaultController extends Controller
 {
@@ -25,9 +24,9 @@ class DefaultController extends Controller
      */
     public function softwareSoloAction(Request $request)
     {
-        $slug = 'slug';
+
         return $this->render('default/software.html.twig', [
-            'slug' => $slug,
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
@@ -54,26 +53,16 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("listing-tags", name="listingTags")
+     * @Route("tags", name="listingTags")
      */
     public function listingTagsAction(Request $request)
     {
 
-        return $this->render('default/listing-tags.html.twig', [
+        return $this->render('default/tags.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
 
-    /**
-     * @Route("tag", name="tagSolo")
-     */
-    public function tagAction(Request $request)
-    {
-
-        return $this->render('default/unique-tag.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-        ]);
-    }
     /**
      * @Route("mentionsLegales", name="mentionsLegales")
      */
@@ -104,32 +93,6 @@ class DefaultController extends Controller
 
         return $this->render('default/listing-versus.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-        ]);
-    }
-
-    /**
-     * Generate sitemap for site
-     *
-     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
-     */
-    public function siteMapAction(SiteMap $siteMap)
-    {
-        $urls = $siteMap->generate();
-
-        return $this->render('default/sitemap.html.twig', [
-            'urls' => $urls,
-        ]);
-    }
-
-    /**
-     * @Route("comparatifs/slug-vs-slug", name="versus")
-     */
-    public function VersusAction(Request $request)
-    {
-
-        return $this->render('default/compare.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-
         ]);
     }
 
