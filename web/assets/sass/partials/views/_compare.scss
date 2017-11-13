@@ -29,4 +29,17 @@
   img {
     height: 100px;
   }
+  .morecontent span {
+    display: none;
+  }
+  .morelink {
+    display: block;
+  }
+  #SpecificCompareComment {
+    margin-bottom: 4%;
+    p {
+      padding: 10px;
+      font-size: large;
+    }
+  }
 }
