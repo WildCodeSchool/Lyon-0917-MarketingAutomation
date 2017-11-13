@@ -198,10 +198,12 @@ textarea {
 .footer-copyright {
   margin-top: -15px; }
 
-#filters .collapsible-body {
-  background-color: white; }
-  #filters .collapsible-body label {
-    color: darkslategrey; }
+#filters {
+  margin-top: 4% gcamgc; }
+  #filters .collapsible-body {
+    background-color: white; }
+    #filters .collapsible-body label {
+      color: darkslategrey; }
 
 .filters-responsive p {
   padding-left: 10px; }
