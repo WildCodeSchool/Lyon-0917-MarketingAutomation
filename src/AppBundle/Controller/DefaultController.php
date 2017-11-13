@@ -25,9 +25,9 @@ class DefaultController extends Controller
      */
     public function softwareSoloAction(Request $request)
     {
-
+        $slug = 'slug';
         return $this->render('default/software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'slug' => $slug,
         ]);
     }
 
@@ -118,7 +118,10 @@ class DefaultController extends Controller
 
         return $this->render('default/sitemap.html.twig', [
             'urls' => $urls,
+        ]);
+    }
 
+    /**
      * @Route("comparatifs/slug-vs-slug", name="versus")
      */
     public function VersusAction(Request $request)
