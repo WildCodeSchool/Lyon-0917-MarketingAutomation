@@ -215,7 +215,7 @@ textarea {
   width: 100%; }
 
 #slider {
-  margin-bottom: 4px; }
+  margin-bottom: 30px; }
 
 .filters-responsive {
   margin-top: 10px; }
@@ -7302,6 +7302,16 @@ figcaption {
     background-color: ghostwhite; }
   #compare img {
     height: 100px; }
+  #compare .morecontent span {
+    display: none; }
+  #compare .morelink {
+    display: block;
+    text-align: right; }
+  #compare #SpecificCompareComment {
+    margin-bottom: 4%; }
+    #compare #SpecificCompareComment p {
+      padding: 10px;
+      font-size: large; }
 
 body {
   font-family: 'Lato', sans-serif;
