@@ -7262,7 +7262,8 @@ figcaption {
   #compare .morecontent span {
     display: none; }
   #compare .morelink {
-    display: block; }
+    display: block;
+    text-align: right; }
   #compare #SpecificCompareComment {
     margin-bottom: 4%; }
     #compare #SpecificCompareComment p {
