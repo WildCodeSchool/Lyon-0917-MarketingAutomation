@@ -189,14 +189,18 @@ textarea {
   *font-family: sans-serif; }
 
 .page-footer {
-  padding-top: 15px;
+  padding-top: 14px;
   width: 100%;
   background-color: #151f30;
   position: relative;
   bottom: 0; }
 
 .footer-copyright {
-  margin-top: -15px; }
+  margin-top: -10px; }
+
+.page-footer a {
+  color: white;
+  font-size: 1em; }
 
 #filters {
   margin-top: 4%; }
@@ -597,7 +601,7 @@ nav {
   nav .input-field {
     background-color: white; }
   nav li a {
-    font-size: 1.3em; }
+    font-size: 1.4em; }
   nav #topBarSearch .input-field {
     border-radius: 4px;
     height: 51px;
