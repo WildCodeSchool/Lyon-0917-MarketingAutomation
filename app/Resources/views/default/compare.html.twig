@@ -9,7 +9,8 @@
 {% block body %}
     <div id="compare">
         <div class="container">
-            <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs principales fonctionnalités.</p>
+            <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs
+                principales fonctionnalités.</p>
             <div class="labelcomparatif">
                 <div class="row">
                     <div class="offset-m1 col s12 m4 selectsoft">
@@ -45,7 +46,8 @@
                                 </div>
                                 <div class="center-align"><span class="card-title">MailChimp</span></div>
                                 <div class="card-content">
-                                    <p><b>Description : </b>I am a very simple card. I am good at containing small
+                                    <p class="more"><b>Description : </b>I am a very simple card. I am good at
+                                        containing small
                                         bits of
                                         information.
                                         I am convenient because I require little markup to use effectively.
@@ -64,7 +66,8 @@
                                 </div>
                                 <div class="center-align"><span class="card-title">Mautic</span></div>
                                 <div class="card-content">
-                                    <p><b>Description : </b>I am a very simple card. I am good at containing small
+                                    <p class="more"><b>Description : </b>I am a very simple card. I am good at
+                                        containing small
                                         bits of
                                         information.
                                         I am convenient because I require little markup to use effectively.</p>
@@ -76,7 +79,11 @@
 
 
             </div>
-
+            <div class="col s12 m12" id="SpecificCompareComment">
+                <div class="card">
+                    <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
+                </div>
+            </div>
             <div id="tableVersus">
                 <h2>Informations générales sur MailChimp et Mautic</h2>
                 <table class="striped border">
@@ -288,4 +295,7 @@
             </div>
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/versusSeeMore.js') }}"></script>
 {% endblock %}
