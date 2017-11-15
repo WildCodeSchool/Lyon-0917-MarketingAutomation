@@ -189,14 +189,18 @@ textarea {
   *font-family: sans-serif; }
 
 .page-footer {
-  padding-top: 15px;
+  padding-top: 14px;
   width: 100%;
   background-color: #151f30;
   position: relative;
   bottom: 0; }
 
 .footer-copyright {
-  margin-top: -15px; }
+  margin-top: -10px; }
+
+.page-footer a {
+  color: white;
+  font-size: 1em; }
 
 #filters {
   margin-top: 4%; }
@@ -597,7 +601,7 @@ nav {
   nav .input-field {
     background-color: white; }
   nav li a {
-    font-size: 1.3em; }
+    font-size: 1.4em; }
   nav #topBarSearch .input-field {
     border-radius: 4px;
     height: 51px;
@@ -7010,60 +7014,75 @@ nav {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
-#share {
-  cursor: pointer; }
-  #share a {
-    position: fixed;
-    top: 50vh;
-    right: 0;
-    background-color: red;
-    padding: 15px 10px;
-    border-radius: 50%;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out; }
-  #share a.hidden {
-    visibility: hidden; }
-  #share a:last-child {
-    padding: 8px 15px; }
-  #share a:nth-child(1) {
-    background-color: #73b4ff;
-    padding: 8px 15px; }
-  #share a:nth-child(1).show {
-    -webkit-transform: rotate(60deg) translate(-110px) rotate(-60deg);
-    transform: rotate(60deg) translate(-110px) rotate(-60deg); }
-  #share a:nth-child(2) {
-    background-color: #3B5998;
-    padding: 8px 15px; }
-  #share a:nth-child(2).show {
-    -webkit-transform: rotate(20deg) translate(-110px) rotate(-20deg);
-    transform: rotate(20deg) translate(-110px) rotate(-20deg); }
-  #share a:nth-child(3) {
-    background-color: #007bb6;
-    padding: 8px 15px; }
-  #share a:nth-child(3).show {
-    -webkit-transform: rotate(-20deg) translate(-110px) rotate(20deg);
-    transform: rotate(-20deg) translate(-110px) rotate(20deg); }
-  #share a:nth-child(4) {
-    background-color: gray;
-    padding: 8px 15px; }
-  #share a:nth-child(4).show {
-    -webkit-transform: rotate(-60deg) translate(-110px) rotate(60deg);
-    transform: rotate(-60deg) translate(-110px) rotate(60deg); }
-  #share .mobile a {
-    top: 90vh;
-    right: 2vh; }
-  #share .mobile a:nth-child(1).show {
-    -webkit-transform: rotate(90deg) translate(-100px) rotate(-100deg);
-    transform: rotate(90deg) translate(-100px) rotate(-100deg); }
-  #share .mobile a:nth-child(2).show {
-    -webkit-transform: rotate(60deg) translate(-100px) rotate(-60deg);
-    transform: rotate(60deg) translate(-100px) rotate(-60deg); }
-  #share .mobile a:nth-child(3).show {
-    -webkit-transform: rotate(30deg) translate(-100px) rotate(-30deg);
-    transform: rotate(30deg) translate(-100px) rotate(-30deg); }
-  #share .mobile a:nth-child(4).show {
-    -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
-    transform: rotate(0deg) translate(-100px) rotate(0deg); }
+
+#share a {
+  position: fixed;
+  top: 50vh;
+  right: 0;
+  background-color: red;
+  padding: 15px 10px;
+  border-radius: 50%;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out; }
+
+#share a.hidden {
+  visibility: hidden; }
+
+#share a:last-child {
+  padding: 8px 15px; }
+
+#share a:nth-child(1) {
+  background-color: #73b4ff;
+  padding: 8px 15px; }
+
+#share a:nth-child(1).show {
+  -webkit-transform: rotate(60deg) translate(-110px) rotate(-60deg);
+  transform: rotate(60deg) translate(-110px) rotate(-60deg); }
+
+#share a:nth-child(2) {
+  background-color: #3B5998;
+  padding: 8px 15px; }
+
+#share a:nth-child(2).show {
+  -webkit-transform: rotate(20deg) translate(-110px) rotate(-20deg);
+  transform: rotate(20deg) translate(-110px) rotate(-20deg); }
+
+#share a:nth-child(3) {
+  background-color: #007bb6;
+  padding: 8px 15px; }
+
+#share a:nth-child(3).show {
+  -webkit-transform: rotate(-20deg) translate(-110px) rotate(20deg);
+  transform: rotate(-20deg) translate(-110px) rotate(20deg); }
+
+#share a:nth-child(4) {
+  background-color: gray;
+  padding: 8px 15px; }
+
+#share a:nth-child(4).show {
+  -webkit-transform: rotate(-60deg) translate(-110px) rotate(60deg);
+  transform: rotate(-60deg) translate(-110px) rotate(60deg); }
+
+#share .mobile a {
+  top: 90vh;
+  right: 2vh; }
+
+#share .mobile a:nth-child(1).show {
+  -webkit-transform: rotate(90deg) translate(-100px) rotate(-100deg);
+  transform: rotate(90deg) translate(-100px) rotate(-100deg); }
+
+#share .mobile a:nth-child(2).show {
+  -webkit-transform: rotate(60deg) translate(-100px) rotate(-60deg);
+  transform: rotate(60deg) translate(-100px) rotate(-60deg); }
+
+#share .mobile a:nth-child(3).show {
+  -webkit-transform: rotate(30deg) translate(-100px) rotate(-30deg);
+  transform: rotate(30deg) translate(-100px) rotate(-30deg); }
+
+#share .mobile a:nth-child(4).show {
+  -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
+  transform: rotate(0deg) translate(-100px) rotate(0deg); }
+
 
 .softwareCard .card-image {
   padding: 10px; }
