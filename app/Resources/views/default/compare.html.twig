@@ -9,294 +9,277 @@
 {% block body %}
     <div id="compare">
         <div class="container">
-            <div class="row card-panel center-align presentation">
-            <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs principales fonctionnalités.</p>
-            <div class="labelcomparatif">
-                <div class="row">
-                    <div class="offset-m1 col s12 m4 selectsoft">
-                        <label for="soft_choice">Premier logiciel à comparer:</label>
-                        <input list="soft" type="text" id="soft_choice">
-                        <datalist id="soft">
-                            <option value="MailChimp">
-                            <option value="Mautic">
-                            <option value="MailChimp">
-                            <option value="MailChimp">
-                        </datalist>
-                    </div>
-                    <div class="col offset-m2 s12 m4 selectsoft">
-                        <label for="soft_choice2">Second logiciel à comparer :</label>
-                        <input list="soft" type="text" id="soft_choice2">
-                        <datalist id="soft">
-                            <option value="MailChimp">
-                            <option value="Mautic">
-                            <option value="MailChimp">
-                            <option value="MailChimp">
-                        </datalist>
-                    </div>
-                </div>
-            </div>
-            /// Toute cette section s'affiche si 2 logiciels ont été sélectionnés :
-            <div class="row">
-                <div class=" col m6 12">
+            <div class="row presentation">
+                <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs
+                    principales fonctionnalités.</p>
+                <div class="labelcomparatif">
                     <div class="row">
-                        <div class="col s12 m12">
-                            <div class="card">
-                                <div class="center-align">
-                                    <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png" class="responsive-img">
-                                </div>
-                                <div class="center-align"><span class="card-title">MailChimp</span></div>
-                                <div class="card-content">
-                                    <p class="more"><b>Description : </b>I am a very simple card. I am good at
-                                        containing small
-                                        bits of
-                                        information.
-                                        I am convenient because I require little markup to use effectively.
-                                    </p>
-                                </div>
-                            </div>
+                        <div class="offset-m1 col s12 m4 selectsoft">
+                            <label for="soft_choice">Premier logiciel à comparer:</label>
+                            <input list="soft" type="text" id="soft_choice">
+                            <datalist id="soft">
+                                <option value="MailChimp">
+                                <option value="Mautic">
+                                <option value="MailChimp">
+                                <option value="MailChimp">
+                            </datalist>
+                        </div>
+                        <div class="col offset-m2 s12 m4 selectsoft">
+                            <label for="soft_choice2">Second logiciel à comparer :</label>
+                            <input list="soft" type="text" id="soft_choice2">
+                            <datalist id="soft">
+                                <option value="MailChimp">
+                                <option value="Mautic">
+                                <option value="MailChimp">
+                                <option value="MailChimp">
+                            </datalist>
                         </div>
                     </div>
                 </div>
-                <div class=" col m6 s12">
-                    <div class="row">
-                        <div class="col s12 m12">
+                /// Toute cette section s'affiche si 2 logiciels ont été sélectionnés :
+                <div class="row">
+                    <a href="{{ path('softwareSolo') }}">
+                        <div class=" col m6 12">
+                            <div class="card">
+                                <div class="center-align">
+                                    <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png"
+                                         class="responsive-img">
+                                </div>
+                                <div class="center-align"><span class="card-title">MailChimp</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="{{ path('softwareSolo') }}">
+                        <div class=" col m6 s12">
                             <div class="card">
                                 <div class="center-align">
                                     <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png">
                                 </div>
-                                <div class="center-align"><span class="card-title">Mautic</span></div>
-                                <div class="card-content">
-                                    <p class="more"><b>Description : </b>I am a very simple card. I am good at
-                                        containing small
-                                        bits of
-                                        information.
-                                        I am convenient because I require little markup to use effectively.</p>
+                                <div class="center-align"><span class="card-title">Mautic</span>
                                 </div>
                             </div>
                         </div>
+                    </a>
+
+                    <div class="col s12 m12" id="SpecificCompareComment">
+                        <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor
+                            sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie.
+                            Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc
+                            nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
                     </div>
                 </div>
+                <div id="tableVersus">
+                    <h2>Informations générales sur MailChimp et Mautic</h2>
+                    <table class="striped border">
+                        <tr>
+                            <th>Logiciel</th>
+                            <td>MainChimp</td>
+                            <td>Mautic</td>
+                        </tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>Logiciel généraliste</td>
+                            <td>Logiciel généraliste</td>
+                        </tr>
+                        <tr>
+                            <th>Pour qui?</th>
+                            <td>Equipe bien organisée</td>
+                            <td>Equipe bien organisée</td>
+                        </tr>
+                        <tr>
+                            <th>Hébergement des données</th>
+                            <td>Île Caïman</td>
+                            <td>La terre du milieu</td>
+                        </tr>
+                        <tr>
+                            <th>Date de création</th>
+                            <td>1650</td>
+                            <td>1950</td>
+                        </tr>
+                        <tr>
+                            <th>CA annuel</th>
+                            <td>10</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <th>Coût de la configuration</th>
+                            <td>800 €</td>
+                            <td>8000 €</td>
+                        </tr>
+                        <tr>
+                            <th>Abonnement à partir de ...</th>
+                            <td>800 €</td>
+                            <td>80 €</td>
+                        </tr>
+                        <tr>
+                            <th>Coût de la formation</th>
+                            <td>800 €</td>
+                            <td>80 €</td>
+                        </tr>
+                        <tr>
+                            <th>Site web</th>
+                            <td><a href="http://mailchimp.fr">mailchimp.fr</a></td>
+                            <td><a href="http://mautic.fr">mautic.fr</a></td>
+                        </tr>
+                        <tr>
+                            <th>Les plus</th>
+                            <td>800</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <th>Les moins</th>
+                            <td>800</td>
+                            <td>8</td>
+                    </table>
+                    <h2>Canaux de communication inbound</h2>
+                    <table class="striped border">
+                        <tr>
+                            <th>Page d'atterrissage</th>
+                            <td>oui</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Formulaire</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Code de suivi</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Live chat</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                    </table>
+                    <h2>Canaux de communication outbound</h2>
+                    <table class="striped border">
+                        <tr>
+                            <th>Email</th>
+                            <td>oui</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Sms</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Popin sur site</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Courrier postal</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Centre d'appel</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Notifications push mobile</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Appel API</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                    </table>
+                    <h2>Autres fonctionnalités</h2>
+                    <table class="striped border">
+                        <tr>
+                            <th>Segmentation des contacts</th>
+                            <td>oui</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Tablette en magasin</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Lead scoring</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Tests A/B</th>
+                            <td>non</td>
+                            <td>non</td>
+                        </tr>
+                        <tr>
+                            <th>Contact management</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
 
-
-            </div>
-            <div class="col s12 m12" id="SpecificCompareComment">
-                <div class="card">
-                    <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
+                        <tr>
+                            <th>List management</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Smart Contact Capture Form</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Intégration social media</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>CRM integration</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Integration CMS</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Choix du provider email</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Intégration e-commerce</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Choix du provider email</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Automated drip marketing</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Lead Stages</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                        <tr>
+                            <th>Campagne Email</th>
+                            <td>non</td>
+                            <td>oui</td>
+                        </tr>
+                    </table>
                 </div>
             </div>
-            <div id="tableVersus">
-                <h2>Informations générales sur MailChimp et Mautic</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>Logiciel</th>
-                        <td>MainChimp</td>
-                        <td>Mautic</td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td>Logiciel généraliste</td>
-                        <td>Logiciel généraliste</td>
-                    </tr>
-                    <tr>
-                        <th>Pour qui?</th>
-                        <td>Equipe bien organisée</td>
-                        <td>Equipe bien organisée</td>
-                    </tr>
-                    <tr>
-                        <th>Hébergement des données</th>
-                        <td>Île Caïman</td>
-                        <td>La terre du milieu</td>
-                    </tr>
-                    <tr>
-                        <th>Date de création</th>
-                        <td>1650</td>
-                        <td>1950</td>
-                    </tr>
-                    <tr>
-                        <th>CA annuel</th>
-                        <td>10</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <th>Coût de la configuration</th>
-                        <td>800 €</td>
-                        <td>8000 €</td>
-                    </tr>
-                    <tr>
-                        <th>Abonnement à partir de ...</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
-                    </tr>
-                    <tr>
-                        <th>Coût de la formation</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
-                    </tr>
-                    <tr>
-                        <th>Site web</th>
-                        <td><a href="http://mailchimp.fr">mailchimp.fr</a></td>
-                        <td><a href="http://mautic.fr">mautic.fr</a></td>
-                    </tr>
-                    <tr>
-                        <th>Les plus</th>
-                        <td>800</td>
-                        <td>80</td>
-                    </tr>
-                    <tr>
-                        <th>Les moins</th>
-                        <td>800</td>
-                        <td>8</td>
-                </table>
-                <h2>Canaux de communication inbound</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>Page d'atterrissage</th>
-                        <td>oui</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Formulaire</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Code de suivi</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Live chat</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                </table>
-                <h2>Canaux de communication outbound</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>Email</th>
-                        <td>oui</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Sms</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Popin sur site</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Courrier postal</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Centre d'appel</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Notifications push mobile</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Appel API</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                </table>
-                <h2>Autres fonctionnalités</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>Segmentation des contacts</th>
-                        <td>oui</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Tablette en magasin</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Lead scoring</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Tests A/B</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Contact management</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-
-                    <tr>
-                        <th>List management</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Smart Contact Capture Form</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Intégration social media</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>CRM integration</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Integration CMS</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Choix du provider email</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Intégration e-commerce</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Choix du provider email</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Automated drip marketing</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Lead Stages</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Campagne Email</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                </table>
-            </div>
-        </div>
         </div>
     </div>
 {% endblock %}
-{% block javascripts %}{{ parent() }}
-    <script type="text/javascript" src="{{ asset('assets/js/versusSeeMore.js') }}"></script>
-{% endblock %}
+
