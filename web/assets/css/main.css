@@ -200,7 +200,7 @@ textarea {
 
 .page-footer a {
   color: white;
-  font-size: 1em; }
+  font-size: 1.1em; }
 
 #filters {
   margin-top: 4%; }
@@ -7014,75 +7014,60 @@ nav {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
-
-#share a {
-  position: fixed;
-  top: 50vh;
-  right: 0;
-  background-color: red;
-  padding: 15px 10px;
-  border-radius: 50%;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out; }
-
-#share a.hidden {
-  visibility: hidden; }
-
-#share a:last-child {
-  padding: 8px 15px; }
-
-#share a:nth-child(1) {
-  background-color: #73b4ff;
-  padding: 8px 15px; }
-
-#share a:nth-child(1).show {
-  -webkit-transform: rotate(60deg) translate(-110px) rotate(-60deg);
-  transform: rotate(60deg) translate(-110px) rotate(-60deg); }
-
-#share a:nth-child(2) {
-  background-color: #3B5998;
-  padding: 8px 15px; }
-
-#share a:nth-child(2).show {
-  -webkit-transform: rotate(20deg) translate(-110px) rotate(-20deg);
-  transform: rotate(20deg) translate(-110px) rotate(-20deg); }
-
-#share a:nth-child(3) {
-  background-color: #007bb6;
-  padding: 8px 15px; }
-
-#share a:nth-child(3).show {
-  -webkit-transform: rotate(-20deg) translate(-110px) rotate(20deg);
-  transform: rotate(-20deg) translate(-110px) rotate(20deg); }
-
-#share a:nth-child(4) {
-  background-color: gray;
-  padding: 8px 15px; }
-
-#share a:nth-child(4).show {
-  -webkit-transform: rotate(-60deg) translate(-110px) rotate(60deg);
-  transform: rotate(-60deg) translate(-110px) rotate(60deg); }
-
-#share .mobile a {
-  top: 90vh;
-  right: 2vh; }
-
-#share .mobile a:nth-child(1).show {
-  -webkit-transform: rotate(90deg) translate(-100px) rotate(-100deg);
-  transform: rotate(90deg) translate(-100px) rotate(-100deg); }
-
-#share .mobile a:nth-child(2).show {
-  -webkit-transform: rotate(60deg) translate(-100px) rotate(-60deg);
-  transform: rotate(60deg) translate(-100px) rotate(-60deg); }
-
-#share .mobile a:nth-child(3).show {
-  -webkit-transform: rotate(30deg) translate(-100px) rotate(-30deg);
-  transform: rotate(30deg) translate(-100px) rotate(-30deg); }
-
-#share .mobile a:nth-child(4).show {
-  -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
-  transform: rotate(0deg) translate(-100px) rotate(0deg); }
-
+#share {
+  cursor: pointer; }
+  #share a {
+    position: fixed;
+    top: 50vh;
+    right: 0;
+    background-color: red;
+    padding: 15px 10px;
+    border-radius: 50%;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out; }
+  #share a.hidden {
+    visibility: hidden; }
+  #share a:last-child {
+    padding: 8px 15px; }
+  #share a:nth-child(1) {
+    background-color: #73b4ff;
+    padding: 8px 15px; }
+  #share a:nth-child(1).show {
+    -webkit-transform: rotate(60deg) translate(-110px) rotate(-60deg);
+    transform: rotate(60deg) translate(-110px) rotate(-60deg); }
+  #share a:nth-child(2) {
+    background-color: #3B5998;
+    padding: 8px 15px; }
+  #share a:nth-child(2).show {
+    -webkit-transform: rotate(20deg) translate(-110px) rotate(-20deg);
+    transform: rotate(20deg) translate(-110px) rotate(-20deg); }
+  #share a:nth-child(3) {
+    background-color: #007bb6;
+    padding: 8px 15px; }
+  #share a:nth-child(3).show {
+    -webkit-transform: rotate(-20deg) translate(-110px) rotate(20deg);
+    transform: rotate(-20deg) translate(-110px) rotate(20deg); }
+  #share a:nth-child(4) {
+    background-color: gray;
+    padding: 8px 15px; }
+  #share a:nth-child(4).show {
+    -webkit-transform: rotate(-60deg) translate(-110px) rotate(60deg);
+    transform: rotate(-60deg) translate(-110px) rotate(60deg); }
+  #share .mobile a {
+    top: 90vh;
+    right: 2vh; }
+  #share .mobile a:nth-child(1).show {
+    -webkit-transform: rotate(90deg) translate(-100px) rotate(-100deg);
+    transform: rotate(90deg) translate(-100px) rotate(-100deg); }
+  #share .mobile a:nth-child(2).show {
+    -webkit-transform: rotate(60deg) translate(-100px) rotate(-60deg);
+    transform: rotate(60deg) translate(-100px) rotate(-60deg); }
+  #share .mobile a:nth-child(3).show {
+    -webkit-transform: rotate(30deg) translate(-100px) rotate(-30deg);
+    transform: rotate(30deg) translate(-100px) rotate(-30deg); }
+  #share .mobile a:nth-child(4).show {
+    -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
+    transform: rotate(0deg) translate(-100px) rotate(0deg); }
 
 .softwareCard .card-image {
   padding: 10px; }
@@ -7133,11 +7118,9 @@ nav {
     margin-bottom: 20px; }
   #home .presentation h2 {
     text-align: center;
-    font-size: 35px;
     margin-bottom: 30px; }
   #home .presentation h3 {
-    text-align: center;
-    font-size: 30px; }
+    text-align: center; }
   #home .presentation p {
     text-align: justify;
     margin-top: 20px; }
@@ -7180,8 +7163,7 @@ nav {
 
 #results h2 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.3em; }
+  margin-bottom: 20px; }
 
 #software table {
   margin-top: 5%; }
@@ -7316,8 +7298,7 @@ figcaption {
   #compare #SpecificCompareComment {
     margin-bottom: 4%; }
     #compare #SpecificCompareComment p {
-      padding: 10px;
-      font-size: large; }
+      padding: 10px; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -7325,11 +7306,15 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
   body h1 {
-    font-size: xx-large;
+    font-size: 2.5em;
     margin-top: 4%; }
   body h2 {
-    font-size: x-large;
+    font-size: 1.7em;
     margin-top: 20px;
     margin-bottom: 20px; }
+  body h3 {
+    font-size: 1.5em; }
+  body p {
+    font-size: 1.1em; }
   body section {
     min-height: 100vh; }
