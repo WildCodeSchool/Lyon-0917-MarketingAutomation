@@ -7014,6 +7014,7 @@ nav {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
+
 #share {
   cursor: pointer; }
   #share a {
@@ -7069,8 +7070,16 @@ nav {
     -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
     transform: rotate(0deg) translate(-100px) rotate(0deg); }
 
-.softwareCard .card-image {
+.softwareCard .marginLogo {
   padding: 10px; }
+  .softwareCard .marginLogo .card-image {
+    height: 0;
+    padding-top: 100%;
+    position: relative; }
+    .softwareCard .marginLogo .card-image img {
+      position: absolute;
+      top: 0;
+      margin: auto; }
 
 .breadcrumb {
   /* Style the list */

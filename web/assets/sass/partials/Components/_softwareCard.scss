@@ -1,5 +1,15 @@
-.softwareCard{
-  .card-image{
-    padding:10px;
+.softwareCard {
+  .marginLogo {
+    padding: 10px;
+    .card-image {
+      height: 0;
+      padding-top: 100%;
+      position: relative;
+      img {
+        position: absolute;
+        top: 0;
+        margin: auto;
+      }
+    }
   }
 }
