@@ -7014,6 +7014,7 @@ nav {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
 
+
 #share a {
   position: fixed;
   top: 50vh;
@@ -7081,6 +7082,7 @@ nav {
 #share .mobile a:nth-child(4).show {
   -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
   transform: rotate(0deg) translate(-100px) rotate(0deg); }
+
 
 .softwareCard .card-image {
   padding: 10px; }
