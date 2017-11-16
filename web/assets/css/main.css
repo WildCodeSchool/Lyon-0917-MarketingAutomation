@@ -7149,11 +7149,7 @@ nav {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; }
-  #contact #mauticform_input_comparerproformulairecontact_contacter_le_proprio {
-    text-align: center; }
-  .mauticform-innerform {
-    text-align: center !important; } }
+    display: none; } }
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7231,6 +7227,9 @@ nav {
   font-size: 0.8em;
   text-align: right; }
 
+#contact img {
+  margin-top: 60px; }
+
 #listing-versus a {
   font-size: large; }
 
@@ -7262,11 +7261,7 @@ nav {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; }
-  #contact #mauticform_input_comparerproformulairecontact_contacter_le_proprio {
-    text-align: center; }
-  .mauticform-innerform {
-    text-align: center !important; } }
+    display: none; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
   .navmob {
