@@ -7219,12 +7219,11 @@ nav {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-#contact .text {
-  margin-top: 60px;
-  margin-bottom: 50px; }
+.contact {
+  margin-top: 9px; }
 
-#contact figcaption {
-  font-size: 0.8em;
+figcaption {
+  font-size: 0.6em;
   text-align: right; }
 
 #contact img {
@@ -7308,9 +7307,10 @@ nav {
     display: block;
     text-align: right; }
   #compare #SpecificCompareComment {
-    margin-bottom: 4%; }
+    margin-bottom: 4%;
+    margin-top: 4%; }
     #compare #SpecificCompareComment p {
-      padding: 10px; }
+      text-align: justify; }
 
 body {
   font-family: 'Lato', sans-serif;
