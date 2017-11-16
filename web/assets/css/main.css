@@ -7149,7 +7149,11 @@ nav {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; } }
+    display: none; }
+  #contact #mauticform_input_comparerproformulairecontact_contacter_le_proprio {
+    text-align: center; }
+  .mauticform-innerform {
+    text-align: center !important; } }
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7219,11 +7223,12 @@ nav {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-.contact {
-  margin-top: 9px; }
+#contact .text {
+  margin-top: 60px;
+  margin-bottom: 50px; }
 
-figcaption {
-  font-size: 0.6em;
+#contact figcaption {
+  font-size: 0.8em;
   text-align: right; }
 
 #listing-versus a {
@@ -7257,7 +7262,11 @@ figcaption {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; } }
+    display: none; }
+  #contact #mauticform_input_comparerproformulairecontact_contacter_le_proprio {
+    text-align: center; }
+  .mauticform-innerform {
+    text-align: center !important; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
   .navmob {
