@@ -7304,9 +7304,10 @@ figcaption {
     display: block;
     text-align: right; }
   #compare #SpecificCompareComment {
-    margin-bottom: 4%; }
+    margin-bottom: 4%;
+    margin-top: 4%; }
     #compare #SpecificCompareComment p {
-      padding: 10px; }
+      text-align: justify; }
 
 body {
   font-family: 'Lato', sans-serif;
