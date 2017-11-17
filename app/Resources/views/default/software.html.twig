@@ -8,7 +8,7 @@
                 <h1 id="softwareh1">Tout sur le logiciel MailChimp</h1>
                 <p id="tagOnSoft">
                     {% for i in range(0, 5) %}
-                        <a href="unique-tag.html.twig">Tag {{ i }}</a>
+                        <a href="{{ path('tagSolo') }}">Tag {{ i }}</a>
                         {% if i < 5 %}, {% endif %}
                     {% endfor %}
                 </p>
