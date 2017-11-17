@@ -7225,6 +7225,9 @@ figcaption {
   font-size: 0.6em;
   text-align: right; }
 
+#contact img {
+  margin-top: 60px; }
+
 #listing-versus a {
   font-size: large; }
 
