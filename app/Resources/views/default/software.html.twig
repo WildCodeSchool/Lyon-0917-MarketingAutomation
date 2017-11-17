@@ -9,7 +9,7 @@
                 <p id="tagOnSoft">
                     {% for i in range(0, 5) %}
                         <a href="{{ path('tagSolo') }}">Tag {{ i }}</a>
-                        {% if i < 5 %}, {% endif %}
+                        {% if loop.last == false %}, {% endif %}
                     {% endfor %}
                 </p>
             {% endblock %}
