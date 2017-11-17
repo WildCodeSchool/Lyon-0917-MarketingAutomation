@@ -613,6 +613,8 @@ nav {
   nav #topBarSearch input {
     margin-left: 1.5rem;
     width: calc(100% - 4rem); }
+  nav #topBarSearch .material-icons {
+    margin-top: -6px; }
   nav #lowBarSearch .input-field .prefix {
     position: absolute;
     margin-left: 90%; }
