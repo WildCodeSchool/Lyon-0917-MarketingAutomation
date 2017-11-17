@@ -55,7 +55,18 @@ body {
 
   section {
     min-height: 100vh;
+  }
+  .top{
+    cursor: pointer;
+    text-align: right;
+    margin-right: 5px;
+
+}
+  #topFixed{
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right:0;
 
   }
 }
-

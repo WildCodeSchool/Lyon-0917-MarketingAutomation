@@ -7155,6 +7155,10 @@ nav {
     margin-right: 0; }
   .result-logo-responsive {
     display: none; }
+
+  .top {
+    display: none; } }
+
   #home .presentation {
     margin-top: 4%; } }
 
@@ -7293,9 +7297,11 @@ nav {
     margin-right: 0; }
   .result-logo-responsive {
     display: none; }
+  .top {
+    display: none; } }
+
   #home .presentation {
     margin-top: 4%; } }
-
 @media (min-width: 400px) and (max-width: 1056px) {
   .navmob {
     height: 75px; }
@@ -7365,3 +7371,12 @@ body {
     text-align: justify; }
   body section {
     min-height: 100vh; }
+  body .top {
+    cursor: pointer;
+    text-align: right;
+    margin-right: 5px; }
+  body #topFixed {
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right: 0; }
