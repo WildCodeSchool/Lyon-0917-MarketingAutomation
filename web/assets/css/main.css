@@ -7110,7 +7110,8 @@ nav {
 
 #home h1 {
   color: white;
-  margin-top: 15%; }
+  margin-top: 25px;
+  margin-bottom: 25px; }
 
 #home #searchBar {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
@@ -7134,7 +7135,8 @@ nav {
     margin-top: 20px; }
 
 #home .homesearch {
-  height: 70vh; }
+  min-height: 70vh;
+  margin-top: 14%; }
 
 @media (max-width: 400px) {
   .navmob {
@@ -7149,7 +7151,9 @@ nav {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; } }
+    display: none; }
+  #home .presentation {
+    margin-top: 4%; } }
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7257,7 +7261,9 @@ figcaption {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; } }
+    display: none; }
+  #home .presentation {
+    margin-top: 4%; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
   .navmob {
