@@ -6,19 +6,19 @@
 {% endblock %}
             {% block h1 %}
                 <h1 id="softwareh1">Tout sur le logiciel MailChimp</h1>
+                <p id="tagOnSoft">
+                    {% for i in range(0, 5) %}
+                        <a href="unique-tag.html.twig">Tag {{ i }}</a>
+                        {% if i < 5 %}, {% endif %}
+                    {% endfor %}
+                </p>
             {% endblock %}
 
 {% block body %}
 
     <div class="container">
         <div id="software">
-            <p id="tagOnSoft">
-                {% for i in range(0, 5) %}
-                    <a href="unique-tag.html.twig">Tag {{ i }}</a>
-                    {% if i < 5 %}, {% endif %}
-                {% endfor %}
 
-            </p>
             <div class="row">
                 <div class="col m3 s12 l3">
                     <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png" height="250"
