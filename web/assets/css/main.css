@@ -7173,6 +7173,9 @@ nav {
   text-align: center;
   margin-bottom: 20px; }
 
+#results .presults {
+  color: grey; }
+
 #software table {
   margin-top: 5%; }
   #software table th {
