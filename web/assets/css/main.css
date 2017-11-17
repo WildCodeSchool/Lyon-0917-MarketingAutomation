@@ -613,6 +613,8 @@ nav {
   nav #topBarSearch input {
     margin-left: 1.5rem;
     width: calc(100% - 4rem); }
+  nav #topBarSearch .material-icons {
+    margin-top: -6px; }
   nav #lowBarSearch .input-field .prefix {
     position: absolute;
     margin-left: 90%; }
@@ -7110,7 +7112,8 @@ nav {
 
 #home h1 {
   color: white;
-  margin-top: 15%; }
+  margin-top: 25px;
+  margin-bottom: 25px; }
 
 #home #searchBar {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)); }
@@ -7134,7 +7137,8 @@ nav {
     margin-top: 20px; }
 
 #home .homesearch {
-  height: 70vh; }
+  min-height: 70vh;
+  margin-top: 14%; }
 
 #results .card {
   box-shadow: none; }
@@ -7173,6 +7177,17 @@ nav {
   text-align: center;
   margin-bottom: 20px; }
 
+#results .presults {
+  color: grey; }
+
+#software #tagOnSoft {
+  margin-bottom: 2%;
+  color: grey; }
+  #software #tagOnSoft a {
+    color: grey; }
+  #software #tagOnSoft a:hover {
+    text-decoration: underline; }
+
 #software table {
   margin-top: 5%; }
   #software table th {
@@ -7183,8 +7198,8 @@ nav {
     width: 66%;
     text-align: center; }
 
-.softwareh1 {
-  margin-top: 0%; }
+#softwareh1 {
+  margin-top: 0; }
 
 #listing-tags .chip {
   margin-left: 5px; }
@@ -7218,14 +7233,15 @@ nav {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-.contact {
-  margin-top: 9px; }
+.contact .text {
+  margin-top: 60px;
+  margin-bottom: 50px; }
 
-figcaption {
-  font-size: 0.6em;
+.contact figcaption {
+  font-size: 0.8em;
   text-align: right; }
 
-#contact img {
+.contact img {
   margin-top: 60px; }
 
 #listing-versus a {
@@ -7259,9 +7275,15 @@ figcaption {
     margin-left: 0;
     margin-right: 0; }
   .result-logo-responsive {
-    display: none; } }
+    display: none; }
+  .top {
+    display: none; }
+  #home .presentation {
+    margin-top: 4%; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
+  .top {
+    display: none; }
   .navmob {
     height: 75px; }
   #results h1 {
@@ -7330,3 +7352,12 @@ body {
     text-align: justify; }
   body section {
     min-height: 100vh; }
+  body .top {
+    cursor: pointer;
+    text-align: right;
+    margin-right: 5px; }
+  body #topFixed {
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right: 0; }

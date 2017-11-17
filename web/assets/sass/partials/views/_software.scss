@@ -1,6 +1,16 @@
-#software{
+#software {
+  #tagOnSoft {
 
-  table{
+    margin-bottom: 2%;
+    color: grey;
+    a {
+       color: grey;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  }
+  table {
     margin-top: 5%;
     th {
       width: 34%;
@@ -14,7 +24,6 @@
   }
 }
 
-.softwareh1
-{
-  margin-top: 0%;
+#softwareh1 {
+  margin-top: 0;
 }
