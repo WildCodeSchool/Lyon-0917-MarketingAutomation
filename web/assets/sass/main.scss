@@ -58,12 +58,14 @@ body {
   .top{
     cursor: pointer;
     text-align: right;
-    right: 5px;
+    margin-right: 5px;
+
 }
   #topFixed{
     position: fixed;
+    text-align: right;
     bottom: 0;
-    right: 5px;
+    right:0;
 
   }
 }
