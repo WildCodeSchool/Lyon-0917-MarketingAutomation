@@ -7324,7 +7324,8 @@ body {
     min-height: 100vh; }
   body .top {
     cursor: pointer;
-    text-align: right; }
+    text-align: right;
+    right: 5px; }
   body #topFixed {
     position: fixed;
     bottom: 0;
