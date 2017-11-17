@@ -1,5 +1,5 @@
 .page-footer {
-  padding-top: 15px;
+  padding-top: 14px;
   width: 100%;
   background-color: rgb(21, 31, 48);
   position: relative;
@@ -7,14 +7,13 @@
 }
 
 .footer-copyright {
+
   margin-top: -15px;
 }
 
+}
 
-
-
-
-
-
-
-
+.page-footer a {
+  color: white;
+  font-size: 1.1em;
+}

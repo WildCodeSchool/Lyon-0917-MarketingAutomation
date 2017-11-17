@@ -189,14 +189,18 @@ textarea {
   *font-family: sans-serif; }
 
 .page-footer {
-  padding-top: 15px;
+  padding-top: 14px;
   width: 100%;
   background-color: #151f30;
   position: relative;
   bottom: 0; }
 
 .footer-copyright {
-  margin-top: -15px; }
+  margin-top: -10px; }
+
+.page-footer a {
+  color: white;
+  font-size: 1.1em; }
 
 #filters {
   margin-top: 4%; }
@@ -597,7 +601,7 @@ nav {
   nav .input-field {
     background-color: white; }
   nav li a {
-    font-size: 1.3em; }
+    font-size: 1.4em; }
   nav #topBarSearch .input-field {
     border-radius: 4px;
     height: 51px;
@@ -7065,8 +7069,16 @@ nav {
     -webkit-transform: rotate(0deg) translate(-100px) rotate(0deg);
     transform: rotate(0deg) translate(-100px) rotate(0deg); }
 
-.softwareCard .card-image {
+.softwareCard .marginLogo {
   padding: 10px; }
+  .softwareCard .marginLogo .card-image {
+    height: 0;
+    padding-top: 100%;
+    position: relative; }
+    .softwareCard .marginLogo .card-image img {
+      position: absolute;
+      top: 0;
+      margin: auto; }
 
 .breadcrumb {
   /* Style the list */
@@ -7124,20 +7136,20 @@ nav {
 #home .homesearch {
   height: 70vh; }
 
-@media (max-width: 400px) {
-  .navmob {
-    height: 75px; }
-  #results h1 {
-    margin-top: 8%; }
-  #results h3 {
-    font-size: x-large;
-    margin-top: 5%;
-    margin-bottom: 8%; }
-  nav .nav-wrapper {
-    margin-left: 0;
-    margin-right: 0; }
-  .result-logo-responsive {
-    display: none; } }
+#results .card {
+  box-shadow: none; }
+
+#results .marginLogo {
+  padding: 10px; }
+  #results .marginLogo .card-image {
+    width: 0;
+    padding-left: 75px;
+    padding-bottom: 100%;
+    position: relative; }
+    #results .marginLogo .card-image img {
+      position: absolute;
+      left: 0;
+      margin: auto; }
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7159,8 +7171,7 @@ nav {
 
 #results h2 {
   text-align: center;
-  margin-bottom: 20px;
-  font-size: 1.3em; }
+  margin-bottom: 20px; }
 
 #software table {
   margin-top: 5%; }
@@ -7183,6 +7194,7 @@ nav {
 
 #listing-tags li {
   margin-top: 10px; }
+
 
 #mentions-legales {
   text-align: justify; }
@@ -7216,6 +7228,9 @@ nav {
 figcaption {
   font-size: 0.6em;
   text-align: right; }
+
+#contact img {
+  margin-top: 60px; }
 
 #listing-versus a {
   font-size: large; }
@@ -7295,10 +7310,10 @@ figcaption {
     display: block;
     text-align: right; }
   #compare #SpecificCompareComment {
-    margin-bottom: 4%; }
+    margin-bottom: 4%;
+    margin-top: 4%; }
     #compare #SpecificCompareComment p {
-      padding: 10px;
-      font-size: large; }
+      text-align: justify; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -7306,13 +7321,17 @@ body {
   background-size: cover;
   background-repeat: no-repeat; }
   body h1 {
-    font-size: xx-large;
+    font-size: 2.5em;
     margin-top: 4%; }
   body h2 {
-    font-size: x-large;
+    font-size: 1.7em;
     margin-top: 20px;
     margin-bottom: 20px; }
   body h3 {
     font-size: 1.3em; }
+
+  body p {
+    font-size: 1.1em;
+    text-align: justify; }
   body section {
     min-height: 100vh; }
