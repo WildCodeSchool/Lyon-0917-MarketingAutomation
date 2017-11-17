@@ -7189,8 +7189,10 @@ nav {
   #mentions-legales h2 {
     font-weight: bold; }
   #mentions-legales h3 {
-    font-size: 22px;
-    margin-top: 3vh;
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    font-weight: bold; }
+  #mentions-legales p {
     margin-bottom: 2vh; }
 
 #notfound {
@@ -7310,5 +7312,7 @@ body {
     font-size: x-large;
     margin-top: 20px;
     margin-bottom: 20px; }
+  body h3 {
+    font-size: 1.3em; }
   body section {
     min-height: 100vh; }
