@@ -7140,28 +7140,6 @@ nav {
   min-height: 70vh;
   margin-top: 14%; }
 
-
-@media (max-width: 400px) {
-  .navmob {
-    height: 75px; }
-  #results h1 {
-    margin-top: 8%; }
-  #results h3 {
-    font-size: x-large;
-    margin-top: 5%;
-    margin-bottom: 8%; }
-  nav .nav-wrapper {
-    margin-left: 0;
-    margin-right: 0; }
-  .result-logo-responsive {
-    display: none; }
-
-  .top {
-    display: none; } }
-
-  #home .presentation {
-    margin-top: 4%; } }
-
 #results .card {
   box-shadow: none; }
 
@@ -7176,7 +7154,6 @@ nav {
       position: absolute;
       left: 0;
       margin: auto; }
-
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7200,6 +7177,9 @@ nav {
   text-align: center;
   margin-bottom: 20px; }
 
+#results .presults {
+  color: grey; }
+
 #software #tagOnSoft {
   margin-bottom: 2%;
   color: grey; }
@@ -7207,7 +7187,6 @@ nav {
     color: grey; }
   #software #tagOnSoft a:hover {
     text-decoration: underline; }
-
 
 #software table {
   margin-top: 5%; }
@@ -7298,10 +7277,10 @@ nav {
   .result-logo-responsive {
     display: none; }
   .top {
-    display: none; } }
-
+    display: none; }
   #home .presentation {
     margin-top: 4%; } }
+
 @media (min-width: 400px) and (max-width: 1056px) {
   .navmob {
     height: 75px; }
