@@ -7114,11 +7114,9 @@ nav {
     margin-bottom: 20px; }
   #home .presentation h2 {
     text-align: center;
-    font-size: 35px;
     margin-bottom: 30px; }
   #home .presentation h3 {
-    text-align: center;
-    font-size: 30px; }
+    text-align: center; }
   #home .presentation p {
     text-align: justify;
     margin-top: 20px; }
@@ -7200,12 +7198,12 @@ nav {
   #notfound h1, #notfound h2, #notfound p {
     text-align: center; }
   #notfound h1 {
-    font-size: 65px;
+    font-size: 6em;
     color: #151f30;
-    margin-top: 20px;
+    margin-top: 300px;
     margin-bottom: 20px; }
   #notfound h2 {
-    font-size: 50px;
+    font-size: 3em;
     color: dimgrey;
     margin-top: 20px;
     margin-bottom: 20px; }
