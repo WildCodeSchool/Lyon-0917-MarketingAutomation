@@ -7195,14 +7195,13 @@ nav {
 #listing-tags li {
   margin-top: 10px; }
 
-#mentions-legales {
-  text-align: justify; }
-  #mentions-legales h2 {
-    font-weight: bold; }
-  #mentions-legales h3 {
-    font-size: 22px;
-    margin-top: 3vh;
-    margin-bottom: 2vh; }
+#mentions-legales h2 {
+  font-weight: bold; }
+
+#mentions-legales h3 {
+  font-size: 22px;
+  margin-top: 3vh;
+  margin-bottom: 2vh; }
 
 #notfound {
   background-color: #EBEBEB; }
@@ -7324,6 +7323,7 @@ body {
   body h3 {
     font-size: 1.5em; }
   body p {
-    font-size: 1.1em; }
+    font-size: 1.1em;
+    text-align: justify; }
   body section {
     min-height: 100vh; }
