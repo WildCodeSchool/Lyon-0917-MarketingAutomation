@@ -7282,6 +7282,8 @@ nav {
     margin-top: 4%; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
+  .top {
+    display: none; }
   .navmob {
     height: 75px; }
   #results h1 {

@@ -1,11 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}Nom du logiciel - logiciel de marketing automation {% endblock %}
 {% block metadesc %}%nom% est un logiciel de marketing automation spécialisé dans ... {% endblock %}
-{% block breadcrumb %}
-    {% include('breadcrumb.html.twig') %}
-{% endblock %}
+
             {% block h1 %}
-                <h1 id="softwareh1">Tout sur le logiciel MailChimp</h1>
+                <h1 id="softwareh1">MailChimp</h1>
                 <p id="tagOnSoft">
                     {% for i in range(0, 5) %}
                         <a href="{{ path('tagSolo') }}">Tag {{ i }}</a>
