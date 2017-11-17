@@ -7218,14 +7218,15 @@ nav {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-.contact {
-  margin-top: 9px; }
+.contact .text {
+  margin-top: 60px;
+  margin-bottom: 50px; }
 
-figcaption {
-  font-size: 0.6em;
+.contact figcaption {
+  font-size: 0.8em;
   text-align: right; }
 
-#contact img {
+.contact img {
   margin-top: 60px; }
 
 #listing-versus a {
