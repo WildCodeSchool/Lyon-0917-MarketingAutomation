@@ -7138,6 +7138,7 @@ nav {
   min-height: 70vh;
   margin-top: 14%; }
 
+
 @media (max-width: 400px) {
   .navmob {
     height: 75px; }
@@ -7154,6 +7155,22 @@ nav {
     display: none; }
   #home .presentation {
     margin-top: 4%; } }
+
+#results .card {
+  box-shadow: none; }
+
+#results .marginLogo {
+  padding: 10px; }
+  #results .marginLogo .card-image {
+    width: 0;
+    padding-left: 75px;
+    padding-bottom: 100%;
+    position: relative; }
+    #results .marginLogo .card-image img {
+      position: absolute;
+      left: 0;
+      margin: auto; }
+
 
 #results h1 {
   margin-bottom: 4%; }
@@ -7199,14 +7216,13 @@ nav {
 #listing-tags li {
   margin-top: 10px; }
 
-#mentions-legales {
-  text-align: justify; }
-  #mentions-legales h2 {
-    font-weight: bold; }
-  #mentions-legales h3 {
-    font-size: 22px;
-    margin-top: 3vh;
-    margin-bottom: 2vh; }
+#mentions-legales h2 {
+  font-weight: bold; }
+
+#mentions-legales h3 {
+  font-size: 22px;
+  margin-top: 3vh;
+  margin-bottom: 2vh; }
 
 #notfound {
   background-color: #EBEBEB; }
@@ -7229,6 +7245,9 @@ nav {
 figcaption {
   font-size: 0.6em;
   text-align: right; }
+
+#contact img {
+  margin-top: 60px; }
 
 #listing-versus a {
   font-size: large; }
@@ -7330,6 +7349,7 @@ body {
   body h3 {
     font-size: 1.5em; }
   body p {
-    font-size: 1.1em; }
+    font-size: 1.1em;
+    text-align: justify; }
   body section {
     min-height: 100vh; }
