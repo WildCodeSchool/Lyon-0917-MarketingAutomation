@@ -9,6 +9,29 @@
 {% block body %}
     <div id="compare">
         <div class="container">
+            <div class="row card-panel center-align presentation">
+            <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs principales fonctionnalités.</p>
+            <div class="labelcomparatif">
+                <div class="row">
+                    <div class="offset-m1 col s12 m4 selectsoft">
+                        <label for="soft_choice">Premier logiciel à comparer:</label>
+                        <input list="soft" type="text" id="soft_choice">
+                        <datalist id="soft">
+                            <option value="MailChimp">
+                            <option value="Mautic">
+                            <option value="MailChimp">
+                            <option value="MailChimp">
+                        </datalist>
+                    </div>
+                    <div class="col offset-m2 s12 m4 selectsoft">
+                        <label for="soft_choice2">Second logiciel à comparer :</label>
+                        <input list="soft" type="text" id="soft_choice2">
+                        <datalist id="soft">
+                            <option value="MailChimp">
+                            <option value="Mautic">
+                            <option value="MailChimp">
+                            <option value="MailChimp">
+                        </datalist>
             <div class="row presentation">
                 <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs
                     principales fonctionnalités.</p>
@@ -274,6 +297,7 @@
                     </table>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 {% endblock %}

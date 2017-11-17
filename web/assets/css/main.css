@@ -7221,25 +7221,29 @@ nav {
 #listing-tags li {
   margin-top: 10px; }
 
-#mentions-legales h2 {
-  font-weight: bold; }
 
-#mentions-legales h3 {
-  font-size: 22px;
-  margin-top: 3vh;
-  margin-bottom: 2vh; }
+#mentions-legales {
+  text-align: justify; }
+  #mentions-legales h2 {
+    font-weight: bold; }
+  #mentions-legales h3 {
+    margin-top: 6vh;
+    margin-bottom: 2vh;
+    font-weight: bold; }
+  #mentions-legales p {
+    margin-bottom: 2vh; }
 
 #notfound {
   background-color: #EBEBEB; }
   #notfound h1, #notfound h2, #notfound p {
     text-align: center; }
   #notfound h1 {
-    font-size: 65px;
+    font-size: 6em;
     color: #151f30;
-    margin-top: 20px;
+    margin-top: 300px;
     margin-bottom: 20px; }
   #notfound h2 {
-    font-size: 50px;
+    font-size: 3em;
     color: dimgrey;
     margin-top: 20px;
     margin-bottom: 20px; }
@@ -7353,7 +7357,8 @@ body {
     margin-top: 20px;
     margin-bottom: 20px; }
   body h3 {
-    font-size: 1.5em; }
+    font-size: 1.3em; }
+
   body p {
     font-size: 1.1em;
     text-align: justify; }
