@@ -7196,8 +7196,14 @@ nav {
   text-align: center;
   margin-bottom: 20px; }
 
-#results .presults {
+#software #tagOnSoft {
+  margin-bottom: 2%;
   color: grey; }
+  #software #tagOnSoft a {
+    color: grey; }
+  #software #tagOnSoft a:hover {
+    text-decoration: underline; }
+
 
 #software table {
   margin-top: 5%; }
@@ -7209,8 +7215,8 @@ nav {
     width: 66%;
     text-align: center; }
 
-.softwareh1 {
-  margin-top: 0%; }
+#softwareh1 {
+  margin-top: 0; }
 
 #listing-tags .chip {
   margin-left: 5px; }

@@ -5,52 +5,71 @@
     {% include('breadcrumb.html.twig') %}
 {% endblock %}
             {% block h1 %}
-                <h1 class="softwareh1">Tout sur le logiciel MailChimp</h1>
+                <h1 id="softwareh1">Tout sur le logiciel MailChimp</h1>
+                <p id="tagOnSoft">
+                    {% for i in range(0, 5) %}
+                        <a href="{{ path('tagSolo') }}">Tag {{ i }}</a>
+                        {% if loop.last == false %}, {% endif %}
+                    {% endfor %}
+                </p>
             {% endblock %}
 
 {% block body %}
 
     <div class="container">
         <div id="software">
+
             <div class="row">
                 <div class="col m3 s12 l3">
                     <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png" height="250"
                          width="250" class="responsive-img">
                 </div>
                 <div class="col m9 s12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis, ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis, ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl
+                        semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra.
+                        Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis,
+                        ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl
+                        semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra.
+                        Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis,
+                        ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
                 </div>
             </div>
-                    <h2>Notre commentaire sur MailChimp</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel orci sit amet mauris porta ullamcorper quis sit amet diam. Sed commodo dolor libero, nec sodales lorem ultricies ut. Ut nec pharetra sapien, id convallis tellus. Nulla quis lacinia dui, ut facilisis quam. Etiam feugiat dolor eget pharetra vulputate. Aenean pellentesque euismod lectus et rhoncus. Cras vulputate ullamcorper massa nec vehicula. Praesent pulvinar nibh justo, ultricies scelerisque felis lacinia in. Ut tincidunt lectus justo, id mollis nulla consequat vel. Nam convallis arcu sapien, tincidunt sagittis nulla imperdiet ut. Sed accumsan, mauris at lobortis finibus, leo neque tristique arcu, sit amet.</p>
+            <h2>Notre commentaire sur MailChimp</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel orci sit amet mauris porta ullamcorper
+                quis sit amet diam. Sed commodo dolor libero, nec sodales lorem ultricies ut. Ut nec pharetra sapien, id
+                convallis tellus. Nulla quis lacinia dui, ut facilisis quam. Etiam feugiat dolor eget pharetra
+                vulputate. Aenean pellentesque euismod lectus et rhoncus. Cras vulputate ullamcorper massa nec vehicula.
+                Praesent pulvinar nibh justo, ultricies scelerisque felis lacinia in. Ut tincidunt lectus justo, id
+                mollis nulla consequat vel. Nam convallis arcu sapien, tincidunt sagittis nulla imperdiet ut. Sed
+                accumsan, mauris at lobortis finibus, leo neque tristique arcu, sit amet.</p>
 
-                    <h2>Informations générales sur MailChimp</h2>
+            <h2>Informations générales sur MailChimp</h2>
 
-                                {% include 'table-software-identity.html.twig' %}
+            {% include 'table-software-identity.html.twig' %}
 
-                    <h2>Canaux de communication inbound de MailChimp</h2>
+            <h2>Canaux de communication inbound de MailChimp</h2>
 
-                                {% include 'table-software-inbound.html.twig' %}
-
-
-                         <h2>Canaux de communication outbound de MailChimp</h2>
-
-                                {% include 'table-software-outbound.html.twig' %}
-
-
-                    <h2>Autres fonctionnalités de MailChimp</h2>
-
-                                {% include 'table-software-functions.html.twig' %}
+            {% include 'table-software-inbound.html.twig' %}
 
 
-        <div class="row">
-            <div class="col m12 s12 l12">
-                <h2>Une question sur MailChimp ? Contactez-nous !</h2>
-                <p>Formulaire à nous fournir.</p>
+            <h2>Canaux de communication outbound de MailChimp</h2>
 
+            {% include 'table-software-outbound.html.twig' %}
+
+
+            <h2>Autres fonctionnalités de MailChimp</h2>
+
+            {% include 'table-software-functions.html.twig' %}
+
+
+            <div class="row">
+                <div class="col m12 s12 l12">
+                    <h2>Une question sur MailChimp ? Contactez-nous !</h2>
+                    <p>Formulaire à nous fournir.</p>
+
+                </div>
             </div>
-        </div>
 
             <h2>Voir d'autres logiciels de marketing automation :</h2>
             <div class="row">
@@ -60,49 +79,49 @@
                 {% endfor %}
 
             </div>
-        </div>
+            </p>
             <h2>Comparer MailChimp avec d'autres logiciels de marketing automation</h2>
-        <div class="row">
+            <div class="row">
 
-            {% for i in range(1, 4) %}
-                {% include('software-card.html.twig') %}
-            {% endfor %}
+                {% for i in range(1, 4) %}
+                    {% include('software-card.html.twig') %}
+                {% endfor %}
 
+            </div>
         </div>
-    </div>
 
-            <aside id="share">
-                <div class="hide-on-med-and-down">
-                    <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
-                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                       class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
-                    <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" rel="nofollow"
-                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                       class="mdi mdi-facebook mdi-36px mdi-light hidden"></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri }}" rel="nofollow"
-                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                       class="mdi mdi-linkedin mdi-36px mdi-light hidden "></a>
-                    <a href="https://buffer.com/add?url={{ app.request.uri }}" rel="nofollow"
-                       onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
-                       class="mdi mdi-buffer mdi-36px mdi-light hidden "></a>
-                    <a class="mdi mdi-share-variant mdi-36px mdi-light "></a>
-                </div>
+        <aside id="share">
+            <div class="hide-on-med-and-down">
+                <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
+                   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                   class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
+                <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" rel="nofollow"
+                   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                   class="mdi mdi-facebook mdi-36px mdi-light hidden"></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri }}" rel="nofollow"
+                   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                   class="mdi mdi-linkedin mdi-36px mdi-light hidden "></a>
+                <a href="https://buffer.com/add?url={{ app.request.uri }}" rel="nofollow"
+                   onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
+                   class="mdi mdi-buffer mdi-36px mdi-light hidden "></a>
+                <a class="mdi mdi-share-variant mdi-36px mdi-light "></a>
+            </div>
 
 
-                <div class="hide-on-large-only mobile">
-                    <a href=https://twitter.com/share?url= {{ app.request.uri }} &via=Marketing_automation" target="_blank"
-                       rel="nofollow"
-                       class="mdi mdi-twitter mdi-24px mdi-light hidden social"></a>
-                    <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" target="_blank" rel="nofollow"
-                       class="mdi mdi-facebook mdi-24px mdi-light hidden"></a>
-                    <a href="https://www.linkedin.com/shareArticle?mini=true&url= {{ app.request.uri }}" target="_blank"
-                       rel="nofollow"
-                       class="mdi mdi-linkedin mdi-24px mdi-light hidden social"></a>
-                    <a href="https://buffer.com/add?text={{ app.request.uri }}" target="_blank" rel="nofollow"
-                       class="mdi mdi-buffer mdi-24px mdi-light hidden social"></a>
-                    <a class="mdi mdi-share-variant mdi-24px mdi-light "></a>
-                </div>
-            </aside>
+            <div class="hide-on-large-only mobile">
+                <a href=https://twitter.com/share?url= {{ app.request.uri }} &via=Marketing_automation" target="_blank"
+                   rel="nofollow"
+                   class="mdi mdi-twitter mdi-24px mdi-light hidden social"></a>
+                <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" target="_blank" rel="nofollow"
+                   class="mdi mdi-facebook mdi-24px mdi-light hidden"></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url= {{ app.request.uri }}" target="_blank"
+                   rel="nofollow"
+                   class="mdi mdi-linkedin mdi-24px mdi-light hidden social"></a>
+                <a href="https://buffer.com/add?text={{ app.request.uri }}" target="_blank" rel="nofollow"
+                   class="mdi mdi-buffer mdi-24px mdi-light hidden social"></a>
+                <a class="mdi mdi-share-variant mdi-24px mdi-light "></a>
+            </div>
+        </aside>
     </div>
 
     </div>
