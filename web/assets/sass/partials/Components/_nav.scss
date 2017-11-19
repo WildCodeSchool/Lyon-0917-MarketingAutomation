@@ -13,6 +13,7 @@ nav {
     }
   }
   #topBarSearch{
+    margin-top: -65px;
     .input-field {
       border-radius: 4px;
       height: 51px;
@@ -28,9 +29,6 @@ nav {
       width: calc(100% - 4rem);
     }
 
-    .material-icons {
-      margin-top: -6px;
-    }
 
   }
 
@@ -56,7 +54,6 @@ nav {
 }
 
 .nav-wrapper {
-  margin-left: 30px;
   margin-right: 30px;
 }
 

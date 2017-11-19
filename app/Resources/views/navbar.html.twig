@@ -1,24 +1,26 @@
 <div class="hide-on-med-and-down">
     <nav id="navBar">
         <div class="nav-wrapper">
-            <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
+            <a href="{{ path('homepagegcam') }}" class="brand-logo">Logo</a>
             <ul class="right">
                 <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
                 <li><a href="{{ path('listingTags') }}">Tags</a></li>
                 <li><a href="{{ path('versus') }}">Comparatif</a></li>
                 <li><a href="{{ path('contact') }}">Contact</a></li>
             </ul>
+
+        </div>
+        <div class="container">
             <div class="row">
-                <div class="col offset-m1 m6" id="topBarSearch">
+                <div class="col m7" id="topBarSearch">
                     <form action="">
-                            <div class="input-field">
-                                <i class="material-icons prefix">search</i>
-                                <input type="text" placeholder="Recherche" id="autocomplete-input"
-                                       class="autocomplete">
-                            </div>
+                        <div class="input-field">
+                            <i class="material-icons prefix">search</i>
+                            <input type="text" placeholder="Recherche" id="autocomplete-input"
+                                   class="autocomplete">
                         </div>
-                    </form>
                 </div>
+                </form>
             </div>
         </div>
     </nav>
@@ -58,7 +60,7 @@
 
 
         </div>
-        <div  id="lowBarSearch">
+        <div id="lowBarSearch">
             <form>
                 <div class="input-field">
                     <i class="material-icons prefix">search</i>
