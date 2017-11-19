@@ -6,25 +6,25 @@
 {% block title %} Trouvez le logiciel de marketing automation de vos rêves {% endblock %}
 {% block metadesc %}Recherchez et trouvez le logiciel de marketing automation qui manque à votre entreprise, pgrâce à notre sélection des principaux acteurs du marché.{% endblock %}
 {% block body %}
-    <div id="home">
+    <div class="container">
+        <div id="home">
 
-        <div class="row center-align homesearch">
-            <div class="col s12 m8 offset-m2 l6 offset-l3 ">
-                <h1 class="center-align col s12">Rechercher un logiciel de marketing automation</h1>
-                <div class="card-panel" id="searchBar">
+            <div class="row center-align homesearch">
+                <div class="col s12 m10 offset-m1 ">
+                    <h1 class="center-align col s12">Rechercher un logiciel de marketing automation</h1>
+                    <div class="card-panel" id="searchBar">
 
-                    <form id="search-site" action='search' method='get'>
-                        <div class="input-group">
-                            <input id="search" type="search" name='search'
-                                   placeholder="Ex: Mailchimp, envoi de sms..." tabindex="1" autofocus="autofocus">
-                            <a href="{{ path('results') }}" class="btn-large"><i class="large material-icons right">search</i>Rechercher</a>
-                        </div>
-                    </form>
+                        <form id="search-site" action='search' method='get'>
+                            <div class="input-group">
+                                <input id="search" type="search" name='search'
+                                       placeholder="Ex: Mailchimp, envoi de sms..." tabindex="1" autofocus="autofocus">
+                                <a href="{{ path('results') }}" class="btn-large"><i class="large material-icons right">search</i>Rechercher</a>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="container">
             <div class="row card-panel center-align presentation">
                 <div class="col s12 offset-m1 m10">
                     <h2>What is Marketing Automation ?</h2>
