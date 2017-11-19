@@ -6,15 +6,13 @@
 
 {% block body %}
 
-    <div class="container">
-        <div id="listing">
-            <div class="row">
+    <div id="listing">
+        <div class="row">
 
-                {% for i in range(1, 69) %}
-                    {% include('software-card.html.twig') %}
-                {% endfor %}
+            {% for i in range(1, 69) %}
+                {% include('software-card.html.twig') %}
+            {% endfor %}
 
-            </div>
         </div>
     </div>
 {% endblock %}

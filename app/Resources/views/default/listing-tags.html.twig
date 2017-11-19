@@ -4,36 +4,34 @@
             <h1>Trouvez votre logiciel de marketing automation par thème</h1>
         {% endblock %}
 {% block body %}
-    <div class="container">
-        <div id="listing-tags">
+    <div id="listing-tags">
 
-            <h2>Cliquez sur un tag pour obtenir la liste des logiciels associés.</h2>
-            <div class="row">
-                <ul>
-                    {% for i in range(0, 7) %}
-                        <li class="col l4 m6 s12">
-                            <a href="{{ path('tagSolo') }}">Tag X</a>
-                            <div class="chip">12</div>
-                        </li>
-                        <li class=" col l4 m6 s12">
-                            <a href="{{ path('tagSolo') }}">Tag un peu plus que X</a>
-                            <div class="chip">4</div>
-                        </li>
-                        <li class=" col l4 m6 s12">
-                            <a href="{{ path('tagSolo') }}">Tag genial</a>
-                            <div class="chip">6</div>
-                        </li>
-                        <li class=" col l4 m6 s12">
-                            <a href="{{ path('tagSolo') }}">Tag qui sera une phrase plutot longue</a>
-                            <div class="chip">9</div>
-                        </li>
-                        <li class=" col l4 m6 s12">
-                            <a href="{{ path('tagSolo') }}">Tag Y</a>
-                            <div class="chip">12</div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <h2>Cliquez sur un tag pour obtenir la liste des logiciels associés.</h2>
+        <div class="row">
+            <ul>
+                {% for i in range(0, 7) %}
+                    <li class="col l4 m6 s12">
+                        <a href="{{ path('tagSolo') }}">Tag X</a>
+                        <div class="chip">12</div>
+                    </li>
+                    <li class=" col l4 m6 s12">
+                        <a href="{{ path('tagSolo') }}">Tag un peu plus que X</a>
+                        <div class="chip">4</div>
+                    </li>
+                    <li class=" col l4 m6 s12">
+                        <a href="{{ path('tagSolo') }}">Tag genial</a>
+                        <div class="chip">6</div>
+                    </li>
+                    <li class=" col l4 m6 s12">
+                        <a href="{{ path('tagSolo') }}">Tag qui sera une phrase plutot longue</a>
+                        <div class="chip">9</div>
+                    </li>
+                    <li class=" col l4 m6 s12">
+                        <a href="{{ path('tagSolo') }}">Tag Y</a>
+                        <div class="chip">12</div>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 {% endblock %}
