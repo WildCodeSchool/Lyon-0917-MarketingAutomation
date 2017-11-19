@@ -7163,27 +7163,29 @@ nav {
   text-align: center;
   margin-bottom: 20px; }
 #results .presults {
-  color: grey; }
+  color: grey;
+  margin-top: 8%; }
 
-#software #tagOnSoft {
+#tagOnSoft {
   margin-bottom: 2%;
   color: grey; }
-  #software #tagOnSoft a {
+  #tagOnSoft a {
     color: grey; }
-  #software #tagOnSoft a:hover {
+  #tagOnSoft a:hover {
     text-decoration: underline; }
-#software table {
+
+table {
   margin-top: 5%; }
-  #software table th {
+  table th {
     width: 34%;
     padding-left: 10px;
     padding-right: 10px; }
-  #software table td {
+  table td {
     width: 66%;
     text-align: center; }
 
 #softwareh1 {
-  margin-top: 0; }
+  margin-bottom: 0; }
 
 #listing-tags .chip {
   margin-left: 5px; }
@@ -7244,7 +7246,6 @@ nav {
   #results h1 {
     margin-top: 8%; }
   #results h3 {
-    font-size: x-large;
     margin-top: 5%;
     margin-bottom: 8%; }
 
@@ -7271,7 +7272,6 @@ nav {
     text-align: center;
     margin-top: 6%; }
   #results h3 {
-    font-size: x-large;
     margin-top: 5%;
     margin-bottom: 5%; }
 
@@ -7321,7 +7321,8 @@ body {
   background-repeat: no-repeat; }
   body h1 {
     font-size: 2.5em;
-    margin-top: 4%; }
+    margin-top: 4%;
+    margin-bottom: 2%; }
   body h2 {
     font-size: 1.7em;
     margin-top: 20px;
