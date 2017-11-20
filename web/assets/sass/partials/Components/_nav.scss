@@ -60,7 +60,7 @@ nav {
   }
 
   .side-logo {
-    background-color: rgb(21, 31, 48)gca;
+    background-color: rgb(21, 31, 48);
     img {
       max-width: 70%;
     }
@@ -77,23 +77,24 @@ nav {
     }
 
   }
-
-  .nav-wrapper {
-    margin-right: 30px;
-  }
-
-  .navbar-fixed {
-    z-index: 998;
-  }
-
-  #mobile-demo a:active {
-    background-color: lightblue;
-  }
-
-  .side-nav {
-    width: 85vw;
-    max-width: 340px;
-  }
-
 }
+
+.nav-wrapper {
+  margin-right: 30px;
+}
+
+.navbar-fixed {
+  z-index: 998;
+}
+
+#mobile-demo a:active {
+  background-color: lightblue;
+}
+
+.side-nav {
+  width: 85vw;
+  max-width: 340px;
+}
+
+
 

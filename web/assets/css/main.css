@@ -629,7 +629,7 @@ nav {
     nav .brand-logo img {
       max-width: 45%; }
   nav .side-logo {
-    background-color: #151f30 gca; }
+    background-color: #151f30; }
     nav .side-logo img {
       max-width: 70%; }
 
@@ -637,13 +637,17 @@ nav {
   padding: 0; }
   .hide-on-large-only .brand-logo img {
     max-width: 70%; }
-.hide-on-large-only .nav-wrapper {
+
+.nav-wrapper {
   margin-right: 30px; }
-.hide-on-large-only .navbar-fixed {
+
+.navbar-fixed {
   z-index: 998; }
-.hide-on-large-only #mobile-demo a:active {
+
+#mobile-demo a:active {
   background-color: lightblue; }
-.hide-on-large-only .side-nav {
+
+.side-nav {
   width: 85vw;
   max-width: 340px; }
 
