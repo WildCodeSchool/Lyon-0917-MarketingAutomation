@@ -9,34 +9,23 @@
 {% block body %}
 
     <div id="contact">
-        <div class="text">
-            <div class="container">
-                <div class="row">
-                    <div class="col m12 s12">
-                    <p>Si vous avez une question ou besoin d'une information, n'hésitez pas une seconde et remplissez ce formulaire de contact. Nous vous répondrons dans les plus brefs délais.</p>
-                    </div>
+        <p>Si vous avez une question ou besoin d'une information, n'hésitez pas une seconde et
+            remplissez ce formulaire de contact. Nous vous répondrons dans les plus brefs délais.</p>
+
+        <div class="row text">
+
+            <div id="formContact">
+                <div class="col m6 s12">
+                    <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=8"></script>
                 </div>
-            </div>
-        </div>
-                <div class="container">
-                    <div class="row">
-                <div id="formContact">
-                    <div class="col m6 s12">
-                        <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=8"></script>
-                    </div>
-                    <div class="col m6 s12">
-                        <figure>
-                            <img class="responsive-img contact" src="{{ asset('assets/img/contact.jpg') }}">
-                        </figure>
-                    </div>
+                <div class="col m6 s12">
+                    <figure>
+                        <img class="responsive-img contact" src="{{ asset('assets/img/contact.jpg') }}">
+                    </figure>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-
-{% block javascripts %}{{ parent() }}
-    <script type="text/javascript" src="{{ asset('assets/js/social.js') }}"></script>
 {% endblock %}
 
 

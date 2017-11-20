@@ -8,18 +8,15 @@
 {% block body %}
     <div id="listing-versus">
 
-        <div class="container">
-            <h2>Cliquez sur un comparatif pour voir le détail :</h2>
-            <div class="row">
-                <ul>
-                    {% for i in range(0, 7) %}
-                        <li class="col l4 m6 s12">
-                            <a href="{{ path('versus') }}">Logiciel 1 comparé au logiciel 2</a>
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
+        <h2>Cliquez sur un comparatif pour voir le détail :</h2>
+        <div class="row">
+            <ul>
+                {% for i in range(0, 7) %}
+                    <li class="col l4 m6 s12">
+                        <a href="{{ path('versus') }}">Logiciel 1 comparé au logiciel 2</a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-    </div>
     </div>
 {% endblock %}

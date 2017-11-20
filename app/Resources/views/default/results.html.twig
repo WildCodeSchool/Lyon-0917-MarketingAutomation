@@ -1,7 +1,6 @@
-    {% extends 'base.html.twig' %}
+{% extends 'base.html.twig' %}
 {% block title %}Résultats de votre recherche{% endblock %}
 {% block body %}
-
     <div id="results">
         <div class="row">
 
@@ -11,7 +10,7 @@
                             class="material-icons">edit</i>Plus de critères</a>
             </div>
 
-            <div class="col offset-l1 offset-m1 s12 m6 l6">
+            <div class="col s12 m7 l7">
                 <p class="presults">X Résultats <!-- insérer ici le mot-clé recherché --></p>
                 {% for i in range(1, 10) %}
                     {% include('result-software.html.twig') %}
@@ -35,7 +34,6 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
 {% block javascripts %}{{ parent() }}
     <script type="text/javascript" src="{{ asset('assets/js/application.filters.js') }}"></script>

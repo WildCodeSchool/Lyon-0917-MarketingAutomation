@@ -7,14 +7,13 @@
 {% block body %}
     <div id="tag">
 
-        <div class="container">
-            <p>Description: Voici tous les logiciels ayant telle proprieté et apportant telle valeur ajoutée. C'est très interessant.</p>
-            <p>C'est très explicatif et complet.</p>
-            <div class="row" id="listSoftsByTags">
-                {% for i in range(0, 23) %}
-                    {% include('software-card.html.twig') %}
-                {% endfor %}
-            </div>
+        <p>Description: Voici tous les logiciels ayant telle proprieté et apportant telle valeur ajoutée. C'est très
+            interessant.</p>
+        <p>C'est très explicatif et complet.</p>
+        <div class="row" id="listSoftsByTags">
+            {% for i in range(0, 23) %}
+                {% include('software-card.html.twig') %}
+            {% endfor %}
         </div>
     </div>
 {% endblock %}
