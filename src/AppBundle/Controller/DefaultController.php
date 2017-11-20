@@ -65,7 +65,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("tag", name="tagSolo")
+     * @Route("/tag", name="tagSolo")
      */
     public function tagAction(Request $request)
     {
@@ -75,7 +75,7 @@ class DefaultController extends Controller
         ]);
     }
     /**
-     * @Route("mentionsLegales", name="mentionsLegales")
+     * @Route("/mentionsLegales", name="mentionsLegales")
      */
     public function mentionsLegalesAction(Request $request)
     {
@@ -86,7 +86,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("contact", name="contact")
+     * @Route("/contact/", name="contact")
      */
     public function contactAction(Request $request)
     {
