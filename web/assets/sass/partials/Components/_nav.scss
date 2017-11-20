@@ -21,26 +21,33 @@ nav {
       vertical-align: middle
     }
     .input-field .prefix {
-      width: 0 !important;
+      position: absolute;
+      margin-left: 92%;
     }
-    nav ul li:hover {
-      background-color: none !important;
+    input {
+      margin-left: 1.5rem;
+      width: calc(100% - 4rem);
+    }
+
+  }
+
+  #lowBarSearch {
+    .input-field .prefix {
+      position: absolute;
+      margin-left: 90%;
+    }
+    input {
+      text-align: center;
+      margin-left: 1.5rem;
+      width: calc(100% - 4rem);
     }
   }
 
-  nav ul li.active {
-    background-color: none !important;
-  }
-
-  .input-field .prefix ~ {
-    input, textarea, label, .validate ~ label, .autocomplete-content {
-      margin-left: 1rem !important;
+  .left {
+    li {
+      display: inline-block;
     }
-  }
-  li {
-    a {
-      font-size: 1.3em;
-    }
+  ;
   }
 
   .brand-logo {
@@ -71,6 +78,7 @@ nav {
 
   }
 }
+
 .nav-wrapper {
   margin-right: 30px;
 }
@@ -87,3 +95,6 @@ nav {
   width: 85vw;
   max-width: 340px;
 }
+
+
+
