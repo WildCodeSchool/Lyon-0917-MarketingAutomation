@@ -21,7 +21,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/logiciels/slug-logiciel", name="softwareSolo")
+     * @Route("/logiciels/slug-logiciel/", name="softwareSolo")
      */
     public function softwareSoloAction(Request $request)
     {
@@ -32,7 +32,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("logiciels", name="listingSoftware")
+     * @Route("/logiciels/", name="listingSoftware")
      */
     public function listingSoftwareAction(Request $request)
     {
@@ -43,7 +43,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("results", name="results")
+     * @Route("/results/", name="results")
      */
     public function resultsAction(Request $request)
     {
@@ -54,7 +54,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("listing-tags", name="listingTags")
+     * @Route("/listing-tags/", name="listingTags")
      */
     public function listingTagsAction(Request $request)
     {
@@ -65,7 +65,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("tag", name="tagSolo")
+     * @Route("/tag/", name="tagSolo")
      */
     public function tagAction(Request $request)
     {
@@ -75,7 +75,7 @@ class DefaultController extends Controller
         ]);
     }
     /**
-     * @Route("mentionsLegales", name="mentionsLegales")
+     * @Route("/mentionsLegales/", name="mentionsLegales")
      */
     public function mentionsLegalesAction(Request $request)
     {
@@ -86,7 +86,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("contact", name="contact")
+     * @Route("/contact/", name="contact")
      */
     public function contactAction(Request $request)
     {
@@ -97,7 +97,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs", name="listingVersus")
+     * @Route("/comparatifs/", name="listingVersus")
      */
     public function listingVersusAction(Request $request)
     {
@@ -110,7 +110,7 @@ class DefaultController extends Controller
     /**
      * Generate sitemap for site
      *
-     * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
+     * @Route("/sitemap.{_format}/", name="sitemap", Requirements={"_format" = "xml"})
      */
     public function siteMapAction(SiteMap $siteMap)
     {
@@ -122,7 +122,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/slug-vs-slug", name="versus")
+     * @Route("/comparatifs/slug-vs-slug/", name="versus")
      */
     public function VersusAction(Request $request)
     {
