@@ -7227,14 +7227,8 @@ table {
     margin-top: 20px;
     margin-bottom: 20px; }
 
-.contact .text {
-  margin-top: 60px;
-  margin-bottom: 50px; }
-.contact figcaption {
-  font-size: 0.8em;
-  text-align: right; }
-.contact img {
-  margin-top: 60px; }
+#contact p {
+  margin-bottom: 4em; }
 
 #listing-versus a {
   font-size: large; }
