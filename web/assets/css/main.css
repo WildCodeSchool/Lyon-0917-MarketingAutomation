@@ -624,17 +624,26 @@ nav {
     width: calc(100% - 4rem); }
   nav .left li {
     display: inline-block; }
+  nav .brand-logo {
+    padding: 0.3em; }
+    nav .brand-logo img {
+      max-width: 45%; }
+  nav .side-logo {
+    background-color: #151f30 gca; }
+    nav .side-logo img {
+      max-width: 70%; }
 
-.nav-wrapper {
+.hide-on-large-only .brand-logo {
+  padding: 0; }
+  .hide-on-large-only .brand-logo img {
+    max-width: 70%; }
+.hide-on-large-only .nav-wrapper {
   margin-right: 30px; }
-
-.navbar-fixed {
+.hide-on-large-only .navbar-fixed {
   z-index: 998; }
-
-#mobile-demo a:active {
+.hide-on-large-only #mobile-demo a:active {
   background-color: lightblue; }
-
-.side-nav {
+.hide-on-large-only .side-nav {
   width: 85vw;
   max-width: 340px; }
 

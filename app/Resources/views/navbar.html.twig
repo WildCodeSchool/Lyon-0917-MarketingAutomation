@@ -1,7 +1,8 @@
 <div class="hide-on-med-and-down">
     <nav id="navBar">
         <div class="nav-wrapper">
-            <a href="{{ path('homepagegcam') }}" class="brand-logo">Logo</a>
+            <a href="{{ path('homepage') }}" class="brand-logo"><img class="responsive-img"
+                                                                         src="{{ asset('assets/img/logo1.png') }}"></a>
             <ul class="right">
                 <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
                 <li><a href="{{ path('listingTags') }}">Tags</a></li>
@@ -28,12 +29,14 @@
 <div class="navbar-fixed hide-on-large-only">
     <nav id="navBar">
         <div class="nav-wrapper">
-            <a href="{{ path('homepage') }}" class="brand-logo">Logo</a>
+            <a href="{{ path('homepage') }}" class="brand-logo center-align"><img class="responsive-img"
+                                                                     src="{{ asset('assets/img/logo1.png') }}"></a>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 
             <ul class="side-nav" id="mobile-demo">
                 <li>
-                    <a href="{{ path('homepage') }}" class="center-align">Logo</a>
+                    <a href="{{ path('homepage') }}" class="side-logo center-align"><img class="responsive-img"
+                                                                               src="{{ asset('assets/img/logo1.png') }}"></a>
                     <div class="divider"></div>
                 </li>
                 <li{% if app.request.attributes.get('_route') == 'homepage' %} class="active" {% endif %}>
