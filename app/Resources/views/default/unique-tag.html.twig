@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}Nom du tag : tous les logiciels de marketing automation.{% endblock %}
+{% block metadesc %}Liste des logiciels de marketing automation qui permettent %nom tag% {% endblock %}
+        {% block h1 %}
+            <h1>Tag X</h1>
+        {% endblock %}
+{% block body %}
+    <div id="tag">
+
+        <p>Description: Voici tous les logiciels ayant telle proprieté et apportant telle valeur ajoutée. C'est très
+            interessant.</p>
+        <p>C'est très explicatif et complet.</p>
+        <div class="row" id="listSoftsByTags">
+            {% for i in range(0, 23) %}
+                {% include('software-card.html.twig') %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -6,41 +6,68 @@
 @import 'partials/Components/nav';
 @import 'partials/Components/icons';
 @import 'partials/Components/share';
+@import 'partials/Components/softwareCard';
+@import "partials/Components/breadcrumb";
+@import "partials/Components/table";
 @import "partials/views/home";
 @import "partials/views/results";
 @import "partials/views/software";
-@import "partials/views/tags";
+@import "partials/views/listingTags";
 @import "partials/views/mentionsLegales";
 @import "partials/views/error404";
 @import "partials/views/contact";
-
-
-@import "partials/views/_tags.scss";
+@import "partials/views/listingVersus";
+@import "partials/views/uniqueTag";
+@import "partials/views/listingTags";
 @import "partials/views/listingSoftware";
 @import "queries/_smartphone.scss";
 @import "queries/_tablette.scss";
-@import "partials/Components/table";
+
+@import "partials/views/compare";
 
 //node-sass --watch web/assets/sass/main.scss web/assets/css/main.css
 
-
-body{
+body {
   font-family: 'Lato', sans-serif;
   background: white;
   background-size: cover;
   background-repeat: no-repeat;
 
-  h1{font-size: xx-large; }
+  h1 {
+    font-size: 2.5em;
+    margin-top: 4%;
+    margin-bottom:2%;
+  }
 
-  h2{
-    font-size: x-large;
+  h2 {
+    font-size: 1.7em;
     margin-top: 20px;
     margin-bottom: 20px;
   }
-  section{
-    min-height: 100vh;
 
+  h3 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 1.1em;
+    text-align: justify;
+  }
+
+  section {
+    min-height: 100vh;
+  }
+  .top{
+    cursor: pointer;
+    text-align: right;
+    margin-right: 5px;
+
+  }
+  #topFixed{
+    position: fixed;
+    text-align: right;
+    bottom: 0;
+    right:0;
 
   }
 }
-

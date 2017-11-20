@@ -1,4 +1,5 @@
 #share {
+  cursor:  pointer;
 
   a {
     position: fixed;
@@ -9,6 +10,7 @@
     border-radius: 50%;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
+
   }
 
   a.hidden {

@@ -1,25 +1,31 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ parent() }} Contactez-nous! {% endblock %}
+{% block title %}Contactez-nous! {{ parent() }} {% endblock %}
+{% block metadesc %}Pour nous contacter, utilisez notre formulaire de contact.{% endblock %}
+
         {% block h1 %}
             <h1>Contactez-nous !</h1>
         {% endblock %}
 
 {% block body %}
-    <div class="container">
-            <div class="row">
+
+    <div id="contact">
+        <p>Si vous avez une question ou besoin d'une information, n'hésitez pas une seconde et
+            remplissez ce formulaire de contact. Nous vous répondrons dans les plus brefs délais.</p>
+
+        <div class="row text">
+
+            <div id="formContact">
                 <div class="col m6 s12">
-                    <p>Si vous avez une question ou besoin d'une information, n'hésitez pas une seconde et remplissez ce formulaire de contact. Nous vous répondrons dans les plus brefs délais.</p>
+                    <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=8"></script>
                 </div>
-
-            <div class="col m6 s12">
-
-                <img class="responsive-img contact" src="http://2.bp.blogspot.com/-tFSfukQ1xvA/VHSjD5vqe6I/AAAAAAABHXI/JEfDfPBLGu8/s1600/Women%2BTelephone%2BOperators%2Bat%2BWork%2B(12).jpg">
-             </div>
+                <div class="col m6 s12">
+                    <figure>
+                        <img class="responsive-img contact" src="{{ asset('assets/img/contact.jpg') }}">
+                    </figure>
+                </div>
             </div>
-
-
+        </div>
     </div>
 {% endblock %}
-{% block javascripts %}{{ parent() }}
-    <script type="text/javascript" src="{{ asset('assets/js/social.js') }}"></script>
-{% endblock %}
+
+

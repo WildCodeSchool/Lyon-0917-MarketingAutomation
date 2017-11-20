@@ -1,32 +1,100 @@
 nav {
   background-color: rgb(21, 31, 48);
-  #topbarsearch {
-    .input-field .prefix {
-      width: 0 !important;
-    }
-    nav ul li:hover {
-      background-color: none !important;
-    }
+  box-shadow: none;
+  color: black;
+
+  .input-field {
+    background-color: white;
   }
 
-  nav ul li.active {
-    background-color: none !important;
-  }
-
-  .input-field .prefix ~ {
-    input, textarea, label, .validate ~ label, .autocomplete-content {
-      margin-left: 1rem !important;
-    }
-  }
   li {
     a {
-      font-size: 1.3em;
+      font-size: 1.4em;
+    }
+  }
+  #topBarSearch {
+    margin-top: -65px;
+    .input-field {
+      border-radius: 4px;
+      height: 51px;
+      margin-top: 7px;
+      vertical-align: middle
+    }
+    .input-field .prefix {
+      position: absolute;
+      margin-left: 92%;
+    }
+    input {
+      margin-left: 1.5rem;
+      width: calc(100% - 4rem);
+    }
+
+  }
+
+  #lowBarSearch {
+    .input-field .prefix {
+      position: absolute;
+      margin-left: 90%;
+    }
+    input {
+      text-align: center;
+      margin-left: 1.5rem;
+      width: calc(100% - 4rem);
     }
   }
 
+  .left {
+    li {
+      display: inline-block;
+    }
+  ;
+  }
+
+  .brand-logo {
+    padding: 0.3em;
+    img {
+      max-width: 45%;
+
+    }
+
+  }
+
+  .side-logo {
+    background-color: rgb(21, 31, 48);
+    img {
+      max-width: 70%;
+    }
+
+  }
 }
 
-.nav-wrapper{
-  margin-left: 30px;
+.hide-on-large-only {
+  .brand-logo {
+    padding: 0;
+
+    img {
+      max-width: 70%;
+    }
+
+  }
+}
+
+.nav-wrapper {
   margin-right: 30px;
 }
+
+.navbar-fixed {
+  z-index: 998;
+}
+
+#mobile-demo a:active {
+  background-color: lightblue;
+}
+
+.side-nav {
+  width: 85vw;
+  max-width: 340px;
+}
+
+
+

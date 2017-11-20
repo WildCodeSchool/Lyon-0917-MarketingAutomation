@@ -1,24 +1,27 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ parent() }} - Résultats {% endblock %}
+{% block title %}Résultats de votre recherche{% endblock %}
 {% block body %}
-
     <div id="results">
         <div class="row">
 
 
-            {% include('filters.html.twig') %}
+            <div class="center-align hide-on-med-and-up">
+                <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
+                            class="material-icons">edit</i>Plus de critères</a>
+            </div>
 
             <div class="col s12 m7 l7">
-                <h1>Résultat de votre recherche : <!-- insérer ici le mot-clé recherché --></h1>
+                <p class="presults">X Résultats <!-- insérer ici le mot-clé recherché --></p>
                 {% for i in range(1, 10) %}
-                    {% include(':default:result-software.html.twig') %}
+                    {% include('result-software.html.twig') %}
                 {% endfor %}
-                </div>
+            </div>
+
+            {% include('filters.html.twig') %}
 
 
-
-
-            <div class = "pagination col s12"><!-- voir pour intégrer la pagination bien proprement dynamiquement sur la meme page-->
+            <div class="pagination col s12">
+                <!-- voir pour intégrer la pagination bien proprement dynamiquement sur la meme page-->
                 <ul class="center-align ">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                     <li class="active"><a href="#!">1</a></li>
@@ -31,9 +34,9 @@
             </div>
         </div>
     </div>
-
 {% endblock %}
-{% block javascripts  %}{{ parent() }}
+{% block javascripts %}{{ parent() }}
     <script type="text/javascript" src="{{ asset('assets/js/application.filters.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/nouislider.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('assets/js/resultHide.js') }}"></script>
 {% endblock %}

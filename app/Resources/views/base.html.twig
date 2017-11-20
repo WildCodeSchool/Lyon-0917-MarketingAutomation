@@ -8,7 +8,9 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     {% endblock %}
-    <meta charset="UTF-8"/>
+    <meta name="description"
+          content=" {% block metadesc %}Compare.pro vous permet de chercher et comparer tous les logiciels de marketing automation du marché.{% endblock %}"/>
+
     <title>{% block title %}Marketing Automation{% endblock %}</title>
     {% block stylesheets %}
         <link rel="stylesheet"
@@ -23,16 +25,27 @@
 {% block navBar %}
     {% include 'navbar.html.twig' %}
 {% endblock %}
-<div class="row">
-    <div class="col m10 s12 offset-m2">
-{% block h1 %}
-{% endblock %}
-    </div>
-</div>
+<div class="navmob"></div>
 <section>
-{% block body %}
-{% endblock %}
+    <div class="container">
+        {% block breadcrumb %}
+        {% endblock %}
+
+        {% block h1 %}
+        {% endblock %}
+
+        {% block body %}
+        {% endblock %}
+    </div>
 </section>
+<div class="top" id="topFixed">
+    <!--<i class="small material-icons top">airline_seat_recline_normal</i>-->
+    <i class="mdi mdi-arrow-up-bold-circle mdi-48px mdi-dark hidden"></i>
+</div>
+<div class="top">
+    <!--<i class="small material-icons top">airline_seat_recline_normal</i>-->
+    <i class="mdi mdi-arrow-up-bold-circle mdi-48px mdi-dark hidden"></i>
+</div>
 {% block footer %}
     {% include 'footer.html.twig' %}
 {% endblock %}

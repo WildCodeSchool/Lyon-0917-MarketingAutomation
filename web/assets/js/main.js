@@ -1,6 +1,5 @@
 $(document).ready(function () {
     $(".button-collapse").sideNav({
-        menuWidth: 320
     });
 
     $('input.autocomplete').autocomplete({
@@ -17,4 +16,10 @@ $(document).ready(function () {
         },
         minLength: 1, // The minimum length of the input for the autocomplete to start. Default: 1.
     });
-});
+
+    $('.top').click(function(){
+        $('html,body').animate({
+                scrollTop: 0
+            },'slow');
+        });
+    });

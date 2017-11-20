@@ -1,10 +1,12 @@
 @media (max-width: 400px) {
+  .navmob{
+    height: 75px;
+  }
   #results {
     h1 {
       margin-top: 8%;
     }
     h3 {
-      font-size: x-large;
       margin-top: 5%;
       margin-bottom: 8%;
     }
@@ -18,5 +20,13 @@
   }
   .result-logo-responsive {
     display: none;
+  }
+  .top {
+    display: none;
+  }
+  #home{
+    .presentation{
+      margin-top: 4%;
+    }
   }
 }
