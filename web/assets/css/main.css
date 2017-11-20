@@ -595,11 +595,15 @@ textarea {
   opacity: 1; }
 
 nav {
-  background-color: #151f30;
-  box-shadow: none;
-  color: black; }
-  nav .input-field {
-    background-color: white; }
+  background-color: #151f30; }
+  nav #topbarsearch .input-field .prefix {
+    width: 0 !important; }
+  nav #topbarsearch nav ul li:hover {
+    background-color: none !important; }
+  nav nav ul li.active {
+    background-color: none !important; }
+  nav .input-field .prefix ~ input, nav .input-field .prefix ~ textarea, nav .input-field .prefix ~ label, nav .input-field .prefix ~ .validate ~ label, nav .input-field .prefix ~ .autocomplete-content {
+    margin-left: 1rem !important; }
   nav li a {
     font-size: 1.4em; }
   nav #topBarSearch {
@@ -637,20 +641,15 @@ nav {
   padding: 0; }
   .hide-on-large-only .brand-logo img {
     max-width: 70%; }
-
 .nav-wrapper {
   margin-right: 30px; }
-
 .navbar-fixed {
   z-index: 998; }
-
 #mobile-demo a:active {
   background-color: lightblue; }
-
 .side-nav {
   width: 85vw;
   max-width: 340px; }
-
 /* MaterialDesignIcons.com */
 @font-face {
   font-family: "Material Design Icons";
@@ -7115,10 +7114,8 @@ nav {
   .breadcrumb a:hover {
     color: #01447e;
     text-decoration: underline; }
-
 #table {
   min-height: 100vh; }
-
 #home h1 {
   color: white;
   margin-top: 25px;
@@ -7144,7 +7141,6 @@ nav {
 #home .homesearch {
   min-height: 70vh;
   margin-top: 14%; }
-
 #results .card {
   box-shadow: none; }
 #results .marginLogo {
@@ -7185,7 +7181,6 @@ nav {
     color: grey; }
   #tagOnSoft a:hover {
     text-decoration: underline; }
-
 table {
   margin-top: 5%; }
   table th {
@@ -7211,7 +7206,6 @@ table {
 #mentions-legales h3 {
   margin-top: 3vh;
   margin-bottom: 2vh; }
-
 #notfound {
   background-color: #EBEBEB; }
   #notfound h1, #notfound h2, #notfound p {
@@ -7229,7 +7223,6 @@ table {
 
 #contact p {
   margin-bottom: 4em; }
-
 #listing-versus a {
   font-size: large; }
 #listing-versus li {
@@ -7248,7 +7241,6 @@ table {
 @media (max-width: 400px) {
   .navmob {
     height: 75px; }
-
   #results h1 {
     margin-top: 8%; }
   #results h3 {
@@ -7261,7 +7253,6 @@ table {
 
   .result-logo-responsive {
     display: none; }
-
   .top {
     display: none; }
 
@@ -7273,7 +7264,6 @@ table {
 
   .navmob {
     height: 75px; }
-
   #results h1 {
     text-align: center;
     margin-top: 6%; }
@@ -7319,7 +7309,6 @@ table {
     margin-top: 4%; }
     #compare #SpecificCompareComment p {
       text-align: justify; }
-
 body {
   font-family: 'Lato', sans-serif;
   background: white;

@@ -1,9 +1,7 @@
-
 body {
 
     background: linear-gradient(0deg,rgba(255,255,255,0.3),rgba(255,255,255,0.3)),url("../img/background_homepage_1920x1280.jpg");
     background-attachment: fixed;
-
     background-size: cover;
     background-repeat: no-repeat;
 
@@ -14,7 +12,7 @@ body {
 #home {
 
 }
-#topBarSearch {
+#topbarsearch {
     display: none;
 }
 #lowBarSearch {
