@@ -1,0 +1,33 @@
+AppBundle\Entity\SoftLeadsOperation:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SoftLeadsOperationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        isContactObject:
+            type: boolean
+            nullable: true
+        isCompanyObject:
+            type: boolean
+            nullable: true
+        isDefinedFields:
+            type: boolean
+            nullable: true
+        isIllimitedFields:
+            type: boolean
+            nullable: true
+        isImportCsv:
+            type: boolean
+            nullable: true
+        isAutoDuplicate:
+            type: boolean
+            nullable: true
+        isLeadStages:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }
