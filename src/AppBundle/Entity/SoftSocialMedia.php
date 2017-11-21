@@ -45,9 +45,9 @@ class SoftSocialMedia
     /**
      * @var bool
      *
-     * @ORM\Column(name="isFacebookAutopublication", type="boolean", nullable=true)
+     * @ORM\Column(name="isFacebookAutoPublication", type="boolean", nullable=true)
      */
-    private $isFacebookAutopublication;
+    private $isFacebookAutoPublication;
 
     /**
      * @var bool
@@ -161,27 +161,27 @@ class SoftSocialMedia
     }
 
     /**
-     * Set isFacebookAutopublication
+     * Set isFacebookAutoPublication
      *
-     * @param boolean $isFacebookAutopublication
+     * @param boolean $isFacebookAutoPublication
      *
      * @return SoftSocialMedia
      */
-    public function setIsFacebookAutopublication($isFacebookAutopublication)
+    public function setIsFacebookAutoPublication($isFacebookAutoPublication)
     {
-        $this->isFacebookAutopublication = $isFacebookAutopublication;
+        $this->isFacebookAutoPublication = $isFacebookAutoPublication;
 
         return $this;
     }
 
     /**
-     * Get isFacebookAutopublication
+     * Get isFacebookAutoPublication
      *
      * @return bool
      */
-    public function getIsFacebookAutopublication()
+    public function getIsFacebookAutoPublication()
     {
-        return $this->isFacebookAutopublication;
+        return $this->isFacebookAutoPublication;
     }
 
     /**
