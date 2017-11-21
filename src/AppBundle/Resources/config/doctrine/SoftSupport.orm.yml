@@ -1,0 +1,31 @@
+AppBundle\Entity\SoftSupport:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\SoftSupportRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        isEmailSupport:
+            type: boolean
+            nullable: true
+        isPhoneSupport:
+            type: boolean
+            nullable: true
+        isChatSupport:
+            type: boolean
+            nullable: true
+        isKnowledgeBase:
+            type: boolean
+            nullable: true
+        knowledgeBaseLanguage:
+            type: string
+            length: '255'
+            nullable: true
+        isTechnicalDocument:
+            type: boolean
+            nullable: true
+    lifecycleCallbacks: {  }
