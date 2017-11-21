@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * Versus
@@ -29,16 +30,16 @@ class Versus
     private $name;
 
     /**
-     * @var string
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\Column(name="software1", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\SoftMain", inversedBy="versus1")
      */
     private $software1;
 
     /**
-     * @var string
+     * @var \Doctrine\Common\Collections\Collection
      *
-     * @ORM\Column(name="software2", type="string", length=255)
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\SoftMain", inversedBy="versus2")
      */
     private $software2;
 
@@ -50,110 +51,5 @@ class Versus
     private $description;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Versus
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set software1
-     *
-     * @param string $software1
-     *
-     * @return Versus
-     */
-    public function setSoftware1($software1)
-    {
-        $this->software1 = $software1;
-
-        return $this;
-    }
-
-    /**
-     * Get software1
-     *
-     * @return string
-     */
-    public function getSoftware1()
-    {
-        return $this->software1;
-    }
-
-    /**
-     * Set software2
-     *
-     * @param string $software2
-     *
-     * @return Versus
-     */
-    public function setSoftware2($software2)
-    {
-        $this->software2 = $software2;
-
-        return $this;
-    }
-
-    /**
-     * Get software2
-     *
-     * @return string
-     */
-    public function getSoftware2()
-    {
-        return $this->software2;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Versus
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 }
 
