@@ -32,7 +32,7 @@ class Tag
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Software", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
     private $softwares;
@@ -45,10 +45,19 @@ class Tag
     private $description;
 
 
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->softwares = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -80,30 +89,6 @@ class Tag
     }
 
     /**
-     * Set softwares
-     *
-     * @param array $softwares
-     *
-     * @return Tag
-     */
-    public function setSoftwares($softwares)
-    {
-        $this->softwares = $softwares;
-
-        return $this;
-    }
-
-    /**
-     * Get softwares
-     *
-     * @return array
-     */
-    public function getSoftwares()
-    {
-        return $this->softwares;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -126,5 +111,38 @@ class Tag
     {
         return $this->description;
     }
-}
 
+    /**
+     * Add software
+     *
+     * @param \AppBundle\Entity\SoftMain $software
+     *
+     * @return Tag
+     */
+    public function addSoftware(\AppBundle\Entity\SoftMain $software)
+    {
+        $this->softwares[] = $software;
+
+        return $this;
+    }
+
+    /**
+     * Remove software
+     *
+     * @param \AppBundle\Entity\SoftMain $software
+     */
+    public function removeSoftware(\AppBundle\Entity\SoftMain $software)
+    {
+        $this->softwares->removeElement($software);
+    }
+
+    /**
+     * Get softwares
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSoftwares()
+    {
+        return $this->softwares;
+    }
+}
