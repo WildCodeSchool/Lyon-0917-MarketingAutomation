@@ -30,16 +30,15 @@ class Versus
     private $name;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\SoftMain", inversedBy="versus1")
+     * Many Versus have One Software.
+     * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus1")
      */
+
     private $software1;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\SoftMain", inversedBy="versus2")
+     * Many Versus have One Software.
+     * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus2")
      */
     private $software2;
 

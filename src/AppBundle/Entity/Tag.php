@@ -32,7 +32,7 @@ class Tag
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Software", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
     private $softwares;
@@ -45,86 +45,6 @@ class Tag
     private $description;
 
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Tag
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set softwares
-     *
-     * @param array $softwares
-     *
-     * @return Tag
-     */
-    public function setSoftwares($softwares)
-    {
-        $this->softwares = $softwares;
-
-        return $this;
-    }
-
-    /**
-     * Get softwares
-     *
-     * @return array
-     */
-    public function getSoftwares()
-    {
-        return $this->softwares;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     *
-     * @return Tag
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string
-     */
-    public function getDescription()
-    {
-        return $this->description;
-    }
 }
 
