@@ -46,5 +46,103 @@ class Tag
 
 
 
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->softwares = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Tag
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Tag
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Add software
+     *
+     * @param \AppBundle\Entity\SoftMain $software
+     *
+     * @return Tag
+     */
+    public function addSoftware(\AppBundle\Entity\SoftMain $software)
+    {
+        $this->softwares[] = $software;
+
+        return $this;
+    }
+
+    /**
+     * Remove software
+     *
+     * @param \AppBundle\Entity\SoftMain $software
+     */
+    public function removeSoftware(\AppBundle\Entity\SoftMain $software)
+    {
+        $this->softwares->removeElement($software);
+    }
+
+    /**
+     * Get softwares
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSoftwares()
+    {
+        return $this->softwares;
+    }
+}

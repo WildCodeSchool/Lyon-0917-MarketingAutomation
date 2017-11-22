@@ -50,5 +50,110 @@ class Versus
     private $description;
 
 
-}
 
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Versus
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Versus
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set software1
+     *
+     * @param \AppBundle\Entity\SoftMain $software1
+     *
+     * @return Versus
+     */
+    public function setSoftware1(\AppBundle\Entity\SoftMain $software1 = null)
+    {
+        $this->software1 = $software1;
+
+        return $this;
+    }
+
+    /**
+     * Get software1
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftware1()
+    {
+        return $this->software1;
+    }
+
+    /**
+     * Set software2
+     *
+     * @param \AppBundle\Entity\SoftMain $software2
+     *
+     * @return Versus
+     */
+    public function setSoftware2(\AppBundle\Entity\SoftMain $software2 = null)
+    {
+        $this->software2 = $software2;
+
+        return $this;
+    }
+
+    /**
+     * Get software2
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftware2()
+    {
+        return $this->software2;
+    }
+}
