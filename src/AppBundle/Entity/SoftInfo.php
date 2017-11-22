@@ -31,9 +31,9 @@ class SoftInfo
     /**
      * @var string
      *
-     * @ORM\Column(name="cuustomers", type="string", length=255, nullable=true)
+     * @ORM\Column(name="customers", type="string", length=255, nullable=true)
      */
-    private $cuustomers;
+    private $customers;
 
     /**
      * @var string
@@ -120,27 +120,27 @@ class SoftInfo
     }
 
     /**
-     * Set cuustomers
+     * Set customers
      *
-     * @param string $cuustomers
+     * @param string $customers
      *
      * @return SoftInfo
      */
-    public function setCuustomers($cuustomers)
+    public function setCustomers($customers)
     {
-        $this->cuustomers = $cuustomers;
+        $this->customers = $customers;
 
         return $this;
     }
 
     /**
-     * Get cuustomers
+     * Get customers
      *
      * @return string
      */
-    public function getCuustomers()
+    public function getCustomers()
     {
-        return $this->cuustomers;
+        return $this->customers;
     }
 
     /**
