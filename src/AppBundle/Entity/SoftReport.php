@@ -37,9 +37,15 @@ class SoftReport
 
 
     /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softReport")
+     */
+    private $softmain;
+
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -63,7 +69,7 @@ class SoftReport
     /**
      * Get isActivityReportCreation
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsActivityReportCreation()
     {
@@ -87,11 +93,34 @@ class SoftReport
     /**
      * Get isActivityReportPeriodicSend
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsActivityReportPeriodicSend()
     {
         return $this->isActivityReportPeriodicSend;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftReport
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

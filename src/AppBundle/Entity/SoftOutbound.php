@@ -70,11 +70,16 @@ class SoftOutbound
      */
     private $isApi;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softOutbound")
+     */
+    private $softmain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -98,7 +103,7 @@ class SoftOutbound
     /**
      * Get isEmail
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsEmail()
     {
@@ -122,7 +127,7 @@ class SoftOutbound
     /**
      * Get isSms
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsSms()
     {
@@ -146,7 +151,7 @@ class SoftOutbound
     /**
      * Get isPopin
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsPopin()
     {
@@ -170,7 +175,7 @@ class SoftOutbound
     /**
      * Get isMailPostal
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsMailPostal()
     {
@@ -194,7 +199,7 @@ class SoftOutbound
     /**
      * Get isCallCenter
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsCallCenter()
     {
@@ -218,7 +223,7 @@ class SoftOutbound
     /**
      * Get isPushMobile
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsPushMobile()
     {
@@ -242,11 +247,34 @@ class SoftOutbound
     /**
      * Get isApi
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsApi()
     {
         return $this->isApi;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftOutbound
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

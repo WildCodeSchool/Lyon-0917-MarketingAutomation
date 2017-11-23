@@ -51,9 +51,14 @@ class SoftMarketingCampaign
 
 
     /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softMarketingCampaign")
+     */
+    private $softmain;
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +82,7 @@ class SoftMarketingCampaign
     /**
      * Get isLeadScoring
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLeadScoring()
     {
@@ -101,7 +106,7 @@ class SoftMarketingCampaign
     /**
      * Get isCreationCampaign
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsCreationCampaign()
     {
@@ -125,7 +130,7 @@ class SoftMarketingCampaign
     /**
      * Get isDripMarketingCampaign
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsDripMarketingCampaign()
     {
@@ -149,11 +154,34 @@ class SoftMarketingCampaign
     /**
      * Get isDragAndDrop
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsDragAndDrop()
     {
         return $this->isDragAndDrop;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftMarketingCampaign
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

@@ -49,11 +49,16 @@ class SoftCommSupport
      */
     private $isLiveChat;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softCommSupport")
+     */
+    private $softMain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -77,7 +82,7 @@ class SoftCommSupport
     /**
      * Get isLandingPage
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLandingPage()
     {
@@ -101,7 +106,7 @@ class SoftCommSupport
     /**
      * Get isForm
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsForm()
     {
@@ -125,7 +130,7 @@ class SoftCommSupport
     /**
      * Get isTracking
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsTracking()
     {
@@ -149,11 +154,34 @@ class SoftCommSupport
     /**
      * Get isLiveChat
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLiveChat()
     {
         return $this->isLiveChat;
     }
-}
 
+    /**
+     * Set softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return SoftCommSupport
+     */
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
+    {
+        $this->softMain = $softMain;
+
+        return $this;
+    }
+
+    /**
+     * Get softMain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftMain()
+    {
+        return $this->softMain;
+    }
+}

@@ -77,11 +77,16 @@ class SoftSocialMedia
      */
     private $isInstagramAutoPublication;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSocialMedia")
+     */
+    private $softmain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -105,7 +110,7 @@ class SoftSocialMedia
     /**
      * Get isTwitterMonitoring
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsTwitterMonitoring()
     {
@@ -129,7 +134,7 @@ class SoftSocialMedia
     /**
      * Get isTwitterAutoPublication
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsTwitterAutoPublication()
     {
@@ -153,7 +158,7 @@ class SoftSocialMedia
     /**
      * Get isFacebookMonitoring
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsFacebookMonitoring()
     {
@@ -177,7 +182,7 @@ class SoftSocialMedia
     /**
      * Get isFacebookAutoPublication
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsFacebookAutoPublication()
     {
@@ -201,7 +206,7 @@ class SoftSocialMedia
     /**
      * Get isLinkedinMonitoring
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLinkedinMonitoring()
     {
@@ -225,7 +230,7 @@ class SoftSocialMedia
     /**
      * Get isLinkedinAutoPublication
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLinkedinAutoPublication()
     {
@@ -249,7 +254,7 @@ class SoftSocialMedia
     /**
      * Get isInstagramMonitoring
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsInstagramMonitoring()
     {
@@ -273,11 +278,34 @@ class SoftSocialMedia
     /**
      * Get isInstagramAutoPublication
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsInstagramAutoPublication()
     {
         return $this->isInstagramAutoPublication;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftSocialMedia
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

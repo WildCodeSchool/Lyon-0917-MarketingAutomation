@@ -72,9 +72,14 @@ class SoftLeadsOperation
 
 
     /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softLeadsOperation")
+     */
+    private $softmain;
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -98,7 +103,7 @@ class SoftLeadsOperation
     /**
      * Get isContactObject
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsContactObject()
     {
@@ -122,7 +127,7 @@ class SoftLeadsOperation
     /**
      * Get isCompanyObject
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsCompanyObject()
     {
@@ -146,7 +151,7 @@ class SoftLeadsOperation
     /**
      * Get isDefinedFields
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsDefinedFields()
     {
@@ -170,7 +175,7 @@ class SoftLeadsOperation
     /**
      * Get isIllimitedFields
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsIllimitedFields()
     {
@@ -194,7 +199,7 @@ class SoftLeadsOperation
     /**
      * Get isImportCsv
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsImportCsv()
     {
@@ -218,7 +223,7 @@ class SoftLeadsOperation
     /**
      * Get isAutoDuplicate
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsAutoDuplicate()
     {
@@ -242,11 +247,34 @@ class SoftLeadsOperation
     /**
      * Get isLeadStages
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsLeadStages()
     {
         return $this->isLeadStages;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftLeadsOperation
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

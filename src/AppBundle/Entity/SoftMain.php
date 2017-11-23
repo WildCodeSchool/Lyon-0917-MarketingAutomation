@@ -3,7 +3,6 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * SoftMain
@@ -30,8 +29,8 @@ class SoftMain
     private $name;
 
     /**
-     * Many Users have Many Groups.
-     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="softwares")
+     * Many SoftMains have Many Tags.
+     * @ORM\ManyToMany(targetEntity="Tag", inversedBy="softMains")
      */
     private $tags;
 
@@ -78,88 +77,78 @@ class SoftMain
     private $drawbacks;
 
     /**
-     * One Software has Many Versus.
+     * One SoftMain has Many Versus.
      * @ORM\OneToMany(targetEntity="Versus", mappedBy="software1")
      */
     private $versus1;
 
     /**
-     * One Software has Many Versus.
+     * One SoftMain has Many Versus.
      * @ORM\OneToMany(targetEntity="Versus", mappedBy="software2")
      */
     private $versus2;
 
     /**
-     * One MainSoftware has One SoftInfo.
-     * @ORM\OneToOne(targetEntity="SoftInfo")
-     * @ORM\JoinColumn(name="SoftInfo_id", referencedColumnName="id")
+     * One SoftMain has One SoftInfo.
+     * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softmain")
      */
 
-    private $SoftInfo;
+    private $softInfo;
 
     /**
-     * One MainSoftware has One SoftOutbound.
-     * @ORM\OneToOne(targetEntity="SoftOutbound")
-     * @ORM\JoinColumn(name="SoftOutbound_id", referencedColumnName="id")
+     * One SoftMain has One SoftOutbound.
+     * @ORM\OneToOne(targetEntity="SoftOutbound", inversedBy="softMain")
      */
 
-    private $SoftOutbound;
-
-    /**
-     * One MainSoftware has One SoftCommSupport.
-     * @ORM\OneToOne(targetEntity="SoftCommSupport")
-     * @ORM\JoinColumn(name="SoftCommSupport_id", referencedColumnName="id")
-     */
-    private $SoftCommSupport;
+    private $softOutbound;
 
     /**
-     * One MainSoftware has One SoftCommSupport.
-     * @ORM\OneToOne(targetEntity="SoftLeadsOperation")
-     * @ORM\JoinColumn(name="SoftLeadsOperation_id", referencedColumnName="id")
+     * One SoftMain has One SoftCommSupport.
+     * @ORM\OneToOne(targetEntity="SoftCommSupport", inversedBy="softMain")
      */
-    private $SoftLeadsOperation;
+    private $softCommSupport;
 
     /**
-     * One MainSoftware has One SoftSegmentOperation.
-     * @ORM\OneToOne(targetEntity="SoftSegmentOperation")
-     * @ORM\JoinColumn(name="SoftSegmentOperation_id", referencedColumnName="id")
+     * One SoftMain has One SoftCommSupport.
+     * @ORM\OneToOne(targetEntity="SoftLeadsOperation", inversedBy="softMain")
      */
-    private $SoftSegmentOperation;
+    private $softLeadsOperation;
 
     /**
-     * One MainSoftware has One SoftMarketingCampaign.
-     * @ORM\OneToOne(targetEntity="SoftMarketingCampaign")
-     * @ORM\JoinColumn(name="SoftMarketingCampaign_id", referencedColumnName="id")
+     * One SoftMain has One SoftSegmentOperation.
+     * @ORM\OneToOne(targetEntity="SoftSegmentOperation", inversedBy="softMain")
      */
-    private $SoftMarketingCampaign;
+    private $softSegmentOperation;
 
     /**
-     * One MainSoftware has One SoftSocialMedia.
-     * @ORM\OneToOne(targetEntity="SoftSocialMedia")
-     * @ORM\JoinColumn(name="SoftSocialMedia_id", referencedColumnName="id")
+     * One SoftMain has One SoftMarketingCampaign.
+     * @ORM\OneToOne(targetEntity="SoftMarketingCampaign", inversedBy="softMain")
      */
-    private $SoftSocialMedia;
+    private $softMarketingCampaign;
 
     /**
-     * One MainSoftware has One SoftReport.
-     * @ORM\OneToOne(targetEntity="SoftReport")
-     * @ORM\JoinColumn(name="SoftReport_id", referencedColumnName="id")
+     * One SoftMain has One SoftSocialMedia.
+     * @ORM\OneToOne(targetEntity="SoftSocialMedia", inversedBy="softMain")
      */
-    private $SoftReport;
+    private $softSocialMedia;
 
     /**
-     * One MainSoftware has One SoftSupport.
-     * @ORM\OneToOne(targetEntity="SoftSupport")
-     * @ORM\JoinColumn(name="SoftSupport_id", referencedColumnName="id")
+     * One SoftMain has One SoftReport.
+     * @ORM\OneToOne(targetEntity="SoftReport", inversedBy="softMain")
      */
-    private $SoftSupport;
+    private $softReport;
 
     /**
-     * One MainSoftware has One SoftOtherFunctionnalities.
-     * @ORM\OneToOne(targetEntity="SoftOtherFunctionnalities")
-     * @ORM\JoinColumn(name="SoftOtherFunctionnalities_id", referencedColumnName="id")
+     * One SoftMain has One SoftSupport.
+     * @ORM\OneToOne(targetEntity="SoftSupport", inversedBy="softMain")
      */
-    private $SoftOtherFunctionnalities;
+    private $softSupport;
+
+    /**
+     * One SoftMain has One SoftOtherFunctionnalities.
+     * @ORM\OneToOne(targetEntity="SoftOtherFunctionnalities", inversedBy="softMain")
+     */
+    private $softOtherFunctionnalities;
 
     /**
      * Constructor
@@ -460,7 +449,7 @@ class SoftMain
      */
     public function setSoftInfo(\AppBundle\Entity\SoftInfo $softInfo = null)
     {
-        $this->SoftInfo = $softInfo;
+        $this->softInfo = $softInfo;
 
         return $this;
     }
@@ -472,7 +461,7 @@ class SoftMain
      */
     public function getSoftInfo()
     {
-        return $this->SoftInfo;
+        return $this->softInfo;
     }
 
     /**
@@ -484,7 +473,7 @@ class SoftMain
      */
     public function setSoftOutbound(\AppBundle\Entity\SoftOutbound $softOutbound = null)
     {
-        $this->SoftOutbound = $softOutbound;
+        $this->softOutbound = $softOutbound;
 
         return $this;
     }
@@ -496,7 +485,7 @@ class SoftMain
      */
     public function getSoftOutbound()
     {
-        return $this->SoftOutbound;
+        return $this->softOutbound;
     }
 
     /**
@@ -508,7 +497,7 @@ class SoftMain
      */
     public function setSoftCommSupport(\AppBundle\Entity\SoftCommSupport $softCommSupport = null)
     {
-        $this->SoftCommSupport = $softCommSupport;
+        $this->softCommSupport = $softCommSupport;
 
         return $this;
     }
@@ -520,7 +509,7 @@ class SoftMain
      */
     public function getSoftCommSupport()
     {
-        return $this->SoftCommSupport;
+        return $this->softCommSupport;
     }
 
     /**
@@ -532,7 +521,7 @@ class SoftMain
      */
     public function setSoftLeadsOperation(\AppBundle\Entity\SoftLeadsOperation $softLeadsOperation = null)
     {
-        $this->SoftLeadsOperation = $softLeadsOperation;
+        $this->softLeadsOperation = $softLeadsOperation;
 
         return $this;
     }
@@ -544,7 +533,7 @@ class SoftMain
      */
     public function getSoftLeadsOperation()
     {
-        return $this->SoftLeadsOperation;
+        return $this->softLeadsOperation;
     }
 
     /**
@@ -556,7 +545,7 @@ class SoftMain
      */
     public function setSoftSegmentOperation(\AppBundle\Entity\SoftSegmentOperation $softSegmentOperation = null)
     {
-        $this->SoftSegmentOperation = $softSegmentOperation;
+        $this->softSegmentOperation = $softSegmentOperation;
 
         return $this;
     }
@@ -568,7 +557,7 @@ class SoftMain
      */
     public function getSoftSegmentOperation()
     {
-        return $this->SoftSegmentOperation;
+        return $this->softSegmentOperation;
     }
 
     /**
@@ -580,7 +569,7 @@ class SoftMain
      */
     public function setSoftMarketingCampaign(\AppBundle\Entity\SoftMarketingCampaign $softMarketingCampaign = null)
     {
-        $this->SoftMarketingCampaign = $softMarketingCampaign;
+        $this->softMarketingCampaign = $softMarketingCampaign;
 
         return $this;
     }
@@ -592,7 +581,7 @@ class SoftMain
      */
     public function getSoftMarketingCampaign()
     {
-        return $this->SoftMarketingCampaign;
+        return $this->softMarketingCampaign;
     }
 
     /**
@@ -604,7 +593,7 @@ class SoftMain
      */
     public function setSoftSocialMedia(\AppBundle\Entity\SoftSocialMedia $softSocialMedia = null)
     {
-        $this->SoftSocialMedia = $softSocialMedia;
+        $this->softSocialMedia = $softSocialMedia;
 
         return $this;
     }
@@ -616,7 +605,7 @@ class SoftMain
      */
     public function getSoftSocialMedia()
     {
-        return $this->SoftSocialMedia;
+        return $this->softSocialMedia;
     }
 
     /**
@@ -628,7 +617,7 @@ class SoftMain
      */
     public function setSoftReport(\AppBundle\Entity\SoftReport $softReport = null)
     {
-        $this->SoftReport = $softReport;
+        $this->softReport = $softReport;
 
         return $this;
     }
@@ -640,7 +629,7 @@ class SoftMain
      */
     public function getSoftReport()
     {
-        return $this->SoftReport;
+        return $this->softReport;
     }
 
     /**
@@ -652,7 +641,7 @@ class SoftMain
      */
     public function setSoftSupport(\AppBundle\Entity\SoftSupport $softSupport = null)
     {
-        $this->SoftSupport = $softSupport;
+        $this->softSupport = $softSupport;
 
         return $this;
     }
@@ -664,7 +653,7 @@ class SoftMain
      */
     public function getSoftSupport()
     {
-        return $this->SoftSupport;
+        return $this->softSupport;
     }
 
     /**
@@ -676,7 +665,7 @@ class SoftMain
      */
     public function setSoftOtherFunctionnalities(\AppBundle\Entity\SoftOtherFunctionnalities $softOtherFunctionnalities = null)
     {
-        $this->SoftOtherFunctionnalities = $softOtherFunctionnalities;
+        $this->softOtherFunctionnalities = $softOtherFunctionnalities;
 
         return $this;
     }
@@ -688,6 +677,6 @@ class SoftMain
      */
     public function getSoftOtherFunctionnalities()
     {
-        return $this->SoftOtherFunctionnalities;
+        return $this->softOtherFunctionnalities;
     }
 }

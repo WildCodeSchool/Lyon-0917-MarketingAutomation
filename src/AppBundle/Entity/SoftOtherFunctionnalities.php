@@ -56,11 +56,16 @@ class SoftOtherFunctionnalities
      */
     private $isRssToEmail;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softOtherFunctionnalities")
+     */
+    private $softmain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -84,7 +89,7 @@ class SoftOtherFunctionnalities
     /**
      * Get isProviderEmailChoice
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsProviderEmailChoice()
     {
@@ -108,7 +113,7 @@ class SoftOtherFunctionnalities
     /**
      * Get isBlogEdition
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsBlogEdition()
     {
@@ -132,7 +137,7 @@ class SoftOtherFunctionnalities
     /**
      * Get isTouchPad
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsTouchPad()
     {
@@ -156,7 +161,7 @@ class SoftOtherFunctionnalities
     /**
      * Get isSmtpRelay
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsSmtpRelay()
     {
@@ -180,11 +185,34 @@ class SoftOtherFunctionnalities
     /**
      * Get isRssToEmail
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsRssToEmail()
     {
         return $this->isRssToEmail;
     }
-}
 
+    /**
+     * Set softmain
+     *
+     * @param \AppBundle\Entity\SoftMain $softmain
+     *
+     * @return SoftOtherFunctionnalities
+     */
+    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    {
+        $this->softmain = $softmain;
+
+        return $this;
+    }
+
+    /**
+     * Get softmain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftmain()
+    {
+        return $this->softmain;
+    }
+}

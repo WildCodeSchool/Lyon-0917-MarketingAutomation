@@ -35,7 +35,7 @@ class Tag
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
-    private $softwares;
+    private $softmain;
 
     /**
      * @var string
@@ -44,14 +44,12 @@ class Tag
      */
     private $description;
 
-
-
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->softwares = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->softmain = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -113,36 +111,36 @@ class Tag
     }
 
     /**
-     * Add software
+     * Add softmain
      *
-     * @param \AppBundle\Entity\SoftMain $software
+     * @param \AppBundle\Entity\SoftMain $softmain
      *
      * @return Tag
      */
-    public function addSoftware(\AppBundle\Entity\SoftMain $software)
+    public function addSoftmain(\AppBundle\Entity\SoftMain $softmain)
     {
-        $this->softwares[] = $software;
+        $this->softmain[] = $softmain;
 
         return $this;
     }
 
     /**
-     * Remove software
+     * Remove softmain
      *
-     * @param \AppBundle\Entity\SoftMain $software
+     * @param \AppBundle\Entity\SoftMain $softmain
      */
-    public function removeSoftware(\AppBundle\Entity\SoftMain $software)
+    public function removeSoftmain(\AppBundle\Entity\SoftMain $softmain)
     {
-        $this->softwares->removeElement($software);
+        $this->softmain->removeElement($softmain);
     }
 
     /**
-     * Get softwares
+     * Get softmain
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSoftwares()
+    public function getSoftmain()
     {
-        return $this->softwares;
+        return $this->softmain;
     }
 }
