@@ -59,7 +59,7 @@ class SoftOtherFunctionnalities
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softOtherFunctionnalities")
      */
-    private $softmain;
+    private $softMain;
 
 
     /**
@@ -193,26 +193,26 @@ class SoftOtherFunctionnalities
     }
 
     /**
-     * Set softmain
+     * Set softMain
      *
-     * @param \AppBundle\Entity\SoftMain $softmain
+     * @param \AppBundle\Entity\SoftMain $softMain
      *
      * @return SoftOtherFunctionnalities
      */
-    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
     {
-        $this->softmain = $softmain;
+        $this->softMain = $softMain;
 
         return $this;
     }
 
     /**
-     * Get softmain
+     * Get softMain
      *
      * @return \AppBundle\Entity\SoftMain
      */
-    public function getSoftmain()
+    public function getSoftMain()
     {
-        return $this->softmain;
+        return $this->softMain;
     }
 }

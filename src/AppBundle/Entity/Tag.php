@@ -35,7 +35,7 @@ class Tag
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
-    private $softmain;
+    private $softMains;
 
     /**
      * @var string
@@ -49,7 +49,7 @@ class Tag
      */
     public function __construct()
     {
-        $this->softmain = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->softMains = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -111,36 +111,36 @@ class Tag
     }
 
     /**
-     * Add softmain
+     * Add softMain
      *
-     * @param \AppBundle\Entity\SoftMain $softmain
+     * @param \AppBundle\Entity\SoftMain $softMain
      *
      * @return Tag
      */
-    public function addSoftmain(\AppBundle\Entity\SoftMain $softmain)
+    public function addSoftMain(\AppBundle\Entity\SoftMain $softMain)
     {
-        $this->softmain[] = $softmain;
+        $this->softMains[] = $softMain;
 
         return $this;
     }
 
     /**
-     * Remove softmain
+     * Remove softMain
      *
-     * @param \AppBundle\Entity\SoftMain $softmain
+     * @param \AppBundle\Entity\SoftMain $softMain
      */
-    public function removeSoftmain(\AppBundle\Entity\SoftMain $softmain)
+    public function removeSoftMain(\AppBundle\Entity\SoftMain $softMain)
     {
-        $this->softmain->removeElement($softmain);
+        $this->softMains->removeElement($softMain);
     }
 
     /**
-     * Get softmain
+     * Get softMains
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSoftmain()
+    public function getSoftMains()
     {
-        return $this->softmain;
+        return $this->softMains;
     }
 }

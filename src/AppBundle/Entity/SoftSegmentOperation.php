@@ -38,7 +38,7 @@ class SoftSegmentOperation
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSegmentOperation")
      */
-    private $softmain;
+    private $softMain;
 
 
     /**
@@ -100,26 +100,26 @@ class SoftSegmentOperation
     }
 
     /**
-     * Set softmain
+     * Set softMain
      *
-     * @param \AppBundle\Entity\SoftMain $softmain
+     * @param \AppBundle\Entity\SoftMain $softMain
      *
      * @return SoftSegmentOperation
      */
-    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
     {
-        $this->softmain = $softmain;
+        $this->softMain = $softMain;
 
         return $this;
     }
 
     /**
-     * Get softmain
+     * Get softMain
      *
      * @return \AppBundle\Entity\SoftMain
      */
-    public function getSoftmain()
+    public function getSoftMain()
     {
-        return $this->softmain;
+        return $this->softMain;
     }
 }

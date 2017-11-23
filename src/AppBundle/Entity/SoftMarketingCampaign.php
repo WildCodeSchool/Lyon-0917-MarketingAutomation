@@ -53,7 +53,8 @@ class SoftMarketingCampaign
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softMarketingCampaign")
      */
-    private $softmain;
+    private $softMain;
+
 
     /**
      * Get id
@@ -162,26 +163,26 @@ class SoftMarketingCampaign
     }
 
     /**
-     * Set softmain
+     * Set softMain
      *
-     * @param \AppBundle\Entity\SoftMain $softmain
+     * @param \AppBundle\Entity\SoftMain $softMain
      *
      * @return SoftMarketingCampaign
      */
-    public function setSoftmain(\AppBundle\Entity\SoftMain $softmain = null)
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
     {
-        $this->softmain = $softmain;
+        $this->softMain = $softMain;
 
         return $this;
     }
 
     /**
-     * Get softmain
+     * Get softMain
      *
      * @return \AppBundle\Entity\SoftMain
      */
-    public function getSoftmain()
+    public function getSoftMain()
     {
-        return $this->softmain;
+        return $this->softMain;
     }
 }

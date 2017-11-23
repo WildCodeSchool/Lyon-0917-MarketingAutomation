@@ -90,7 +90,7 @@ class SoftMain
 
     /**
      * One SoftMain has One SoftInfo.
-     * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softmain")
+     * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softMain")
      */
 
     private $softInfo;
