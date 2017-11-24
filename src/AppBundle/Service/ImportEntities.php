@@ -13,41 +13,37 @@ class ImportEntities
 
     /** @var ObjectManager  */
     private $em;
+    /** @var \SplFileObject  */
+    private $file;
+    private $totalLines;
 
-    public function __construct(ObjectManager $em)
+    public function __construct(ObjectManager $em, $fileFromConsole)
     {
         $this->em = $em;
-    }
 
-    public function get(InputInterface $input, OutputInterface $output)
-    {
-        // Getting the CSV from console command
-        return $data;
-    }
+        // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
+        if(!file_exists($fileFromConsole)) {
+            //TODO : améliorer ce truc
+            throw new \Exception("Ce n'est pas un fichier");
+        }else{
 
+            // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
+        $this->file = new \SplFileObject($fileFromConsole);
 
-    public function convert($filename, $delimiter = ',')
-        //Convert file to be readable
-        // voir les fonctions en SPLfileobject (bibliothèque php hyper rapide) pour savoir combien de lignes traiter (cf barre progression)
-    {
-        if(!file_exists($filename) || !is_readable($filename)) {
-            return FALSE;
+        // On définit les drapeaux : saute la ligne si elle est vide
+        $this->file->setFlags(\SplFileObject::READ_AHEAD |
+            \SplFileObject::SKIP_EMPTY |
+            \SplFileObject::DROP_NEW_LINE);
+
+        // On va à la fin max du fichier
+        $this->file->seek(PHP_INT_MAX);
+
+        // On récupère le nombre de lignes et on hydrate la propriété avec
+        $this->totalLines = $this->file->key() + 1;
+
+        // On remonte le pointeur au début du fichier
+        $this->file->seek(0);
         }
-
-        $header = NULL;
-        $data = array();
-
-        if (($handle = fopen($filename, 'r')) !== FALSE) {
-            while (($row = fgetcsv($handle, 1000, $delimiter)) !== FALSE) {
-                if(!$header) {
-                    $header = $row;
-                } else {
-                    $data[] = array_combine($header, $row);
-                }
-            }
-            fclose($handle);
-        }
-        return $data;
     }
 
     public function checkIfString()
@@ -72,7 +68,7 @@ class ImportEntities
         // From csv, check if data is correct, if is not, return error
 
         // Getting php array of data from CSV with method get (to do)
-        $data = $this->get($input, $output);
+
     }
 
     public function importSoftware($data)
