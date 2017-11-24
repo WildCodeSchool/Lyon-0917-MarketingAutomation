@@ -68,7 +68,12 @@ class ImportEntities
         // From csv, check if data is correct, if is not, return error
 
         // Getting php array of data from CSV with method get (to do)
-
+        $csv = $this->file->fgetcsv(";");
+        for ($i = 1; $this->totalLines, $i++){
+            if($i===1){
+                foreach($csv)
+            }
+        }
     }
 
     public function importSoftware($data)
@@ -83,8 +88,5 @@ class ImportEntities
 
     }
 
-    public function import{
 
-
-    }
 }
