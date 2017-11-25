@@ -19,6 +19,7 @@ class ImportEntities
 
     public function __construct(ObjectManager $em, $fileFromConsole)
     {
+        /*
         $this->em = $em;
 
         // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
@@ -43,7 +44,9 @@ class ImportEntities
 
         // On remonte le pointeur au début du fichier
         $this->file->seek(0);
+
         }
+         */
     }
 
     public function checkIfString()
@@ -68,12 +71,14 @@ class ImportEntities
         // From csv, check if data is correct, if is not, return error
 
         // Getting php array of data from CSV with method get (to do)
-        $csv = $this->file->fgetcsv(";");
+        /*
+        $csv = $this->file->fgetcsv(",");
         for ($i = 1; $this->totalLines, $i++){
             if($i===1){
                 foreach($csv)
             }
         }
+        */
     }
 
     public function importSoftware($data)
