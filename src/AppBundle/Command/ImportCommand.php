@@ -41,11 +41,22 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        //$importEntities = $this->getContainer()->get(ImportEntities::class);
+
+        // Here, we need to get Input Argument. We have to catch 3 arguments.
         $inputFileTags = $input->getArgument('filetags');
 
+        // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
+
+        // If file is okay : transform in splFileObject
         $fileTags = new \SplFileObject($inputFileTags);
+        // Ready to be read and skip empty row
         $fileTags->setFlags(\SplFileObject::READ_CSV | \SplFileObject::READ_AHEAD | \SplFileObject::SKIP_EMPTY | \SplFileObject::DROP_NEW_LINE);
+
+        // To do : open transaction.
+
+
+        // Here the foreach to hydrate entity Tags. Only one verification : if the name already exists.
+        // To do : exclude header and verify data.
 
         while (!$fileTags->eof()) {
             foreach ($fileTags as $row) {
@@ -65,6 +76,8 @@ class ImportCommand extends ContainerAwareCommand
             }
         }
 
+        // End of transaction and commit if already went good.
+
 
         //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
         //Donc il faut prévoir de récupérer l'erreur qui est hors du code et prévoir le rollback
@@ -74,7 +87,6 @@ class ImportCommand extends ContainerAwareCommand
 
         $output->writeln('<comment>Start : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
 
-        // Importing CSV on DB via Doctrine ORM
 
         // Showing when the script is over
         $now = new \DateTime();
