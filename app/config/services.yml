@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    app.slug:
+        class:    AppBundle\Service\Slugification
+        public:   true

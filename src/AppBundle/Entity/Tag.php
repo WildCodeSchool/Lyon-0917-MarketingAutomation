@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Software;
+use AppBundle\Service\Slugification;
 
 /**
  * Tag
@@ -44,7 +44,11 @@ class Tag
      */
     private $description;
 
-
+    /**
+     * @var string
+     * @ORM\Column(name="slug", type="string", length=90, unique=false)
+     */
+    private $slug;
 
     /**
      * Constructor
@@ -110,6 +114,30 @@ class Tag
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Tag
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**

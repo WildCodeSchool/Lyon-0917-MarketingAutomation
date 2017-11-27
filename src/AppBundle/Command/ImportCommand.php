@@ -3,17 +3,13 @@
 namespace AppBundle\Command;
 
 
-use AppBundle\AppBundle;
 use AppBundle\Entity\Tag;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\ProgressBar;
-use AppBundle\Service\ImportEntities;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
-use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Console\Input\InputArgument;
+use AppBundle\Service\Slugification;
 
 class ImportCommand extends ContainerAwareCommand
 
@@ -53,10 +49,11 @@ class ImportCommand extends ContainerAwareCommand
         $fileTags->setFlags(\SplFileObject::READ_CSV | \SplFileObject::READ_AHEAD | \SplFileObject::SKIP_EMPTY | \SplFileObject::DROP_NEW_LINE);
 
         // To do : open transaction.
-
+        //$this->getContainer()->
 
         // Here the foreach to hydrate entity Tags. Only one verification : if the name already exists.
         // To do : exclude header and verify data.
+        $slugificator = $this->getContainer()->get('app.slug');
 
         while (!$fileTags->eof()) {
             foreach ($fileTags as $row) {
@@ -69,6 +66,8 @@ class ImportCommand extends ContainerAwareCommand
                     $tag = new Tag();
                     $tag->setName($name);
                     $tag->setDescription($description);
+                    $slug = $slugificator->slugFactory($name);
+                    $tag->setSlug($slug);
                     $this->em->persist($tag);
                     $this->em->flush();
                 }
