@@ -1,21 +1,139 @@
 bdd-init:
-    number-of-files:
-        3
+    number-of-files: 3
+
     file1:
-        path:
-        entity: User
-        links:
-            entity: Group
-            field: group
-        fields: 5
-            id: integer
-            name: string
+        path: ../Resources/datas/import-tags.csv
+        entities:
+          Tag
+            fields: 2
+              field:
+                name: string
+                description: string
+
     file2:
-        path:
-        entity: User
-        links:
-            entity: Group
-            field: group
-        fields: 5
-            id: integer
-            name: string
+        path: ../Resources/datas/import-softwares.csv
+        entities:
+          SoftMain:
+            fields: 6
+                name: string
+                type: string
+                description: string
+                comments: string
+                advantages: string
+                drawbacks: string
+
+          SoftInfo
+            fields: 6
+              field:
+                SoftOutbound: booleen
+                SoftCommSupport: booleen
+                SoftLeadsOperation: booleen
+                SoftSegmentOperation: booleen
+                SoftMarketingCampaign: booleen
+                SoftSocialMedia: booleen
+                SoftReport: booleen
+                SoftSupport: booleen
+                SoftOtherFunctionnalities: booleen
+          SoftInfo
+            fields: 9
+              field:
+                rgpd: booleen
+                customers: booleen
+                hostingCountry: booleen
+                creationDate: booleen
+                annualTurnover: booleen
+                configCost: booleen
+                subscriptionCost: booleen
+                trainingCost: booleen
+                webSite: booleen
+
+          SoftOutbound
+            fields: 7
+              field:
+                isEmail: booleen
+                isSms: booleen
+                isPopin: booleen
+                isMailPostal: booleen
+                isCallCenter: booleen
+                isPushMobile: booleen
+                isApi: booleen
+
+          SoftCommSupport
+            fields: 4
+              field:
+                isLandingPage: booleen
+                isForm: booleen
+                isTracking: booleen
+                isLiveChat: booleen
+
+          SoftLeadsOperation
+            fields: 7
+              field:
+                isContactObject: booleen
+                isCompanyObject: booleen
+                isDefinedFields: booleen
+                isIllimitedFields: booleen
+                isImportCsv: booleen
+                isAutoDuplicate: booleen
+                isLeadStages: booleen
+
+          SoftSegmentOperation
+            fields: 2
+              field:
+                isSegmentCreation: booleen
+                isIntelligentSegment: booleen
+
+          SoftMarketingCampaign
+            fields: 4
+              field:
+                isLeadScoring: booleen
+                isCreationCampaign: booleen
+                isDripMarketingCampaign: booleen
+                isDragAndDrop: booleen
+
+          SoftSocialMedia
+            fields: 8
+              field:
+                isTwitterMonitoring: booleen
+                isTwitterAutoPublication: booleen
+                isFacebookMonitoring: booleen
+                isFacebookAutoPublication: booleen
+                isLinkedinMonitoring: booleen
+                isLinkedinAutoPublication: booleen
+                isInstagramMonitoring: booleen
+                isInstagramAutoPublication: booleen
+
+          SoftReport
+            fields: 2
+              field:
+                isActivityReportCreation: booleen
+                isActivityReportPeriodicSend: booleen
+
+          SoftSupport
+            fields: 6
+              field:
+                isEmailSupport: booleen
+                isPhoneSupport: booleen
+                isChatSupport: booleen
+                isKnowledgeBase: booleen
+                knowledgeBaseLanguage: booleen
+                isTechnicalDocument: booleen
+
+          SoftOtherFunctionnalities
+            fields: 5
+              field:
+                isProviderEmailChoice: booleen
+                isBlogEdition: booleen
+                isTouchPad: booleen
+                isSmtpRelay: booleen
+                isRssToEmail: booleen
+
+    file3:
+        path: ../Resources/datas/import-versus.csv
+        entities:
+          Versus
+            fields: 3
+              field:
+                software1: string
+                software2: string
+                description: string
