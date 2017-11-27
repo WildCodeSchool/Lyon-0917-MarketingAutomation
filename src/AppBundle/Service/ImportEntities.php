@@ -44,14 +44,14 @@ class ImportEntities
                  */
     }
 
-    public function checkIfString()
+    private function checkIfString()
     {
         //Check if data is string, if it's not, return error
         // But I don't know if it's really efficient (utf8?)
         // Vérifier que le texte n'est pas "oui" ou "non"
     }
 
-    public function checkIfInteger($value, $column)
+    private function checkIfInteger($value, $column)
     {
         if (is_int($value) === FALSE) {
             array_push($this->errors, "Column" . $column . ": " . $value . "is expected to be an integer");
@@ -59,7 +59,7 @@ class ImportEntities
     }
 
     //si c'est différent de oui ou non, mais que c'est quand meme set ->error)
-    public function checkIfBool($value, $column)
+    private function checkIfBool($value, $column)
     {
         if ($value != "oui" || $value != "non") {
             if (isset($value)) {
@@ -70,7 +70,7 @@ class ImportEntities
     }
 
 // conversion des "oui" ou "non" ou "" par les booleens correspondants
-    public function convertToBool($value)
+    private function convertToBool($value)
     {
         switch ($value) {
             case "oui":
@@ -234,7 +234,7 @@ class ImportEntities
 
     private function fileInit($fileFromConsole)
     {
-        //default delimiter is ","
+        //by default delimiter is ","
 
         // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
         $file = new \SplFileObject($fileFromConsole);
