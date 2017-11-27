@@ -151,6 +151,12 @@ class SoftMain
     private $softOtherFunctionnalities;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     */
+    private $slug;
+    /**
      * Constructor
      */
     public function __construct()
@@ -336,6 +342,30 @@ class SoftMain
     public function getDrawbacks()
     {
         return $this->drawbacks;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return SoftMain
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
     }
 
     /**
