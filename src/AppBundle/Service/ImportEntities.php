@@ -2,6 +2,17 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\SoftCommSupport;
+use AppBundle\Entity\SoftInfo;
+use AppBundle\Entity\SoftLeadsOperation;
+use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\SoftMarketingCampaign;
+use AppBundle\Entity\SoftOtherFunctionnalities;
+use AppBundle\Entity\SoftOutbound;
+use AppBundle\Entity\SoftReport;
+use AppBundle\Entity\SoftSegmentOperation;
+use AppBundle\Entity\SoftSocialMedia;
+use AppBundle\Entity\SoftSupport;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -82,6 +93,7 @@ class ImportEntities
         $totalLines = $this->countLines($splFileTags);
         while (!$splFileTags->eof()) {
             foreach ($splFileTags as $row) {
+
                 list($name, $description) = $row;
                 $tag = $this->em->getRepository(Tag::class)
                     ->findOneBy([
@@ -91,7 +103,6 @@ class ImportEntities
                     $tag = new Tag();
                     $tag->setName($name);
                     $tag->setDescription($description);
-
                     $slug = $this->slugificator->slugFactory($name);
                     $tag->setSlug($slug);
                     $this->em->persist($tag);
@@ -102,10 +113,110 @@ class ImportEntities
         }
     }
 
-    public function importSoftware($data)
+    public function importSoftware($softFile)
     {
-        $this->fileInit($data);
-        // From csv, check if data is correct, if is not, return error
+        $splSoftFile = $this->fileInit($softFile);
+        $totalLines = $this->countLines($splSoftFile);
+        while (!$splSoftFile->eof()) {
+            foreach ($splSoftFile as $row) {
+                list($name, $type, $description, $comments, $advantages,$drawbacks,/*versus1 et 2?*/, $rgpd, $customers, $hostingCountry, $creationDate, $annualTurnover, $configCost, $subscriptionCost, $trainingCost, $website, $isEmail, $isSms, $isPopin, $isMailpostal, $isCallCenter, $isPushMobile, $isApi, $isLandingPage, $isForm, $isTracking, $isLiveChat, $isContactObject, $isCompanyObject, $isDefinedFields, $isIllimitedfields, $isImportCsv, $isAutoDuplicate, $isLeadStages, $isSegmentCreation, $isIntelligentSegment, $isLeadScoring, $isCreationCampaign, $isDripMarketingCampaign, $isDragAndDrop, $isTwitterMonitoring, $isTwitterAutoPublication, $isFacebookMonitoring, $isFacebookAutoPublication, $isLinkedinMonitoring, $isLinkedinAutoPublication, $isInstagramMonitoring, $isInstagramAutopPublication, $isActivityReportCreation, $isActivityReportPeriodicSend, $isEmailSupport, $isPhoneSupport, $isChatSupport, $isKnowledgeBase, $KnowledgeBaseLanguage, $isTechnicalDocument, $isProviderEmailChoice, $isBlogEdition, $isTouchPad, $isSmtpRelay, $isRssToEmail) = $row;
+                $soft = $this->em->getRepository(SoftMain::class)
+                    ->findOneBy([
+                        'name' => $name,
+                    ]);
+                if (null === $soft) {
+                    $softMain = new SoftMain();
+                    $softMain->setName($name);
+                    $slug = $this->slugificator->slugFactory($name);
+                    $softMain->setSlug($slug);
+                    //ajouter le path de l'image, à décider mais de type:
+                    //$softMain->setLogoUrl("/my/path/' . $this->slugificator->slugFactory($name) . '.png");
+                    $softMain->setType($type);
+                    $softMain->setDescription($description);
+                    $softMain->setComments($comments);
+                    $softMain->setAdvantages($advantages);
+                    $softMain->setDrawbacks($drawbacks);
+
+                    $softInfo = new SoftInfo();
+                    $softInfo->setRgpd($rgpd);
+                    $softInfo->setCustomers($customers);
+                    $softInfo->setHostingCountry($hostingCountry);
+                    $softInfo->setCreationDate($creationDate);
+                    $softInfo->setAnnualTurnover($annualTurnover);
+                    $softInfo->setConfigCost($configCost);
+                    $softInfo->setSubscriptionCost($subscriptionCost);
+                    $softInfo->setTrainingCost($trainingCost);
+                    $softInfo->setWebSite($website);
+
+                    $softOutbound = new SoftOutbound();
+                    $softOutbound->setIsEmail($isEmail);
+                    $softOutbound->setIsSms($isSms);
+                    $softOutbound->setIsPopin($isPopin);
+                    $softOutbound->setIsMailPostal($isMailpostal);
+                    $softOutbound->setIsCallCenter($isCallCenter);
+                    $softOutbound->setIsPushMobile($isPushMobile);
+                    $softOutbound->setIsApi($isApi);
+
+                    $softComm = new SoftCommSupport();
+                    $softComm->setIsLandingPage($isLandingPage);
+                    $softComm->setIsForm($isForm);
+                    $softComm->setIsTracking($isTracking);
+                    $softComm->setIsLiveChat($isLiveChat);
+
+                    $softLeadOp = new SoftLeadsOperation();
+                    $softLeadOp->setIsContactObject($isContactObject);
+                    $softLeadOp->setIsCompanyObject($isCompanyObject);
+                    $softLeadOp->setIsDefinedFields($isDefinedFields);
+                    $softLeadOp->setIsIllimitedFields($isIllimitedfields);
+                    $softLeadOp->setIsImportCsv($isImportCsv);
+                    $softLeadOp->setIsAutoDuplicate($isAutoDuplicate);
+                    $softLeadOp->setIsLeadStages($isLeadStages);
+
+                    $softSegmentOp = new SoftSegmentOperation();
+                    $softSegmentOp->setIsSegmentCreation($isSegmentCreation);
+                    $softSegmentOp->setIsIntelligentSegment($isIntelligentSegment);
+
+                    $softMarketing = new SoftMarketingCampaign();
+                    $softMarketing->setIsLeadScoring($isLeadScoring);
+                    $softMarketing->setIsCreationCampaign($isCreationCampaign);
+                    $softMarketing->setIsDripMarketingCampaign($isDripMarketingCampaign);
+                    $softMarketing->setIsDragAndDrop($isDragAndDrop);
+
+                    $softSocial = new SoftSocialMedia();
+                    $softSocial->setIsTwitterMonitoring($isTwitterMonitoring);
+                    $softSocial->setIsTwitterAutoPublication($isTwitterAutoPublication);
+                    $softSocial->setIsFacebookMonitoring($isFacebookMonitoring);
+                    $softSocial->setIsFacebookAutoPublication($isFacebookAutoPublication);
+                    $softSocial->setIsLinkedinMonitoring($isLinkedinMonitoring);
+                    $softSocial->setIsLinkedinAutoPublication($isLinkedinAutoPublication);
+                    $softSocial->setIsInstagramMonitoring($isInstagramMonitoring);
+                    $softSocial->setIsInstagramAutoPublication($isInstagramAutopPublication);
+
+                    $softReport = new SoftReport();
+                    $softReport->setIsActivityReportCreation($isActivityReportCreation);
+                    $softReport->setIsActivityReportPeriodicSend($isActivityReportPeriodicSend);
+
+                    $softSupport = new SoftSupport();
+                    $softSupport->setIsEmailSupport($isEmailSupport);
+                    $softSupport->setIsPhoneSupport($isPhoneSupport);
+                    $softSupport->setIsChatSupport($isChatSupport);
+                    $softSupport->setIsKnowledgeBase($isKnowledgeBase);
+                    $softSupport->setKnowledgeBaseLanguage($KnowledgeBaseLanguage);
+                    $softSupport->setIsTechnicalDocument($isTechnicalDocument);
+
+                    $softOthers = new SoftOtherFunctionnalities();
+                    $softOthers->setIsProviderEmailChoice($isProviderEmailChoice);
+                    $softOthers->setIsBlogEdition($isBlogEdition);
+                    $softOthers->setIsTouchPad($isTouchPad);
+                    $softOthers->setIsSmtpRelay($isSmtpRelay);
+                    $softOthers->setIsRssToEmail($isRssToEmail);
+
+                    $this->em->persist($tag);
+                    $this->em->flush();
+                }
+
+            }
+        }
 
     }
 
