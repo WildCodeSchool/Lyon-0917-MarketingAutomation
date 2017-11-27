@@ -1,0 +1,21 @@
+bdd-init:
+    number-of-files:
+        3
+    file1:
+        path:
+        entity: User
+        links:
+            entity: Group
+            field: group
+        fields: 5
+            id: integer
+            name: string
+    file2:
+        path:
+        entity: User
+        links:
+            entity: Group
+            field: group
+        fields: 5
+            id: integer
+            name: string

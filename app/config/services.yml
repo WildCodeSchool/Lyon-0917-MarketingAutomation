@@ -37,3 +37,7 @@ services:
     app.slug:
         class:    AppBundle\Service\Slugification
         public:   true
+
+    app.import:
+        class:    AppBundle\Service\ImportEntities
+        public:   true
