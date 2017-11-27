@@ -125,6 +125,7 @@ class ImportEntities
                         'name' => $name,
                     ]);
                 if (null === $soft) {
+                    //Faire la boucle de vérif ici
                     $softMain = new SoftMain();
                     $softMain->setName($name);
                     $slug = $this->slugificator->slugFactory($name);
