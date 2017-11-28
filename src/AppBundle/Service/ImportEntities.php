@@ -223,6 +223,16 @@ class ImportEntities
 
 
                     $softMain->setSoftInfo($softInfo);
+                    $softMain->setSoftOutbound($softOutbound);
+                    $softMain->setSoftCommSupport($softComm);
+                    $softMain->setSoftLeadsOperation($softLeadOp);
+                    $softMain->setSoftSegmentOperation($softSegmentOp);
+                    $softMain->setSoftMarketingCampaign($softMarketing);
+                    $softMain->setSoftSocialMedia($softSocial);
+                    $softMain->setSoftReport($softReport);
+                    $softMain->setSoftSupport($softSupport);
+                    $softMain->setSoftOtherFunctionnalities($softOthers);
+
 
                     $this->em->persist($softInfo);
                     $this->em->persist($softOutbound);
@@ -234,12 +244,7 @@ class ImportEntities
                     $this->em->persist($softReport);
                     $this->em->persist($softSupport);
                     $this->em->persist($softOthers);
-
-
                     $this->em->persist($softMain);
-
-
-
 
                     $this->em->flush();
                 }
