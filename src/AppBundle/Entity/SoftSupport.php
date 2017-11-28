@@ -63,11 +63,16 @@ class SoftSupport
      */
     private $isTechnicalDocument;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSupport")
+     */
+    private $softMain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -91,7 +96,7 @@ class SoftSupport
     /**
      * Get isEmailSupport
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsEmailSupport()
     {
@@ -115,7 +120,7 @@ class SoftSupport
     /**
      * Get isPhoneSupport
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsPhoneSupport()
     {
@@ -139,7 +144,7 @@ class SoftSupport
     /**
      * Get isChatSupport
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsChatSupport()
     {
@@ -163,7 +168,7 @@ class SoftSupport
     /**
      * Get isKnowledgeBase
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsKnowledgeBase()
     {
@@ -211,11 +216,34 @@ class SoftSupport
     /**
      * Get isTechnicalDocument
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsTechnicalDocument()
     {
         return $this->isTechnicalDocument;
     }
-}
 
+    /**
+     * Set softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return SoftSupport
+     */
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
+    {
+        $this->softMain = $softMain;
+
+        return $this;
+    }
+
+    /**
+     * Get softMain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftMain()
+    {
+        return $this->softMain;
+    }
+}
