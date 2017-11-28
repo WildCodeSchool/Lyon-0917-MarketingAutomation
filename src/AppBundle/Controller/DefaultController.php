@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\Tag;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,8 +39,10 @@ class DefaultController extends Controller
     public function listingSoftwareAction(Request $request)
     {
 
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+        $softMains = $repository->findAll();
         return $this->render('default/listing-software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'softwares' => $softMains,
         ]);
     }
 
@@ -58,7 +62,7 @@ class DefaultController extends Controller
      */
     public function listingTagsAction(Request $request)
     {
-
+        $repository = $this->getDoctrine()->getRepository(Tag::class);
         return $this->render('default/listing-tags.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
@@ -102,6 +106,7 @@ class DefaultController extends Controller
     public function listingVersusAction(Request $request)
     {
 
+
         return $this->render('default/listing-versus.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
@@ -115,7 +120,6 @@ class DefaultController extends Controller
     public function siteMapAction(SiteMap $siteMap)
     {
         $urls = $siteMap->generate();
-
         return $this->render('default/sitemap.html.twig', [
             'urls' => $urls,
         ]);
