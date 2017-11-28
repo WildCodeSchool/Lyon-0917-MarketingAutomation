@@ -16,3 +16,6 @@
         </div>
     </div>
 {% endblock %}
+{% block javascripts %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/konami.js') }}"></script>
+{% endblock %}
