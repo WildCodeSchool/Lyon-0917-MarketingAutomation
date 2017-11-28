@@ -63,8 +63,9 @@ class DefaultController extends Controller
     public function listingTagsAction(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Tag::class);
+        $tags = $repository->findAll();
         return $this->render('default/listing-tags.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'tags' => $tags,
         ]);
     }
 
