@@ -86,9 +86,15 @@ class SoftInfo
 
 
     /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softInfo")
+     */
+    private $softMain;
+
+
+    /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -112,7 +118,7 @@ class SoftInfo
     /**
      * Get rgpd
      *
-     * @return bool
+     * @return boolean
      */
     public function getRgpd()
     {
@@ -184,7 +190,7 @@ class SoftInfo
     /**
      * Get creationDate
      *
-     * @return int
+     * @return integer
      */
     public function getCreationDate()
     {
@@ -256,7 +262,7 @@ class SoftInfo
     /**
      * Get subscriptionCost
      *
-     * @return int
+     * @return integer
      */
     public function getSubscriptionCost()
     {
@@ -280,7 +286,7 @@ class SoftInfo
     /**
      * Get trainingCost
      *
-     * @return int
+     * @return integer
      */
     public function getTrainingCost()
     {
@@ -310,5 +316,28 @@ class SoftInfo
     {
         return $this->webSite;
     }
-}
 
+    /**
+     * Set softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return SoftInfo
+     */
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
+    {
+        $this->softMain = $softMain;
+
+        return $this;
+    }
+
+    /**
+     * Get softMain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftMain()
+    {
+        return $this->softMain;
+    }
+}

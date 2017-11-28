@@ -50,7 +50,6 @@ class Versus
     private $description;
 
 
-
     /**
      * Get id
      *

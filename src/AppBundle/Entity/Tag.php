@@ -35,7 +35,7 @@ class Tag
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
-    private $softwares;
+    private $softMains;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class Tag
 
     /**
      * @var string
-     * @ORM\Column(name="slug", type="string", length=90, unique=false)
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
 
@@ -55,7 +55,7 @@ class Tag
      */
     public function __construct()
     {
-        $this->softwares = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->softMains = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -141,36 +141,36 @@ class Tag
     }
 
     /**
-     * Add software
+     * Add softMain
      *
-     * @param \AppBundle\Entity\SoftMain $software
+     * @param \AppBundle\Entity\SoftMain $softMain
      *
      * @return Tag
      */
-    public function addSoftware(\AppBundle\Entity\SoftMain $software)
+    public function addSoftMain(\AppBundle\Entity\SoftMain $softMain)
     {
-        $this->softwares[] = $software;
+        $this->softMains[] = $softMain;
 
         return $this;
     }
 
     /**
-     * Remove software
+     * Remove softMain
      *
-     * @param \AppBundle\Entity\SoftMain $software
+     * @param \AppBundle\Entity\SoftMain $softMain
      */
-    public function removeSoftware(\AppBundle\Entity\SoftMain $software)
+    public function removeSoftMain(\AppBundle\Entity\SoftMain $softMain)
     {
-        $this->softwares->removeElement($software);
+        $this->softMains->removeElement($softMain);
     }
 
     /**
-     * Get softwares
+     * Get softMains
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getSoftwares()
+    public function getSoftMains()
     {
-        return $this->softwares;
+        return $this->softMains;
     }
 }
