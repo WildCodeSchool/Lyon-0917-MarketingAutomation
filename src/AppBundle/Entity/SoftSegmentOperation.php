@@ -35,11 +35,16 @@ class SoftSegmentOperation
      */
     private $isIntelligentSegment;
 
+    /**
+     * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSegmentOperation")
+     */
+    private $softMain;
+
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -63,7 +68,7 @@ class SoftSegmentOperation
     /**
      * Get isSegmentCreation
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsSegmentCreation()
     {
@@ -87,11 +92,34 @@ class SoftSegmentOperation
     /**
      * Get isIntelligentSegment
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsIntelligentSegment()
     {
         return $this->isIntelligentSegment;
     }
-}
 
+    /**
+     * Set softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return SoftSegmentOperation
+     */
+    public function setSoftMain(\AppBundle\Entity\SoftMain $softMain = null)
+    {
+        $this->softMain = $softMain;
+
+        return $this;
+    }
+
+    /**
+     * Get softMain
+     *
+     * @return \AppBundle\Entity\SoftMain
+     */
+    public function getSoftMain()
+    {
+        return $this->softMain;
+    }
+}
