@@ -37,12 +37,42 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $this->em->getConnection()->beginTransaction();
 
-        // Here, we need to get Input Argument. We have to catch 3 arguments.
-        $inputFileTags = $input->getArgument('filetags');
+        try {
 
-        $importTag = $this->getContainer()->get('app.import');
-        $importTag->importTags($inputFileTags);
+            // Here, we need to get Input Argument. We have to catch 3 arguments.
+
+            try {
+                $inputFileTags = $input->getArgument('filetags');
+                $importTag = $this->getContainer()->get('app.import');
+                $importTag->importTags($inputFileTags);
+            } catch (Exception $e) {
+                throw $e;
+            }
+            try {
+                $inputFileSofts = $input->getArgument('filesoft');
+                $importSoft = $this->getContainer()->get('app.import');
+                $importSoft->importSoftware($inputFileSofts);
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            try {
+                $inputFileVersus = $input->getArgument('fileversus');
+                $importVersus = $this->getContainer()->get('app.import');
+                $importVersus->importVersus($inputFileVersus);
+
+            } catch (Exception $e) {
+                throw $e;
+            }
+
+            $this->em->getConnection()->commit();
+
+        } catch (Exception $e) {
+            $this->em->getConnection()->rollBack();
+            throw $e;
+        }
 
 
 
