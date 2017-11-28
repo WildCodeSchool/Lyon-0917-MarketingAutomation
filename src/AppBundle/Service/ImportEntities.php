@@ -125,7 +125,7 @@ class ImportEntities
                         'name' => $name,
                     ]);
                 if (null === $soft) {
-                    //Faire la boucle de vérif ici
+                    //Faire la boucle de vérif et de changement en bool ici
                     $softMain = new SoftMain();
                     $softMain->setName($name);
                     $slug = $this->slugificator->slugFactory($name);
@@ -149,6 +149,7 @@ class ImportEntities
                     $softInfo->setTrainingCost($trainingCost);
                     $softInfo->setWebSite($website);
 
+
                     $softOutbound = new SoftOutbound();
                     $softOutbound->setIsEmail($isEmail);
                     $softOutbound->setIsSms($isSms);
@@ -158,11 +159,13 @@ class ImportEntities
                     $softOutbound->setIsPushMobile($isPushMobile);
                     $softOutbound->setIsApi($isApi);
 
+
                     $softComm = new SoftCommSupport();
                     $softComm->setIsLandingPage($isLandingPage);
                     $softComm->setIsForm($isForm);
                     $softComm->setIsTracking($isTracking);
                     $softComm->setIsLiveChat($isLiveChat);
+
 
                     $softLeadOp = new SoftLeadsOperation();
                     $softLeadOp->setIsContactObject($isContactObject);
@@ -173,15 +176,18 @@ class ImportEntities
                     $softLeadOp->setIsAutoDuplicate($isAutoDuplicate);
                     $softLeadOp->setIsLeadStages($isLeadStages);
 
+
                     $softSegmentOp = new SoftSegmentOperation();
                     $softSegmentOp->setIsSegmentCreation($isSegmentCreation);
                     $softSegmentOp->setIsIntelligentSegment($isIntelligentSegment);
+
 
                     $softMarketing = new SoftMarketingCampaign();
                     $softMarketing->setIsLeadScoring($isLeadScoring);
                     $softMarketing->setIsCreationCampaign($isCreationCampaign);
                     $softMarketing->setIsDripMarketingCampaign($isDripMarketingCampaign);
                     $softMarketing->setIsDragAndDrop($isDragAndDrop);
+
 
                     $softSocial = new SoftSocialMedia();
                     $softSocial->setIsTwitterMonitoring($isTwitterMonitoring);
@@ -193,9 +199,11 @@ class ImportEntities
                     $softSocial->setIsInstagramMonitoring($isInstagramMonitoring);
                     $softSocial->setIsInstagramAutoPublication($isInstagramAutopPublication);
 
+
                     $softReport = new SoftReport();
                     $softReport->setIsActivityReportCreation($isActivityReportCreation);
                     $softReport->setIsActivityReportPeriodicSend($isActivityReportPeriodicSend);
+
 
                     $softSupport = new SoftSupport();
                     $softSupport->setIsEmailSupport($isEmailSupport);
@@ -205,6 +213,7 @@ class ImportEntities
                     $softSupport->setKnowledgeBaseLanguage($KnowledgeBaseLanguage);
                     $softSupport->setIsTechnicalDocument($isTechnicalDocument);
 
+
                     $softOthers = new SoftOtherFunctionnalities();
                     $softOthers->setIsProviderEmailChoice($isProviderEmailChoice);
                     $softOthers->setIsBlogEdition($isBlogEdition);
@@ -212,7 +221,26 @@ class ImportEntities
                     $softOthers->setIsSmtpRelay($isSmtpRelay);
                     $softOthers->setIsRssToEmail($isRssToEmail);
 
-                    $this->em->persist($tag);
+
+                    $softMain->setSoftInfo($softInfo);
+
+                    $this->em->persist($softInfo);
+                    $this->em->persist($softOutbound);
+                    $this->em->persist($softComm);
+                    $this->em->persist($softLeadOp);
+                    $this->em->persist($softSegmentOp);
+                    $this->em->persist($softMarketing);
+                    $this->em->persist($softSocial);
+                    $this->em->persist($softReport);
+                    $this->em->persist($softSupport);
+                    $this->em->persist($softOthers);
+
+
+                    $this->em->persist($softMain);
+
+
+
+
                     $this->em->flush();
                 }
 
