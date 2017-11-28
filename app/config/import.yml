@@ -1,20 +1,18 @@
-bdd-init:
-    number-of-files: 3
+number-of-files: 3
+file1:
+    path: ../Resources/datas/import-tags.csv
+    entities:
+        Tag:
+    fields:
+            name: string
+            description: string
 
-    file1:
-        path: ../Resources/datas/import-tags.csv
-        entities:
-          Tag:
-            fields: 2
-              field:
-                name: string
-                description: string
 
-    file2:
+file2:
         path: ../Resources/datas/import-softwares.csv
         entities:
           SoftMain:
-            fields: 6
+            fields:
                 name: string
                 type: string
                 description: string
@@ -23,8 +21,7 @@ bdd-init:
                 drawbacks: string
 
           SoftInfo:
-            fields: 6
-              field:
+            fields:
                 SoftOutbound: booleen
                 SoftCommSupport: booleen
                 SoftLeadsOperation: booleen
@@ -38,8 +35,7 @@ bdd-init:
               Target: SoftMain
               Relation: One-to-One
           SoftInfo:
-            fields: 9
-              field:
+            fields:
                 rgpd: booleen
                 customers: booleen
                 hostingCountry: booleen
@@ -54,8 +50,7 @@ bdd-init:
               Relation: One-to-One
 
           SoftOutbound:
-            fields: 7
-              field:
+            fields:
                 isEmail: booleen
                 isSms: booleen
                 isPopin: booleen
@@ -68,8 +63,7 @@ bdd-init:
               Relation: One-to-One
 
           SoftCommSupport:
-            fields: 4
-              field:
+            fields:
                 isLandingPage: booleen
                 isForm: booleen
                 isTracking: booleen
@@ -79,8 +73,7 @@ bdd-init:
               Relation: One-to-One
 
           SoftLeadsOperation:
-            fields: 7
-              field:
+            fields:
                 isContactObject: booleen
                 isCompanyObject: booleen
                 isDefinedFields: booleen
@@ -88,13 +81,12 @@ bdd-init:
                 isImportCsv: booleen
                 isAutoDuplicate: booleen
                 isLeadStages: booleen
-            Links:
+        Links:
               Target: SoftMain
               Relation: One-to-One
 
           SoftSegmentOperation:
-            fields: 2
-              field:
+            fields:
                 isSegmentCreation: booleen
                 isIntelligentSegment: booleen
             Links:
@@ -102,19 +94,17 @@ bdd-init:
               Relation: One-to-One
 
           SoftMarketingCampaign:
-            fields: 4
-              field:
+            fields:
                 isLeadScoring: booleen
                 isCreationCampaign: booleen
                 isDripMarketingCampaign: booleen
                 isDragAndDrop: booleen
-            Links:
+        Links:
               Target: SoftMain
               Relation: One-to-One
 
           SoftSocialMedia:
-            fields: 8
-              field:
+            fields:
                 isTwitterMonitoring: booleen
                 isTwitterAutoPublication: booleen
                 isFacebookMonitoring: booleen
@@ -123,35 +113,32 @@ bdd-init:
                 isLinkedinAutoPublication: booleen
                 isInstagramMonitoring: booleen
                 isInstagramAutoPublication: booleen
-            Links:
+        Links:
               Target: SoftMain
               Relation: One-to-One
 
           SoftReport:
-            fields: 2
-              field:
+            fields:
                 isActivityReportCreation: booleen
                 isActivityReportPeriodicSend: booleen
-            Links:
+        Links:
               Target: SoftMain
               Relation: One-to-One
 
           SoftSupport:
-            fields: 6
-              field:
+            fields:
                 isEmailSupport: booleen
                 isPhoneSupport: booleen
                 isChatSupport: booleen
                 isKnowledgeBase: booleen
                 knowledgeBaseLanguage: booleen
                 isTechnicalDocument: booleen
-            Links:
+        Links:
               Target: SoftMain
               Relation: One-to-One
 
           SoftOtherFunctionnalities:
-            fields: 5
-              field:
+            fields:
                 isProviderEmailChoice: booleen
                 isBlogEdition: booleen
                 isTouchPad: booleen
@@ -161,15 +148,27 @@ bdd-init:
               Target: SoftMain
               Relation: One-to-One
 
-    file3:
+file3:
         path: ../Resources/datas/import-versus.csv
         entities:
           Versus:
-            fields: 3
-              field:
+            fields:
                 software1: string
                 software2: string
                 description: string
             Links:
               Target: SoftMain
               Relation: Many-to-Many
+
+# Gives an array like that :
+
+# "file1" => array:3 [▼
+#     "path" => "../Resources/datas/import-tags.csv"
+#     "entities" => array:1 [▼
+#       "Tag" => null
+#     ]
+#     "fields" => array:2 [▼
+#       "name" => "string"
+#       "description" => "string"
+#     ]
+#   ]
