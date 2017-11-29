@@ -2,17 +2,6 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\Entity\SoftCommSupport;
-use AppBundle\Entity\SoftInfo;
-use AppBundle\Entity\SoftLeadsOperation;
-use AppBundle\Entity\SoftMain;
-use AppBundle\Entity\SoftMarketingCampaign;
-use AppBundle\Entity\SoftOtherFunctionnalities;
-use AppBundle\Entity\SoftOutbound;
-use AppBundle\Entity\SoftReport;
-use AppBundle\Entity\SoftSegmentOperation;
-use AppBundle\Entity\SoftSocialMedia;
-use AppBundle\Entity\SoftSupport;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -103,8 +92,12 @@ class ImportEntities
                     $tag = new Tag();
                     $tag->setName($name);
                     $tag->setDescription($description);
-                    $softs = $this->splitString($softwares);
-                    $tag->addSoftMain($softs);
+                    $softArray = explode("#",$softwares);
+                    foreach ($softArray as $soft)
+                    {
+
+                        $tag->addSoftMain($soft);
+                    }
                     $slug = $this->slugificator->slugFactory($name);
                     $tag->setSlug($slug);
                     $this->em->persist($tag);
@@ -151,7 +144,8 @@ class ImportEntities
         return $file;
     }
 
-    private function countLines(\SplFileObject $file){
+    private function countLines(\SplFileObject $file)
+    {
 
         // On va à la fin max du fichier
         $file->seek(PHP_INT_MAX);
@@ -165,10 +159,10 @@ class ImportEntities
         return $totalLines;
     }
 
-    private function splitString($string){
-
+    private function splitString($string)
+    {
         // transform string to array with ";" delimiters
-        $array = preg_split("/[;]+/", $string);
+        $array = preg_split("/[#]+/", $string);
         return $array;
 
     }
