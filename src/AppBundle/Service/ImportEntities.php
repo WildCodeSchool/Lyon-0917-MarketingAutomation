@@ -144,8 +144,7 @@ class ImportEntities
                     $softMain->setName($row[0]);
                     $slug = $this->slugificator->slugFactory($row[0]);
                     $softMain->setSlug($slug);
-                    //ajouter le path de l'image, à décider mais de type:
-                    //$softMain->setLogoUrl("/my/path/' . $this->slugificator->slugFactory($name) . '.png");
+                    $softMain->setLogoUrl('assets/img/logo/'.$this->slugificator->slugFactory($row[0]) . '.png');
                     $softMain->setType($row[1]);
                     $softMain->setDescription($row[2]);
                     $softMain->setComments($row[3]);
