@@ -19,6 +19,11 @@ file2:
                 comments: string
                 advantages: string
                 drawbacks: string
+            links:
+              source: none
+              relation: none
+
+
 
           SoftInfo:
             fields:
@@ -31,9 +36,9 @@ file2:
                 SoftReport: booleen
                 SoftSupport: booleen
                 SoftOtherFunctionnalities: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
           SoftInfo:
             fields:
                 rgpd: booleen
@@ -46,8 +51,8 @@ file2:
                 trainingCost: booleen
                 webSite: booleen
             Links:
-              Target: SoftMain
-              Relation: One-to-One
+              source: SoftMain
+              relation: One-to-One
 
           SoftOutbound:
             fields:
@@ -58,9 +63,9 @@ file2:
                 isCallCenter: booleen
                 isPushMobile: booleen
                 isApi: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftCommSupport:
             fields:
@@ -69,8 +74,8 @@ file2:
                 isTracking: booleen
                 isLiveChat: booleen
             Links:
-              Target: SoftMain
-              Relation: One-to-One
+              source: SoftMain
+              relation: One-to-One
 
           SoftLeadsOperation:
             fields:
@@ -81,27 +86,27 @@ file2:
                 isImportCsv: booleen
                 isAutoDuplicate: booleen
                 isLeadStages: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftSegmentOperation:
             fields:
                 isSegmentCreation: booleen
                 isIntelligentSegment: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftMarketingCampaign:
-            fields:
+            source:
                 isLeadScoring: booleen
                 isCreationCampaign: booleen
                 isDripMarketingCampaign: booleen
                 isDragAndDrop: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftSocialMedia:
             fields:
@@ -113,17 +118,17 @@ file2:
                 isLinkedinAutoPublication: booleen
                 isInstagramMonitoring: booleen
                 isInstagramAutoPublication: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftReport:
             fields:
                 isActivityReportCreation: booleen
                 isActivityReportPeriodicSend: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftSupport:
             fields:
@@ -133,9 +138,9 @@ file2:
                 isKnowledgeBase: booleen
                 knowledgeBaseLanguage: booleen
                 isTechnicalDocument: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
           SoftOtherFunctionnalities:
             fields:
@@ -144,9 +149,9 @@ file2:
                 isTouchPad: booleen
                 isSmtpRelay: booleen
                 isRssToEmail: booleen
-            Links:
-              Target: SoftMain
-              Relation: One-to-One
+            links:
+              source: SoftMain
+              relation: One-to-One
 
 file3:
         path: ../Resources/datas/import-versus.csv

@@ -125,7 +125,8 @@ class ImportEntities
 
     public function importSoftware($softFile)
     {
-        $compareYmlSoft = $this->getConfig();
+        $softEntitiesYml = $this->getConfig()["file2"]["entities"];
+        $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
         //$totalLines = $this->countLines($splSoftFile);
         while (!$splSoftFile->eof()) {
@@ -135,16 +136,51 @@ class ImportEntities
                         'name' => $row[0],
                     ]);
                 if (null === $soft) {
-                    for ($i = 0; $i < count($row); $i++) {
-                        $row[$i] = $this->convertToBool($row[$i]);
-                    }
 
+                    $slug = $this->slugificator->slugFactory($row[0]);
+                    /*for ($i = 0; $i < count($row); $i++) {
+                        $row[$i] = $this->convertToBool($row[$i]);
+                    }*/
+//définition des variables de la boucle:
+                    $caseImport = 0;
+                    $i = 0;
+                    $j = 0;
+                    $chaqueEntity = [];
+                    //parcourt chaque entité pour ajouter les valeurs
+                    foreach ($softEntitiesYml as $entity) {
+                        $myClass = $entityKeys[$i] . "()";
+                        $chaqueEntity[$i] = new $myClass ;
+                        $listFields = array_keys($entity["fields"]);
+
+                        //parcourt les proprietés de chaque entity
+                        foreach ($entity["fields"] as $property) {
+                            $chaqueSetter = "set" . ucfirst($listFields[$j]);
+                            $chaqueEntity[$i]->$chaqueSetter($row[$caseImport]);
+                            $j++;
+                            $caseImport++;
+                        }
+                        $j = 0;
+                        $i++;
+                    }
+                    //fin de l'ajout du csv
+                    // parcourt chaque entité pour faire les liaisons
+                    $k = 1;
+                    foreach ($softEntitiesYml as $entity) {
+                        $eachSetterLink = "set" . $entityKeys[$k];
+                        if($entity["links"]["relation"] === "One-to-One"){
+                            $chaqueEntity[0]->$eachSetterLink($chaqueEntity[$k]);
+                        }
+                        $this->em->persist($chaqueEntity[$k]);
+                    }
+                    $this->em->persist($chaqueEntity[0]);
+                    $this->em->flush();
+
+/*
                     //Faire la boucle de vérif et de changement en bool ici
                     $softMain = new SoftMain();
                     $softMain->setName($row[0]);
-                    $slug = $this->slugificator->slugFactory($row[0]);
                     $softMain->setSlug($slug);
-                    $softMain->setLogoUrl('assets/img/logo/'.$this->slugificator->slugFactory($row[0]) . '.png');
+                    $softMain->setLogoUrl('assets/img/logo/' . $this->slugificator->slugFactory($row[0]) . '.png');
                     $softMain->setType($row[1]);
                     $softMain->setDescription($row[2]);
                     $softMain->setComments($row[3]);
@@ -261,6 +297,7 @@ class ImportEntities
                     $this->em->persist($softMain);
 
                     $this->em->flush();
+                    */
                 }
 
             }
