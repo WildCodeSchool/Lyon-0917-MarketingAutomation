@@ -2,12 +2,12 @@
     <div class="card">
         <div class="marginLogo">
             <div class="card-image responsive-img">
-                <a href="{{ path('softwareSolo') }}"><img class="responsive-img"
-                                                          src="{{ asset('assets/img/photo') }}{{ random(3) }}.png"></a>
+                <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}"><img class="responsive-img"
+                                                          src="{{ asset('assets/img/logo/') }}{{ software.slug }}.png"></a>
             </div>
         </div>
         <div class="card-content">
-            <a href="{{ path('softwareSolo') }}">
+            <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}">
                 <span class="card-title">
                         {{ software.name }}
                 </span>
