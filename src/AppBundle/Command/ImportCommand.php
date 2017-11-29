@@ -30,7 +30,7 @@ class ImportCommand extends ContainerAwareCommand
         $this
             ->setName('import:csv')
             ->setDescription('Import entities from CSV file')
-            ->addArgument('filetags', InputArgument::REQUIRED, 'Chemin vers le fichier csv pour importer les tags?')
+            //->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
             ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
             ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
     }
@@ -39,11 +39,15 @@ class ImportCommand extends ContainerAwareCommand
     {
 
         // Here, we need to get Input Argument. We have to catch 3 arguments.
+        /*
         $inputFileTags = $input->getArgument('filetags');
 
         $importTag = $this->getContainer()->get('app.import');
         $importTag->importTags($inputFileTags);
-
+*/
+        $inputSoftFile = $input->getArgument('filesoft');
+        $importSoft = $this->getContainer()->get('app.import');
+        $importSoft->importSoftware($inputSoftFile);
 
 
         // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
