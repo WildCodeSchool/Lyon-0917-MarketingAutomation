@@ -24,18 +24,26 @@ class ImportEntities
 
     /** @var ObjectManager */
     private $em;
+    /**
+     * @var Slugification
+     */
     private $slugificator;
+    /**
+     * @var array
+     */
     private $errors;
+    /**
+     * @var mixed
+     */
+    private $config;
 
-    //private $config;
 
-
-    public function __construct(ObjectManager $em, Slugification $slugificator)
+    public function __construct(ObjectManager $em, Slugification $slugificator, $rootDir)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
         $this->errors = array();
-        //$this->config = Yaml::parse(file_get_contents("__DIR__/../../app/config/import.yml"));
+        $this->config = Yaml::parse(file_get_contents($rootDir . "/config/import.yml"));
         /*
                 // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
                 if(!file_exists($fileFromConsole)) {
@@ -117,7 +125,7 @@ class ImportEntities
 
     public function importSoftware($softFile)
     {
-        //$compareYml = $this->getConfig();
+        $compareYmlSoft = $this->getConfig();
         $splSoftFile = $this->fileInit($softFile);
         //$totalLines = $this->countLines($splSoftFile);
         while (!$splSoftFile->eof()) {
@@ -311,6 +319,6 @@ class ImportEntities
      */
     public function getConfig()
     {
-        //return $this->config;
+        return $this->config;
     }
 }
