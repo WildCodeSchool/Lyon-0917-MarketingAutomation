@@ -81,7 +81,7 @@ file2:
                 isImportCsv: booleen
                 isAutoDuplicate: booleen
                 isLeadStages: booleen
-        Links:
+            Links:
               Target: SoftMain
               Relation: One-to-One
 
@@ -99,7 +99,7 @@ file2:
                 isCreationCampaign: booleen
                 isDripMarketingCampaign: booleen
                 isDragAndDrop: booleen
-        Links:
+            Links:
               Target: SoftMain
               Relation: One-to-One
 
@@ -113,7 +113,7 @@ file2:
                 isLinkedinAutoPublication: booleen
                 isInstagramMonitoring: booleen
                 isInstagramAutoPublication: booleen
-        Links:
+            Links:
               Target: SoftMain
               Relation: One-to-One
 
@@ -121,7 +121,7 @@ file2:
             fields:
                 isActivityReportCreation: booleen
                 isActivityReportPeriodicSend: booleen
-        Links:
+            Links:
               Target: SoftMain
               Relation: One-to-One
 
@@ -133,7 +133,7 @@ file2:
                 isKnowledgeBase: booleen
                 knowledgeBaseLanguage: booleen
                 isTechnicalDocument: booleen
-        Links:
+            Links:
               Target: SoftMain
               Relation: One-to-One
 

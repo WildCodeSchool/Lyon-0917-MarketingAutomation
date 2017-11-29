@@ -15,6 +15,7 @@ use AppBundle\Entity\SoftSocialMedia;
 use AppBundle\Entity\SoftSupport;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
+use Symfony\Component\Yaml\Yaml;
 
 class ImportEntities
 {
@@ -26,11 +27,15 @@ class ImportEntities
     private $slugificator;
     private $errors;
 
+    //private $config;
+
+
     public function __construct(ObjectManager $em, Slugification $slugificator)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
         $this->errors = array();
+        //$this->config = Yaml::parse(file_get_contents("__DIR__/../../app/config/import.yml"));
         /*
                 // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
                 if(!file_exists($fileFromConsole)) {
@@ -72,16 +77,13 @@ class ImportEntities
 // conversion des "oui" ou "non" ou "" par les booleens correspondants
     private function convertToBool($value)
     {
-        switch ($value) {
-            case "oui":
-                return $value = TRUE;
-                break;
-            case "non":
-                return $value = FALSE;
-                break;
-            case (!isset($value)):
-                return $value = FALSE;
-                break;
+        if ($value === "oui") {
+            return true;
+        }
+        if ($value === "non" || $value === "") {
+            return false;
+        } else {
+            return $value;
         }
     }
 
@@ -90,7 +92,7 @@ class ImportEntities
     {
         // A tester sans le while
         $splFileTags = $this->fileInit($fileTags);
-        $totalLines = $this->countLines($splFileTags);
+        //$totalLines = $this->countLines($splFileTags);
         while (!$splFileTags->eof()) {
             foreach ($splFileTags as $row) {
 
@@ -115,25 +117,20 @@ class ImportEntities
 
     public function importSoftware($softFile)
     {
+        //$compareYml = $this->getConfig();
         $splSoftFile = $this->fileInit($softFile);
-        $totalLines = $this->countLines($splSoftFile);
+        //$totalLines = $this->countLines($splSoftFile);
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
-                /*
-                list($name, $type, $description, $comments, $advantages,$drawbacks,$rgpd, $customers, $hostingCountry, $creationDate, $annualTurnover, $configCost, $subscriptionCost, $trainingCost, $website, $isEmail, $isSms, $isPopin, $isMailpostal, $isCallCenter, $isPushMobile, $isApi, $isLandingPage, $isForm, $isTracking, $isLiveChat, $isContactObject, $isCompanyObject, $isDefinedFields, $isIllimitedfields, $isImportCsv, $isAutoDuplicate, $isLeadStages, $isSegmentCreation, $isIntelligentSegment, $isLeadScoring, $isCreationCampaign, $isDripMarketingCampaign, $isDragAndDrop, $isTwitterMonitoring, $isTwitterAutoPublication, $isFacebookMonitoring, $isFacebookAutoPublication, $isLinkedinMonitoring, $isLinkedinAutoPublication, $isInstagramMonitoring, $isInstagramAutopPublication, $isActivityReportCreation, $isActivityReportPeriodicSend, $isEmailSupport, $isPhoneSupport, $isChatSupport, $isKnowledgeBase, $KnowledgeBaseLanguage, $isTechnicalDocument, $isProviderEmailChoice, $isBlogEdition, $isTouchPad, $isSmtpRelay, $isRssToEmail) = $row; */
                 $soft = $this->em->getRepository(SoftMain::class)
                     ->findOneBy([
                         'name' => $row[0],
                     ]);
                 if (null === $soft) {
-                    for ($i = 0; $i < 60; $i++) {
-                        if ($row[$i] === 'false' || $row[$i] === "") {
-                            $row[$i] = 0;
-                        }
-                        if ($row[$i] === 'true') {
-                            $row[$i] = 1;
-                        }
+                    for ($i = 0; $i < count($row); $i++) {
+                        $row[$i] = $this->convertToBool($row[$i]);
                     }
+
                     //Faire la boucle de vérif et de changement en bool ici
                     $softMain = new SoftMain();
                     $softMain->setName($row[0]);
@@ -306,5 +303,13 @@ class ImportEntities
         $file->seek(0);
 
         return $totalLines;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConfig()
+    {
+        //return $this->config;
     }
 }

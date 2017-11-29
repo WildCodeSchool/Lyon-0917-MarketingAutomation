@@ -46,7 +46,6 @@ class ImportCommand extends ContainerAwareCommand
         $importTag->importTags($inputFileTags);
 */
         $inputSoftFile = $input->getArgument('filesoft');
-
         $importSoft = $this->getContainer()->get('app.import');
         $importSoft->importSoftware($inputSoftFile);
 
