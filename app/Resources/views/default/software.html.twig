@@ -1,12 +1,12 @@
 {% extends 'base.html.twig' %}
-{% block title %}Nom du logiciel - logiciel de marketing automation {% endblock %}
-{% block metadesc %}%nom% est un logiciel de marketing automation spécialisé dans ... {% endblock %}
+{% block title %}{{ softmain.name }} - logiciel de marketing automation {% endblock %}
+{% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
 
             {% block h1 %}
-                <h1 id="softwareh1">MailChimp</h1>
+                <h1 id="softwareh1">{{ softmain.name }}</h1>
                 <p id="tagOnSoft">
-                    {% for i in range(0, 5) %}
-                        <a href="{{ path('tagSolo') }}">Tag {{ i }}</a>
+                        {% for tag in softmain.tags  %}
+                            <a href="{{ path('tagSolo') }}">{{ tag.name }}</a>
                         {% if loop.last == false %}, {% endif %}
                     {% endfor %}
                 </p>
@@ -17,73 +17,61 @@
 
         <div class="row">
             <div class="col m3 s12 l3">
-                <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png" height="250"
+                <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
                      width="250" class="responsive-img">
             </div>
             <div class="col m9 s12">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl
-                    semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra.
-                    Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis,
-                    ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl
-                    semper molestie. Cras viverra leo id nulla consequat, sit amet efficitur orci viverra.
-                    Pellentesque nunc nunc, rhoncus eget neque et, dapibus consectetur nibh. Aliquam facilisis,
-                    ipsum sit amet gravida malesuada, dui quam viverra ligula, eu mattis cras amet.</p>
+                <p>{{ softmain.description }}</p>
             </div>
         </div>
-        <h2>Notre commentaire sur MailChimp</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel orci sit amet mauris porta ullamcorper
-            quis sit amet diam. Sed commodo dolor libero, nec sodales lorem ultricies ut. Ut nec pharetra sapien, id
-            convallis tellus. Nulla quis lacinia dui, ut facilisis quam. Etiam feugiat dolor eget pharetra
-            vulputate. Aenean pellentesque euismod lectus et rhoncus. Cras vulputate ullamcorper massa nec vehicula.
-            Praesent pulvinar nibh justo, ultricies scelerisque felis lacinia in. Ut tincidunt lectus justo, id
-            mollis nulla consequat vel. Nam convallis arcu sapien, tincidunt sagittis nulla imperdiet ut. Sed
-            accumsan, mauris at lobortis finibus, leo neque tristique arcu, sit amet.</p>
+        <h2>Notre commentaire sur {{ softmain.name }}</h2>
+        <p>{{ softmain.comments }}</p>
 
-        <h2>Informations essentielles sur MailChimp</h2>
+
+        <h2>Informations essentiels sur {{ softmain.name }}</h2>
 
         {% include 'table-softinfo.html.twig' %}
 
-        <h2>Canaux de communication sortants (outbound) de MailChimp</h2>
+        <h2>Canaux de communication sortants (outbound) de {{ softmain.name }}</h2>
 
         {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Supports de communication de MailChimp</h2>
+        <h2>Supports de communication de {{ softmain.name }} </h2>
 
         {% include 'table-softcommsupport.html.twig' %}
 
-        <h2>Gestion des contacts de MailChimp</h2>
+        <h2>Gestion des contacts de {{ softmain.name }}</h2>
 
         {% include 'table-softleadsoperation.html.twig' %}
 
-        <h2>Gestion des segments de MailChimp</h2>
+        <h2>Gestion des segments de {{ softmain.name }}</h2>
 
         {% include 'table-softsegmentoperation.html.twig' %}
 
-        <h2>Campagnes Marketing Automation de MailChimp</h2>
+        <h2>Campagnes Marketing Automation de {{ softmain.name }}</h2>
 
         {% include 'table-softmarketingcampaign.html.twig' %}
 
-        <h2>Intégration Social Media de MailChimp</h2>
+        <h2>Intégration Social Media de {{ softmain.name }}</h2>
 
         {% include 'table-softsocialmedia.html.twig' %}
 
-        <h2>Rapports de MailChimp</h2>
+        <h2>Rapports de {{ softmain.name }}</h2>
 
         {% include 'table-softreport.html.twig' %}
 
-        <h2>Support de MailChimp</h2>
+        <h2>Support de {{ softmain.name }}</h2>
 
         {% include 'table-softsupport.html.twig' %}
 
-        <h2>Autres fonctionnalités de MailChimp</h2>
+        <h2>Autres fonctionnalités de {{ softmain.name }}</h2>
 
         {% include 'table-softothersfunctionnalities.html.twig' %}
 
 
         <div class="row">
             <div class="col m12 s12 l12">
-                <h2>Une question sur MailChimp ? Contactez-nous !</h2>
+                <h2>Une question sur {{ softmain.name }} ? Contactez-nous !</h2>
                 <p>Formulaire à nous fournir.</p>
 
             </div>
@@ -92,18 +80,19 @@
         <h2>Voir d'autres logiciels de marketing automation :</h2>
         <div class="row">
 
-            {% for i in range(1, 4) %}
+            {% for software in softwares %}
                 {% include('software-card.html.twig') %}
             {% endfor %}
+
 
         </div>
         </p>
         <h2>Comparer MailChimp avec d'autres logiciels de marketing automation</h2>
         <div class="row">
+                        {% for software in softwares %}
+                            {% include('software-card.html.twig') %}
+                        {% endfor %}
 
-            {% for i in range(1, 4) %}
-                {% include('software-card.html.twig') %}
-            {% endfor %}
 
         </div>
     </div>
