@@ -2,6 +2,7 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -95,8 +96,9 @@ class ImportEntities
                     $softArray = explode("#",$softwares);
                     foreach ($softArray as $soft)
                     {
-
-                        $tag->addSoftMain($soft);
+                        $currentSoft = $this->em-> getRepository(SoftMain::class)->findOneBy(['name' => $soft,]);
+                        $tag->addSoftMain($currentSoft);
+                        $currentSoft->addTag($tag);
                     }
                     $slug = $this->slugificator->slugFactory($name);
                     $tag->setSlug($slug);
@@ -157,14 +159,6 @@ class ImportEntities
         $file->seek(0);
 
         return $totalLines;
-    }
-
-    private function splitString($string)
-    {
-        // transform string to array with ";" delimiters
-        $array = preg_split("/[#]+/", $string);
-        return $array;
-
     }
 
 }
