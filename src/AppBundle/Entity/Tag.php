@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Software;
+use AppBundle\Service\Slugification;
 
 /**
  * Tag
@@ -46,7 +46,6 @@ class Tag
 
     /**
      * @var string
-     *
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
