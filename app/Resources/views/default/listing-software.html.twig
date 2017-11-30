@@ -9,10 +9,13 @@
     <div id="listing">
         <div class="row">
 
-            {% for i in range(1, 69) %}
+            {% for software in softwares %}
                 {% include('software-card.html.twig') %}
             {% endfor %}
 
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/konami.js') }}"></script>
 {% endblock %}

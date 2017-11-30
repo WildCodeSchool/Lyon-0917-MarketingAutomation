@@ -3,50 +3,50 @@
     <tbody>
     <tr>
         <th>Nom du logiciel</th>
-        <td>MailChimp</td>
+        <td>{{ softmain.name }}</td>
     </tr>
     <tr>
         <th>Type</th>
-        <td>Logiciel généraliste</td>
+        <td>{{ softmain.type }}</td>
     </tr>
     <tr>
         <th>Pour qui? </th>
-        <td>Equipe bien organisée</td>
+        <td>{{ softmain.softInfo.customers }}</td>
     </tr>
     <tr>
         <th>Hébergement des données</th>
-        <td>Île Caïman</td>
+        <td>{{ softmain.softInfo.hostingCountry }}</td>
     </tr>
     <tr>
         <th>Date de création</th>
-        <td>1650</td>
+        <td>{{ softmain.softInfo.creationDate }}</td>
     </tr>
     <tr>
         <th>CA annuel</th>
-        <td>10</td>
+        <td>{{ softmain.softInfo.annualTurnover }}</td>
     </tr>
     <tr>
         <th>Coût de la configuration</th>
-        <td>800 €</td>
+        <td>{{ softmain.softInfo.configCost }}</td>
     </tr>
     <tr>
         <th>Abonnement à partir de ...</th>
-        <td>800 €</td>
+        <td>{{ softmain.softInfo.subscriptionCost }}</td>
     </tr>
     <tr>
         <th>Coût de la formation</th>
-        <td>800 €</td>
+        <td>{{ softmain.softInfo.trainingCost }}</td>
     </tr>
     <tr>
         <th>Site web</th>
-        <td><a href="http://mailchimp.fr">mailchimp.fr</a></td>
+        <td><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name }}</a></td>
     </tr>
     <tr>
         <th>Les plus</th>
-        <td>800</td>
+        <td>{{ softmain.advantages }}</td>
     </tr>
     <tr>
         <th>Les moins</th>
-        <td>800</td>
+        <td>{{ softmain.drawbacks }}</td>
     </tbody>
 </table>
