@@ -4,7 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use AppBundle\Entity\Software;
+use AppBundle\Service\Slugification;
 
 /**
  * Tag
@@ -32,10 +32,10 @@ class Tag
 
     /**
      * @var ArrayCollection
-     * @ORM\ManyToMany(targetEntity="Software", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
      */
-    private $softwares;
+    private $softMains;
 
     /**
      * @var string
@@ -44,11 +44,24 @@ class Tag
      */
     private $description;
 
+    /**
+     * @var string
+     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     */
+    private $slug;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->softMains = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -80,30 +93,6 @@ class Tag
     }
 
     /**
-     * Set softwares
-     *
-     * @param array $softwares
-     *
-     * @return Tag
-     */
-    public function setSoftwares($softwares)
-    {
-        $this->softwares = $softwares;
-
-        return $this;
-    }
-
-    /**
-     * Get softwares
-     *
-     * @return array
-     */
-    public function getSoftwares()
-    {
-        return $this->softwares;
-    }
-
-    /**
      * Set description
      *
      * @param string $description
@@ -126,5 +115,62 @@ class Tag
     {
         return $this->description;
     }
-}
 
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Tag
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Add softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return Tag
+     */
+    public function addSoftMain(\AppBundle\Entity\SoftMain $softMain)
+    {
+        $this->softMains[] = $softMain;
+
+        return $this;
+    }
+
+    /**
+     * Remove softMain
+     *
+     * @param \AppBundle\Entity\SoftMain $softMain
+     */
+    public function removeSoftMain(\AppBundle\Entity\SoftMain $softMain)
+    {
+        $this->softMains->removeElement($softMain);
+    }
+
+    /**
+     * Get softMains
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getSoftMains()
+    {
+        return $this->softMains;
+    }
+}
