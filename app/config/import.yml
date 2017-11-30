@@ -2,10 +2,16 @@ number-of-files: 3
 file1:
     path: ../Resources/datas/import-tags.csv
     entities:
-        Tag:
-    fields:
-            name: string
-            description: string
+      Tag:
+        fields:
+          name: string
+          description: string
+        links:
+          source: ??
+          relation: ??
+        slugExceptions:
+          slug: yes
+          logo: no
 
 
 file2:
@@ -20,25 +26,12 @@ file2:
                 advantages: string
                 drawbacks: string
             links:
-              source: none
-              relation: none
+              source: no
+              relation: no
+            slugExceptions:
+              slug: yes
+              logo: yes
 
-
-
-          SoftInfo:
-            fields:
-                SoftOutbound: booleen
-                SoftCommSupport: booleen
-                SoftLeadsOperation: booleen
-                SoftSegmentOperation: booleen
-                SoftMarketingCampaign: booleen
-                SoftSocialMedia: booleen
-                SoftReport: booleen
-                SoftSupport: booleen
-                SoftOtherFunctionnalities: booleen
-            links:
-              source: SoftMain
-              relation: One-to-One
           SoftInfo:
             fields:
                 rgpd: booleen
@@ -50,9 +43,12 @@ file2:
                 subscriptionCost: booleen
                 trainingCost: booleen
                 webSite: booleen
-            Links:
+            links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftOutbound:
             fields:
@@ -66,6 +62,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+            slug: no
+            logo: no
 
           SoftCommSupport:
             fields:
@@ -73,9 +72,12 @@ file2:
                 isForm: booleen
                 isTracking: booleen
                 isLiveChat: booleen
-            Links:
+            links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftLeadsOperation:
             fields:
@@ -89,6 +91,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftSegmentOperation:
             fields:
@@ -97,9 +102,12 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftMarketingCampaign:
-            source:
+            fields:
                 isLeadScoring: booleen
                 isCreationCampaign: booleen
                 isDripMarketingCampaign: booleen
@@ -107,6 +115,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftSocialMedia:
             fields:
@@ -121,6 +132,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftReport:
             fields:
@@ -129,6 +143,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftSupport:
             fields:
@@ -141,6 +158,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
           SoftOtherFunctionnalities:
             fields:
@@ -152,6 +172,9 @@ file2:
             links:
               source: SoftMain
               relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
 
 file3:
         path: ../Resources/datas/import-versus.csv
@@ -162,8 +185,11 @@ file3:
                 software2: string
                 description: string
             Links:
-              Target: SoftMain
-              Relation: Many-to-Many
+              source: SoftMain
+              relation: Many-to-Many
+            slugExceptions:
+              slug: no
+              logo: no
 
 # Gives an array like that :
 

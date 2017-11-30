@@ -78,6 +78,7 @@ class ImportCommand extends ContainerAwareCommand
         // Showing when the script is over
         $now = new \DateTime();
         $output->writeln('<comment>End : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
+
     }
 
 }
