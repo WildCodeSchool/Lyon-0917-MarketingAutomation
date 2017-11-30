@@ -1,0 +1,174 @@
+number-of-files: 3
+file1:
+    path: ../Resources/datas/import-tags.csv
+    entities:
+        Tag:
+    fields:
+            name: string
+            description: string
+
+
+file2:
+        path: ../Resources/datas/import-softwares.csv
+        entities:
+          SoftMain:
+            fields:
+                name: string
+                type: string
+                description: string
+                comments: string
+                advantages: string
+                drawbacks: string
+
+          SoftInfo:
+            fields:
+                SoftOutbound: booleen
+                SoftCommSupport: booleen
+                SoftLeadsOperation: booleen
+                SoftSegmentOperation: booleen
+                SoftMarketingCampaign: booleen
+                SoftSocialMedia: booleen
+                SoftReport: booleen
+                SoftSupport: booleen
+                SoftOtherFunctionnalities: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+          SoftInfo:
+            fields:
+                rgpd: booleen
+                customers: booleen
+                hostingCountry: booleen
+                creationDate: booleen
+                annualTurnover: booleen
+                configCost: booleen
+                subscriptionCost: booleen
+                trainingCost: booleen
+                webSite: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftOutbound:
+            fields:
+                isEmail: booleen
+                isSms: booleen
+                isPopin: booleen
+                isMailPostal: booleen
+                isCallCenter: booleen
+                isPushMobile: booleen
+                isApi: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftCommSupport:
+            fields:
+                isLandingPage: booleen
+                isForm: booleen
+                isTracking: booleen
+                isLiveChat: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftLeadsOperation:
+            fields:
+                isContactObject: booleen
+                isCompanyObject: booleen
+                isDefinedFields: booleen
+                isIllimitedFields: booleen
+                isImportCsv: booleen
+                isAutoDuplicate: booleen
+                isLeadStages: booleen
+        Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftSegmentOperation:
+            fields:
+                isSegmentCreation: booleen
+                isIntelligentSegment: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftMarketingCampaign:
+            fields:
+                isLeadScoring: booleen
+                isCreationCampaign: booleen
+                isDripMarketingCampaign: booleen
+                isDragAndDrop: booleen
+        Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftSocialMedia:
+            fields:
+                isTwitterMonitoring: booleen
+                isTwitterAutoPublication: booleen
+                isFacebookMonitoring: booleen
+                isFacebookAutoPublication: booleen
+                isLinkedinMonitoring: booleen
+                isLinkedinAutoPublication: booleen
+                isInstagramMonitoring: booleen
+                isInstagramAutoPublication: booleen
+        Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftReport:
+            fields:
+                isActivityReportCreation: booleen
+                isActivityReportPeriodicSend: booleen
+        Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftSupport:
+            fields:
+                isEmailSupport: booleen
+                isPhoneSupport: booleen
+                isChatSupport: booleen
+                isKnowledgeBase: booleen
+                knowledgeBaseLanguage: booleen
+                isTechnicalDocument: booleen
+        Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+          SoftOtherFunctionnalities:
+            fields:
+                isProviderEmailChoice: booleen
+                isBlogEdition: booleen
+                isTouchPad: booleen
+                isSmtpRelay: booleen
+                isRssToEmail: booleen
+            Links:
+              Target: SoftMain
+              Relation: One-to-One
+
+file3:
+        path: ../Resources/datas/import-versus.csv
+        entities:
+          Versus:
+            fields:
+                software1: string
+                software2: string
+                description: string
+            Links:
+              Target: SoftMain
+              Relation: Many-to-Many
+
+# Gives an array like that :
+
+# "file1" => array:3 [▼
+#     "path" => "../Resources/datas/import-tags.csv"
+#     "entities" => array:1 [▼
+#       "Tag" => null
+#     ]
+#     "fields" => array:2 [▼
+#       "name" => "string"
+#       "description" => "string"
+#     ]
+#   ]
