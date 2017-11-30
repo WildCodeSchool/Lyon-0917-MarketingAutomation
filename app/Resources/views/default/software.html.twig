@@ -27,23 +27,46 @@
         <h2>Notre commentaire sur {{ softmain.name }}</h2>
         <p>{{ softmain.comments }}</p>
 
-        <h2>Informations générales sur {{ softmain.name }}</h2>
 
-        {% include 'table-software-identity.html.twig' %}
+        <h2>Informations essentiels sur {{ softmain.name }}</h2>
 
-        <h2>Canaux de communication inbound de {{ softmain.name }}</h2>
+        {% include 'table-softinfo.html.twig' %}
 
-        {% include 'table-software-inbound.html.twig' %}
+        <h2>Canaux de communication sortants (outbound) de {{ softmain.name }}</h2>
 
+        {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Canaux de communication outbound de {{ softmain.name }}</h2>
+        <h2>Supports de communication de {{ softmain.name }} </h2>
 
-        {% include 'table-software-outbound.html.twig' %}
+        {% include 'table-softcommsupport.html.twig' %}
 
+        <h2>Gestion des contacts de {{ softmain.name }}</h2>
+
+        {% include 'table-softleadsoperation.html.twig' %}
+
+        <h2>Gestion des segments de {{ softmain.name }}</h2>
+
+        {% include 'table-softsegmentoperation.html.twig' %}
+
+        <h2>Campagnes Marketing Automation de {{ softmain.name }}</h2>
+
+        {% include 'table-softmarketingcampaign.html.twig' %}
+
+        <h2>Intégration Social Media de {{ softmain.name }}</h2>
+
+        {% include 'table-softsocialmedia.html.twig' %}
+
+        <h2>Rapports de {{ softmain.name }}</h2>
+
+        {% include 'table-softreport.html.twig' %}
+
+        <h2>Support de {{ softmain.name }}</h2>
+
+        {% include 'table-softsupport.html.twig' %}
 
         <h2>Autres fonctionnalités de {{ softmain.name }}</h2>
 
-        {% include 'table-software-functions.html.twig' %}
+        {% include 'table-softothersfunctionnalities.html.twig' %}
 
 
         <div class="row">
