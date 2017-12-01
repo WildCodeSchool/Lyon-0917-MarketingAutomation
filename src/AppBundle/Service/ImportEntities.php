@@ -134,17 +134,17 @@ class ImportEntities
                     $caseImport = 0;
                     $i = 0;
                     $j = 0;
-                    $chaqueEntity = [];
+                    $eachEntity = [];
                     //parcourt chaque entité pour ajouter les valeurs
                     foreach ($softEntitiesYml as $entity) {
                         $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
-                        $chaqueEntity[$i] = new $myClass();
+                        $eachEntity[$i] = new $myClass();
                         $listFields = array_keys($entity["fields"]);
 
                         //parcourt les proprietés de chaque entity
                         foreach ($entity["fields"] as $property) {
-                            $chaqueSetter = "set" . ucfirst($listFields[$j]);
-                            $chaqueEntity[$i]->$chaqueSetter($row[$caseImport]);
+                            $eachSetter = "set" . ucfirst($listFields[$j]);
+                            $eachEntity[$i]->$eachSetter($row[$caseImport]);
                             $j++;
                             $caseImport++;
                         }
@@ -160,27 +160,27 @@ class ImportEntities
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
                             $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
-                            $eachSource->$eachSetterLink($chaqueEntity[$k]);
+                            $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
                         if ($entity["links"]["relation"] === "One-to-One") {
                             $eachSetterLink = "set" . $entityKeys[$k];
-                            $chaqueEntity[0]->$eachSetterLink($chaqueEntity[$k]);
+                            $eachEntity[0]->$eachSetterLink($eachEntity[$k]);
                         }
 
                         if ($entity["slugExceptions"]["slug"] === "yes") {
                             $mySlugSetter = "setSlug";
 
-                            $chaqueEntity[0]->$mySlugSetter("$slug");
+                            $eachEntity[0]->$mySlugSetter("$slug");
                         }
                         if ($entity["slugExceptions"]["logo"] === "yes") {
                             $mySlugLogoUrlSetter = "setLogoUrl";
-                            $chaqueEntity[0]->$mySlugLogoUrlSetter("assets/img/logo/" . $slug . ".png");
+                            $eachEntity[0]->$mySlugLogoUrlSetter("assets/img/logo/" . $slug . ".png");
                         }
                         $k++;
                     }
                     // persist for each entities
 
-                    foreach ($chaqueEntity as $finalEntity) {
+                    foreach ($eachEntity as $finalEntity) {
                         $this->em->persist($finalEntity);
                     }
 
