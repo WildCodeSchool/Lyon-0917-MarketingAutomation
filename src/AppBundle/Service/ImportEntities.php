@@ -162,6 +162,7 @@ class ImportEntities
                             $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
                             $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
+                        //upgrade: $eachEntity[0] can be change by an automatic
                         if ($entity["links"]["relation"] === "One-to-One") {
                             $eachSetterLink = "set" . $entityKeys[$k];
                             $eachEntity[0]->$eachSetterLink($eachEntity[$k]);
@@ -185,130 +186,6 @@ class ImportEntities
                     }
 
                     $this->em->flush();
-
-                    /*
-                                        //Faire la boucle de vérif et de changement en bool ici
-                                        $softMain = new SoftMain();
-                                        $softMain->setName($row[0]);
-                                        $softMain->setSlug($slug);
-                                        $softMain->setLogoUrl('assets/img/logo/' . $this->slugificator->slugFactory($row[0]) . '.png');
-                                        $softMain->setType($row[1]);
-                                        $softMain->setDescription($row[2]);
-                                        $softMain->setComments($row[3]);
-                                        $softMain->setAdvantages($row[4]);
-                                        $softMain->setDrawbacks($row[5]);
-
-                                        $softInfo = new SoftInfo();
-                                        $softInfo->setRgpd($row[6]);
-                                        $softInfo->setCustomers($row[7]);
-                                        $softInfo->setHostingCountry($row[8]);
-                                        $softInfo->setCreationDate($row[9]);
-                                        $softInfo->setAnnualTurnover($row[10]);
-                                        $softInfo->setConfigCost($row[11]);
-                                        $softInfo->setSubscriptionCost($row[12]);
-                                        $softInfo->setTrainingCost($row[13]);
-                                        $softInfo->setWebSite($row[14]);
-
-
-                                        $softOutbound = new SoftOutbound();
-                                        $softOutbound->setIsEmail($row[15]);
-                                        $softOutbound->setIsSms($row[16]);
-                                        $softOutbound->setIsPopin($row[17]);
-                                        $softOutbound->setIsMailPostal($row[18]);
-                                        $softOutbound->setIsCallCenter($row[19]);
-                                        $softOutbound->setIsPushMobile($row[20]);
-                                        $softOutbound->setIsApi($row[21]);
-
-
-                                        $softComm = new SoftCommSupport();
-                                        $softComm->setIsLandingPage($row[22]);
-                                        $softComm->setIsForm($row[23]);
-                                        $softComm->setIsTracking($row[24]);
-                                        $softComm->setIsLiveChat($row[25]);
-
-
-                                        $softLeadOp = new SoftLeadsOperation();
-                                        $softLeadOp->setIsContactObject($row[26]);
-                                        $softLeadOp->setIsCompanyObject($row[27]);
-                                        $softLeadOp->setIsDefinedFields($row[28]);
-                                        $softLeadOp->setIsIllimitedFields($row[29]);
-                                        $softLeadOp->setIsImportCsv($row[30]);
-                                        $softLeadOp->setIsAutoDuplicate($row[31]);
-                                        $softLeadOp->setIsLeadStages($row[32]);
-
-
-                                        $softSegmentOp = new SoftSegmentOperation();
-                                        $softSegmentOp->setIsSegmentCreation($row[33]);
-                                        $softSegmentOp->setIsIntelligentSegment($row[34]);
-
-
-                                        $softMarketing = new SoftMarketingCampaign();
-                                        $softMarketing->setIsLeadScoring($row[35]);
-                                        $softMarketing->setIsCreationCampaign($row[36]);
-                                        $softMarketing->setIsDripMarketingCampaign($row[37]);
-                                        $softMarketing->setIsDragAndDrop($row[38]);
-
-
-                                        $softSocial = new SoftSocialMedia();
-                                        $softSocial->setIsTwitterMonitoring($row[39]);
-                                        $softSocial->setIsTwitterAutoPublication($row[40]);
-                                        $softSocial->setIsFacebookMonitoring($row[41]);
-                                        $softSocial->setIsFacebookAutoPublication($row[42]);
-                                        $softSocial->setIsLinkedinMonitoring($row[43]);
-                                        $softSocial->setIsLinkedinAutoPublication($row[44]);
-                                        $softSocial->setIsInstagramMonitoring($row[45]);
-                                        $softSocial->setIsInstagramAutoPublication($row[46]);
-
-
-                                        $softReport = new SoftReport();
-                                        $softReport->setIsActivityReportCreation($row[47]);
-                                        $softReport->setIsActivityReportPeriodicSend($row[48]);
-
-
-                                        $softSupport = new SoftSupport();
-                                        $softSupport->setIsEmailSupport($row[49]);
-                                        $softSupport->setIsPhoneSupport($row[50]);
-                                        $softSupport->setIsChatSupport($row[51]);
-                                        $softSupport->setIsKnowledgeBase($row[52]);
-                                        $softSupport->setKnowledgeBaseLanguage($row[53]);
-                                        $softSupport->setIsTechnicalDocument($row[54]);
-
-
-                                        $softOthers = new SoftOtherFunctionnalities();
-                                        $softOthers->setIsProviderEmailChoice($row[55]);
-                                        $softOthers->setIsBlogEdition($row[56]);
-                                        $softOthers->setIsTouchPad($row[57]);
-                                        $softOthers->setIsSmtpRelay($row[58]);
-                                        $softOthers->setIsRssToEmail($row[59]);
-
-
-                                        $softMain->setSoftInfo($softInfo);
-                                        $softMain->setSoftOutbound($softOutbound);
-                                        $softMain->setSoftCommSupport($softComm);
-                                        $softMain->setSoftLeadsOperation($softLeadOp);
-                                        $softMain->setSoftSegmentOperation($softSegmentOp);
-                                        $softMain->setSoftMarketingCampaign($softMarketing);
-                                        $softMain->setSoftSocialMedia($softSocial);
-                                        $softMain->setSoftReport($softReport);
-                                        $softMain->setSoftSupport($softSupport);
-                                        $softMain->setSoftOtherFunctionnalities($softOthers);
-
-
-                                        $this->em->persist($softInfo);
-                                        $this->em->persist($softOutbound);
-                                        $this->em->persist($softComm);
-                                        $this->em->persist($softLeadOp);
-                                        $this->em->persist($softSegmentOp);
-                                        $this->em->persist($softMarketing);
-                                        $this->em->persist($softSocial);
-                                        $this->em->persist($softReport);
-                                        $this->em->persist($softSupport);
-                                        $this->em->persist($softOthers);
-
-                                        $this->em->persist($softMain);
-
-                                        $this->em->flush();
-                                        */
                 }
 
             }
