@@ -44,6 +44,23 @@ class ImportEntities
                  */
     }
 
+    private function fileInit($fileFromConsole)
+    {
+        //by default delimiter is ","
+
+        // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
+        $file = new \SplFileObject($fileFromConsole);
+
+        // On définit les drapeaux : saute la ligne si elle est vide
+
+        $file->setFlags(
+            \SplFileObject::READ_CSV |
+            \SplFileObject::READ_AHEAD |
+            \SplFileObject::SKIP_EMPTY |
+            \SplFileObject::DROP_NEW_LINE);
+
+        return $file;
+    }
 
     private function checkIfInteger($value, $column)
     {
@@ -101,35 +118,9 @@ class ImportEntities
 
     }
 
-    public function importTags($fileTags)
-    {
+    // Ready for softwares and versus files
 
-        // A tester sans le while
-        $splFileTags = $this->fileInit($fileTags);
-        //$totalLines = $this->countLines($splFileTags);
-        while (!$splFileTags->eof()) {
-            foreach ($splFileTags as $row) {
-
-                list($name, $description) = $row;
-                $tag = $this->em->getRepository(Tag::class)
-                    ->findOneBy([
-                        'name' => $name,
-                    ]);
-                if (null === $tag) {
-                    $tag = new Tag();
-                    $tag->setName($name);
-                    $tag->setDescription($description);
-                    $slug = $this->slugificator->slugFactory($name);
-                    $tag->setSlug($slug);
-                    $this->em->persist($tag);
-                    $this->em->flush();
-                }
-
-            }
-        }
-    }
-
-    public function importSoftware($softFile)
+    public function import($softFile)
     {
         $softEntitiesYml = $this->getConfig()["import-softwares"]["entities"];
         $entityKeys = array_keys($softEntitiesYml);
@@ -157,101 +148,22 @@ class ImportEntities
                         $eachEntity[$i] = new $myClass();
                         $listFields = array_keys($entity["fields"]);
 
-                        //parcourt les proprietés de chaque entity
-                        foreach ($entity["fields"] as $property) {
-                            $eachSetter = "set" . ucfirst($listFields[$j]);
-                            $eachEntity[$i]->$eachSetter($convertedData[$caseImport]);
-                            $j++;
-                            $caseImport++;
-                        }
-                        $j = 0;
-                        $i++;
-                    }
-                    //csv reading end
-                    // add Links for each entities
-                    $k = 0;
-                    $slug = $this->slugificator->slugFactory($row[0]);
-
-                    foreach ($softEntitiesYml as $entity) {
-
-                        //ATTENTION:Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
-
-                        if ($entity["links"]["relation"] === "Many-to-Many") {
-                            $eachSetterLink = "add" . $entityKeys[$k];
-                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
-                            $eachSource->$eachSetterLink($eachEntity[$k]);
-                        }
-                        if ($entity["links"]["relation"] === "One-to-One") {
-                            $eachSetterLink = "set" . $entityKeys[$k];
-                            $eachEntity[0]->$eachSetterLink($eachEntity[$k]);
-                        }
-
-                        if ($entity["slugExceptions"]["slug"] === "yes") {
-                            $mySlugSetter = "setSlug";
-
-                            $eachEntity[0]->$mySlugSetter("$slug");
-                        }
-                        if ($entity["slugExceptions"]["logo"] === "yes") {
-                            $mySlugLogoUrlSetter = "setLogoUrl";
-                            $eachEntity[0]->$mySlugLogoUrlSetter("assets/img/logo/" . $slug . ".png");
-                        }
-                        $k++;
-                    }
-                    // persist for each entities
-
-                    foreach ($eachEntity as $finalEntity) {
-                        $this->em->persist($finalEntity);
-                    }
-
-                    $this->em->flush();
-
-                }
-
-            }
-        }
-
-    }
-
-    public function importVersus($softFile)
-    {
-        $softEntitiesYml = $this->getConfig()["import-versus"]["entities"];
-        $entityKeys = array_keys($softEntitiesYml);
-        $splSoftFile = $this->fileInit($softFile);
-        //$totalLines = $this->countLines($splSoftFile);
-
-        while (!$splSoftFile->eof()) {
-            foreach ($splSoftFile as $row) {
-                $convertedData = [];
-                foreach($row as $data) {
-                    $convertedData[] = $this->convertToBool($data);
-                }
-                    //définition des variables de la boucle:
-                    $caseImport = 0;
-                    $i = 0;
-                    $j = 0;
-                    $eachEntity = [];
-
-                    //parcourt chaque entité pour ajouter les valeurs
-                    foreach ($softEntitiesYml as $entity) {
-                        $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
-                        $eachEntity[$i] = new $myClass();
-                        $listFields = array_keys($entity["fields"]);
 
                         //parcourt les proprietés de chaque entity
                         foreach ($entity["fields"] as $property) {
 
-                                if(count($property) === 3){
-                                    $soft = $this->em->getRepository(SoftMain::class)
-                                        ->findOneBy([
-                                            'name' => $convertedData[$caseImport],
-                                        ]);
-                                    if (!empty($soft)) {
-                                        $set = "set" . ucfirst($listFields[$j]);
-                                        $eachEntity[$i]->$set($soft);
-                                        $add = "add" . ucfirst($property["inversedby"]);
-                                        $soft->$add($eachEntity[$i]);
-                                        $this->em->persist($soft);
-                                    }
+                            if(count($property) === 3){
+                                $soft = $this->em->getRepository(SoftMain::class)
+                                    ->findOneBy([
+                                        'name' => $convertedData[$caseImport],
+                                    ]);
+                                if (!empty($soft)) {
+                                    $set = "set" . ucfirst($listFields[$j]);
+                                    $eachEntity[$i]->$set($soft);
+                                    $add = "add" . ucfirst($property["inversedby"]);
+                                    $soft->$add($eachEntity[$i]);
+                                    $this->em->persist($soft);
+                                }
 
 
 
@@ -270,11 +182,9 @@ class ImportEntities
                     $k = 0;
                     $slug = $this->slugificator->slugFactory($row[0]);
 
-/*                    foreach ($softEntitiesYml as $entity) {
+                    foreach ($softEntitiesYml as $entity) {
 
-                        //ATTENTION:Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
-
-
+                        //ATTENTION: Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
 
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
@@ -296,7 +206,7 @@ class ImportEntities
                             $eachEntity[0]->$mySlugLogoUrlSetter("assets/img/logo/" . $slug . ".png");
                         }
                         $k++;
-                    }*/
+                    }
                     // persist for each entities
 
                     foreach ($eachEntity as $finalEntity) {
@@ -310,6 +220,8 @@ class ImportEntities
             }
         }
 
+    }
+
 
 
     public function getErrors()
@@ -317,23 +229,7 @@ class ImportEntities
         return $this->errors;
     }
 
-    private function fileInit($fileFromConsole)
-    {
-        //by default delimiter is ","
 
-        // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
-        $file = new \SplFileObject($fileFromConsole);
-
-        // On définit les drapeaux : saute la ligne si elle est vide
-
-        $file->setFlags(
-            \SplFileObject::READ_CSV |
-            \SplFileObject::READ_AHEAD |
-            \SplFileObject::SKIP_EMPTY |
-            \SplFileObject::DROP_NEW_LINE);
-
-        return $file;
-    }
 
     private function countLines(\SplFileObject $file)
     {
