@@ -176,17 +176,23 @@ import-softwares:
               slug: no
               logo: no
 
-file3:
+import-versus:
         path: ../Resources/datas/import-versus.csv
         entities:
           Versus:
             fields:
-                software1: string
-                software2: string
+                software1:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus1
+                software2:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus2
                 description: string
-            Links:
-              source: SoftMain
-              relation: Many-to-Many
+            links:
+              source: no
+              relation: no
             slugExceptions:
               slug: no
               logo: no
