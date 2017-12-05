@@ -97,7 +97,7 @@ class ImportEntities
         switch($file)
 
         {
-            case "file1":
+            case "import-tags":
                 $tag = $this->em->getRepository(Tag::class)
                     ->findOneBy([
                         'name' => $row[0],
@@ -120,9 +120,9 @@ class ImportEntities
 
     // Ready for softwares and versus files
 
-    public function import($softFile)
+    public function import($softFile, $type)
     {
-        $softEntitiesYml = $this->getConfig()["import-softwares"]["entities"];
+        $softEntitiesYml = $this->getConfig()[$type]["entities"];
         $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
         //$totalLines = $this->countLines($splSoftFile);
@@ -130,8 +130,8 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
                 $convertedData = [];
-                $soft = $this->searchForDuplicate("import-softwares", $row);
-                if (null === $soft) {
+                $stillExists = $this->searchForDuplicate($type, $row);
+                if (null === $stillExists) {
                     foreach($row as $data) {
                         $convertedData[] = $this->convertToBool($data);
                     }

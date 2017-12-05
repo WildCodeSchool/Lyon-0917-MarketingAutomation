@@ -35,14 +35,14 @@ import-softwares:
           SoftInfo:
             fields:
                 rgpd: boolean
-                customers: boolean
-                hostingCountry: boolean
-                creationDate: boolean
-                annualTurnover: boolean
-                configCost: boolean
-                subscriptionCost: boolean
-                trainingCost: boolean
-                webSite: boolean
+                customers: string
+                hostingCountry: string
+                creationDate: int
+                annualTurnover: string
+                configCost: string
+                subscriptionCost: integer
+                trainingCost: integer
+                webSite: string
             links:
               source: SoftMain
               relation: One-to-One
@@ -153,7 +153,7 @@ import-softwares:
                 isPhoneSupport: boolean
                 isChatSupport: boolean
                 isKnowledgeBase: boolean
-                knowledgeBaseLanguage: boolean
+                knowledgeBaseLanguage: string
                 isTechnicalDocument: boolean
             links:
               source: SoftMain
@@ -184,6 +184,7 @@ import-versus:
                 software1:
                   link: One-to-Many
                   source: SoftMain
+                  registerby: name
                   inversedby: versus1
                 software2:
                   link: One-to-Many

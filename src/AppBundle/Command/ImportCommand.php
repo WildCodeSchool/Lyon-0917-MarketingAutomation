@@ -29,8 +29,8 @@ class ImportCommand extends ContainerAwareCommand
         $this
             ->setName('import:csv')
             ->setDescription('Import entities from CSV file')
-            //->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
-            //->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
+            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
             ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
         // Name and description for app/console command
     }
@@ -38,10 +38,34 @@ class ImportCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
+        $service = $this->getContainer()->get('app.import');
 
-        $inputSoftFile = $input->getArgument('fileversus');
-        $importSoft = $this->getContainer()->get('app.import');
-        $importSoft->importVersus($inputSoftFile);
+        $fileSoft = $input->getArgument('filesoft');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileSoft)){
+            $type  = "import-softwares";
+            $service->import($fileSoft, $type);
+        }else{
+            return "not working";
+        }
+
+        $fileTag = $input->getArgument('filetags');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileTag)){
+            $type  = "import-tags";
+            $service->import($fileTag, $type);
+        }else{
+            return "not working";
+        }
+
+        $fileVersus = $input->getArgument('fileversus');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileVersus)){
+            $type  = "import-versus";
+            $service->import($fileVersus, $type);
+        }else{
+            return "not working";
+        }
 
         // Showing when the script is launched
         $now = new \DateTime();
