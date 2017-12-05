@@ -184,7 +184,6 @@ import-versus:
                 software1:
                   link: One-to-Many
                   source: SoftMain
-                  registerby: name
                   inversedby: versus1
                 software2:
                   link: One-to-Many

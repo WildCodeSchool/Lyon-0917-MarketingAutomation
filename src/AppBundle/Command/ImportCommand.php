@@ -29,8 +29,8 @@ class ImportCommand extends ContainerAwareCommand
         $this
             ->setName('import:csv')
             ->setDescription('Import entities from CSV file')
-            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
             ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
             ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
         // Name and description for app/console command
     }
@@ -39,7 +39,7 @@ class ImportCommand extends ContainerAwareCommand
     {
 
         $service = $this->getContainer()->get('app.import');
-
+/*
         $fileSoft = $input->getArgument('filesoft');
         //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
         if(file_exists($fileSoft)){
@@ -56,7 +56,7 @@ class ImportCommand extends ContainerAwareCommand
             $service->import($fileTag, $type);
         }else{
             return "not working";
-        }
+        }*/
 
         $fileVersus = $input->getArgument('fileversus');
         //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';

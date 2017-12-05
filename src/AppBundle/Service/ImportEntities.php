@@ -165,8 +165,6 @@ class ImportEntities
                                     $this->em->persist($soft);
                                 }
 
-
-
                             }else {
                                 $eachSetter = "set" . ucfirst($listFields[$j]);
                                 $eachEntity[$i]->$eachSetter($convertedData[$caseImport]);
