@@ -75,13 +75,16 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("tag", name="tagSolo")
+     * @Route("tag/{slug}", name="tagSolo")
      */
-    public function tagAction(Request $request)
+    public function tagAction(Request $request, Tag $tag)
     {
 
+
         return $this->render('default/unique-tag.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+
+            'tag' => $tag,
+
         ]);
     }
     /**

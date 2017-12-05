@@ -6,7 +6,7 @@
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
                 <p id="tagOnSoft">
                         {% for tag in softmain.tags  %}
-                            <a href="{{ path('tagSolo') }}">{{ tag.name }}</a>
+                            <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>
                         {% if loop.last == false %}, {% endif %}
                     {% endfor %}
                 </p>
@@ -72,7 +72,7 @@
         <div class="row">
 
         <div class="col s12 m12 l12 ">
-                <h2>Une question sur {{ softmain.name } ? Contactez-nous !</h2>
+                <h2>Une question sur {{ softmain.name }} ? Contactez-nous !</h2>
             </div>
             <div class="col s6">
                     <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
