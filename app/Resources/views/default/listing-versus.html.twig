@@ -3,11 +3,42 @@
 {% block metadesc %}Découvrez les comparatigs des princinpaux logiciels de marketing automation du marché{% endblock %}
 
         {% block h1 %}
-            <h1>Compararif des principaux logiciels de marketing automation :</h1>
+            <h1>Comparez les principaux logiciels de marketing automation :</h1>
         {% endblock %}
 {% block body %}
     <div id="listing-versus">
-
+    <div class="presentation">
+        <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs
+            principales fonctionnalités.</p>
+        <div class="labelcomparatif">
+            <div class="row">
+                <div class="offset-m1 col s12 m4 selectsoft">
+                    <label for="soft_choice">Premier logiciel à comparer:</label>
+                    <input list="soft" type="text" id="soft_choice">
+                    <datalist id="soft">
+                        <option value="MailChimp">
+                        <option value="Mautic">
+                        <option value="MailChimp">
+                        <option value="MailChimp">
+                    </datalist>
+                </div>
+                <div class="col offset-m2 s12 m4 selectsoft">
+                    <label for="soft_choice2">Second logiciel à comparer :</label>
+                    <input list="soft" type="text" id="soft_choice2">
+                    <datalist id="soft">
+                        <option value="MailChimp">
+                        <option value="Mautic">
+                        <option value="MailChimp">
+                        <option value="MailChimp">
+                    </datalist>
+                </div>
+                    <div class="center-align">
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Comparer
+                        <i class="material-icons right">send</i>
+                    </button>
+                    </div>
+            </div>
+        </div>
         <h2>Cliquez sur un comparatif pour voir le détail :</h2>
         <div class="row">
             <ul>
