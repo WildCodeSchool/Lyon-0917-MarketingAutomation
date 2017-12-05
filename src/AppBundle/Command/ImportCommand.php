@@ -39,7 +39,7 @@ class ImportCommand extends ContainerAwareCommand
     {
 
         $service = $this->getContainer()->get('app.import');
-/*
+
         $fileSoft = $input->getArgument('filesoft');
         //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
         if(file_exists($fileSoft)){
@@ -56,7 +56,7 @@ class ImportCommand extends ContainerAwareCommand
             $service->import($fileTag, $type);
         }else{
             return "not working";
-        }*/
+        }
 
         $fileVersus = $input->getArgument('fileversus');
         //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
