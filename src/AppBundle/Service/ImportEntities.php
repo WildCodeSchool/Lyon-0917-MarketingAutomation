@@ -2,17 +2,8 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\Entity\SoftCommSupport;
-use AppBundle\Entity\SoftInfo;
-use AppBundle\Entity\SoftLeadsOperation;
+use AppBundle\AppBundle;
 use AppBundle\Entity\SoftMain;
-use AppBundle\Entity\SoftMarketingCampaign;
-use AppBundle\Entity\SoftOtherFunctionnalities;
-use AppBundle\Entity\SoftOutbound;
-use AppBundle\Entity\SoftReport;
-use AppBundle\Entity\SoftSegmentOperation;
-use AppBundle\Entity\SoftSocialMedia;
-use AppBundle\Entity\SoftSupport;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Yaml\Yaml;
@@ -125,7 +116,8 @@ class ImportEntities
 
     public function importSoftware($softFile)
     {
-        $compareYmlSoft = $this->getConfig();
+        $softEntitiesYml = $this->getConfig()["file2"]["entities"];
+        $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
         //$totalLines = $this->countLines($splSoftFile);
         while (!$splSoftFile->eof()) {
@@ -138,128 +130,60 @@ class ImportEntities
                     for ($i = 0; $i < count($row); $i++) {
                         $row[$i] = $this->convertToBool($row[$i]);
                     }
+//définition des variables de la boucle:
+                    $caseImport = 0;
+                    $i = 0;
+                    $j = 0;
+                    $eachEntity = [];
+                    //parcourt chaque entité pour ajouter les valeurs
+                    foreach ($softEntitiesYml as $entity) {
+                        $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
+                        $eachEntity[$i] = new $myClass();
+                        $listFields = array_keys($entity["fields"]);
 
-                    //Faire la boucle de vérif et de changement en bool ici
-                    $softMain = new SoftMain();
-                    $softMain->setName($row[0]);
+                        //parcourt les proprietés de chaque entity
+                        foreach ($entity["fields"] as $property) {
+                            $eachSetter = "set" . ucfirst($listFields[$j]);
+                            $eachEntity[$i]->$eachSetter($row[$caseImport]);
+                            $j++;
+                            $caseImport++;
+                        }
+                        $j = 0;
+                        $i++;
+                    }
+                    //csv reading end
+                    // add Links for each entities
+                    $k = 0;
                     $slug = $this->slugificator->slugFactory($row[0]);
-                    $softMain->setSlug($slug);
-                    //ajouter le path de l'image, à décider mais de type:
-                    //$softMain->setLogoUrl("/my/path/' . $this->slugificator->slugFactory($name) . '.png");
-                    $softMain->setType($row[1]);
-                    $softMain->setDescription($row[2]);
-                    $softMain->setComments($row[3]);
-                    $softMain->setAdvantages($row[4]);
-                    $softMain->setDrawbacks($row[5]);
+                    foreach ($softEntitiesYml as $entity) {
+//ATTENTION:Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
+                        if ($entity["links"]["relation"] === "Many-to-Many") {
+                            $eachSetterLink = "add" . $entityKeys[$k];
+                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
+                            $eachSource->$eachSetterLink($eachEntity[$k]);
+                        }
+                        //upgrade: $eachEntity[0] can be change by an automatic
+                        if ($entity["links"]["relation"] === "One-to-One") {
+                            $eachSetterLink = "set" . $entityKeys[$k];
+                            $eachEntity[0]->$eachSetterLink($eachEntity[$k]);
+                        }
 
-                    $softInfo = new SoftInfo();
-                    $softInfo->setRgpd($row[6]);
-                    $softInfo->setCustomers($row[7]);
-                    $softInfo->setHostingCountry($row[8]);
-                    $softInfo->setCreationDate($row[9]);
-                    $softInfo->setAnnualTurnover($row[10]);
-                    $softInfo->setConfigCost($row[11]);
-                    $softInfo->setSubscriptionCost($row[12]);
-                    $softInfo->setTrainingCost($row[13]);
-                    $softInfo->setWebSite($row[14]);
+                        if ($entity["slugExceptions"]["slug"] === "yes") {
+                            $mySlugSetter = "setSlug";
 
+                            $eachEntity[0]->$mySlugSetter("$slug");
+                        }
+                        if ($entity["slugExceptions"]["logo"] === "yes") {
+                            $mySlugLogoUrlSetter = "setLogoUrl";
+                            $eachEntity[0]->$mySlugLogoUrlSetter("assets/img/logo/" . $slug . ".png");
+                        }
+                        $k++;
+                    }
+                    // persist for each entities
 
-                    $softOutbound = new SoftOutbound();
-                    $softOutbound->setIsEmail($row[15]);
-                    $softOutbound->setIsSms($row[16]);
-                    $softOutbound->setIsPopin($row[17]);
-                    $softOutbound->setIsMailPostal($row[18]);
-                    $softOutbound->setIsCallCenter($row[19]);
-                    $softOutbound->setIsPushMobile($row[20]);
-                    $softOutbound->setIsApi($row[21]);
-
-
-                    $softComm = new SoftCommSupport();
-                    $softComm->setIsLandingPage($row[22]);
-                    $softComm->setIsForm($row[23]);
-                    $softComm->setIsTracking($row[24]);
-                    $softComm->setIsLiveChat($row[25]);
-
-
-                    $softLeadOp = new SoftLeadsOperation();
-                    $softLeadOp->setIsContactObject($row[26]);
-                    $softLeadOp->setIsCompanyObject($row[27]);
-                    $softLeadOp->setIsDefinedFields($row[28]);
-                    $softLeadOp->setIsIllimitedFields($row[29]);
-                    $softLeadOp->setIsImportCsv($row[30]);
-                    $softLeadOp->setIsAutoDuplicate($row[31]);
-                    $softLeadOp->setIsLeadStages($row[32]);
-
-
-                    $softSegmentOp = new SoftSegmentOperation();
-                    $softSegmentOp->setIsSegmentCreation($row[33]);
-                    $softSegmentOp->setIsIntelligentSegment($row[34]);
-
-
-                    $softMarketing = new SoftMarketingCampaign();
-                    $softMarketing->setIsLeadScoring($row[35]);
-                    $softMarketing->setIsCreationCampaign($row[36]);
-                    $softMarketing->setIsDripMarketingCampaign($row[37]);
-                    $softMarketing->setIsDragAndDrop($row[38]);
-
-
-                    $softSocial = new SoftSocialMedia();
-                    $softSocial->setIsTwitterMonitoring($row[39]);
-                    $softSocial->setIsTwitterAutoPublication($row[40]);
-                    $softSocial->setIsFacebookMonitoring($row[41]);
-                    $softSocial->setIsFacebookAutoPublication($row[42]);
-                    $softSocial->setIsLinkedinMonitoring($row[43]);
-                    $softSocial->setIsLinkedinAutoPublication($row[44]);
-                    $softSocial->setIsInstagramMonitoring($row[45]);
-                    $softSocial->setIsInstagramAutoPublication($row[46]);
-
-
-                    $softReport = new SoftReport();
-                    $softReport->setIsActivityReportCreation($row[47]);
-                    $softReport->setIsActivityReportPeriodicSend($row[48]);
-
-
-                    $softSupport = new SoftSupport();
-                    $softSupport->setIsEmailSupport($row[49]);
-                    $softSupport->setIsPhoneSupport($row[50]);
-                    $softSupport->setIsChatSupport($row[51]);
-                    $softSupport->setIsKnowledgeBase($row[52]);
-                    $softSupport->setKnowledgeBaseLanguage($row[53]);
-                    $softSupport->setIsTechnicalDocument($row[54]);
-
-
-                    $softOthers = new SoftOtherFunctionnalities();
-                    $softOthers->setIsProviderEmailChoice($row[55]);
-                    $softOthers->setIsBlogEdition($row[56]);
-                    $softOthers->setIsTouchPad($row[57]);
-                    $softOthers->setIsSmtpRelay($row[58]);
-                    $softOthers->setIsRssToEmail($row[59]);
-
-
-                    $softMain->setSoftInfo($softInfo);
-                    $softMain->setSoftOutbound($softOutbound);
-                    $softMain->setSoftCommSupport($softComm);
-                    $softMain->setSoftLeadsOperation($softLeadOp);
-                    $softMain->setSoftSegmentOperation($softSegmentOp);
-                    $softMain->setSoftMarketingCampaign($softMarketing);
-                    $softMain->setSoftSocialMedia($softSocial);
-                    $softMain->setSoftReport($softReport);
-                    $softMain->setSoftSupport($softSupport);
-                    $softMain->setSoftOtherFunctionnalities($softOthers);
-
-
-                    $this->em->persist($softInfo);
-                    $this->em->persist($softOutbound);
-                    $this->em->persist($softComm);
-                    $this->em->persist($softLeadOp);
-                    $this->em->persist($softSegmentOp);
-                    $this->em->persist($softMarketing);
-                    $this->em->persist($softSocial);
-                    $this->em->persist($softReport);
-                    $this->em->persist($softSupport);
-                    $this->em->persist($softOthers);
-
-                    $this->em->persist($softMain);
+                    foreach ($eachEntity as $finalEntity) {
+                        $this->em->persist($finalEntity);
+                    }
 
                     $this->em->flush();
                 }
