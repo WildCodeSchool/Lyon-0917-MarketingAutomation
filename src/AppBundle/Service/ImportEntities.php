@@ -189,6 +189,7 @@ class ImportEntities
                             $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
                             $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
+                        //upgrade: $eachEntity[0] can be change by an automatic
                         if ($entity["links"]["relation"] === "One-to-One") {
                             $eachSetterLink = "set" . $entityKeys[$k];
                             $eachEntity[0]->$eachSetterLink($eachEntity[$k]);

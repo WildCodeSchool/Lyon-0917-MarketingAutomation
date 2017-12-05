@@ -9,25 +9,9 @@
         <h2>Cliquez sur un tag pour obtenir la liste des logiciels associés.</h2>
         <div class="row">
             <ul>
-                {% for i in range(0, 7) %}
+                {% for tag in tags %}
                     <li class="col l4 m6 s12">
-                        <a href="{{ path('tagSolo') }}">Tag X</a>
-                        <div class="chip">12</div>
-                    </li>
-                    <li class=" col l4 m6 s12">
-                        <a href="{{ path('tagSolo') }}">Tag un peu plus que X</a>
-                        <div class="chip">4</div>
-                    </li>
-                    <li class=" col l4 m6 s12">
-                        <a href="{{ path('tagSolo') }}">Tag genial</a>
-                        <div class="chip">6</div>
-                    </li>
-                    <li class=" col l4 m6 s12">
-                        <a href="{{ path('tagSolo') }}">Tag qui sera une phrase plutot longue</a>
-                        <div class="chip">9</div>
-                    </li>
-                    <li class=" col l4 m6 s12">
-                        <a href="{{ path('tagSolo') }}">Tag Y</a>
+                        <a href="{{ path('tagSolo', { 'slug': tag.slug }) }}">{{ tag.name }}</a>
                         <div class="chip">12</div>
                     </li>
                 {% endfor %}

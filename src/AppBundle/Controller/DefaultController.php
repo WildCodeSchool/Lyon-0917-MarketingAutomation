@@ -2,10 +2,14 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\Tag;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+
 
 class DefaultController extends Controller
 {
@@ -21,13 +25,16 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/logiciels/slug-logiciel", name="softwareSolo")
+     * @Route("/logiciels/{slug}", name="softwareSolo")
+     * @Method("GET")
      */
-    public function softwareSoloAction(Request $request)
+    public function softwareSoloAction(Request $request, SoftMain $softMain)
     {
-        $slug = 'slug';
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+        $softMains = $repository->findAll();
         return $this->render('default/software.html.twig', [
-            'slug' => $slug,
+            'softmain' => $softMain,
+            'softwares' => $softMains,
         ]);
     }
 
@@ -37,8 +44,10 @@ class DefaultController extends Controller
     public function listingSoftwareAction(Request $request)
     {
 
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+        $softMains = $repository->findAll();
         return $this->render('default/listing-software.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'softwares' => $softMains,
         ]);
     }
 
@@ -58,20 +67,24 @@ class DefaultController extends Controller
      */
     public function listingTagsAction(Request $request)
     {
-
+        $repository = $this->getDoctrine()->getRepository(Tag::class);
+        $tags = $repository->findAll();
         return $this->render('default/listing-tags.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'tags' => $tags,
         ]);
     }
 
     /**
-     * @Route("tag", name="tagSolo")
+     * @Route("tag/{slug}", name="tagSolo")
      */
-    public function tagAction(Request $request)
+    public function tagAction(Request $request, Tag $tag)
     {
 
+
         return $this->render('default/unique-tag.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+
+            'tag' => $tag,
+
         ]);
     }
     /**
@@ -102,6 +115,7 @@ class DefaultController extends Controller
     public function listingVersusAction(Request $request)
     {
 
+
         return $this->render('default/listing-versus.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
@@ -115,7 +129,6 @@ class DefaultController extends Controller
     public function siteMapAction(SiteMap $siteMap)
     {
         $urls = $siteMap->generate();
-
         return $this->render('default/sitemap.html.twig', [
             'urls' => $urls,
         ]);

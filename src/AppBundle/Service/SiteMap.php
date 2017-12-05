@@ -29,17 +29,26 @@ class SiteMap
      */
     public function generate()
     {
+        $softwares = $this->em->getRepository('AppBundle:SoftMain')->findAll();
+        $urls = [];
+
+        foreach ($softwares as $software) {
+            $urls[] = array(
+                'loc' => $this->router->generate('softwareSolo', array('slug' => $software->getSlug()), true)
+            );
+        }
 
         $routes = $this->router->getRouteCollection()->all();
-        $urls = [];
         foreach($routes as $route) {
             $pattern = '(^(\/_))';
             $path = $route->getPath();
-                if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/\/slug/', $path)))
-                {
-                    $urls[] = $path;
-                };
-            }
+            if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/\/slug/', $path)))
+            {
+                $urls[] = array(
+                    'route' => $path
+                );
+            };
+        }
 
         return $urls;
     }
