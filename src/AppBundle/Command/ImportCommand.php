@@ -80,29 +80,11 @@ class ImportCommand extends ContainerAwareCommand
 
             try {
 
-                //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-                if (file_exists($fileSoft)) {
-                    $type = "import-softwares";
-                    $service->import($fileSoft, $type);
-                } else {
-                    return "not working";
-                }
+                    $service->import($fileSoft, "import-softwares");
 
-                //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-                if (file_exists($fileTag)) {
-                    $type = "import-tags";
-                    $service->import($fileTag, $type);
-                } else {
-                    return "not working";
-                }
+                    $service->import($fileTag, "import-tags");
 
-                //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-                if (file_exists($fileVersus)) {
-                    $type = "import-versus";
-                    $service->import($fileVersus, $type);
-                } else {
-                    return "not working";
-                }
+                    $service->import($fileVersus, "import-versus");
 
                 $this->em->getConnection()->commit();
 
