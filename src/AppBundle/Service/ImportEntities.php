@@ -61,18 +61,19 @@ class ImportEntities
         return $file;
     }
 
-    private function checkIfInteger($file, $line, $value, $column)
+    private function checkIfInteger($fileName, $line, $value, $column)
     {
-        if (is_int($value) === FALSE) {
-            array_push($this->errors, "Fichier " . $file . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be an integer");
+
+        if (preg_match("#[0-9]# ", $value) === FALSE && $value != "") {
+            array_push($this->errors, "Fichier " . $fileName . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be an integer");
         }
     }
 
-    private function checkIfBool($file, $line, $value, $column)
+    private function checkIfBool($fileName, $line, $value, $column)
     {
         if (is_bool($value) === FALSE) {
             if (isset($value)) {
-                array_push($this->errors, "Fichier " . $file . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
+                array_push($this->errors, "Fichier " . $fileName . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
             }
         }
 
@@ -84,8 +85,13 @@ class ImportEntities
         if ($value === "oui") {
             return true;
         }
-        if ($value === "non" || $value === "") {
+        if ($value === "non") {
             return false;
+        }
+
+        if ($value === "") {
+            return null;
+
         } else {
             return $value;
         }
@@ -116,9 +122,9 @@ class ImportEntities
 
     }
 
-    public function verifCsv($softFile, $type)
+    public function verifCsv($softFile, $fileName)
     {
-        $softEntitiesYml = $this->getConfig()[$type]["entities"];
+        $softEntitiesYml = $this->getConfig()[$fileName]["entities"];
         $splSoftFile = $this->fileInit($softFile);
 
         while (!$splSoftFile->eof()) {
@@ -132,27 +138,24 @@ class ImportEntities
             foreach ($splSoftFile as $rowFile) {
 
                 if (count($rowFile) !== $totalFields) {
-                    array_push($this->errors, "Nombre de colonne incorrect dans le fichier : " . $type . ".csv");
+                    array_push($this->errors, "Nombre de colonne incorrect dans le fichier : " . $fileName . ".csv");
 
                 } else {
 
                     $line = 1;
                     foreach ($splSoftFile as $row) {
-                        $convertedData = [];
-                        //$stillExists = $this->searchForDuplicate($type, $row);
+                        //$stillExists = $this->searchForDuplicate($fileName, $row);
                         //if (null === $stillExists) {
 
-                        foreach ($row as $data) {
-                            $convertedData[] = $this->convertToBool($data);
-                        }
+                        /*  foreach ($row as $data) {
+                              $convertedData[] = $this->convertToBool($data);
+                          }*/
 
                         //définition des variables de la boucle:
-                        $caseImport = 0;
                         $column = 0;
-                        $i = 0;
 
                         foreach ($softEntitiesYml as $entity) {
-                            //$testerror = $this->errors;
+                            $testerror = $this->errors;
 
                             //parcourt les proprietés de chaque entity
                             foreach ($entity["fields"] as $property) {
@@ -164,24 +167,27 @@ class ImportEntities
                                         break;
 
                                     case "boolean":
-                                        $this->checkIfBool($type, $line, $convertedData[$caseImport], $column);
+
+                                        $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
                                         break;
 
                                     case "integer":
-                                        $this->checkIfInteger($type, $line, $convertedData[$caseImport], $column);
+
+                                        $this->checkIfInteger($fileName, $line, $row[$column], $column);
                                         break;
+
                                 }
-                                $caseImport++;
                                 $column++;
 
                             }
-                            $i++;
 
                         }
-                        $line++;
-                    }
 
+                        $line++;
+
+                    }
                 }
+
             }
         }
     }
@@ -201,10 +207,6 @@ class ImportEntities
                 $convertedData = [];
                 $stillExists = $this->searchForDuplicate($type, $row);
                 if (null === $stillExists) {
-                    foreach ($row as $data) {
-                        $convertedData[] = $this->convertToBool($data);
-                    }
-
                     //définition des variables de la boucle:
                     $caseImport = 0;
                     $i = 0;
@@ -220,7 +222,19 @@ class ImportEntities
 
                         //parcourt les proprietés de chaque entity
                         foreach ($entity["fields"] as $property) {
+                            switch ($property) {
+                                case "string":
+                                    $convertedData[$caseImport] = $row[$caseImport];
+                                    break;
 
+                                case "boolean":
+                                    $convertedData[$caseImport] = $this->convertToBool($row[$caseImport]);
+                                    break;
+
+                                case "integer":
+                                    $convertedData[$caseImport] = (int)$row[$caseImport];
+                                    break;
+                            }
                             if (count($property) === 3) {
                                 $soft = $this->em->getRepository(SoftMain::class)
                                     ->findOneBy([
