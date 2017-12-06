@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 
@@ -160,7 +161,7 @@ class ImportEntities
 //ATTENTION:Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
-                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
+                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"];
                             $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
                         //upgrade: $eachEntity[0] can be change by an automatic
@@ -246,18 +247,20 @@ class ImportEntities
     {
         return $this->config;
     }
-    public function deleteAllContent(){
-        $cmd = $this->em->getClassMetadata($className);
-        $connection = $this->em->getConnection();
 
-
-
-            $connection->query('SET FOREIGN_KEY_CHECKS=0');
-            $connection->query('DELETE * FROM '.$cmd->getTableName());
+    /**
+     * @param $connection
+     */
+    //This function has to be implemented inside a transaction with a commit at the end
+    public function deleteAllContent(Connection $connection)
+    {
+        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+        foreach ($this->getConfig()["table-names"] as $tableName) {
+            $connection->query('DELETE * FROM ' . $tableName);
             // Beware of ALTER TABLE here--it's another DDL statement and will cause
             // an implicit commit.
-            $connection->query('SET FOREIGN_KEY_CHECKS=1');
-            $connection->commit();
 
+        }
+        $connection->query('SET FOREIGN_KEY_CHECKS=1');
     }
 }
