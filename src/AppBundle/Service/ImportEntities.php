@@ -64,7 +64,7 @@ class ImportEntities
     private function checkIfInteger($file, $line, $value, $column)
     {
         if (is_int($value) === FALSE) {
-            array_push($this->errors, "Fichier ". $file .": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be an integer");
+            array_push($this->errors, "Fichier " . $file . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be an integer");
         }
     }
 
@@ -72,7 +72,7 @@ class ImportEntities
     {
         if (is_bool($value) === FALSE) {
             if (isset($value)) {
-                array_push($this->errors, "Fichier ". $file .": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
+                array_push($this->errors, "Fichier " . $file . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
             }
         }
 
@@ -119,7 +119,6 @@ class ImportEntities
     public function verifCsv($softFile, $type)
     {
         $softEntitiesYml = $this->getConfig()[$type]["entities"];
-        $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
 
         while (!$splSoftFile->eof()) {
@@ -132,7 +131,10 @@ class ImportEntities
 
             foreach ($splSoftFile as $rowFile) {
 
-                if (count($rowFile) == $totalFields) {
+                if (count($rowFile) !== $totalFields) {
+                    array_push($this->errors, "Nombre de colonne incorrect dans le fichier : " . $type . ".csv");
+
+                } else {
 
                     $line = 1;
                     foreach ($splSoftFile as $row) {
@@ -147,13 +149,10 @@ class ImportEntities
                         //définition des variables de la boucle:
                         $caseImport = 0;
                         $column = 0;
-
                         $i = 0;
-                        $eachEntity = [];
 
                         foreach ($softEntitiesYml as $entity) {
-                            $testerror = $this->errors;
-
+                            //$testerror = $this->errors;
 
                             //parcourt les proprietés de chaque entity
                             foreach ($entity["fields"] as $property) {
@@ -182,8 +181,6 @@ class ImportEntities
                         $line++;
                     }
 
-                } else {
-                    array_push($this->errors, "Nombre de colonne incorrect dans le fichier : " . $type . ".csv");
                 }
             }
         }
