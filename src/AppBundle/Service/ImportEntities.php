@@ -6,6 +6,7 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 
 class ImportEntities
@@ -29,7 +30,7 @@ class ImportEntities
     private $config;
 
 
-    public function __construct(ObjectManager $em, Slugification $slugificator, $rootDir)
+    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
@@ -244,5 +245,19 @@ class ImportEntities
     public function getConfig()
     {
         return $this->config;
+    }
+    public function deleteAllContent(){
+        $cmd = $this->em->getClassMetadata($className);
+        $connection = $this->em->getConnection();
+
+
+
+            $connection->query('SET FOREIGN_KEY_CHECKS=0');
+            $connection->query('DELETE * FROM '.$cmd->getTableName());
+            // Beware of ALTER TABLE here--it's another DDL statement and will cause
+            // an implicit commit.
+            $connection->query('SET FOREIGN_KEY_CHECKS=1');
+            $connection->commit();
+
     }
 }
