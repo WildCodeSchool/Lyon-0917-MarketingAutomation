@@ -37,7 +37,7 @@ import-softwares:
                 rgpd: boolean
                 customers: string
                 hostingCountry: string
-                creationDate: int
+                creationDate: integer
                 annualTurnover: string
                 configCost: string
                 subscriptionCost: integer

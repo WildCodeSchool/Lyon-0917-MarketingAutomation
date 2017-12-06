@@ -2,7 +2,6 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\AppBundle;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -62,18 +61,18 @@ class ImportEntities
         return $file;
     }
 
-    private function checkIfInteger($value, $column)
+    private function checkIfInteger($file, $line, $value, $column)
     {
         if (is_int($value) === FALSE) {
-            array_push($this->errors, "Column" . $column . ": " . $value . "is expected to be an integer");
+            array_push($this->errors, "Fichier ". $file .": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be an integer");
         }
     }
 
-    private function checkIfBool($value, $column)
+    private function checkIfBool($file, $line, $value, $column)
     {
-        if ($value != "oui" || $value != "non") {
+        if (is_bool($value) === FALSE) {
             if (isset($value)) {
-                array_push($this->errors, "Column" . $column . ": " . $value . "is expected to be a boolean");
+                array_push($this->errors, "Fichier ". $file .": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
             }
         }
 
@@ -92,11 +91,10 @@ class ImportEntities
         }
     }
 
-    public function searchForDuplicate($file, array $row){
+    public function searchForDuplicate($file, array $row)
+    {
 
-        switch($file)
-
-        {
+        switch ($file) {
             case "import-tags":
                 $tag = $this->em->getRepository(Tag::class)
                     ->findOneBy([
@@ -118,7 +116,81 @@ class ImportEntities
 
     }
 
-    // Ready for softwares and versus files
+    public function verifCsv($softFile, $type)
+    {
+        $softEntitiesYml = $this->getConfig()[$type]["entities"];
+        $entityKeys = array_keys($softEntitiesYml);
+        $splSoftFile = $this->fileInit($softFile);
+
+        while (!$splSoftFile->eof()) {
+
+            $totalFields = 0;
+            foreach ($softEntitiesYml as $softEntityYml) {
+                $countField = count($softEntityYml["fields"]);
+                $totalFields += $countField;
+            }
+
+            foreach ($splSoftFile as $rowFile) {
+
+                if (count($rowFile) == $totalFields) {
+
+                    $line = 1;
+                    foreach ($splSoftFile as $row) {
+                        $convertedData = [];
+                        //$stillExists = $this->searchForDuplicate($type, $row);
+                        //if (null === $stillExists) {
+
+                        foreach ($row as $data) {
+                            $convertedData[] = $this->convertToBool($data);
+                        }
+
+                        //définition des variables de la boucle:
+                        $caseImport = 0;
+                        $column = 0;
+
+                        $i = 0;
+                        $eachEntity = [];
+
+                        foreach ($softEntitiesYml as $entity) {
+                            $testerror = $this->errors;
+
+
+                            //parcourt les proprietés de chaque entity
+                            foreach ($entity["fields"] as $property) {
+
+                                switch ($property) {
+
+
+                                    case "string":
+                                        break;
+
+                                    case "boolean":
+                                        $this->checkIfBool($type, $line, $convertedData[$caseImport], $column);
+                                        break;
+
+                                    case "integer":
+                                        $this->checkIfInteger($type, $line, $convertedData[$caseImport], $column);
+                                        break;
+                                }
+                                $caseImport++;
+                                $column++;
+
+                            }
+                            $i++;
+
+                        }
+                        $line++;
+                    }
+
+                } else {
+                    array_push($this->errors, "Nombre de colonne incorrect dans le fichier : " . $type . ".csv");
+                }
+            }
+        }
+    }
+
+
+// Ready for softwares and versus files
 
     public function import($softFile, $type)
     {
@@ -132,7 +204,7 @@ class ImportEntities
                 $convertedData = [];
                 $stillExists = $this->searchForDuplicate($type, $row);
                 if (null === $stillExists) {
-                    foreach($row as $data) {
+                    foreach ($row as $data) {
                         $convertedData[] = $this->convertToBool($data);
                     }
 
@@ -152,7 +224,7 @@ class ImportEntities
                         //parcourt les proprietés de chaque entity
                         foreach ($entity["fields"] as $property) {
 
-                            if(count($property) === 3){
+                            if (count($property) === 3) {
                                 $soft = $this->em->getRepository(SoftMain::class)
                                     ->findOneBy([
                                         'name' => $convertedData[$caseImport],
@@ -165,7 +237,7 @@ class ImportEntities
                                     $this->em->persist($soft);
                                 }
 
-                            }else {
+                            } else {
                                 $eachSetter = "set" . ucfirst($listFields[$j]);
                                 $eachEntity[$i]->$eachSetter($convertedData[$caseImport]);
                             }
@@ -186,7 +258,7 @@ class ImportEntities
 
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
-                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
+                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"];
                             $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
                         //upgrade: $eachEntity[0] can be change by an automatic
@@ -222,12 +294,10 @@ class ImportEntities
     }
 
 
-
     public function getErrors()
     {
         return $this->errors;
     }
-
 
 
     private function countLines(\SplFileObject $file)
