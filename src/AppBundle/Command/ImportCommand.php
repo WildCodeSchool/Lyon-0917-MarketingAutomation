@@ -26,48 +26,46 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function configure()
     {
-        // Name and description for app/console command
         $this
             ->setName('import:csv')
             ->setDescription('Import entities from CSV file')
-            //->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
             ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
             ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
+        // Name and description for app/console command
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
 
-        // Here, we need to get Input Argument. We have to catch 3 arguments.
-        /*
-        $inputFileTags = $input->getArgument('filetags');
+        $service = $this->getContainer()->get('app.import');
 
-        $importTag = $this->getContainer()->get('app.import');
-        $importTag->importTags($inputFileTags);
-*/
-        $inputSoftFile = $input->getArgument('filesoft');
-        $importSoft = $this->getContainer()->get('app.import');
-        $importSoft->importSoftware($inputSoftFile);
+        $fileSoft = $input->getArgument('filesoft');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileSoft)){
+            $type  = "import-softwares";
+            $service->import($fileSoft, $type);
+        }else{
+            return "not working";
+        }
 
+        $fileTag = $input->getArgument('filetags');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileTag)){
+            $type  = "import-tags";
+            $service->import($fileTag, $type);
+        }else{
+            return "not working";
+        }
 
-        // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
-
-        // To do : open transaction.
-        //$this->getContainer()->
-
-        // Here the foreach to hydrate entity Tags. Only one verification : if the name already exists.
-        // To do : exclude header and verify data.
-
-
-      //  $slugificator = $this->getContainer()->get('app.slug');
-
-
-
-        // End of transaction and commit if already went good.
-
-
-        //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
-        //Donc il faut prévoir de récupérer l'erreur qui est hors du code et prévoir le rollback
+        $fileVersus = $input->getArgument('fileversus');
+        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if(file_exists($fileVersus)){
+            $type  = "import-versus";
+            $service->import($fileVersus, $type);
+        }else{
+            return "not working";
+        }
 
         // Showing when the script is launched
         $now = new \DateTime();
