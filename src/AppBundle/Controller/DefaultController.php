@@ -5,7 +5,10 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -112,10 +115,32 @@ class DefaultController extends Controller
     public function listingVersusAction(Request $request)
     {
 
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('default/listing-versus.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-        ]);
+        $soft = $em->getRepository('AppBundle:SoftMain')->findAll();
+
+        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('software1',
+                TextType::class,
+                array('attr' => array('autocomplete'=>'off'), 'label' =>'Choisir le premier logiciel :'))
+            ->add('software2',
+                TextType::class,
+                array('attr' => array('autocomplete'=>'off'), 'label' => 'Choisir le second logiciel :'))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "software1", "software2"
+            $data = $form->getData();
+        }
+
+
+        return $this->render('default/listing-versus.html.twig', array(
+            'soft' => $soft,
+            'form' => $form->createView(),
+        ));
     }
 
     /**

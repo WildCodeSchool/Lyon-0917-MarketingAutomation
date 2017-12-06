@@ -13,24 +13,13 @@
         <div class="labelcomparatif">
             <div class="row">
                 <div class="offset-m1 col s12 m4 selectsoft">
-                    <label for="soft_choice">Premier logiciel à comparer:</label>
-                    <input list="soft" type="text" id="soft_choice">
-                    <datalist id="soft">
-                        <option value="MailChimp">
-                        <option value="Mautic">
-                        <option value="MailChimp">
-                        <option value="MailChimp">
-                    </datalist>
+                    {{ form_start(form) }}
+
+                    {{ form_row(form.software1) }}
+
                 </div>
                 <div class="col offset-m2 s12 m4 selectsoft">
-                    <label for="soft_choice2">Second logiciel à comparer :</label>
-                    <input list="soft" type="text" id="soft_choice2">
-                    <datalist id="soft">
-                        <option value="MailChimp">
-                        <option value="Mautic">
-                        <option value="MailChimp">
-                        <option value="MailChimp">
-                    </datalist>
+                    {{ form_row(form.software2) }}
                 </div>
                     <div class="center-align">
                     <button class="btn waves-effect waves-light" type="submit" name="action">Comparer
@@ -38,6 +27,9 @@
                     </button>
                     </div>
             </div>
+            <ul id="autocomplete">
+            </ul>
+            {{ form_end(form) }}
         </div>
         <h2>Cliquez sur un comparatif pour voir le détail :</h2>
         <div class="row">
@@ -50,4 +42,8 @@
             </ul>
         </div>
     </div>
+
 {% endblock %}
+        {% block javascripts %}        <script src="{{ asset('assets/js/versus-ajax.js') }}"></script>
+        {% endblock %}
+
