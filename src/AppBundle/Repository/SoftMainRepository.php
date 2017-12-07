@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function getSoftMainByName($softmain)
+    {
+        $softmain = "%" . $softmain . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.name')
+            ->where('s.name LIKE :name')
+            ->setParameter('name', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }
