@@ -13,8 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class ImportEntities
 {
-// Première version : on hydrate nos objets manuellement
-// Voir une v2 où on pourrait créer les entités à la volée, ce qui permettrait une meilleure maintenance du système et la possibilité de maintenir la base (MAJ des colonnes, par exemple)
+
 
     /** @var ObjectManager */
     private $em;
@@ -44,18 +43,26 @@ class ImportEntities
                     //TODO : améliorer ce truc
                     throw new \Exception("Ce n'est pas un fichier");
                 }else{
-
-
-
                 }
                  */
     }
 
-    private function checkIfString()
+    private function fileInit($fileFromConsole)
     {
-        //Check if data is string, if it's not, return error
-        // But I don't know if it's really efficient (utf8?)
-        // Vérifier que le texte n'est pas "oui" ou "non"
+        //by default delimiter is ","
+
+        // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
+        $file = new \SplFileObject($fileFromConsole);
+
+        // On définit les drapeaux : saute la ligne si elle est vide
+
+        $file->setFlags(
+            \SplFileObject::READ_CSV |
+            \SplFileObject::READ_AHEAD |
+            \SplFileObject::SKIP_EMPTY |
+            \SplFileObject::DROP_NEW_LINE);
+
+        return $file;
     }
 
     private function checkIfInteger($value, $column)
@@ -65,7 +72,6 @@ class ImportEntities
         }
     }
 
-    //si c'est différent de oui ou non, mais que c'est quand meme set ->error)
     private function checkIfBool($value, $column)
     {
         if ($value != "oui" || $value != "non") {
@@ -89,65 +95,83 @@ class ImportEntities
         }
     }
 
+    public function searchForDuplicate($file, array $row){
 
-    public function importTags($fileTags)
-    {
-        // A tester sans le while
-        $splFileTags = $this->fileInit($fileTags);
-        //$totalLines = $this->countLines($splFileTags);
-        while (!$splFileTags->eof()) {
-            foreach ($splFileTags as $row) {
+        switch($file)
 
-                list($name, $description) = $row;
+        {
+            case "import-tags":
                 $tag = $this->em->getRepository(Tag::class)
                     ->findOneBy([
-                        'name' => $name,
+                        'name' => $row[0],
                     ]);
-                if (null === $tag) {
-                    $tag = new Tag();
-                    $tag->setName($name);
-                    $tag->setDescription($description);
-                    $slug = $this->slugificator->slugFactory($name);
-                    $tag->setSlug($slug);
-                    $this->em->persist($tag);
-                    $this->em->flush();
-                }
+                return $tag;
+                break;
 
-            }
-        }
-    }
-
-    public function importSoftware($softFile)
-    {
-        $softEntitiesYml = $this->getConfig()["file2"]["entities"];
-        $entityKeys = array_keys($softEntitiesYml);
-        $splSoftFile = $this->fileInit($softFile);
-        //$totalLines = $this->countLines($splSoftFile);
-        while (!$splSoftFile->eof()) {
-            foreach ($splSoftFile as $row) {
+            case "import-softwares":
                 $soft = $this->em->getRepository(SoftMain::class)
                     ->findOneBy([
                         'name' => $row[0],
                     ]);
-                if (null === $soft) {
-                    for ($i = 0; $i < count($row); $i++) {
-                        $row[$i] = $this->convertToBool($row[$i]);
+                return $soft;
+                break;
+
+        }
+
+
+    }
+
+    // Ready for softwares and versus files
+
+    public function import($softFile, $type)
+    {
+        $softEntitiesYml = $this->getConfig()[$type]["entities"];
+        $entityKeys = array_keys($softEntitiesYml);
+        $splSoftFile = $this->fileInit($softFile);
+        //$totalLines = $this->countLines($splSoftFile);
+
+        while (!$splSoftFile->eof()) {
+            foreach ($splSoftFile as $row) {
+                $convertedData = [];
+                $stillExists = $this->searchForDuplicate($type, $row);
+                if (null === $stillExists) {
+                    foreach($row as $data) {
+                        $convertedData[] = $this->convertToBool($data);
                     }
-//définition des variables de la boucle:
+
+                    //définition des variables de la boucle:
                     $caseImport = 0;
                     $i = 0;
                     $j = 0;
                     $eachEntity = [];
+
                     //parcourt chaque entité pour ajouter les valeurs
                     foreach ($softEntitiesYml as $entity) {
                         $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
                         $eachEntity[$i] = new $myClass();
                         $listFields = array_keys($entity["fields"]);
 
+
                         //parcourt les proprietés de chaque entity
                         foreach ($entity["fields"] as $property) {
-                            $eachSetter = "set" . ucfirst($listFields[$j]);
-                            $eachEntity[$i]->$eachSetter($row[$caseImport]);
+
+                            if(count($property) === 3){
+                                $soft = $this->em->getRepository(SoftMain::class)
+                                    ->findOneBy([
+                                        'name' => $convertedData[$caseImport],
+                                    ]);
+                                if (!empty($soft)) {
+                                    $set = "set" . ucfirst($listFields[$j]);
+                                    $eachEntity[$i]->$set($soft);
+                                    $add = "add" . ucfirst($property["inversedby"]);
+                                    $soft->$add($eachEntity[$i]);
+                                    $this->em->persist($soft);
+                                }
+
+                            }else {
+                                $eachSetter = "set" . ucfirst($listFields[$j]);
+                                $eachEntity[$i]->$eachSetter($convertedData[$caseImport]);
+                            }
                             $j++;
                             $caseImport++;
                         }
@@ -158,8 +182,11 @@ class ImportEntities
                     // add Links for each entities
                     $k = 0;
                     $slug = $this->slugificator->slugFactory($row[0]);
+
                     foreach ($softEntitiesYml as $entity) {
-//ATTENTION:Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
+
+                        //ATTENTION: Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
+
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
                             $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"];
@@ -189,6 +216,7 @@ class ImportEntities
                     }
 
                     $this->em->flush();
+
                 }
 
             }
@@ -196,35 +224,14 @@ class ImportEntities
 
     }
 
-    public function importVersus($data)
-    {
-        $this->fileInit($data);
-        // From csv, check if data is correct, if is not, return error
 
-    }
 
     public function getErrors()
     {
         return $this->errors;
     }
 
-    private function fileInit($fileFromConsole)
-    {
-        //by default delimiter is ","
 
-        // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
-        $file = new \SplFileObject($fileFromConsole);
-
-        // On définit les drapeaux : saute la ligne si elle est vide
-
-        $file->setFlags(
-            \SplFileObject::READ_CSV |
-            \SplFileObject::READ_AHEAD |
-            \SplFileObject::SKIP_EMPTY |
-            \SplFileObject::DROP_NEW_LINE);
-
-        return $file;
-    }
 
     private function countLines(\SplFileObject $file)
     {

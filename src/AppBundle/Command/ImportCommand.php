@@ -26,21 +26,23 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function configure()
     {
-        // Name and description for app/console command
         $this
             ->setName('import:csv')
-            ->setDescription('Import entities from CSV file');
-            //->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
-            //->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
-            //->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
+            ->setDescription('Import entities from CSV file')
+            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
+            ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
+        // Name and description for app/console command
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $service = $this->getContainer()->get('app.import');
-$connection = $this->em->getConnection();
-        $connection->beginTransaction();
+        $connection = $this->em->getConnection();
         $dbName = $this->getContainer()->getParameter("database_name");
+      
+        $connection->beginTransaction();
+        
         try {
             $service->deleteAllContent($connection, $dbName);
             $connection->commit();
@@ -48,8 +50,6 @@ $connection = $this->em->getConnection();
             $this->em->getConnection()->rollBack();
             $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
         }
-
-
         // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
 
         // To do : open transaction.
@@ -69,6 +69,7 @@ $connection = $this->em->getConnection();
         //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
         //Donc il faut prévoir de récupérer l'erreur qui est hors du code et prévoir le rollback
 
+
         // Showing when the script is launched
         $now = new \DateTime();
 
@@ -78,7 +79,6 @@ $connection = $this->em->getConnection();
         // Showing when the script is over
         $now = new \DateTime();
         $output->writeln('<comment>End : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
-
     }
 
 }
