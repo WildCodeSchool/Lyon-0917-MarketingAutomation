@@ -29,25 +29,25 @@ class ImportCommand extends ContainerAwareCommand
         // Name and description for app/console command
         $this
             ->setName('import:csv')
-            ->setDescription('Import entities from CSV file')
+            ->setDescription('Import entities from CSV file');
             //->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
-            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
-            ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
+            //->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+            //->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
-        // Here, we need to get Input Argument. We have to catch 3 arguments.
-        /*
-        $inputFileTags = $input->getArgument('filetags');
-
-        $importTag = $this->getContainer()->get('app.import');
-        $importTag->importTags($inputFileTags);
-*/
-        $inputSoftFile = $input->getArgument('filesoft');
-        $importSoft = $this->getContainer()->get('app.import');
-        $importSoft->importSoftware($inputSoftFile);
+        $service = $this->getContainer()->get('app.import');
+$connection = $this->em->getConnection();
+        $connection->beginTransaction();
+        $dbName = $this->getContainer()->getParameter("database_name");
+        try {
+            $service->deleteAllContent($connection, $dbName);
+            $connection->commit();
+        } catch (\Exception $e) {
+            $this->em->getConnection()->rollBack();
+            $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
+        }
 
 
         // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.

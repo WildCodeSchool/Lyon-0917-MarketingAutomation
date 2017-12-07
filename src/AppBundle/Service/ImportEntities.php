@@ -9,6 +9,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class ImportEntities
 {
@@ -252,11 +253,11 @@ class ImportEntities
      * @param $connection
      */
     //This function has to be implemented inside a transaction with a commit at the end
-    public function deleteAllContent(Connection $connection)
+    public function deleteAllContent(Connection $connection, $dbName)
     {
         $connection->query('SET FOREIGN_KEY_CHECKS=0');
         foreach ($this->getConfig()["table-names"] as $tableName) {
-            $connection->query('DELETE * FROM ' . $tableName);
+            $connection->query("DELETE FROM " . $dbName ."." . $tableName . ";");
             // Beware of ALTER TABLE here--it's another DDL statement and will cause
             // an implicit commit.
 
