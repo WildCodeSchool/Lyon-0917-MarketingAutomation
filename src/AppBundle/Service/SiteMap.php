@@ -13,13 +13,11 @@ class SiteMap
     /** @var Router  */
     private $router;
     private $em;
-    private $controller;
 
-    public function __construct(RouterInterface $router, ObjectManager $em, Controller $controller)
+    public function __construct(RouterInterface $router, ObjectManager $em)
     {
         $this->router = $router;
         $this->em = $em;
-        $this->controller = $controller;
     }
 
     /**
@@ -28,6 +26,8 @@ class SiteMap
      * @return array
      */
     public function generate()
+
+
     {
         $softwares = $this->em->getRepository('AppBundle:SoftMain')->findAll();
         $urls = [];
