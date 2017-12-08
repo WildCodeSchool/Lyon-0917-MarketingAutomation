@@ -40,20 +40,21 @@ class ImportCommand extends ContainerAwareCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $service = $this->getContainer()->get('app.import');
-
-
         $fileSoft = $input->getArgument('filesoft');
         $fileTag = $input->getArgument('filetags');
         $fileVersus = $input->getArgument('fileversus');
+        $connection = $this->em->getConnection();
+        $dbName = $this->getContainer()->getParameter("database_name");
 
         if (file_exists($fileTag)) {
             $type = "import-tags";
             $service->verifCsv($fileTag, $type);
         } else {
             $output->writeln("Fichier import-tags.csv manquant");
+
         }
-
-
+      
+        // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
         if (file_exists($fileSoft)) {
             $type = "import-softwares";
             $service->verifCsv($fileSoft, $type);
@@ -76,24 +77,31 @@ class ImportCommand extends ContainerAwareCommand
             }
 
         } else {
+          
+        //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
 
-            $this->em->getConnection()->beginTransaction();
+         
+            $connection->beginTransaction();
+
 
             try {
+                $service->deleteAllContent($connection, $dbName);
 
                 $service->import($fileTag, "import-tags");
 
                 $service->import($fileSoft, "import-softwares");
 
                 $service->import($fileVersus, "import-versus");
+              
+                // End of transaction and commit if already went good.
 
-                $this->em->getConnection()->commit();
+                $connection->commit();
 
                 $output->writeln("La BDD a bien été importée." . PHP_EOL);
 
             } catch (\Exception $e) {
-
-                $this->em->getConnection()->rollBack();
+              
+                $connection->rollBack();
 
                 $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
             }
@@ -110,7 +118,6 @@ class ImportCommand extends ContainerAwareCommand
         // Showing when the script is over
         $now = new \DateTime();
         $output->writeln('<comment>End : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
-
     }
 
 }
