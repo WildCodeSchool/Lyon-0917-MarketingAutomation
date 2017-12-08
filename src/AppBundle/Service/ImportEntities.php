@@ -8,7 +8,6 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class ImportEntities
 {
@@ -252,10 +251,8 @@ class ImportEntities
                                 $soft->$add($eachEntity[$i]);
                                 $this->em->persist($soft);
                             }
-                        }
-
-                        elseif ($property === "list-tag") {
-                            $tags = explode("#",  $convertedData[$caseImport]);
+                        } elseif ($property === "list-tag") {
+                            $tags = explode("#", $convertedData[$caseImport]);
                             foreach ($tags as $tag) {
                                 $currentTag = $this->em->getRepository(Tag::class)->findOneBy(['name' => $tag,]);
                                 if (!empty($currentTag)) {
@@ -268,16 +265,6 @@ class ImportEntities
                         } else {
                             $eachSetter = "set" . ucfirst($listFields[$j]);
                             $eachEntity[$i]->$eachSetter($convertedData[$caseImport]);
-
-                        if ($entity["links"]["relation"] === "Many-to-Many") {
-                            $eachSetterLink = "add" . $entityKeys[$k];
-                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"];
-                            $eachSource->$eachSetterLink($eachEntity[$k]);
-                        }
-                        //upgrade: $eachEntity[0] can be change by an automatic
-                        if ($entity["links"]["relation"] === "One-to-One") {
-                            $eachSetterLink = "set" . $entityKeys[$k];
-                            $eachEntity[0]->$eachSetterLink($eachEntity[$k]);
                         }
                         $j++;
                         $caseImport++;
@@ -330,51 +317,53 @@ class ImportEntities
     }
 
 
-    public
-    function getErrors()
-    {
-        return $this->errors;
+
+public
+function getErrors()
+{
+    return $this->errors;
+}
+
+
+private
+function countLines(\SplFileObject $file)
+{
+
+    // On va à la fin max du fichier
+    $file->seek(PHP_INT_MAX);
+
+    // On récupère le nombre de lignes et on hydrate la propriété avec
+    $totalLines = $file->key() + 1;
+
+    // On remonte le pointeur au début du fichier
+    $file->seek(0);
+
+    return $totalLines;
+}
+
+/**
+ * @return mixed
+ */
+public
+function getConfig()
+{
+    return $this->config;
+}
+
+/**
+ * @param $connection
+ */
+//This function has to be implemented inside a transaction with a commit at the end
+public
+function deleteAllContent(Connection $connection, $dbName)
+{
+    $connection->query('SET FOREIGN_KEY_CHECKS=0');
+    foreach ($this->getConfig()["table-names"] as $tableName) {
+        $connection->query("DELETE FROM " . $dbName . "." . $tableName . ";");
+        // Beware of ALTER TABLE here--it's another DDL statement and will cause
+        // an implicit commit.
+
     }
-
-
-    private
-    function countLines(\SplFileObject $file)
-    {
-
-        // On va à la fin max du fichier
-        $file->seek(PHP_INT_MAX);
-
-        // On récupère le nombre de lignes et on hydrate la propriété avec
-        $totalLines = $file->key() + 1;
-
-        // On remonte le pointeur au début du fichier
-        $file->seek(0);
-
-        return $totalLines;
-    }
-
-    /**
-     * @return mixed
-     */
-    public
-    function getConfig()
-    {
-        return $this->config;
-    }
-
-    /**
-     * @param $connection
-     */
-    //This function has to be implemented inside a transaction with a commit at the end
-    public function deleteAllContent(Connection $connection, $dbName)
-    {
-        $connection->query('SET FOREIGN_KEY_CHECKS=0');
-        foreach ($this->getConfig()["table-names"] as $tableName) {
-            $connection->query("DELETE FROM " . $dbName ."." . $tableName . ";");
-            // Beware of ALTER TABLE here--it's another DDL statement and will cause
-            // an implicit commit.
-
-        }
-        $connection->query('SET FOREIGN_KEY_CHECKS=1');
-    }
+    $connection->query('SET FOREIGN_KEY_CHECKS=1');
+}
 }
