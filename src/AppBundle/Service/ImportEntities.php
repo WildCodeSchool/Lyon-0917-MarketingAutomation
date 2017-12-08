@@ -164,6 +164,8 @@ class ImportEntities
 
                                     switch ($property) {
 
+                                        case "list-tag":
+                                            break;
 
                                         case "string":
                                             break;
@@ -228,12 +230,9 @@ class ImportEntities
 
                         if ($property === "boolean") {
                             $convertedData[$caseImport] = $this->convertToBool($row[$caseImport]);
-                        }
-
-                        elseif ($property === "integer") {
+                        } elseif ($property === "integer") {
                             $convertedData[$caseImport] = (int)$row[$caseImport];
-                        }
-                        else {
+                        } else {
                             $convertedData[$caseImport] = $row[$caseImport];
                         }
 
@@ -250,6 +249,19 @@ class ImportEntities
                                 $soft->$add($eachEntity[$i]);
                                 $this->em->persist($soft);
                             }
+                        }
+
+                        elseif ($property === "list-tag") {
+                            $tags = explode("#",  $convertedData[$caseImport]);
+                            foreach ($tags as $tag) {
+                                $currentTag = $this->em->getRepository(Tag::class)->findOneBy(['name' => $tag,]);
+                                if (!empty($currentTag)) {
+                                    $eachEntity[$i]->addTag($currentTag);
+                                    $currentTag->addSoftMain($eachEntity[$i]);
+                                    $this->em->persist($currentTag);
+                                }
+                            }
+
 
                         } else {
                             $eachSetter = "set" . ucfirst($listFields[$j]);

@@ -28,8 +28,11 @@ class ImportCommand extends ContainerAwareCommand
         $this
             ->setName('import:csv')
             ->setDescription('Import entities from CSV file')
-            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+
             ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
+
+            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
+
             ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
         // Name and description for app/console command
     }
@@ -43,15 +46,6 @@ class ImportCommand extends ContainerAwareCommand
         $fileTag = $input->getArgument('filetags');
         $fileVersus = $input->getArgument('fileversus');
 
-
-        if (file_exists($fileSoft)) {
-            $type = "import-softwares";
-            $service->verifCsv($fileSoft, $type);
-        } else {
-            $output->writeln("Fichier import-softwares.csv manquant");
-        }
-
-        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
         if (file_exists($fileTag)) {
             $type = "import-tags";
             $service->verifCsv($fileTag, $type);
@@ -60,7 +54,14 @@ class ImportCommand extends ContainerAwareCommand
         }
 
 
-        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
+        if (file_exists($fileSoft)) {
+            $type = "import-softwares";
+            $service->verifCsv($fileSoft, $type);
+        } else {
+            $output->writeln("Fichier import-softwares.csv manquant");
+        }
+
+
         if (file_exists($fileVersus)) {
             $type = "import-versus";
             $service->verifCsv($fileVersus, $type);
@@ -80,11 +81,11 @@ class ImportCommand extends ContainerAwareCommand
 
             try {
 
-                    $service->import($fileSoft, "import-softwares");
+                $service->import($fileTag, "import-tags");
 
-                    $service->import($fileTag, "import-tags");
+                $service->import($fileSoft, "import-softwares");
 
-                    $service->import($fileVersus, "import-versus");
+                $service->import($fileVersus, "import-versus");
 
                 $this->em->getConnection()->commit();
 
