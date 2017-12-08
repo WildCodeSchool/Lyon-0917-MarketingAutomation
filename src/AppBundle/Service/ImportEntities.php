@@ -6,7 +6,10 @@ use AppBundle\AppBundle;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\DBAL\Connection;
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 
 class ImportEntities
 {
@@ -28,7 +31,7 @@ class ImportEntities
     private $config;
 
 
-    public function __construct(ObjectManager $em, Slugification $slugificator, $rootDir)
+    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
@@ -186,7 +189,7 @@ class ImportEntities
 
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
-                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"] ;
+                            $eachSource = "AppBundle\\Entity\\" . $entity["links"]["source"];
                             $eachSource->$eachSetterLink($eachEntity[$k]);
                         }
                         //upgrade: $eachEntity[0] can be change by an automatic
@@ -251,5 +254,21 @@ class ImportEntities
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * @param $connection
+     */
+    //This function has to be implemented inside a transaction with a commit at the end
+    public function deleteAllContent(Connection $connection, $dbName)
+    {
+        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+        foreach ($this->getConfig()["table-names"] as $tableName) {
+            $connection->query("DELETE FROM " . $dbName ."." . $tableName . ";");
+            // Beware of ALTER TABLE here--it's another DDL statement and will cause
+            // an implicit commit.
+
+        }
+        $connection->query('SET FOREIGN_KEY_CHECKS=1');
     }
 }

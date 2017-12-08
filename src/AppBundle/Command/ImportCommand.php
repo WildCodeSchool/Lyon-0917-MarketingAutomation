@@ -37,35 +37,38 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-
         $service = $this->getContainer()->get('app.import');
-
-        $fileSoft = $input->getArgument('filesoft');
-        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-        if(file_exists($fileSoft)){
-            $type  = "import-softwares";
-            $service->import($fileSoft, $type);
-        }else{
-            return "not working";
+        $connection = $this->em->getConnection();
+        $dbName = $this->getContainer()->getParameter("database_name");
+      
+        $connection->beginTransaction();
+        
+        try {
+            $service->deleteAllContent($connection, $dbName);
+            $connection->commit();
+        } catch (\Exception $e) {
+            $this->em->getConnection()->rollBack();
+            $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
         }
+        // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
 
-        $fileTag = $input->getArgument('filetags');
-        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-        if(file_exists($fileTag)){
-            $type  = "import-tags";
-            $service->import($fileTag, $type);
-        }else{
-            return "not working";
-        }
+        // To do : open transaction.
+        //$this->getContainer()->
 
-        $fileVersus = $input->getArgument('fileversus');
-        //$fileSoftFromDir = '%root_dir%/Resources/data/import-softwares.csv';
-        if(file_exists($fileVersus)){
-            $type  = "import-versus";
-            $service->import($fileVersus, $type);
-        }else{
-            return "not working";
-        }
+        // Here the foreach to hydrate entity Tags. Only one verification : if the name already exists.
+        // To do : exclude header and verify data.
+
+
+      //  $slugificator = $this->getContainer()->get('app.slug');
+
+
+
+        // End of transaction and commit if already went good.
+
+
+        //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
+        //Donc il faut prévoir de récupérer l'erreur qui est hors du code et prévoir le rollback
+
 
         // Showing when the script is launched
         $now = new \DateTime();
@@ -76,7 +79,6 @@ class ImportCommand extends ContainerAwareCommand
         // Showing when the script is over
         $now = new \DateTime();
         $output->writeln('<comment>End : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
-
     }
 
 }
