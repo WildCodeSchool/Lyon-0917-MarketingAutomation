@@ -88,6 +88,8 @@ class ImportCommand extends ContainerAwareCommand
 
                 $this->em->getConnection()->commit();
 
+                $output->writeln("La BDD a bien été importée." . PHP_EOL);
+
             } catch (\Exception $e) {
 
                 $this->em->getConnection()->rollBack();

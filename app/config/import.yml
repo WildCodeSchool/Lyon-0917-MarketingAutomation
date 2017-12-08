@@ -25,6 +25,7 @@ import-softwares:
                 comments: string
                 advantages: string
                 drawbacks: string
+                tag: list-tag
             links:
               source: no
               relation: no
