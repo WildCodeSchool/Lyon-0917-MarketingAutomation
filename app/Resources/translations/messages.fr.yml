@@ -1,7 +1,7 @@
 # app/Resources/translations/messages.fr.yml
 
 # SoftMain
-name: Name
+name: Nom du Logiciel
 logoUrl: URL Logo
 type: Type
 description: Description

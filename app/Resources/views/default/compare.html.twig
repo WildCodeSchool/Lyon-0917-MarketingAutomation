@@ -69,205 +69,310 @@
                 </div>
             </div>
             <div id="tableVersus">
-                <h2>Informations générales sur MailChimp et Mautic</h2>
+                <h2>Informations essentielles sur MailChimp et Mautic</h2>
                 <table class="striped border">
                     <tr>
-                        <th>Logiciel</th>
+                        <th>{{ 'name'|trans }}</th>
                         <td>MainChimp</td>
                         <td>Mautic</td>
                     </tr>
                     <tr>
-                        <th>Type</th>
+                        <th>{{ 'type'|trans }}</th>
                         <td>Logiciel généraliste</td>
                         <td>Logiciel généraliste</td>
                     </tr>
                     <tr>
-                        <th>Pour qui?</th>
+                        <th>{{ 'rgpd'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'customers'|trans }}</th>
                         <td>Equipe bien organisée</td>
                         <td>Equipe bien organisée</td>
                     </tr>
                     <tr>
-                        <th>Hébergement des données</th>
+                        <th>{{ 'hostingCountry'|trans }}</th>
                         <td>Île Caïman</td>
                         <td>La terre du milieu</td>
                     </tr>
                     <tr>
-                        <th>Date de création</th>
+                        <th>{{ 'creationDate'|trans }}</th>
                         <td>1650</td>
                         <td>1950</td>
                     </tr>
                     <tr>
-                        <th>CA annuel</th>
+                        <th>{{ 'annualTurnover'|trans }}</th>
                         <td>10</td>
                         <td>100</td>
                     </tr>
                     <tr>
-                        <th>Coût de la configuration</th>
+                        <th>{{ 'configCost'|trans }}</th>
                         <td>800 €</td>
                         <td>8000 €</td>
                     </tr>
                     <tr>
-                        <th>Abonnement à partir de ...</th>
+                        <th>{{ 'subscriptionCost'|trans }}</th>
                         <td>800 €</td>
                         <td>80 €</td>
                     </tr>
                     <tr>
-                        <th>Coût de la formation</th>
+                        <th>{{ 'trainingCost'|trans }}</th>
                         <td>800 €</td>
                         <td>80 €</td>
                     </tr>
                     <tr>
-                        <th>Les plus</th>
+                        <th>{{ 'webSite'|trans }}</th>
                         <td>800</td>
                         <td>80</td>
                     </tr>
-                    <tr>
-                        <th>Les moins</th>
-                        <td>800</td>
-                        <td>8</td>
                 </table>
-                <h2>Canaux de communication inbound</h2>
+                <h2>Canaux de communication sortants (outbound)</h2>
                 <table class="striped border">
                     <tr>
-                        <th>Page d'atterrissage</th>
+                        <th>{{ 'isEmail'|trans }}</th>
                         <td>oui</td>
                         <td>oui</td>
                     </tr>
                     <tr>
-                        <th>Formulaire</th>
+                        <th>{{ 'isSms'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
                     <tr>
-                        <th>Code de suivi</th>
+                        <th>{{ 'isPopin'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
                     <tr>
-                        <th>Live chat</th>
+                        <th>{{ 'isMailPostal'|trans }}</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isCallCenter'|trans }}</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isPushMobile'|trans }}</th>
+                        <td>non</td>
+                        <td>non</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isApi'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
                 </table>
-                <h2>Canaux de communication outbound</h2>
+                <h2>Supports de communication entrants (inbound)</h2>
                 <table class="striped border">
                     <tr>
-                        <th>Email</th>
+                        <th>{{ 'isLandingPage'|trans }}</th>
                         <td>oui</td>
                         <td>oui</td>
                     </tr>
                     <tr>
-                        <th>Sms</th>
+                        <th>{{ 'isForm'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
                     <tr>
-                        <th>Popin sur site</th>
+                        <th>{{ 'isTracking'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
                     <tr>
-                        <th>Courrier postal</th>
+                        <th>{{ 'isLiveChat'|trans }}</th>
                         <td>non</td>
                         <td>non</td>
                     </tr>
+                </table>
+                <h2>Gestion des contacts</h2>
+                <table class="striped border">
                     <tr>
-                        <th>Centre d'appel</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isContactObject'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
                     </tr>
                     <tr>
-                        <th>Notifications push mobile</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isCompanyObject'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
                     </tr>
                     <tr>
-                        <th>Appel API</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isDefinedFields'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isIllimitedFields'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isImportCsv'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isAutoDuplicate'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isLeadStages'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                </table>
+                <h2>Gestion des segments</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>{{ 'isSegmentCreation'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isIntelligentSegment'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                </table>
+                <h2>Campagnes Marketing Automation</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>{{ 'isLeadScoring'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isCreationCampaign'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isDripMarketingCampaign'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isDragAndDrop'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                </table>
+                <h2>Intégration Social Media</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>{{ 'isTwitterMonitoring'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isTwitterAutoPublication'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isFacebookMonitoring'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isFacebookAutoPublication'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isLinkedinMonitoring'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isLinkedinAutoPublication'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isInstagramMonitoring'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isInstagramAutoPublication'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isActivityReportCreation'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                </table>
+                <h2>Support</h2>
+                <table class="striped border">
+                    <tr>
+                        <th>{{ 'isEmailSupport'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isPhoneSupport'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isChatSupport'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isKnowledgeBase'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isTechnicalDocument'|trans }}</th>
+                        <td>...</td>
+                        <td>...</td>
                     </tr>
                 </table>
                 <h2>Autres fonctionnalités</h2>
                 <table class="striped border">
                     <tr>
-                        <th>Segmentation des contacts</th>
+                        <th>{{ 'isProviderEmailChoice'|trans }}</th>
                         <td>oui</td>
                         <td>oui</td>
                     </tr>
                     <tr>
-                        <th>Tablette en magasin</th>
+                        <th>{{ 'isBlogEdition'|trans }}</th>
+                        <td>oui</td>
+                        <td>oui</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isTouchPad'|trans }}</th>
                         <td>non</td>
                         <td>oui</td>
                     </tr>
                     <tr>
-                        <th>Lead scoring</th>
-                        <td>non</td>
+                        <th>{{ 'isStmtpRelay'|trans }}</th>
+                        <td>oui</td>
                         <td>oui</td>
                     </tr>
                     <tr>
-                        <th>Tests A/B</th>
-                        <td>non</td>
-                        <td>non</td>
-                    </tr>
-                    <tr>
-                        <th>Contact management</th>
-                        <td>non</td>
+                        <th>{{ 'isRssToEmail'|trans }}</th>
                         <td>oui</td>
-                    </tr>
-
-                    <tr>
-                        <th>List management</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Smart Contact Capture Form</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Intégration social media</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>CRM integration</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Integration CMS</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Choix du provider email</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Intégration e-commerce</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Choix du provider email</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Automated drip marketing</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Lead Stages</th>
-                        <td>non</td>
-                        <td>oui</td>
-                    </tr>
-                    <tr>
-                        <th>Campagne Email</th>
-                        <td>non</td>
                         <td>oui</td>
                     </tr>
                 </table>
@@ -275,4 +380,3 @@
         </div>
     </div>
 {% endblock %}
-
