@@ -40,6 +40,7 @@ import-softwares:
                 comments: string
                 advantages: string
                 drawbacks: string
+                tag: list-tag
             links:
               source: no
               relation: no
@@ -52,7 +53,7 @@ import-softwares:
                 rgpd: boolean
                 customers: string
                 hostingCountry: string
-                creationDate: int
+                creationDate: integer
                 annualTurnover: string
                 configCost: string
                 subscriptionCost: integer
