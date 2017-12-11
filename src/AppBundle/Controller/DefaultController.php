@@ -6,9 +6,12 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use SensioLabs\Security\Exception\HttpException;
 
 
 class DefaultController extends Controller
@@ -115,9 +118,50 @@ class DefaultController extends Controller
     public function listingVersusAction(Request $request)
     {
 
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('default/listing-versus.html.twig', [
+
+        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('software1',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->add('software2',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "software1", "software2"
+            $data = $form->getData();
+            $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software1"]
+                ]);
+            $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software2"]
+                ]);
+
+
+            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+        }
+
+
+        return $this->render('default/listing-versus.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @Route("comparatifs/slug1-vs-slug2", name="versus")
+     */
+    public function VersusAction(Request $request)
+    {
+
+        return $this->render('default/compare.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+
         ]);
     }
 
@@ -135,15 +179,23 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/slug-vs-slug", name="versus")
+     * @param Request $request
+     * @param $softmain
+     * @return JsonResponse
+     * @Route("/comparatifs/list/{softmain}", name="list-softmain")
      */
-    public function VersusAction(Request $request)
+
+    public function autocompleteAction(Request $request, $softmain)
     {
+        if($request->isXmlHttpRequest()) {
 
-        return $this->render('default/compare.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            $repository = $this->getDoctrine()->getRepository('AppBundle:SoftMain');
+            $data = $repository->getSoftMainByName($softmain);
+            return new JsonResponse(array("data" => json_encode($data)));
+        }else{
+            throw new HttpException('500', 'Invalid call');
+        }
 
-        ]);
     }
 
 }

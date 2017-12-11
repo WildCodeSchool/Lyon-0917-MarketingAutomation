@@ -6,6 +6,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Controller\AjaxSoftController;
+use AppBundle\Controller\DefaultController;
+
 
 class SiteMap
 {
@@ -15,11 +18,11 @@ class SiteMap
     private $em;
     private $controller;
 
-    public function __construct(RouterInterface $router, ObjectManager $em, Controller $controller)
+    public function __construct(RouterInterface $router, ObjectManager $em)
     {
         $this->router = $router;
         $this->em = $em;
-        $this->controller = $controller;
+        //$this->controller = $controller;
     }
 
     /**
