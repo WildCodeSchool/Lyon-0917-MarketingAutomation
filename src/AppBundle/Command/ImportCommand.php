@@ -39,7 +39,7 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $service = $this->getContainer()->get('app.import');
+        $serviceImport = $this->getContainer()->get('app.import');
         $fileSoft = $input->getArgument('filesoft');
         $fileTag = $input->getArgument('filetags');
         $fileVersus = $input->getArgument('fileversus');
@@ -48,7 +48,7 @@ class ImportCommand extends ContainerAwareCommand
 
         if (file_exists($fileTag)) {
             $type = "import-tags";
-            $service->verifCsv($fileTag, $type);
+            $serviceImport->verifCsv($fileTag, $type);
         } else {
             $output->writeln("Fichier import-tags.csv manquant");
 
@@ -57,7 +57,7 @@ class ImportCommand extends ContainerAwareCommand
         // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
         if (file_exists($fileSoft)) {
             $type = "import-softwares";
-            $service->verifCsv($fileSoft, $type);
+            $serviceImport->verifCsv($fileSoft, $type);
         } else {
             $output->writeln("Fichier import-softwares.csv manquant");
         }
@@ -65,12 +65,12 @@ class ImportCommand extends ContainerAwareCommand
 
         if (file_exists($fileVersus)) {
             $type = "import-versus";
-            $service->verifCsv($fileVersus, $type);
+            $serviceImport->verifCsv($fileVersus, $type);
         } else {
             $output->writeln("Fichier import-versus.csv manquant");
         }
 
-        $errors = $service->getErrors();
+        $errors = $serviceImport->getErrors();
         if (count($errors) > 0) {
             foreach ($errors as $error) {
                 $output->writeln($error);
@@ -85,13 +85,13 @@ class ImportCommand extends ContainerAwareCommand
 
 
             try {
-                $service->deleteAllContent($connection, $dbName);
+                $serviceImport->deleteAllContent($connection, $dbName);
 
-                $service->import($fileTag, "import-tags");
+                $serviceImport->import($fileTag, "import-tags");
 
-                $service->import($fileSoft, "import-softwares");
+                $serviceImport->import($fileSoft, "import-softwares");
 
-                $service->import($fileVersus, "import-versus");
+                $serviceImport->import($fileVersus, "import-versus");
               
                 // End of transaction and commit if already went good.
 
@@ -108,16 +108,6 @@ class ImportCommand extends ContainerAwareCommand
 
         }
 
-
-        // Showing when the script is launched
-        $now = new \DateTime();
-
-        $output->writeln('<comment>Start : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
-
-
-        // Showing when the script is over
-        $now = new \DateTime();
-        $output->writeln('<comment>End : ' . $now->format('d-m-Y G:i:s') . ' ---</comment>');
     }
 
 }
