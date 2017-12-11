@@ -73,8 +73,8 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
-                        <td>MainChimp</td>
-                        <td>Mautic</td>
+                        <td>{{ software1.name }}</td>
+                        <td>{{ software2.name }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
@@ -380,3 +380,6 @@
         </div>
     </div>
 {% endblock %}
+        {% block javascripts %}    {{ parent() }}   <script src="{{ asset('assets/js/versus-ajax.js') }}"></script>
+
+        {% endblock %}

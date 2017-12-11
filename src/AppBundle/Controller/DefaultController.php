@@ -83,7 +83,6 @@ class DefaultController extends Controller
     public function tagAction(Request $request, Tag $tag)
     {
 
-
         return $this->render('default/unique-tag.html.twig', [
 
             'tag' => $tag,
@@ -144,9 +143,13 @@ class DefaultController extends Controller
                 ]);
 
 
-            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
-        }
+            return $this->redirectToRoute('versus', array(
+                'slug1' => $soft1->getSlug(),
+                'slug2' => $soft2->getSlug()
+            ));
 
+
+        }
 
         return $this->render('default/listing-versus.html.twig', array(
             'form' => $form->createView(),
@@ -156,9 +159,21 @@ class DefaultController extends Controller
     /**
      * @Route("comparatifs/{slug1}-vs-{slug2}", name="versus")
      */
-    public function VersusAction(Request $request)
+
+    public function VersusAction(Request $request, string $slug1, string $slug2)
+
     {
         $em = $this->getDoctrine()->getManager();
+
+
+        $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug1
+        ]);
+
+        $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug2
+        ]);
+
 
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
@@ -183,14 +198,15 @@ class DefaultController extends Controller
                 'name' => $data["software2"]
             ]);
 
-
             return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
         }
 
-        return $this->render('default/compare.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-
-        ]);
+        return $this->render('default/compare.html.twig', array(
+            'form' => $form->createView(),
+                'software1' => $soft1,
+                'software2' => $soft2,
+            )
+        );
     }
 
     /**
