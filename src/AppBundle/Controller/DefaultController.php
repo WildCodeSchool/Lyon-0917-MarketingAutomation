@@ -154,10 +154,38 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/slug1-vs-slug2", name="versus")
+     * @Route("comparatifs/{slug1}-vs-{slug2}", name="versus")
      */
     public function VersusAction(Request $request)
     {
+        $em = $this->getDoctrine()->getManager();
+
+
+        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('software1',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->add('software2',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "software1", "software2"
+            $data = $form->getData();
+            $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software1"]
+            ]);
+            $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software2"]
+            ]);
+
+
+            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+        }
 
         return $this->render('default/compare.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,

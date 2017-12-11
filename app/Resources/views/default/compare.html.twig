@@ -14,32 +14,28 @@
             <div class="labelcomparatif">
                 <div class="row">
                     <div class="offset-m1 col s12 m4 selectsoft">
-                        <label for="soft_choice">Premier logiciel à comparer:</label>
-                        <input list="soft" type="text" id="soft_choice">
-                        <datalist id="soft">
-                            <option value="MailChimp">
-                            <option value="Mautic">
-                            <option value="MailChimp">
-                            <option value="MailChimp">
-                        </datalist>
+                        {{ form_start(form) }}
+                        {{ form_row(form.software1) }}
+                        <ul id="autocomplete">
+                        </ul>
                     </div>
                     <div class="col offset-m2 s12 m4 selectsoft">
-                        <label for="soft_choice2">Second logiciel à comparer :</label>
-                        <input list="soft" type="text" id="soft_choice2">
-                        <datalist id="soft">
-                            <option value="MailChimp">
-                            <option value="Mautic">
-                            <option value="MailChimp">
-                            <option value="MailChimp">
-                        </datalist>
+                        {{ form_row(form.software2) }}
+                        <ul id="autocomplete2">
+                        </ul>
                     </div>
-                    <div class="center-align">
-                        <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">Comparer
-                            <i class="material-icons right">send</i>
-                        </button>
+                    <div class="row">
+                        <div class="col s12 center-align">
+                            <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">Comparer
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
                     </div>
                 </div>
+
+                {{ form_end(form) }}
             </div>
+
             <div class="row">
                 <a href="">
                     <div class=" col m6 s12">
