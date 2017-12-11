@@ -1,0 +1,84 @@
+# app/Resources/translations/messages.fr.yml
+
+# SoftMain
+name: Nom du Logiciel
+logoUrl: URL Logo
+type: Type
+description: Description
+comments: Commentaires
+advantages: Les PLUS
+drawbacks: Les MOINS
+versus1:
+versus2:
+
+# SoftInfo
+rgpd: Conformité RGPD
+customers: Pour qui ? - Clientèle
+hostingCountry: Pays d'hébergement des données
+creationDate: Date de création
+annualTurnover: CA annuel
+configCost: Coût de configuration
+subscriptionCost: Abonnement annuel / 10k contact (€ HT)
+trainingCost: Coût de formation
+webSite: Site web
+
+# SoftOutbound
+isEmail: Email
+isSms: SMS
+isPopin: Popin sur le site
+isMailPostal: Courrier postal
+isCallCenter: Centre d'appel
+isPushMobile: Notifications Push Mobile
+isApi: Appel API
+
+# SoftCommSupport
+isLandingPage: Page d'atterrissage
+isForm: Formulaire
+isTracking: Code de suivi
+isLiveChat: Live Chat
+
+# SoftLeadsOperation
+isContactObject: Objet contact
+isCompanyObject: Objet société
+isDefinedFields: Champs personnalisés
+isIllimitedFields: Champs illimités
+isImportCsv: Import CSV
+isAutoDuplicate: Déduplication automatique
+isLeadStages: Lead Stages
+
+# SoftSegmentOperation
+isSegmentCreation: Création de segement
+isIntelligentSegment: Création de segment intelligent
+
+# SoftMarketingCampaign
+isLeadScoring: Lead Scoring
+isCreationCampaign: Création de campagnes
+isDripMarketingCampaign: Campagne "Drip Marketing
+isDragAndDrop: Campagne "Drip Marketing"
+
+# SoftSocialMedia
+isTwitterMonitoring: Veille Twitter
+isTwitterAutoPublication: Publication automatique sur Twitter
+isFacebookMonitoring: Veille Facebook
+isFacebookAutoPublication: Publication automatique sur Facebook
+isLinkedinMonitoring: Veille Linkedin
+isLinkedinAutoPublication: Publication automatique sur Linkedin
+isInstagramMonitoring: Veille Instagram
+isInstagramAutoPublication: Publication automatique sur Instagram
+isActivityReportCreation: Création de rapports d'activité
+isActivityReportPeriodicSend: Envoi périodique des rapports
+
+# SoftSupport
+isEmailSupport: Support par email
+isPhoneSupport: Support téléphonique
+isChatSupport: Support par chat
+isKnowledgeBase: Base de connaissance
+knowledgeBaseLanguage: Base de connaissance (langues)
+isTechnicalDocument: Documentation technique
+
+# SoftOtherFunctionnalities
+isProviderEmailChoice: Choix du provider Email
+isBlogEdition: Edition d'un blog
+isTouchPad: Tablette en magasin
+isStmtpRelay: SMTP Relais (email transactionnel)
+isRssToEmail: RSS to email
