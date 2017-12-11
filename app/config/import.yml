@@ -1,5 +1,20 @@
 number-of-files: 3
-file1:
+table-names:
+    table1: soft_comm_support
+    table2: soft_info
+    table3: soft_leads_operation
+    table4: soft_main
+    table5: soft_main_tag
+    table6: soft_marketing_campaign
+    table7: soft_other_functionnalities
+    table8: soft_outbound
+    table9: soft_report
+    table10: soft_segment_operation
+    table11: soft_social_media
+    table12: soft_support
+    table13: tag
+    table14: versus
+import-tags:
     path: ../Resources/datas/import-tags.csv
     entities:
       Tag:
@@ -14,7 +29,7 @@ file1:
           logo: no
 
 
-file2:
+import-softwares:
         path: ../Resources/datas/import-softwares.csv
         entities:
           SoftMain:
@@ -25,6 +40,7 @@ file2:
                 comments: string
                 advantages: string
                 drawbacks: string
+                tag: list-tag
             links:
               source: no
               relation: no
@@ -34,15 +50,15 @@ file2:
 
           SoftInfo:
             fields:
-                rgpd: booleen
-                customers: booleen
-                hostingCountry: booleen
-                creationDate: booleen
-                annualTurnover: booleen
-                configCost: booleen
-                subscriptionCost: booleen
-                trainingCost: booleen
-                webSite: booleen
+                rgpd: boolean
+                customers: string
+                hostingCountry: string
+                creationDate: integer
+                annualTurnover: string
+                configCost: string
+                subscriptionCost: integer
+                trainingCost: integer
+                webSite: string
             links:
               source: SoftMain
               relation: One-to-One
@@ -52,13 +68,13 @@ file2:
 
           SoftOutbound:
             fields:
-                isEmail: booleen
-                isSms: booleen
-                isPopin: booleen
-                isMailPostal: booleen
-                isCallCenter: booleen
-                isPushMobile: booleen
-                isApi: booleen
+                isEmail: boolean
+                isSms: boolean
+                isPopin: boolean
+                isMailPostal: boolean
+                isCallCenter: boolean
+                isPushMobile: boolean
+                isApi: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -68,10 +84,10 @@ file2:
 
           SoftCommSupport:
             fields:
-                isLandingPage: booleen
-                isForm: booleen
-                isTracking: booleen
-                isLiveChat: booleen
+                isLandingPage: boolean
+                isForm: boolean
+                isTracking: boolean
+                isLiveChat: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -81,13 +97,13 @@ file2:
 
           SoftLeadsOperation:
             fields:
-                isContactObject: booleen
-                isCompanyObject: booleen
-                isDefinedFields: booleen
-                isIllimitedFields: booleen
-                isImportCsv: booleen
-                isAutoDuplicate: booleen
-                isLeadStages: booleen
+                isContactObject: boolean
+                isCompanyObject: boolean
+                isDefinedFields: boolean
+                isIllimitedFields: boolean
+                isImportCsv: boolean
+                isAutoDuplicate: boolean
+                isLeadStages: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -97,8 +113,8 @@ file2:
 
           SoftSegmentOperation:
             fields:
-                isSegmentCreation: booleen
-                isIntelligentSegment: booleen
+                isSegmentCreation: boolean
+                isIntelligentSegment: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -108,10 +124,10 @@ file2:
 
           SoftMarketingCampaign:
             fields:
-                isLeadScoring: booleen
-                isCreationCampaign: booleen
-                isDripMarketingCampaign: booleen
-                isDragAndDrop: booleen
+                isLeadScoring: boolean
+                isCreationCampaign: boolean
+                isDripMarketingCampaign: boolean
+                isDragAndDrop: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -121,14 +137,14 @@ file2:
 
           SoftSocialMedia:
             fields:
-                isTwitterMonitoring: booleen
-                isTwitterAutoPublication: booleen
-                isFacebookMonitoring: booleen
-                isFacebookAutoPublication: booleen
-                isLinkedinMonitoring: booleen
-                isLinkedinAutoPublication: booleen
-                isInstagramMonitoring: booleen
-                isInstagramAutoPublication: booleen
+                isTwitterMonitoring: boolean
+                isTwitterAutoPublication: boolean
+                isFacebookMonitoring: boolean
+                isFacebookAutoPublication: boolean
+                isLinkedinMonitoring: boolean
+                isLinkedinAutoPublication: boolean
+                isInstagramMonitoring: boolean
+                isInstagramAutoPublication: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -138,8 +154,8 @@ file2:
 
           SoftReport:
             fields:
-                isActivityReportCreation: booleen
-                isActivityReportPeriodicSend: booleen
+                isActivityReportCreation: boolean
+                isActivityReportPeriodicSend: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -149,12 +165,12 @@ file2:
 
           SoftSupport:
             fields:
-                isEmailSupport: booleen
-                isPhoneSupport: booleen
-                isChatSupport: booleen
-                isKnowledgeBase: booleen
-                knowledgeBaseLanguage: booleen
-                isTechnicalDocument: booleen
+                isEmailSupport: boolean
+                isPhoneSupport: boolean
+                isChatSupport: boolean
+                isKnowledgeBase: boolean
+                knowledgeBaseLanguage: string
+                isTechnicalDocument: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -164,11 +180,11 @@ file2:
 
           SoftOtherFunctionnalities:
             fields:
-                isProviderEmailChoice: booleen
-                isBlogEdition: booleen
-                isTouchPad: booleen
-                isSmtpRelay: booleen
-                isRssToEmail: booleen
+                isProviderEmailChoice: boolean
+                isBlogEdition: boolean
+                isTouchPad: boolean
+                isSmtpRelay: boolean
+                isRssToEmail: boolean
             links:
               source: SoftMain
               relation: One-to-One
@@ -176,17 +192,23 @@ file2:
               slug: no
               logo: no
 
-file3:
+import-versus:
         path: ../Resources/datas/import-versus.csv
         entities:
           Versus:
             fields:
-                software1: string
-                software2: string
+                software1:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus1
+                software2:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus2
                 description: string
-            Links:
-              source: SoftMain
-              relation: Many-to-Many
+            links:
+              source: no
+              relation: no
             slugExceptions:
               slug: no
               logo: no

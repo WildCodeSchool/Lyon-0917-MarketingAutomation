@@ -27,6 +27,7 @@
     border-radius: 5px;
     border-color: grey;
     background-color: ghostwhite;
+    position: relative;
   }
   img {
     height: 100px;
@@ -44,5 +45,11 @@
     p {
       text-align: justify;
     }
+  }
+  #autocomplete {
+    position:relative;
+  }
+  #versus-button {
+    margin: 20px;
   }
 }

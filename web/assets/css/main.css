@@ -7318,7 +7318,8 @@ table {
     border-style: none;
     border-radius: 5px;
     border-color: grey;
-    background-color: ghostwhite; }
+    background-color: ghostwhite;
+    position: relative; }
   #compare img {
     height: 100px; }
   #compare .morecontent span {
@@ -7331,6 +7332,10 @@ table {
     margin-top: 4%; }
     #compare #SpecificCompareComment p {
       text-align: justify; }
+  #compare #autocomplete {
+    position: relative; }
+  #compare #versus-button {
+    margin: 20px; }
 
 body {
   font-family: 'Lato', sans-serif;

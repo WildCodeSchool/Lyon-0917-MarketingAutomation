@@ -12,7 +12,7 @@
                 {% for tag in tags %}
                     <li class="col l4 m6 s12">
                         <a href="{{ path('tagSolo', { 'slug': tag.slug }) }}">{{ tag.name }}</a>
-                        <div class="chip">12</div>
+                        <div class="chip">{{ tag.softMains|length }}</div>
                     </li>
                 {% endfor %}
             </ul>

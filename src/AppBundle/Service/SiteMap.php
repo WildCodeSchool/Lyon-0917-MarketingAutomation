@@ -6,6 +6,8 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Controller\DefaultController;
+
 
 class SiteMap
 {
@@ -18,6 +20,7 @@ class SiteMap
     {
         $this->router = $router;
         $this->em = $em;
+
     }
 
     /**
