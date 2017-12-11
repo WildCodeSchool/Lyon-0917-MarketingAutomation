@@ -20,6 +20,4 @@
 /.sass-cache/
 /node_modules/
 *~
-/app/Resources/datas/import-softwares.csv
-/app/Resources/datas/import-tags.csv
-/app/Resources/datas/import-versus.csv
+

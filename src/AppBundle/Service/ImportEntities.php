@@ -84,6 +84,8 @@ class ImportEntities
 // conversion des "oui" ou "non" ou "" par les booleens correspondants
     private function convertToBool($value)
     {
+        $value = strtolower($value);
+
         if ($value === "oui") {
             return true;
         }
