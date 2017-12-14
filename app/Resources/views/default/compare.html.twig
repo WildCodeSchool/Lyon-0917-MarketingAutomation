@@ -77,127 +77,139 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
-                        <td>MainChimp</td>
-                        <td>Mautic</td>
+                        <td>{{ softmain.name }}</td>
+                        <td>{{ softmain.name }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
-                        <td>Logiciel généraliste</td>
-                        <td>Logiciel généraliste</td>
+                        <td>{{ softmain.type }}</td>
+                        <td>{{ softmain.type }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'advantages'|trans }}</th>
+                        <td>{{ softmain.advantages }}</td>
                         <td>{{ softmain.advantages }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'drawbacks'|trans }}</th>
                         <td>{{ softmain.drawbacks }}</td>
+                        <td>{{ softmain.drawbacks }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'rgpd'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain.softInfo.rgpd }}</td>
+                        <td>{{ softmain.softInfo.rgpd }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'customers'|trans }}</th>
-                        <td>Equipe bien organisée</td>
-                        <td>Equipe bien organisée</td>
+                        <td>{{ softmain.softInfo.customers }}</td>
+                        <td>{{ softmain.softInfo.customers }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'hostingCountry'|trans }}</th>
-                        <td>Île Caïman</td>
-                        <td>La terre du milieu</td>
+                        <td>{{ softmain.softInfo.hostingCountry }}</td>
+                        <td>{{ softmain.softInfo.hostingCountry }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'creationDate'|trans }}</th>
-                        <td>1650</td>
-                        <td>1950</td>
+                        <td>{{ softmain.softInfo.creationDate }}</td>
+                        <td>{{ softmain.softInfo.creationDate }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'annualTurnover'|trans }}</th>
-                        <td>10</td>
-                        <td>100</td>
+                        <td>{{ softmain.softInfo.annualTurnover }}</td>
+                        <td>{{ softmain.softInfo.annualTurnover }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'configCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>8000 €</td>
+                        <td>{{ softmain.softInfo.configCost }}</td>
+                        <td>{{ softmain.softInfo.configCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
+                        <td>{{ softmain.softInfo.subscriptionCost }}</td>
+                        <td>{{ softmain.softInfo.subscriptionCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'trainingCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
+                        <td>{{ softmain.softInfo.trainingCost }}</td>
+                        <td>{{ softmain.softInfo.trainingCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'webSite'|trans }}</th>
-                        <td>800</td>
-                        <td>80</td>
+                        <td><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name }}</a></td>
+                        <td><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name }}</a></td>
                     </tr>
                 </table>
                 <h2>Canaux de communication sortants (outbound)</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isEmail'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain.softOutbound.isEmail }}</td>
+                        <td>{{ softmain.softOutbound.isEmail }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isSms'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isSms }}</td>
+                        <td>{{ softmain.softOutbound.isSms }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isPopin'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isPopin }}</td>
+                        <td>{{ softmain.softOutbound.isPopin }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isMailPostal'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isMailPostal }}</td>
+                        <td>{{ softmain.softOutbound.isMailPostal }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isCallCenter'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isCallCenter }}</td>
+                        <td>{{ softmain.softOutbound.isCallCenter }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isPushMobile'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isPushMobile }}</td>
+                        <td>{{ softmain.softOutbound.isPushMobile }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isApi'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain.softOutbound.isApi }}</td>
+                        <td>{{ softmain.softOutbound.isApi }}</td>
                     </tr>
                 </table>
                 <h2>Supports de communication entrants (inbound)</h2>
                 <table class="striped border">
                     <tr>
-                        <th>{{ 'isLandingPage'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <th>{{ 'isEmailSupport'|trans }}</th>
+                        <td>{{ softmain.softSupport.isEmailSupport }}</td>
+                        <td>{{ softmain.softSupport.isEmailSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isForm'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isPhoneSupport'|trans }}</th>
+                        <td>{{ softmain.softSupport.isPhoneSupport }}</td>
+                        <td>{{ softmain.softSupport.isPhoneSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isTracking'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isChatSupport'|trans }}</th>
+                        <td>{{ softmain.softSupport.isChatSupport }}</td>
+                        <td>{{ softmain.softSupport.isChatSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isLiveChat'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isKnowledgeBase'|trans }}</th>
+                        <td>{{ softmain.softSupport.isKnowledgeBase }}</td>
+                        <td>{{ softmain.softSupport.isKnowledgeBase }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
+                        <td>{{ softmain.softSupport.knowledgeBaseLanguage }}</td>
+                        <td>{{ softmain.softSupport.knowledgeBaseLanguage }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isTechnicalDocument'|trans }}</th>
+                        <td>{{ softmain.softSupport.isTechnicalDocument }}</td>
+                        <td>{{ softmain.softSupport.isTechnicalDocument }}</td>
                     </tr>
                 </table>
                 <h2>Gestion des contacts</h2>
