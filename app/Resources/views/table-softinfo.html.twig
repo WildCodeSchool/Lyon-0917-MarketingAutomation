@@ -10,6 +10,14 @@
         <td>{{ softmain.type }}</td>
     </tr>
     <tr>
+        <th>{{ 'advantages'|trans }}</th>
+        <td>{{ softmain.advantages }}</td>
+    </tr>
+    <tr>
+        <th>{{ 'drawbacks'|trans }}</th>
+        <td>{{ softmain.drawbacks }}</td>
+    </tr>
+    <tr>
         <th>{{ 'rgpd'|trans }}</th>
         <td>{{ softmain.softInfo.rgpd }}</td>
     </tr>
@@ -45,12 +53,5 @@
         <th>{{ 'webSite'|trans }}</th>
         <td><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name }}</a></td>
     </tr>
-    <tr>
-        <th>{{ 'advantages'|trans }}</th>
-        <td>{{ softmain.advantages }}</td>
-    </tr>
-    <tr>
-        <th>{{ 'drawbacks'|trans }}</th>
-        <td>{{ softmain.drawbacks }}</td>
     </tbody>
 </table>
