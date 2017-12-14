@@ -65,6 +65,8 @@ isLinkedinMonitoring: Veille Linkedin
 isLinkedinAutoPublication: Publication automatique sur Linkedin
 isInstagramMonitoring: Veille Instagram
 isInstagramAutoPublication: Publication automatique sur Instagram
+
+# SoftReport
 isActivityReportCreation: Création de rapports d'activité
 isActivityReportPeriodicSend: Envoi périodique des rapports
 
