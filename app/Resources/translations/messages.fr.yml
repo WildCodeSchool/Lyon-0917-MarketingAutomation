@@ -47,7 +47,7 @@ isAutoDuplicate: Déduplication automatique
 isLeadStages: Lead Stages
 
 # SoftSegmentOperation
-isSegmentCreation: Création de segement
+isSegmentCreation: Création de segment
 isIntelligentSegment: Création de segment intelligent
 
 # SoftMarketingCampaign
