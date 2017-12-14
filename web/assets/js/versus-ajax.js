@@ -1,7 +1,17 @@
 $(document).ready(function() {
+
+    $('#autocomplete_form_software1 li').on('click',function(){
+    });
+
+
+    var tab = [];
+
+
     $("#form_software1, #form_software2").keyup(function(){
         var softmain = $(this).val();
-        console.log(softmain)
+        if (tab.length >= 2) {
+             tab = [];
+        }
         var elt = $(this);
         var idelt = $(this).attr('id');
         if (softmain.length >=1) {
@@ -12,15 +22,19 @@ $(document).ready(function() {
                 timeout: 3000,
                 success: function (response){
                     var softmains = JSON.parse(response.data);
+
                     html = "";
                     for (i = 0; i < softmains.length; i++) {
-                        html += "<li>" + softmains[i].name + "</li>";
+                        if (tab.indexOf(softmains[i].name) === -1) {
+                            html += "<li>" + softmains[i].name + "</li>";
+                        } else {
+                        }
                     }
-                    $('#autocomplete_'+idelt).html(html);
+                    $("#autocomplete_"+idelt).html(html);
 
                     $('#autocomplete_'+idelt).find('li').on('click', function() {
-                    console.log($('#autocomplete_'+idelt).find('li'))
-                            //elt.find('li').on('click', function() {
+                        let selected = $(this).text();
+                        tab.push(selected);
                         elt.val($(this).text());
                         $('#autocomplete_'+idelt).html('');
                     });
