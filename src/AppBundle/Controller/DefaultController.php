@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
+use AppBundle\Entity\Versus;
+use AppBundle\Repository\SoftMainRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -120,6 +122,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
+        $listVersus= $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
         $form = $this->createFormBuilder($defaultData)
@@ -150,6 +153,7 @@ class DefaultController extends Controller
 
         return $this->render('default/listing-versus.html.twig', array(
             'form' => $form->createView(),
+            'listVersus' => $listVersus,
         ));
     }
 
