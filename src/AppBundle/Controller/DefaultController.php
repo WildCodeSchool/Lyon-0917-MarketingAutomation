@@ -29,7 +29,7 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder($defaultData)
             ->add('indexResearch',
                 TextType::class,
-                array('label' => 'Tapez les mots clefs de votre recherche ici:', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
+                array('label' => ' ', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
             ->getForm();
 
         $form->handleRequest($request);
