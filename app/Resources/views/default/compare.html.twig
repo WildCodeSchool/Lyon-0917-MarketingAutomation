@@ -15,18 +15,19 @@
                 <div class="row">
                     <div class="offset-m1 col s12 m4 selectsoft">
                         {{ form_start(form) }}
-                        {{ form_row(form.software1) }}
+                        {{ form_row(form.softmain1) }}
                         <ul id="autocomplete">
                         </ul>
                     </div>
                     <div class="col offset-m2 s12 m4 selectsoft">
-                        {{ form_row(form.software2) }}
-                        <ul id="autocomplete2">
+                        {{ form_row(form.softmain2) }}
+                        <ul id="autocomplete">
                         </ul>
                     </div>
                     <div class="row">
                         <div class="col s12 center-align">
-                            <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">Comparer
+                            <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">
+                                Comparer
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
@@ -37,25 +38,24 @@
             </div>
 
             <div class="row">
-                <a href="">
+                <a href="{{ path('softwareSolo', { 'slug': softmain1.slug }) }}">
                     <div class=" col m6 s12">
                         <div class="card">
                             <div class="center-align">
-                                <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png"
-                                     class="responsive-img">
+                                <img src="{{ asset('assets/img/logo/') }}{{ softmain1.slug }}.png">
                             </div>
-                            <div class="center-align"><span class="card-title">MailChimp</span>
+                            <div class="center-align"><span class="card-title">{{ softmain1.name }}</span>
                             </div>
                         </div>
                     </div>
                 </a>
-                <a href="">
+                <a href="{{ path('softwareSolo', { 'slug': softmain2.slug }) }}">
                     <div class=" col m6 s12">
                         <div class="card">
                             <div class="center-align">
-                                <img src="{{ asset('assets/img/photo') }}{{ random(3) }}.png">
+                                <img src="{{ asset('assets/img/logo/') }}{{ softmain2.slug }}.png">
                             </div>
-                            <div class="center-align"><span class="card-title">Mautic</span>
+                            <div class="center-align"><span class="card-title">{{ softmain2.name }}</span>
                             </div>
                         </div>
                     </div>
@@ -73,8 +73,8 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
-                        <td>{{ software1.name }}</td>
-                        <td>{{ software2.name }}</td>
+                        <td>{{ softmain1.name }}</td>
+                        <td>{{ softmain2.name }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
@@ -380,6 +380,7 @@
         </div>
     </div>
 {% endblock %}
-        {% block javascripts %}    {{ parent() }}   <script src="{{ asset('assets/js/versus-ajax.js') }}"></script>
+        {% block javascripts %}    {{ parent() }}
+            <script src="{{ asset('assets/js/versus-ajax.js') }}"></script>
 
         {% endblock %}

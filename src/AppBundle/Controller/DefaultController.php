@@ -157,7 +157,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/{slug1}-vs-{slug2}", name="versus")
+     * @Route("comparatifs/{slug1}_vs_{slug2}", name="versus")
      */
 
     public function VersusAction(Request $request, string $slug1, string $slug2)
@@ -178,10 +178,10 @@ class DefaultController extends Controller
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
         $form = $this->createFormBuilder($defaultData)
-            ->add('software1',
+            ->add('softmain1',
                 TextType::class,
                 array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
-            ->add('software2',
+            ->add('softmain2',
                 TextType::class,
                 array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
             ->getForm();
@@ -192,10 +192,10 @@ class DefaultController extends Controller
             // data is an array with "software1", "software2"
             $data = $form->getData();
             $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["software1"]
+                'name' => $data["softmain1"]
             ]);
             $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["software2"]
+                'name' => $data["softmain2"]
             ]);
 
             return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
@@ -203,8 +203,8 @@ class DefaultController extends Controller
 
         return $this->render('default/compare.html.twig', array(
             'form' => $form->createView(),
-                'software1' => $soft1,
-                'software2' => $soft2,
+                'softmain1' => $soft1,
+                'softmain2' => $soft2,
             )
         );
     }
