@@ -12,14 +12,14 @@
             <div class="col s12 m10 offset-m1 ">
                 <h1 class="center-align col s12">Trouver un logiciel de Marketing Automation</h1>
                 <div class="card-panel" id="searchBar">
-
-                    <form id="search-site" action='search' method='get'>
-                        <div class="input-group">
-                            <input id="search" type="search" name='search'
-                                   placeholder="Ex: Mailchimp, envoi de sms..." tabindex="1" autofocus="autofocus">
-                            <a href="{{ path('results') }}" class="btn-large"><i class="large material-icons right">search</i>Rechercher</a>
-                        </div>
-                    </form>
+                    {{ form_start(form) }}
+                    {{ form_row(form.indexResearch) }}
+                    <div class="input-group">
+                        <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">
+                            <i class="large material-icons right">search</i>Rechercher</i>
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
                 </div>
             </div>
         </div>
