@@ -117,7 +117,6 @@ class DefaultController extends Controller
     function tagAction(Request $request, Tag $tag)
     {
 
-
         return $this->render('default/unique-tag.html.twig', [
 
             'tag' => $tag,
@@ -183,9 +182,13 @@ class DefaultController extends Controller
             ]);
 
 
-            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
-        }
+            return $this->redirectToRoute('versus', array(
+                'slug1' => $soft1->getSlug(),
+                'slug2' => $soft2->getSlug()
+            ));
 
+
+        }
 
         return $this->render('default/listing-versus.html.twig', array(
             'form' => $form->createView(),
@@ -194,16 +197,56 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("comparatifs/slug1-vs-slug2", name="versus")
+     * @Route("comparatifs/{slug1}_vs_{slug2}", name="versus")
      */
-    public
-    function VersusAction(Request $request)
+
+    public function VersusAction(Request $request, string $slug1, string $slug2)
+
     {
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('default/compare.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
 
+        $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug1
         ]);
+
+        $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug2
+        ]);
+
+
+
+        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('softmain1',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->add('softmain2',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "software1", "software2"
+            $data = $form->getData();
+            $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["softmain1"]
+            ]);
+            $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["softmain2"]
+            ]);
+
+            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+        }
+
+        return $this->render('default/compare.html.twig', array(
+            'form' => $form->createView(),
+                'softmain1' => $soft1,
+                'softmain2' => $soft2,
+            )
+        );
     }
 
     /**
