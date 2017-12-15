@@ -15,12 +15,12 @@
                 <div class="offset-m1 col s12 m4 selectsoft">
                     {{ form_start(form) }}
                     {{ form_row(form.software1) }}
-                    <ul id="autocomplete">
+                    <ul id="autocomplete_form_software1">
                     </ul>
                 </div>
                 <div class="col offset-m2 s12 m4 selectsoft">
                     {{ form_row(form.software2) }}
-                    <ul id="autocomplete2">
+                    <ul id="autocomplete_form_software2">
                     </ul>
                 </div>
                 <div class="row">
@@ -36,11 +36,10 @@
         </div>
         <h2>Cliquez sur un comparatif pour voir le détail :</h2>
         <div class="row">
+
             <ul>
-                {% for i in range(0, 7) %}
-                    <li class="col l4 m6 s12">
-                        <a href="{{ path('versus') }}">Logiciel 1 comparé au logiciel 2</a>
-                    </li>
+                {% for versus in listVersus %}
+                    <li> <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"> {{ versus.software1.name }} comparé à {{ versus.software2.name }} </a>  </li>
                 {% endfor %}
             </ul>
         </div>
