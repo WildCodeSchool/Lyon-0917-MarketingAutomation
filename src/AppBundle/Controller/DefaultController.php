@@ -21,31 +21,21 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
 
 
         $defaultData = array('message' => 'Rechercher votre logiciel de marketing automation');
         $form = $this->createFormBuilder($defaultData)
             ->add('indexResearch',
                 TextType::class,
-                array('label' => 'Tappez les mots clefs de votre recherche ici:', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
+                array('label' => 'Tapez les mots clefs de votre recherche ici:', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
-            $tableDatas = explode(" ", $data['indexResearch']);
-            $results = [];
-            for ($i = 0; $i < count($tableDatas); $i++) {
-                $uniqueResult = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                    'name' => $tableDatas[$i]
-                ]);
-                array_push($results, $uniqueResult);
-            }
-                return $this->redirectToRoute('results', array('results' => $results));
-            }
-
+            return $this->redirectToRoute('results', array('researchContent' => $data['indexResearch']));
+        }
 
 
         return $this->render(':default:index.html.twig', array(
@@ -83,14 +73,25 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("results", name="results")
+     * @Route("results_{researchContent}", name="results")
+     * @Method("GET")
      */
     public
-    function resultsAction(Request $request)
+    function resultsAction(Request $request, $researchContent)
     {
-
+        $em = $this->getDoctrine()->getManager();
+        $tableDatas = explode(" ", $researchContent);
+        $results = [];
+        for ($i = 0; $i < count($tableDatas); $i++) {
+            $uniqueResult = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $tableDatas[$i]
+            ]);
+            if ($uniqueResult != null) {
+                array_push($results, $uniqueResult);
+            }
+        }
         return $this->render('default/results.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'softwares' => $results,
         ]);
     }
 
