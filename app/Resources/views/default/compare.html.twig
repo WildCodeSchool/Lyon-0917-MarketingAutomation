@@ -14,14 +14,16 @@
             <div class="labelcomparatif">
                 <div class="row">
                     <div class="offset-m1 col s12 m4 selectsoft">
+
                         {{ form_start(form) }}
                         {{ form_row(form.softmain1) }}
-                        <ul id="autocomplete">
+                        <ul id="autocomplete_form_software1">
                         </ul>
+
                     </div>
                     <div class="col offset-m2 s12 m4 selectsoft">
                         {{ form_row(form.softmain2) }}
-                        <ul id="autocomplete">
+                        <ul id="autocomplete_form_software2">
                         </ul>
                     </div>
                     <div class="row">
@@ -69,7 +71,7 @@
                 </div>
             </div>
             <div id="tableVersus">
-                <h2>Informations essentielles sur MailChimp et Mautic</h2>
+                <h2>Informations essentielles sur {{ softmain1.name }} et {{ softmain2.name }}</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
@@ -78,302 +80,325 @@
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
-                        <td>Logiciel généraliste</td>
-                        <td>Logiciel généraliste</td>
+                        <td>{{ softmain1.type }}</td>
+                        <td>{{ softmain2.type }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'advantages'|trans }}</th>
+                        <td>{{ softmain1.advantages }}</td>
+                        <td>{{ softmain2.advantages }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'drawbacks'|trans }}</th>
+                        <td>{{ softmain1.drawbacks }}</td>
+                        <td>{{ softmain2.drawbacks }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'rgpd'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softInfo.rgpd }}</td>
+                        <td>{{ softmain2.softInfo.rgpd }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'customers'|trans }}</th>
-                        <td>Equipe bien organisée</td>
-                        <td>Equipe bien organisée</td>
+                        <td>{{ softmain1.softInfo.customers }}</td>
+                        <td>{{ softmain2.softInfo.customers }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'hostingCountry'|trans }}</th>
-                        <td>Île Caïman</td>
-                        <td>La terre du milieu</td>
+                        <td>{{ softmain1.softInfo.hostingCountry }}</td>
+                        <td>{{ softmain2.softInfo.hostingCountry }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'creationDate'|trans }}</th>
-                        <td>1650</td>
-                        <td>1950</td>
+                        <td>{{ softmain1.softInfo.creationDate }}</td>
+                        <td>{{ softmain2.softInfo.creationDate }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'annualTurnover'|trans }}</th>
-                        <td>10</td>
-                        <td>100</td>
+                        <td>{{ softmain1.softInfo.annualTurnover }}</td>
+                        <td>{{ softmain2.softInfo.annualTurnover }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'configCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>8000 €</td>
+                        <td>{{ softmain1.softInfo.configCost }}</td>
+                        <td>{{ softmain2.softInfo.configCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
+                        <td>{{ softmain1.softInfo.subscriptionCost }}</td>
+                        <td>{{ softmain2.softInfo.subscriptionCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'trainingCost'|trans }}</th>
-                        <td>800 €</td>
-                        <td>80 €</td>
+                        <td>{{ softmain1.softInfo.trainingCost }}</td>
+                        <td>{{ softmain2.softInfo.trainingCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'webSite'|trans }}</th>
-                        <td>800</td>
-                        <td>80</td>
+                        <td><a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name }}</a></td>
+                        <td><a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name }}</a></td>
                     </tr>
                 </table>
                 <h2>Canaux de communication sortants (outbound)</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isEmail'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOutbound.isEmail }}</td>
+                        <td>{{ softmain2.softOutbound.isEmail }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isSms'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isSms }}</td>
+                        <td>{{ softmain2.softOutbound.isSms }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isPopin'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isPopin }}</td>
+                        <td>{{ softmain2.softOutbound.isPopin }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isMailPostal'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isMailPostal }}</td>
+                        <td>{{ softmain2.softOutbound.isMailPostal }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isCallCenter'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isCallCenter }}</td>
+                        <td>{{ softmain2.softOutbound.isCallCenter }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isPushMobile'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isPushMobile }}</td>
+                        <td>{{ softmain2.softOutbound.isPushMobile }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isApi'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <td>{{ softmain1.softOutbound.isApi }}</td>
+                        <td>{{ softmain2.softOutbound.isApi }}</td>
                     </tr>
                 </table>
                 <h2>Supports de communication entrants (inbound)</h2>
                 <table class="striped border">
                     <tr>
-                        <th>{{ 'isLandingPage'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <th>{{ 'isEmailSupport'|trans }}</th>
+                        <td>{{ softmain1.softSupport.isEmailSupport }}</td>
+                        <td>{{ softmain2.softSupport.isEmailSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isForm'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isPhoneSupport'|trans }}</th>
+                        <td>{{ softmain1.softSupport.isPhoneSupport }}</td>
+                        <td>{{ softmain2.softSupport.isPhoneSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isTracking'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isChatSupport'|trans }}</th>
+                        <td>{{ softmain1.softSupport.isChatSupport }}</td>
+                        <td>{{ softmain2.softSupport.isChatSupport }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'isLiveChat'|trans }}</th>
-                        <td>non</td>
-                        <td>non</td>
+                        <th>{{ 'isKnowledgeBase'|trans }}</th>
+                        <td>{{ softmain1.softSupport.isKnowledgeBase }}</td>
+                        <td>{{ softmain2.softSupport.isKnowledgeBase }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
+                        <td>{{ softmain1.softSupport.knowledgeBaseLanguage }}</td>
+                        <td>{{ softmain2.softSupport.knowledgeBaseLanguage }}</td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isTechnicalDocument'|trans }}</th>
+                        <td>{{ softmain1.softSupport.isTechnicalDocument }}</td>
+                        <td>{{ softmain2.softSupport.isTechnicalDocument }}</td>
                     </tr>
                 </table>
                 <h2>Gestion des contacts</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isContactObject'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isContactObject }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isContactObject }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isCompanyObject'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isCompanyObject }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isCompanyObject }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isDefinedFields'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isDefinedFields }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isDefinedFields }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isIllimitedFields'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isIllimitedFields }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isIllimitedFields }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isImportCsv'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isImportCsv }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isImportCsv }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isAutoDuplicate'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isAutoDuplicate }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isAutoDuplicate }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isLeadStages'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softLeadsOperation.isLeadStages }}</td>
+                        <td>{{ softmain2.softLeadsOperation.isLeadStages }}</td>
                     </tr>
                 </table>
                 <h2>Gestion des segments</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isSegmentCreation'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSegmentOperation.isSegmentCreation }}</td>
+                        <td>{{ softmain2.softSegmentOperation.isSegmentCreation }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isIntelligentSegment'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSegmentOperation.isIntelligentSegment }}</td>
+                        <td>{{ softmain2.softSegmentOperation.isIntelligentSegment }}</td>
                     </tr>
                 </table>
                 <h2>Campagnes Marketing Automation</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isLeadScoring'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softMarketingCampaign.isLeadScoring }}</td>
+                        <td>{{ softmain2.softMarketingCampaign.isLeadScoring }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isCreationCampaign'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softMarketingCampaign.isCreationCampaign }}</td>
+                        <td>{{ softmain2.softMarketingCampaign.isCreationCampaign }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isDripMarketingCampaign'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softMarketingCampaign.isDripMarketingCampaign }}</td>
+                        <td>{{ softmain2.softMarketingCampaign.isDripMarketingCampaign }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isDragAndDrop'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softMarketingCampaign.isDragAndDrop }}</td>
+                        <td>{{ softmain2.softMarketingCampaign.isDragAndDrop }}</td>
                     </tr>
                 </table>
                 <h2>Intégration Social Media</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isTwitterMonitoring'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isTwitterMonitoring }}</td>
+                        <td>{{ softmain2.softSocialMedia.isTwitterMonitoring }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isTwitterAutoPublication'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isTwitterAutoPublication }}</td>
+                        <td>{{ softmain2.softSocialMedia.isTwitterAutoPublication }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isFacebookMonitoring'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isFacebookMonitoring }}</td>
+                        <td>{{ softmain2.softSocialMedia.isFacebookMonitoring }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isFacebookAutoPublication'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isFacebookAutoPublication }}</td>
+                        <td>{{ softmain2.softSocialMedia.isFacebookAutoPublication }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isLinkedinMonitoring'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isLinkedinMonitoring }}</td>
+                        <td>{{ softmain2.softSocialMedia.isLinkedinMonitoring }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isLinkedinAutoPublication'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isLinkedinAutoPublication }}</td>
+                        <td>{{ softmain2.softSocialMedia.isLinkedinAutoPublication }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isInstagramMonitoring'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isInstagramMonitoring }}</td>
+                        <td>{{ softmain2.softSocialMedia.isInstagramMonitoring }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isInstagramAutoPublication'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSocialMedia.isInstagramAutoPublication }}</td>
+                        <td>{{ softmain2.softSocialMedia.isInstagramAutoPublication }}</td>
                     </tr>
+                </table>
+                <h2>Rapports</h2>
+                <table class="striped border">
                     <tr>
                         <th>{{ 'isActivityReportCreation'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softReport.isActivityReportCreation }}</td>
+                        <td>{{ softmain2.softReport.isActivityReportCreation }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softReport.isActivityReportPeriodicSend }}</td>
+                        <td>{{ softmain2.softReport.isActivityReportPeriodicSend }}</td>
                     </tr>
                 </table>
                 <h2>Support</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isEmailSupport'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.isEmailSupport }}</td>
+                        <td>{{ softmain2.softSupport.isEmailSupport }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isPhoneSupport'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.isPhoneSupport }}</td>
+                        <td>{{ softmain2.softSupport.isPhoneSupport }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isChatSupport'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.isChatSupport }}</td>
+                        <td>{{ softmain2.softSupport.isChatSupport }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isKnowledgeBase'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.isKnowledgeBase }}</td>
+                        <td>{{ softmain2.softSupport.isKnowledgeBase }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.knowledgeBaseLanguage }}</td>
+                        <td>{{ softmain2.softSupport.knowledgeBaseLanguage }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isTechnicalDocument'|trans }}</th>
-                        <td>...</td>
-                        <td>...</td>
+                        <td>{{ softmain1.softSupport.isTechnicalDocument }}</td>
+                        <td>{{ softmain2.softSupport.isTechnicalDocument }}</td>
                     </tr>
                 </table>
                 <h2>Autres fonctionnalités</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isProviderEmailChoice'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOtherFunctionnalities.isProviderEmailChoice }}</td>
+                        <td>{{ softmain2.softOtherFunctionnalities.isProviderEmailChoice }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isBlogEdition'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOtherFunctionnalities.isBlogEdition }}</td>
+                        <td>{{ softmain2.softOtherFunctionnalities.isBlogEdition }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isTouchPad'|trans }}</th>
-                        <td>non</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOtherFunctionnalities.isTouchPad }}</td>
+                        <td>{{ softmain2.softOtherFunctionnalities.isTouchPad }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isStmtpRelay'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOtherFunctionnalities.isSmtpRelay}}</td>
+                        <td>{{ softmain2.softOtherFunctionnalities.isSmtpRelay}}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isRssToEmail'|trans }}</th>
-                        <td>oui</td>
-                        <td>oui</td>
+                        <td>{{ softmain1.softOtherFunctionnalities.isRssToEmail }}</td>
+                        <td>{{ softmain2.softOtherFunctionnalities.isRssToEmail }}</td>
                     </tr>
                 </table>
             </div>
