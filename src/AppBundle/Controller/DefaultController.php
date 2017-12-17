@@ -231,11 +231,11 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
 
-        $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+        $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
             'slug' =>  $slug1
         ]);
 
-        $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+        $softmain2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
             'slug' =>  $slug2
         ]);
 
@@ -262,14 +262,37 @@ class DefaultController extends Controller
             $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
                 'name' => $data["softmain2"]
             ]);
+            if(!empty($soft1) or !empty($soft2)){
+                $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
+                return $this->render('default/compare.html.twig', array(
+                        'form' => $form->createView(),
+                        'softmain1' => $softmain1,
+                        'softmain2' => $softmain2,
+                        'error' => $error,
+                    )
+                );
+            }elseif($soft1 === $soft2){
+                $error = "Merci de ne pas sélectionner deux fois le même logiciel";
+                return $this->render('default/compare.html.twig', array(
+                        'form' => $form->createView(),
+                        'softmain1' => $softmain1,
+                        'softmain2' => $softmain2,
+                        'error' => $error,
+                    )
+                );
+            }
+            else {
+                return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
 
-            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+            }
+
+
         }
 
         return $this->render('default/compare.html.twig', array(
             'form' => $form->createView(),
-                'softmain1' => $soft1,
-                'softmain2' => $soft2,
+                'softmain1' => $softmain1,
+                'softmain2' => $softmain2,
             )
         );
     }
@@ -308,5 +331,7 @@ class DefaultController extends Controller
         }
 
     }
+
+
 
 }
