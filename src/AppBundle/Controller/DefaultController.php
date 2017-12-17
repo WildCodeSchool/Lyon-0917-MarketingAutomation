@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use SensioLabs\Security\Exception\HttpException;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotIdenticalTo;
 
 
 class DefaultController extends Controller
@@ -163,10 +165,12 @@ class DefaultController extends Controller
         $form = $this->createFormBuilder($defaultData)
             ->add('software1',
                 TextType::class,
-                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
+                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off'), 'constraints' => array(
+        new NotBlank())))
             ->add('software2',
                 TextType::class,
-                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
+                array('label' => 'Choisir le second logiciel :', 'attr' => array('autocomplete' => 'off'), 'constraints' => array(
+                    new NotBlank())))
             ->getForm();
 
         $form->handleRequest($request);
@@ -182,17 +186,38 @@ class DefaultController extends Controller
             ]);
 
 
-            return $this->redirectToRoute('versus', array(
-                'slug1' => $soft1->getSlug(),
-                'slug2' => $soft2->getSlug()
-            ));
+            if(empty($soft1) or empty($soft2)) {
 
+                $softwareNotEntity = "Merci de sélectionner un logiciel existant dans la liste déroulante";
+                return $this->render('default/listing-versus.html.twig', array(
+                    'form' => $form->createView(),
+                    'listVersus' => $listVersus,
+                    'error' => $softwareNotEntity,
+
+                ));
+
+            }elseif($soft1 === $soft2) {
+
+                $sameSoftwares = "Vous ne pouvez pas comparer deux fois le même logiciel car c'est inutile";
+                return $this->render('default/listing-versus.html.twig', array(
+                    'form' => $form->createView(),
+                    'listVersus' => $listVersus,
+                    'error' => $sameSoftwares,
+                ));
+
+            }else{
+                return $this->redirectToRoute('versus', array(
+                    'slug1' => $soft1->getSlug(),
+                    'slug2' => $soft2->getSlug()
+                ));
+            }
 
         }
 
         return $this->render('default/listing-versus.html.twig', array(
             'form' => $form->createView(),
             'listVersus' => $listVersus,
+
         ));
     }
 
