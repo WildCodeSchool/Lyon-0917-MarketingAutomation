@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
+use AppBundle\Form\CompareType;
 use AppBundle\Repository\SoftMainRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -162,6 +163,7 @@ class DefaultController extends Controller
         $listVersus= $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        //$form = $this->createForm(CompareType::class, $defaultData);
         $form = $this->createFormBuilder($defaultData)
             ->add('software1',
                 TextType::class,
