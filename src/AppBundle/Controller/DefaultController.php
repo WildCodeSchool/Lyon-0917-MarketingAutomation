@@ -4,6 +4,8 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
+use AppBundle\Entity\Versus;
+use AppBundle\Repository\SoftMainRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -21,17 +23,34 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('default/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-        ]);
+
+
+        $defaultData = array('message' => 'Rechercher votre logiciel de marketing automation');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('indexResearch',
+                TextType::class,
+                array('label' => 'Tapez les mots clefs de votre recherche ici:', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $data = $form->getData();
+            return $this->redirectToRoute('results', array('researchContent' => $data['indexResearch']));
+        }
+
+
+        return $this->render(':default:index.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     /**
      * @Route("/logiciels/{slug}", name="softwareSolo")
      * @Method("GET")
      */
-    public function softwareSoloAction(Request $request, SoftMain $softMain)
+    public
+    function softwareSoloAction(Request $request, SoftMain $softMain)
     {
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $repository->findAll();
@@ -44,7 +63,8 @@ class DefaultController extends Controller
     /**
      * @Route("logiciels", name="listingSoftware")
      */
-    public function listingSoftwareAction(Request $request)
+    public
+    function listingSoftwareAction(Request $request)
     {
 
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
@@ -55,20 +75,33 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("results", name="results")
+     * @Route("results_{researchContent}", name="results")
+     * @Method("GET")
      */
-    public function resultsAction(Request $request)
+    public
+    function resultsAction(Request $request, $researchContent)
     {
-
+        $em = $this->getDoctrine()->getManager();
+        $tableDatas = explode(" ", $researchContent);
+        $results = [];
+        for ($i = 0; $i < count($tableDatas); $i++) {
+            $uniqueResult = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $tableDatas[$i]
+            ]);
+            if ($uniqueResult != null) {
+                array_push($results, $uniqueResult);
+            }
+        }
         return $this->render('default/results.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+            'softwares' => $results,
         ]);
     }
 
     /**
      * @Route("listing-tags", name="listingTags")
      */
-    public function listingTagsAction(Request $request)
+    public
+    function listingTagsAction(Request $request)
     {
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
@@ -80,9 +113,9 @@ class DefaultController extends Controller
     /**
      * @Route("tag/{slug}", name="tagSolo")
      */
-    public function tagAction(Request $request, Tag $tag)
+    public
+    function tagAction(Request $request, Tag $tag)
     {
-
 
         return $this->render('default/unique-tag.html.twig', [
 
@@ -90,10 +123,12 @@ class DefaultController extends Controller
 
         ]);
     }
+
     /**
      * @Route("mentionsLegales", name="mentionsLegales")
      */
-    public function mentionsLegalesAction(Request $request)
+    public
+    function mentionsLegalesAction(Request $request)
     {
 
         return $this->render('default/mentions-legales.html.twig', [
@@ -104,7 +139,8 @@ class DefaultController extends Controller
     /**
      * @Route("contact", name="contact")
      */
-    public function contactAction(Request $request)
+    public
+    function contactAction(Request $request)
     {
 
         return $this->render('default/contact.html.twig', [
@@ -115,18 +151,77 @@ class DefaultController extends Controller
     /**
      * @Route("comparatifs", name="listingVersus")
      */
-    public function listingVersusAction(Request $request)
+    public
+    function listingVersusAction(Request $request)
     {
 
         $em = $this->getDoctrine()->getManager();
 
+        $listVersus= $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
         $form = $this->createFormBuilder($defaultData)
             ->add('software1',
                 TextType::class,
-                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
             ->add('software2',
+                TextType::class,
+                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
+            ->getForm();
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // data is an array with "software1", "software2"
+            $data = $form->getData();
+            $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software1"]
+            ]);
+            $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+                'name' => $data["software2"]
+            ]);
+
+
+            return $this->redirectToRoute('versus', array(
+                'slug1' => $soft1->getSlug(),
+                'slug2' => $soft2->getSlug()
+            ));
+
+
+        }
+
+        return $this->render('default/listing-versus.html.twig', array(
+            'form' => $form->createView(),
+            'listVersus' => $listVersus,
+        ));
+    }
+
+    /**
+     * @Route("comparatifs/{slug1}_vs_{slug2}", name="versus")
+     */
+
+    public function VersusAction(Request $request, string $slug1, string $slug2)
+
+    {
+        $em = $this->getDoctrine()->getManager();
+
+
+        $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug1
+        ]);
+
+        $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+            'slug' =>  $slug2
+        ]);
+
+
+
+        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $form = $this->createFormBuilder($defaultData)
+            ->add('softmain1',
+                TextType::class,
+                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
+            ->add('softmain2',
                 TextType::class,
                 array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
             ->getForm();
@@ -137,32 +232,21 @@ class DefaultController extends Controller
             // data is an array with "software1", "software2"
             $data = $form->getData();
             $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["software1"]
-                ]);
+                'name' => $data["softmain1"]
+            ]);
             $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["software2"]
-                ]);
-
+                'name' => $data["softmain2"]
+            ]);
 
             return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
         }
 
-
-        return $this->render('default/listing-versus.html.twig', array(
+        return $this->render('default/compare.html.twig', array(
             'form' => $form->createView(),
-        ));
-    }
-
-    /**
-     * @Route("comparatifs/slug1-vs-slug2", name="versus")
-     */
-    public function VersusAction(Request $request)
-    {
-
-        return $this->render('default/compare.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
-
-        ]);
+                'softmain1' => $soft1,
+                'softmain2' => $soft2,
+            )
+        );
     }
 
     /**
@@ -170,7 +254,8 @@ class DefaultController extends Controller
      *
      * @Route("/sitemap.{_format}", name="sitemap", Requirements={"_format" = "xml"})
      */
-    public function siteMapAction(SiteMap $siteMap)
+    public
+    function siteMapAction(SiteMap $siteMap)
     {
         $urls = $siteMap->generate();
         return $this->render('default/sitemap.html.twig', [
@@ -185,14 +270,15 @@ class DefaultController extends Controller
      * @Route("/comparatifs/list/{softmain}", name="list-softmain")
      */
 
-    public function autocompleteAction(Request $request, $softmain)
+    public
+    function autocompleteAction(Request $request, $softmain)
     {
-        if($request->isXmlHttpRequest()) {
+        if ($request->isXmlHttpRequest()) {
 
             $repository = $this->getDoctrine()->getRepository('AppBundle:SoftMain');
             $data = $repository->getSoftMainByName($softmain);
             return new JsonResponse(array("data" => json_encode($data)));
-        }else{
+        } else {
             throw new HttpException('500', 'Invalid call');
         }
 

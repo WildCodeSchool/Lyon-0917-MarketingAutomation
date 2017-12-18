@@ -26,46 +26,41 @@ class ImportCommand extends ContainerAwareCommand
     protected function configure()
     {
         $this
-            ->setName('import:csv')
-            ->setDescription('Import entities from CSV file')
+            ->setName('import:database')
+            ->setDescription('Import entities from CSV file');
 
-            ->addArgument('filetags', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les tags?')
-
-            ->addArgument('filesoft', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les softwares?')
-
-            ->addArgument('fileversus', InputArgument::OPTIONAL, 'Chemin vers le fichier csv pour importer les versus?');
-        // Name and description for app/console command
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $serviceImport = $this->getContainer()->get('app.import');
-        $fileSoft = $input->getArgument('filesoft');
-        $fileTag = $input->getArgument('filetags');
-        $fileVersus = $input->getArgument('fileversus');
+        $pathSoft = "app/Resources/datas/import-softwares.csv";
+        $pathTags = "app/Resources/datas/import-tags.csv";
+        $pathVersus = "app/Resources/datas/import-versus.csv";
+
         $connection = $this->em->getConnection();
         $dbName = $this->getContainer()->getParameter("database_name");
 
-        if (file_exists($fileTag)) {
+        if (file_exists($pathTags)) {
             $type = "import-tags";
-            $serviceImport->verifCsv($fileTag, $type);
+            $serviceImport->verifCsv($pathTags, $type);
         } else {
             $output->writeln("Fichier import-tags.csv manquant");
 
         }
       
         // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
-        if (file_exists($fileSoft)) {
+        if (file_exists($pathSoft)) {
             $type = "import-softwares";
-            $serviceImport->verifCsv($fileSoft, $type);
+            $serviceImport->verifCsv($pathSoft, $type);
         } else {
             $output->writeln("Fichier import-softwares.csv manquant");
         }
 
 
-        if (file_exists($fileVersus)) {
+        if (file_exists($pathVersus)) {
             $type = "import-versus";
-            $serviceImport->verifCsv($fileVersus, $type);
+            $serviceImport->verifCsv($pathVersus, $type);
         } else {
             $output->writeln("Fichier import-versus.csv manquant");
         }
@@ -87,17 +82,27 @@ class ImportCommand extends ContainerAwareCommand
             try {
                 $serviceImport->deleteAllContent($connection, $dbName);
 
-                $serviceImport->import($fileTag, "import-tags");
+                $serviceImport->import($pathTags, "import-tags");
 
-                $serviceImport->import($fileSoft, "import-softwares");
+                $serviceImport->import($pathSoft, "import-softwares");
 
-                $serviceImport->import($fileVersus, "import-versus");
+                $serviceImport->import($pathVersus, "import-versus");
               
                 // End of transaction and commit if already went good.
 
                 $connection->commit();
 
-                $output->writeln("La BDD a bien été importée." . PHP_EOL);
+                $output->writeln("La BDD a bien été importée." . PHP_EOL . '
+____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
+\   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
+ \   \/    \/   /  |  |__   |  |     |  |        |  .--.  |  |  |  | |   \|  | |  |__      |  | 
+  \            /   |   __|  |  |     |  |        |  |  |  |  |  |  | |  . `  | |   __|     |  | 
+   \    /\    /    |  |____ |  `----.|  `----.   |  \'--\'  |  `--\'  | |  |\   | |  |____    |__| 
+    \__/  \__/     |_______||_______||_______|   |_______/ \______/  |__| \__| |_______|   (__) 
+                                                                                                
+            
+            ');
+
 
             } catch (\Exception $e) {
               
