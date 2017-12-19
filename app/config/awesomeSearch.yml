@@ -3,8 +3,6 @@ notBool:
     customers: qui clientele
     hostingCountry: pays hebergement
     creationDate: date creation
-    annualTurnover: ca chiffre affaire
-    configCost: cout configuration
     subscriptionCost: abonnement
     traingCost: cout formation
     webSite: site web
