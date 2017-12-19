@@ -248,7 +248,7 @@ class DefaultController extends Controller
                 'name' => $data["software2"]
             ]);
 
-            if(!empty($soft1) or !empty($soft2)){
+            if(empty($soft1) or empty($soft2)){
                 $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
