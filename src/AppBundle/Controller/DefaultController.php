@@ -243,6 +243,8 @@ class DefaultController extends Controller
             elseif($soft1 === $soft2)
             {
                 $error = "Merci de ne pas sélectionner deux fois le même logiciel";
+                $_SESSION['versus1'] = $soft1->getName();
+                $_SESSION['versus2'] = $soft2->getName();
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
                         'softmain1' => $softmain1,
