@@ -7371,7 +7371,9 @@ body {
     font-size: 1.5em; }
   body p {
     font-size: 1.1em;
-    text-align: justify; }
+    text-align: justify;
+    margin-top: 5%;
+    margin-bottom: 5%; }
   body section {
     min-height: 100vh; }
   body .top {
