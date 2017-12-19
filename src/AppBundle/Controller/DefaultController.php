@@ -163,17 +163,7 @@ class DefaultController extends Controller
         $listVersus= $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
-        //$form = $this->createForm(CompareType::class, $defaultData);
-        $form = $this->createFormBuilder($defaultData)
-            ->add('software1',
-                TextType::class,
-                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off'), 'constraints' => array(
-        new NotBlank())))
-            ->add('software2',
-                TextType::class,
-                array('label' => 'Choisir le second logiciel :', 'attr' => array('autocomplete' => 'off'), 'constraints' => array(
-                    new NotBlank())))
-            ->getForm();
+        $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
 
@@ -244,14 +234,7 @@ class DefaultController extends Controller
 
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
-        $form = $this->createFormBuilder($defaultData)
-            ->add('softmain1',
-                TextType::class,
-                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
-            ->add('softmain2',
-                TextType::class,
-                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
-            ->getForm();
+        $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
 
@@ -259,11 +242,12 @@ class DefaultController extends Controller
             // data is an array with "software1", "software2"
             $data = $form->getData();
             $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["softmain1"]
+                'name' => $data["software1"]
             ]);
             $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["softmain2"]
+                'name' => $data["software2"]
             ]);
+
             if(!empty($soft1) or !empty($soft2)){
                 $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/compare.html.twig', array(
@@ -273,7 +257,9 @@ class DefaultController extends Controller
                         'error' => $error,
                     )
                 );
-            }elseif($soft1 === $soft2){
+            }
+            elseif($soft1 === $soft2)
+            {
                 $error = "Merci de ne pas sélectionner deux fois le même logiciel";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
@@ -283,12 +269,10 @@ class DefaultController extends Controller
                     )
                 );
             }
-            else {
+            else
+            {
                 return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
-
             }
-
-
         }
 
         return $this->render('default/compare.html.twig', array(
