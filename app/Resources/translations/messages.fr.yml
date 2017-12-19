@@ -8,8 +8,6 @@ description: Description
 comments: Commentaires
 advantages: Les PLUS
 drawbacks: Les MOINS
-versus1:
-versus2:
 
 # SoftInfo
 rgpd: Conformité RGPD
@@ -47,7 +45,7 @@ isAutoDuplicate: Déduplication automatique
 isLeadStages: Lead Stages
 
 # SoftSegmentOperation
-isSegmentCreation: Création de segement
+isSegmentCreation: Création de segment
 isIntelligentSegment: Création de segment intelligent
 
 # SoftMarketingCampaign
@@ -65,6 +63,8 @@ isLinkedinMonitoring: Veille Linkedin
 isLinkedinAutoPublication: Publication automatique sur Linkedin
 isInstagramMonitoring: Veille Instagram
 isInstagramAutoPublication: Publication automatique sur Instagram
+
+# SoftReport
 isActivityReportCreation: Création de rapports d'activité
 isActivityReportPeriodicSend: Envoi périodique des rapports
 

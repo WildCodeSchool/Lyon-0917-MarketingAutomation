@@ -28,7 +28,7 @@
         <p>{{ softmain.comments }}</p>
 
 
-        <h2>Informations essentiels sur {{ softmain.name }}</h2>
+        <h2>Informations essentielles sur {{ softmain.name }}</h2>
 
         {% include 'table-softinfo.html.twig' %}
 
@@ -36,7 +36,7 @@
 
         {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Supports de communication de {{ softmain.name }} </h2>
+        <h2>Supports de communication entrant (inbound) de {{ softmain.name }} </h2>
 
         {% include 'table-softcommsupport.html.twig' %}
 
@@ -70,13 +70,11 @@
 
 
         <div class="row">
-
-        <div class="col s12 m12 l12 ">
+            <div class="col s12 m12 l12 ">
                 <h2>Une question sur {{ softmain.name }} ? Contactez-nous !</h2>
             </div>
             <div class="col s6">
                     <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
-
             </div>
         </div>
 

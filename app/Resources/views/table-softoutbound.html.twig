@@ -2,34 +2,32 @@
 <table class="striped highlight">
     <tbody>
     <tr>
-        <th>Email</th>
-        <td>oui</td>
+        <th>{{ 'isEmail'|trans }}</th>
+        <td>{{ softmain.softOutbound.isEmail }}</td>
     </tr>
     <tr>
-        <th>Sms </th>
-        <td>non</td>
+        <th>{{ 'isSms'|trans }}</th>
+        <td>{{ softmain.softOutbound.isSms }}</td>
     </tr>
     <tr>
-        <th>Popin sur site </th>
-        <td>non</td>
+        <th>{{ 'isPopin'|trans }}</th>
+        <td>{{ softmain.softOutbound.isPopin }}</td>
     </tr>
     <tr>
-        <th>Courrier postal </th>
-        <td>non</td>
-    </tr>
-
-    <tr>
-        <th>Centre d'appel </th>
-        <td>non</td>
-    </tr>
-
-    <tr>
-        <th>Notifications push mobile</th>
-        <td>non</td>
+        <th>{{ 'isMailPostal'|trans }}</th>
+        <td>{{ softmain.softOutbound.isMailPostal }}</td>
     </tr>
     <tr>
-        <th>Appel API</th>
-        <td>non</td>
+        <th>{{ 'isCallCenter'|trans }}</th>
+        <td>{{ softmain.softOutbound.isCallCenter }}</td>
+    </tr>
+    <tr>
+        <th>{{ 'isPushMobile'|trans }}</th>
+        <td>{{ softmain.softOutbound.isPushMobile }}</td>
+    </tr>
+    <tr>
+        <th>{{ 'isApi'|trans }}</th>
+        <td>{{ softmain.softOutbound.isApi }}</td>
     </tr>
     </tbody>
 </table>
