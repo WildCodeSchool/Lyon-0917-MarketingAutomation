@@ -1,5 +1,5 @@
 @media (max-width: 400px) {
-  .navmob{
+  .navmob {
     height: 75px;
   }
   #results {
@@ -24,9 +24,16 @@
   .top {
     display: none;
   }
-  #home{
-    .presentation{
+  #home {
+    .presentation {
       margin-top: 4%;
+    }
+  }
+  .softwareCard {
+    .card-content {
+      .card-title {
+        font-size: 1.5em;
+      }
     }
   }
 }
