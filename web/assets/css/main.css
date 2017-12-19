@@ -7092,6 +7092,19 @@ nav {
       top: 0;
       margin: auto; }
 
+.softwareCard .card-content {
+  padding-left: 0;
+  padding-right: 0; }
+  .softwareCard .card-content .card-title {
+    text-align: center;
+    min-height: 65px;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+    word-wrap: break-word;
+    font-size: 1.3em; }
+
 .breadcrumb {
   /* Style the list */
   /* Display list items side by side */
@@ -7279,7 +7292,9 @@ table {
   .top {
     display: none; }
   #home .presentation {
-    margin-top: 4%; } }
+    margin-top: 4%; }
+  .softwareCard .card-content .card-title {
+    font-size: 1.5em; } }
 
 @media (min-width: 400px) and (max-width: 1056px) {
   .top {
@@ -7294,7 +7309,9 @@ table {
     margin-bottom: 5%; }
   nav .nav-wrapper {
     margin-left: 0;
-    margin-right: 0; } }
+    margin-right: 0; }
+  .softwareCard .card-content .card-title {
+    font-size: 1.2em; } }
 
 #compare {
   margin-bottom: 5%; }
