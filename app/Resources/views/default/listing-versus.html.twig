@@ -3,20 +3,57 @@
 {% block metadesc %}Découvrez les comparatigs des princinpaux logiciels de marketing automation du marché{% endblock %}
 
         {% block h1 %}
-            <h1>Compararif des principaux logiciels de marketing automation :</h1>
+            <h1>Comparez les principaux logiciels de marketing automation :</h1>
         {% endblock %}
 {% block body %}
-    <div id="listing-versus">
+    <div id="compare">
+    <div class="presentation">
+        <p>Grâce à ce comparatif, vous pouvez comparer deux logiciels de marketing automation selon leurs
+            principales fonctionnalités.</p>
+        <div class="labelcomparatif">
+            <div class="row">
+                <div class="offset-m1 col s12 m4 selectsoft">
+                    {{ form_start(form) }}
+                    {{ form_row(form.software1) }}
+                    <ul id="autocomplete_compare_software1">
+                    </ul>
+                </div>
+                <div class="col offset-m2 s12 m4 selectsoft">
+                    {{ form_row(form.software2) }}
+                    <ul id="autocomplete_compare_software2">
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        {% if error is defined %}
+                            {{ error }}
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                    <button class="btn waves-effect waves-light" id="versus-button" type="submit" name="action">Comparer
+                        <i class="material-icons right">send</i>
+                    </button>
+                    </div>
+                </div>
+            </div>
 
+            {{ form_end(form) }}
+        </div>
         <h2>Cliquez sur un comparatif pour voir le détail :</h2>
         <div class="row">
+
             <ul>
-                {% for i in range(0, 7) %}
-                    <li class="col l4 m6 s12">
-                        <a href="{{ path('versus') }}">Logiciel 1 comparé au logiciel 2</a>
-                    </li>
+                {% for versus in listVersus %}
+                    <li> <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"> {{ versus.software1.name }} comparé à {{ versus.software2.name }} </a>  </li>
                 {% endfor %}
             </ul>
         </div>
     </div>
+    </div>
 {% endblock %}
+        {% block javascripts %}    {{ parent() }}   <script src="{{ asset('assets/js/versus-ajax.js') }}"></script>
+
+        {% endblock %}
+

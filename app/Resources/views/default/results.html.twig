@@ -11,8 +11,8 @@
             </div>
 
             <div class="col s12 m7 l7">
-                <p class="presults">X Résultats <!-- insérer ici le mot-clé recherché --></p>
-                {% for i in range(1, 10) %}
+                <p class="presults">{{ softwares|length }} Résultats <!-- insérer ici le mot-clé recherché --></p>
+                {% for software in softwares %}
                     {% include('result-software.html.twig') %}
                 {% endfor %}
             </div>
@@ -21,7 +21,7 @@
 
 
             <div class="pagination col s12">
-                <!-- voir pour intégrer la pagination bien proprement dynamiquement sur la meme page-->
+                <!-- voir pour intégrer la pagination bien proprement dynamiquement sur la même page-->
                 <ul class="center-align ">
                     <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
                     <li class="active"><a href="#!">1</a></li>

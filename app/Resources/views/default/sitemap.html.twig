@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    {% for url in urls %}
+        <url>
+            {% if url.loc is defined %}
+            <loc>compare.pro{{ url.loc }}</loc>
+            {% endif %}
+            {% if url.route is defined %}
+                <loc>compare.pro{{ url.route }}</loc>
+            {% endif %}
+        </url>
+    {% endfor %}
+</urlset>

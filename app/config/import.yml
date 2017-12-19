@@ -1,0 +1,227 @@
+number-of-files: 3
+table-names:
+    table1: soft_comm_support
+    table2: soft_info
+    table3: soft_leads_operation
+    table4: soft_main
+    table5: soft_main_tag
+    table6: soft_marketing_campaign
+    table7: soft_other_functionnalities
+    table8: soft_outbound
+    table9: soft_report
+    table10: soft_segment_operation
+    table11: soft_social_media
+    table12: soft_support
+    table13: tag
+    table14: versus
+import-tags:
+    path: ../Resources/datas/import-tags.csv
+    entities:
+      Tag:
+        fields:
+          name: string
+          description: string
+        links:
+          source: ??
+          relation: ??
+        slugExceptions:
+          slug: yes
+          logo: no
+
+
+import-softwares:
+        path: ../Resources/datas/import-softwares.csv
+        entities:
+          SoftMain:
+            fields:
+                name: string
+                type: string
+                description: string
+                comments: string
+                advantages: string
+                drawbacks: string
+                tag: list-tag
+            links:
+              source: no
+              relation: no
+            slugExceptions:
+              slug: yes
+              logo: yes
+
+          SoftInfo:
+            fields:
+                rgpd: boolean
+                customers: string
+                hostingCountry: string
+                creationDate: integer
+                annualTurnover: string
+                configCost: string
+                subscriptionCost: integer
+                trainingCost: integer
+                webSite: string
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftOutbound:
+            fields:
+                isEmail: boolean
+                isSms: boolean
+                isPopin: boolean
+                isMailPostal: boolean
+                isCallCenter: boolean
+                isPushMobile: boolean
+                isApi: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+            slug: no
+            logo: no
+
+          SoftCommSupport:
+            fields:
+                isLandingPage: boolean
+                isForm: boolean
+                isTracking: boolean
+                isLiveChat: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftLeadsOperation:
+            fields:
+                isContactObject: boolean
+                isCompanyObject: boolean
+                isDefinedFields: boolean
+                isIllimitedFields: boolean
+                isImportCsv: boolean
+                isAutoDuplicate: boolean
+                isLeadStages: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftSegmentOperation:
+            fields:
+                isSegmentCreation: boolean
+                isIntelligentSegment: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftMarketingCampaign:
+            fields:
+                isLeadScoring: boolean
+                isCreationCampaign: boolean
+                isDripMarketingCampaign: boolean
+                isDragAndDrop: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftSocialMedia:
+            fields:
+                isTwitterMonitoring: boolean
+                isTwitterAutoPublication: boolean
+                isFacebookMonitoring: boolean
+                isFacebookAutoPublication: boolean
+                isLinkedinMonitoring: boolean
+                isLinkedinAutoPublication: boolean
+                isInstagramMonitoring: boolean
+                isInstagramAutoPublication: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftReport:
+            fields:
+                isActivityReportCreation: boolean
+                isActivityReportPeriodicSend: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftSupport:
+            fields:
+                isEmailSupport: boolean
+                isPhoneSupport: boolean
+                isChatSupport: boolean
+                isKnowledgeBase: boolean
+                knowledgeBaseLanguage: string
+                isTechnicalDocument: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+          SoftOtherFunctionnalities:
+            fields:
+                isProviderEmailChoice: boolean
+                isBlogEdition: boolean
+                isTouchPad: boolean
+                isSmtpRelay: boolean
+                isRssToEmail: boolean
+            links:
+              source: SoftMain
+              relation: One-to-One
+            slugExceptions:
+              slug: no
+              logo: no
+
+import-versus:
+        path: ../Resources/datas/import-versus.csv
+        entities:
+          Versus:
+            fields:
+                software1:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus1
+                software2:
+                  link: One-to-Many
+                  source: SoftMain
+                  inversedby: versus2
+                description: string
+            links:
+              source: no
+              relation: no
+            slugExceptions:
+              slug: no
+              logo: no
+
+# Gives an array like that :
+
+# "file1" => array:3 [▼
+#     "path" => "../Resources/datas/import-tags.csv"
+#     "entities" => array:1 [▼
+#       "Tag" => null
+#     ]
+#     "fields" => array:2 [▼
+#       "name" => "string"
+#       "description" => "string"
+#     ]
+#   ]

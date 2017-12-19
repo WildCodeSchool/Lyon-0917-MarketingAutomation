@@ -6,7 +6,7 @@
             <ul class="right">
                 <li><a href="{{ path('listingSoftware') }}">Logiciels</a></li>
                 <li><a href="{{ path('listingTags') }}">Tags</a></li>
-                <li><a href="{{ path('versus') }}">Comparatif</a></li>
+                <li><a href="{{ path('listingVersus') }}">Comparatif</a></li>
                 <li><a href="{{ path('contact') }}">Contact</a></li>
             </ul>
 
@@ -14,14 +14,13 @@
         <div class="container">
             <div class="row">
                 <div class="col m7" id="topBarSearch">
-                    <form action="">
+                    <form action='{{ path('searchAction') }}' method='get'>
                         <div class="input-field">
-                            <i class="material-icons prefix">search</i>
-                            <input type="text" placeholder="Recherche" id="autocomplete-input"
-                                   class="autocomplete">
+                                <i class="material-icons prefix">search</i></button>
+                                <input type="search" name='search' placeholder="Recherche" id="autocomplete-input"  required>
                         </div>
+                    </form>
                 </div>
-                </form>
             </div>
         </div>
     </nav>
@@ -52,7 +51,7 @@
                     <div class="divider"></div>
                 </li>
                 <li{% if app.request.attributes.get('_route') == 'versus' %} class="active" {% endif %}>
-                    <a href="{{ path('versus') }}">Comparatif</a>
+                    <a href="{{ path('listingVersus') }}">Comparatif</a>
                     <div class="divider"></div>
                 </li>
                 <li{% if app.request.attributes.get('_route') == 'contact' %} class="active" {% endif %}>

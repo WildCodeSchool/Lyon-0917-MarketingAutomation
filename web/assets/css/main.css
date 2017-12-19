@@ -189,14 +189,12 @@ textarea {
   *font-family: sans-serif; }
 
 .page-footer {
-  padding-top: 14px;
+  padding-top: 20px;
+  padding-bottom: 5px;
   width: 100%;
   background-color: #151f30;
   position: relative;
   bottom: 0; }
-
-.footer-copyright {
-  margin-top: -10px; }
 
 .page-footer a {
   color: white;
@@ -7320,7 +7318,8 @@ table {
     border-style: none;
     border-radius: 5px;
     border-color: grey;
-    background-color: ghostwhite; }
+    background-color: ghostwhite;
+    position: relative; }
   #compare img {
     height: 100px; }
   #compare .morecontent span {
@@ -7333,6 +7332,10 @@ table {
     margin-top: 4%; }
     #compare #SpecificCompareComment p {
       text-align: justify; }
+  #compare #autocomplete {
+    position: relative; }
+  #compare #versus-button {
+    margin: 20px; }
 
 body {
   font-family: 'Lato', sans-serif;

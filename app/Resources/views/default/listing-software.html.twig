@@ -2,17 +2,24 @@
 {% block title %}Tous les logiciels de marketing automation {% endblock %}
 {% block metadesc %}Liste de tous les logiciels de marketing automation.{% endblock %}
 
-{% block h1 %}<h1>Tous les logiciels de marketing automation</h1>{% endblock %}
+{% block h1 %}
+    <h1>Tous les logiciels de marketing automation</h1>
+    <p>Retrouvez ici tous les logiciels de marketing automation qui sont analysés sur comparer.pro !</p>
+    <p>Il vous suffit de cliquer sur son nom ou son logo pour en savoir plus.</p>
+{% endblock %}
 
 {% block body %}
 
     <div id="listing">
         <div class="row">
 
-            {% for i in range(1, 69) %}
+            {% for software in softwares %}
                 {% include('software-card.html.twig') %}
             {% endfor %}
 
         </div>
     </div>
+{% endblock %}
+{% block javascripts %}{{ parent() }}
+    <script type="text/javascript" src="{{ asset('assets/js/konami.js') }}"></script>
 {% endblock %}
