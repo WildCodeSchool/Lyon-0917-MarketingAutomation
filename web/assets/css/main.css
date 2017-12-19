@@ -7362,11 +7362,11 @@ body {
   body h1 {
     font-size: 2.5em;
     margin-top: 4%;
-    margin-bottom: 2%; }
+    margin-bottom: 5%; }
   body h2 {
     font-size: 1.7em;
-    margin-top: 20px;
-    margin-bottom: 20px; }
+    margin-top: 1%;
+    margin-bottom: 5%; }
   body h3 {
     font-size: 1.5em; }
   body p {
