@@ -4,16 +4,16 @@ $(document).ready(function() {
     });
 
 
-    var tab = [];
+    let tab = [];
 
 
-    $("#form_software1, #form_software2").keyup(function(){
-        var softmain = $(this).val();
+    $("#compare_software1, #compare_software2").keyup(function(){
+        let softmain = $(this).val();
         if (tab.length >= 2) {
              tab = [];
         }
-        var elt = $(this);
-        var idelt = $(this).attr('id');
+        let elt = $(this);
+        let idelt = $(this).attr('id');
         if (softmain.length >=2) {
             $.ajax({
                 type: "POST",
@@ -21,7 +21,7 @@ $(document).ready(function() {
                 dataType: "json",
                 timeout: 3000,
                 success: function (response){
-                    var softmains = JSON.parse(response.data);
+                    let softmains = JSON.parse(response.data);
 
                     html = "";
                     for (i = 0; i < softmains.length; i++) {

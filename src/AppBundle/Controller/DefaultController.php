@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
+use AppBundle\Form\CompareType;
 use AppBundle\Repository\SoftMainRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -14,6 +15,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use SensioLabs\Security\Exception\HttpException;
+use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\NotIdenticalTo;
 
 
 class DefaultController extends Controller
@@ -140,14 +143,7 @@ class DefaultController extends Controller
         $listVersus = $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
-        $form = $this->createFormBuilder($defaultData)
-            ->add('software1',
-                TextType::class,
-                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
-            ->add('software2',
-                TextType::class,
-                array('label' => 'Choisir le premier logiciel :', 'attr' => array('autocomplete' => 'off')))
-            ->getForm();
+        $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
 
@@ -162,17 +158,38 @@ class DefaultController extends Controller
             ]);
 
 
-            return $this->redirectToRoute('versus', array(
-                'slug1' => $soft1->getSlug(),
-                'slug2' => $soft2->getSlug()
-            ));
+            if(empty($soft1) or empty($soft2)) {
 
+                $softwareNotEntity = "Merci de sélectionner un logiciel existant dans la liste déroulante";
+                return $this->render('default/listing-versus.html.twig', array(
+                    'form' => $form->createView(),
+                    'listVersus' => $listVersus,
+                    'error' => $softwareNotEntity,
+
+                ));
+
+            }elseif($soft1 === $soft2) {
+
+                $sameSoftwares = "Vous ne pouvez pas comparer deux fois le même logiciel car c'est inutile";
+                return $this->render('default/listing-versus.html.twig', array(
+                    'form' => $form->createView(),
+                    'listVersus' => $listVersus,
+                    'error' => $sameSoftwares,
+                ));
+
+            }else{
+                return $this->redirectToRoute('versus', array(
+                    'slug1' => $soft1->getSlug(),
+                    'slug2' => $soft2->getSlug()
+                ));
+            }
 
         }
 
         return $this->render('default/listing-versus.html.twig', array(
             'form' => $form->createView(),
             'listVersus' => $listVersus,
+
         ));
     }
 
@@ -186,25 +203,18 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
 
-        $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+        $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
             'slug' =>  $slug1
         ]);
 
-        $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
+        $softmain2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
             'slug' =>  $slug2
         ]);
 
 
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
-        $form = $this->createFormBuilder($defaultData)
-            ->add('softmain1',
-                TextType::class,
-                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
-            ->add('softmain2',
-                TextType::class,
-                array('label' =>'Choisir le premier logiciel :', 'attr' => array('autocomplete'=>'off')))
-            ->getForm();
+        $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
 
@@ -212,19 +222,43 @@ class DefaultController extends Controller
             // data is an array with "software1", "software2"
             $data = $form->getData();
             $soft1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["softmain1"]
+                'name' => $data["software1"]
             ]);
             $soft2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $data["softmain2"]
+                'name' => $data["software2"]
             ]);
 
-            return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+            if(empty($soft1) or empty($soft2)){
+                $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
+                return $this->render('default/compare.html.twig', array(
+                        'form' => $form->createView(),
+                        'softmain1' => $softmain1,
+                        'softmain2' => $softmain2,
+                        'error' => $error,
+                    )
+                );
+            }
+            elseif($soft1 === $soft2)
+            {
+                $error = "Merci de ne pas sélectionner deux fois le même logiciel";
+                return $this->render('default/compare.html.twig', array(
+                        'form' => $form->createView(),
+                        'softmain1' => $softmain1,
+                        'softmain2' => $softmain2,
+                        'error' => $error,
+                    )
+                );
+            }
+            else
+            {
+                return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
+            }
         }
 
         return $this->render('default/compare.html.twig', array(
             'form' => $form->createView(),
-                'softmain1' => $soft1,
-                'softmain2' => $soft2,
+                'softmain1' => $softmain1,
+                'softmain2' => $softmain2,
             )
         );
     }
