@@ -7366,3 +7366,14 @@ body {
     text-align: right;
     bottom: 0;
     right: 0; }
+  body ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: darkslategrey;
+    opacity: 1;
+    /* Firefox */ }
+  body :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: darkslategrey; }
+  body :-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: darkslategrey; }
