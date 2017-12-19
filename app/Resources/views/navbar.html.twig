@@ -16,8 +16,8 @@
                 <div class="col m7" id="topBarSearch">
                     <form action='{{ path('searchAction') }}' method='get'>
                         <div class="input-field">
-                                <i class="material-icons prefix">search</i></button>
-                                <input type="search" name='search' placeholder="Recherche" id="autocomplete-input"  required>
+                            <i class="material-icons prefix">search</i></button>
+                            <input type="search" name='search' placeholder="recherche" id="autocomplete-input" value="{% if session is defined %}{{ session }}{% endif %}" required>
                         </div>
                     </form>
                 </div>
