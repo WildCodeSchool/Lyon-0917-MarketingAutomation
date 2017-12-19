@@ -27,14 +27,21 @@ class AwesomeSearch
         // Here, we get a query, return an array with results sorts
 
         $words = $this->cleanQuery($query);
+        $finalResult = [];
+
 
         // foreach words, look if it's in title, or drescription, or bool
 
         foreach($words as $word){
 
-            $titleResults = $this->em->getRepository(SoftMain::class)->searchInTitles();
+            $nameResults = $this->em->getRepository(SoftMain::class)->searchInNames($word);
+            $descriptionResults = $this->em->getRepository(SoftMain::class)->searchInDescriptions($word);
+            $boolResults = $this->searchInYml($word);
+
 
         }
+
+        return $finalResult;
 
     }
 
@@ -49,6 +56,15 @@ class AwesomeSearch
         return $array;
 
     }
+
+
+    private function searchInYml($word){
+        //Search word an synonym in
+
+        return $array;
+    }
+
+
 
 
 }
