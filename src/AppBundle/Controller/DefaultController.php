@@ -65,6 +65,7 @@ class DefaultController extends Controller
     public
     function resultsAction(Request $request, $researchContent)
     {
+        $_SESSION['researchContent'] = $researchContent;
         $em = $this->getDoctrine()->getManager();
         $tableDatas = explode(" ", $researchContent);
         $results = [];
@@ -78,6 +79,7 @@ class DefaultController extends Controller
         }
         return $this->render('default/results.html.twig', [
             'softwares' => $results,
+            'session' => $_SESSION['researchContent'],
         ]);
     }
 
