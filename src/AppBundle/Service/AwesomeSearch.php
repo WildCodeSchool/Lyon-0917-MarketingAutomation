@@ -10,6 +10,8 @@ use AppBundle\Entity\SoftMain;
 class AwesomeSearch
 {
 
+    const EMPTY_WORDS = array('des', 'mais', 'avec', 'sans', 'aussi', 'plus');
+
     private $em;
 
     /**
@@ -35,6 +37,9 @@ class AwesomeSearch
         foreach($words as $word){
 
             $nameResults = $this->em->getRepository(SoftMain::class)->searchInNames($word);
+
+
+
             $descriptionResults = $this->em->getRepository(SoftMain::class)->searchInDescriptions($word);
             $boolResults = $this->searchInYml($word);
 
@@ -45,15 +50,22 @@ class AwesomeSearch
 
     }
 
-    private function cleanQuery($query){
+    private function cleanQuery($query)
+    {
 
         // Receive  a dirty query, give a clean array of words to explore
 
-        //explode
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $goodQuery = [];
 
-        //delete no effience words
+            foreach ($arrayOfWords as $word) {
+                $isDirtyOrNot = in_array($word, AwesomeSearch::EMPTY_WORDS);
+                if ($isDirtyOrNot === false AND strlen($word)) {
+                    $goodQuery[] .= $word;
+                }
+            }
 
-        return $array;
+        return $goodQuery;
 
     }
 
