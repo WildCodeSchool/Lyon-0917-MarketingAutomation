@@ -7374,6 +7374,9 @@ body {
     text-align: justify;
     margin-top: 5%;
     margin-bottom: 5%; }
+  body table {
+    margin-top: -3%;
+    margin-bottom: 5%; }
   body section {
     min-height: 100vh; }
   body .top {
