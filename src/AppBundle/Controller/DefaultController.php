@@ -23,26 +23,7 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-
-
-        $defaultData = array('message' => 'Rechercher votre logiciel de marketing automation');
-        $form = $this->createFormBuilder($defaultData)
-            ->add('indexResearch',
-                TextType::class,
-                array('label' => 'Tapez les mots clefs de votre recherche ici:', 'attr' => array('autocomplete' => 'off', 'id' => 'search-site', 'placeholder' => 'Ex: Mailchimp, envoi de sms...')))
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $data = $form->getData();
-            return $this->redirectToRoute('results', array('researchContent' => $data['indexResearch']));
-        }
-
-
-        return $this->render(':default:index.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render(':default:index.html.twig', array());
     }
 
     /**
@@ -116,7 +97,6 @@ class DefaultController extends Controller
     public
     function tagAction(Request $request, Tag $tag)
     {
-
         return $this->render('default/unique-tag.html.twig', [
 
             'tag' => $tag,
@@ -157,7 +137,7 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $listVersus= $em->getRepository(Versus::class)->findAll();
+        $listVersus = $em->getRepository(Versus::class)->findAll();
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
         $form = $this->createFormBuilder($defaultData)
@@ -283,5 +263,12 @@ class DefaultController extends Controller
         }
 
     }
-
+    /**
+     * @Route("searchAction", name="searchAction")
+     * @Method("GET")
+     */
+    public function searchAction(Request $request)
+    {
+            return $this->redirectToRoute('results', array('researchContent' => $_GET['search']));
+    }
 }
