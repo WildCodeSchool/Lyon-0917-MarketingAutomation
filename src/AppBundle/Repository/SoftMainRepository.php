@@ -22,4 +22,65 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
+    public function searchInSoftmainDescription($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.description')
+            ->where('s.description LIKE :description')
+            ->setParameter('description', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInComment($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.comments')
+            ->where('s.comments LIKE :comments')
+            ->setParameter('comments', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInType($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.type')
+            ->where('s.type LIKE :type')
+            ->setParameter('type', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInAdvantages($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.advantages')
+            ->where('s.advantages LIKE :advantages')
+            ->setParameter('advantages', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInDrawbacks($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.drawbacks')
+            ->where('s.drawbacks LIKE :drawbacks')
+            ->setParameter('drawbacks', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
 }

@@ -10,4 +10,16 @@ namespace AppBundle\Repository;
  */
 class SoftSupportRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function searchInKnowledgeBaseLanguage($word)
+    {
+        $softsupport = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.knowledgeBaseLanguage')
+            ->where('s.knowledgeBaseLanguage LIKE :knowledgeBaseLanguage')
+            ->setParameter('knowledgeBaseLanguage', $softsupport)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }

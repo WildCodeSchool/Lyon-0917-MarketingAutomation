@@ -10,4 +10,54 @@ namespace AppBundle\Repository;
  */
 class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function searchInCustomers($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.customers')
+            ->where('s.customers LIKE :customers')
+            ->setParameter('customers', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInHostingCountry($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.hostingCountry')
+            ->where('s.hostingCountry LIKE :hostingCountry')
+            ->setParameter('hostingCountry', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInCreationDate($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.creationDate')
+            ->where('s.creationDate LIKE :creationDate')
+            ->setParameter('webScreationDateite', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInWebSite($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.webSite')
+            ->where('s.webSite LIKE :webSite')
+            ->setParameter('webSite', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+
+
 }

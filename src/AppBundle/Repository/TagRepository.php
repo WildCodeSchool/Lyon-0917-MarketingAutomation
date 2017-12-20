@@ -10,4 +10,27 @@ namespace AppBundle\Repository;
  */
 class TagRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function searchInTagName($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.name')
+            ->where('s.name LIKE :name')
+            ->setParameter('name', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInTagDescription($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->select('s.description')
+            ->where('s.description LIKE :description')
+            ->setParameter('description', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }
