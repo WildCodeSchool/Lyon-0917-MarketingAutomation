@@ -38,7 +38,7 @@ class AwesomeSearch
 
         foreach($words as $word){
 
-            $softmainNameResults = $this->em->getRepository(SoftMain::class)->getSoftMainByName($word);
+            $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
             $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
             $commentResults = $this->em->getRepository(SoftMain::class)->searchInComment($word);
             $advantagesResults = $this->em->getRepository(SoftMain::class)->searchInAdvantages($word);

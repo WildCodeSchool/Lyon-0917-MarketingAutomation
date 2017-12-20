@@ -15,7 +15,6 @@ class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
         $softinfo = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.customers')
             ->where('s.customers LIKE :customers')
             ->setParameter('customers', $softinfo)
             ->getQuery();
@@ -27,7 +26,6 @@ class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
         $softinfo = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.hostingCountry')
             ->where('s.hostingCountry LIKE :hostingCountry')
             ->setParameter('hostingCountry', $softinfo)
             ->getQuery();
@@ -39,7 +37,6 @@ class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
         $softinfo = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.creationDate')
             ->where('s.creationDate LIKE :creationDate')
             ->setParameter('webScreationDateite', $softinfo)
             ->getQuery();
@@ -51,7 +48,6 @@ class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
         $softinfo = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.webSite')
             ->where('s.webSite LIKE :webSite')
             ->setParameter('webSite', $softinfo)
             ->getQuery();

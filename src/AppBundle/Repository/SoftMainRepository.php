@@ -11,12 +11,23 @@ namespace AppBundle\Repository;
 class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getSoftMainByName($softmain)
+    public function getSoftMainByName($word)
     {
-        $softmain = "%" . $softmain . "%";
+        $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
             ->select('s.name')
+            ->where('s.name LIKE :name')
+            ->setParameter('name', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInSoftmainName($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
             ->where('s.name LIKE :name')
             ->setParameter('name', $softmain)
             ->getQuery();
@@ -28,7 +39,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.description')
             ->where('s.description LIKE :description')
             ->setParameter('description', $softmain)
             ->getQuery();
@@ -40,7 +50,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.comments')
             ->where('s.comments LIKE :comments')
             ->setParameter('comments', $softmain)
             ->getQuery();
@@ -52,7 +61,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.type')
             ->where('s.type LIKE :type')
             ->setParameter('type', $softmain)
             ->getQuery();
@@ -64,7 +72,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.advantages')
             ->where('s.advantages LIKE :advantages')
             ->setParameter('advantages', $softmain)
             ->getQuery();
@@ -76,7 +83,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->select('s.drawbacks')
             ->where('s.drawbacks LIKE :drawbacks')
             ->setParameter('drawbacks', $softmain)
             ->getQuery();
