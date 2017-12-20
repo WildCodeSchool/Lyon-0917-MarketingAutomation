@@ -42,7 +42,7 @@ Booleans:
     isInstagramAutoPublication: publication automatique instagram
     isActivityReportcreation: creation rapport activites
     isActivityReportPeriodicSend: envoi periodique rapport
-    isEmailSupport: support email
+    isEmailSupport: support email mail
     isPhoneSupport: support telephone
     isChatSupport: support chat ligne
     isKnowledgeBase: base connaissance

@@ -22,4 +22,24 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+    public function getSoftByAnyBool($booleanKey)
+    {
+
+        $qb = $this
+            ->createQueryBuilder('s')
+            ->join('s.softCommSupport', '1')
+            ->join('s.softInfo', '2')
+            ->join('s.softLeadsOperation', '3')
+            ->join('s.softMarketingCampaign', '4')
+            ->join('s.softOtherFunctionnalities', '5')
+            ->join('s.softOutbound', '6')
+            ->join('s.softReport', '7')
+            ->join('s.softSegmentOperation', '8')
+            ->join('s.softSocialMedia', '9')
+            ->join('s.softSupport', '10')
+            ->where('s.' . $booleanKey . ' LIKE :bool')
+            ->setParameter('bool', true)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }
