@@ -6,11 +6,12 @@ namespace AppBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
+use Symfony\Component\Yaml\Yaml;
 
 class AwesomeSearch
 {
 
-    const EMPTY_WORDS = array('des', 'mais', 'avec', 'sans', 'aussi', 'plus');
+
 
     private $em;
 
@@ -21,6 +22,7 @@ class AwesomeSearch
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
+
     }
 
 
@@ -57,9 +59,10 @@ class AwesomeSearch
 
         $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
         $goodQuery = [];
+        $emptyWords = $this->getSearchYml()["EmptyWords"];
 
             foreach ($arrayOfWords as $word) {
-                $isDirtyOrNot = in_array($word, AwesomeSearch::EMPTY_WORDS);
+                $isDirtyOrNot = in_array($word, $emptyWords);
                 if ($isDirtyOrNot === false AND strlen($word)) {
                     $goodQuery[] .= $word;
                 }
