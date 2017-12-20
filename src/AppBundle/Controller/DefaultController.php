@@ -17,7 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotIdenticalTo;
-
+use AppBundle\Repository\VersusRepository;
 
 class DefaultController extends Controller
 {
@@ -215,6 +215,19 @@ class DefaultController extends Controller
             'slug' =>  $slug2
         ]);
 
+        // Look for existing versus
+        $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1, $softmain2);
+
+        // if versus is not existing this way, test if it's existing in the other way
+        if(empty($versus)){
+            $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain2, $softmain1);
+            if(!empty($versus)){
+                $description = $versus->getDescription();
+            }
+        }else{
+            $description = $versus->getDescription();
+        }
+
 
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
@@ -265,6 +278,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
+                'description' => $description
             )
         );
     }

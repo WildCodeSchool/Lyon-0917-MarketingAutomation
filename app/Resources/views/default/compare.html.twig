@@ -68,13 +68,11 @@
                         </div>
                     </div>
                 </a>
-
+                {% if description is defined %}
                 <div class="col s12 m12" id="SpecificCompareComment">
-                    <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie.
-                        Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc
-                        nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
+                    <p>{{ description }}</p>
                 </div>
+                {% endif %}
             </div>
             <div id="tableVersus">
                 <h2>Informations essentielles sur {{ softmain1.name }} et {{ softmain2.name }}</h2>
