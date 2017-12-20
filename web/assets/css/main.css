@@ -200,6 +200,9 @@ textarea {
   color: white;
   font-size: 1.1em; }
 
+.page-footer p {
+  margin: auto; }
+
 #filters {
   margin-top: 4%; }
   #filters .collapsible-body {
