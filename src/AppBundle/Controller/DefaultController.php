@@ -216,19 +216,12 @@ class DefaultController extends Controller
         ]);
 
         // Look for existing versus
-        $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1, $softmain2);
+        $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1->getId(), $softmain2->getId());
 
         // if versus is not existing this way, test if it's existing in the other way
         if(empty($versus)){
-            $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain2, $softmain1);
-            if(!empty($versus)){
-                $description = $versus->getDescription();
+            $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain2->getId(), $softmain1->getId());
             }
-        }else{
-            $description = $versus->getDescription();
-        }
-
-
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
         $form = $this->createForm(CompareType::class, $defaultData);
@@ -278,7 +271,7 @@ class DefaultController extends Controller
             'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
-                'description' => $description
+                'versus' => $versus
             )
         );
     }
