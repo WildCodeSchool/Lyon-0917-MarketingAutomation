@@ -6,9 +6,12 @@ namespace AppBundle\Service;
 
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
+use Symfony\Component\Yaml\Yaml;
 
 class AwesomeSearch
 {
+
+
 
     private $em;
 
@@ -19,6 +22,7 @@ class AwesomeSearch
     public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
+
     }
 
 
@@ -35,6 +39,9 @@ class AwesomeSearch
         foreach($words as $word){
 
             $nameResults = $this->em->getRepository(SoftMain::class)->searchInNames($word);
+
+
+
             $descriptionResults = $this->em->getRepository(SoftMain::class)->searchInDescriptions($word);
             $boolResults = $this->searchInYml($word);
 
@@ -45,15 +52,23 @@ class AwesomeSearch
 
     }
 
-    private function cleanQuery($query){
+    private function cleanQuery($query)
+    {
 
         // Receive  a dirty query, give a clean array of words to explore
 
-        //explode
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $goodQuery = [];
+        $emptyWords = $this->getSearchYml()["EmptyWords"];
 
-        //delete no effience words
+            foreach ($arrayOfWords as $word) {
+                $isDirtyOrNot = in_array($word, $emptyWords);
+                if ($isDirtyOrNot === false AND strlen($word)) {
+                    $goodQuery[] .= $word;
+                }
+            }
 
-        return $array;
+        return $goodQuery;
 
     }
 
