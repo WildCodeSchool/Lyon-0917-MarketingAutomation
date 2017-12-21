@@ -6,18 +6,13 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Repository\SoftMainRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\HttpFoundation\JsonResponse;
-use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotIdenticalTo;
-use AppBundle\Service\AwesomeSearch;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Request;
 
 
 class DefaultController extends Controller
@@ -70,9 +65,14 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tableDatas = explode(" ", $researchContent);
         $results = [];
-$serviceRecherche = $this->container->get('app.search');
+        $serviceRecherche = $this->container->get('app.search');
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+
+
         for ($i = 0; $i < count($tableDatas); $i++) {
-            $uniqueResult = $serviceRecherche->searchInYml($tableDatas[$i]);
+            $uniqueResult = $repository->searchInSoftmainName($tableDatas[$i]);
+            $point = $serviceRecherche->addPertinencePoint($uniqueResult,10);
+
             if ($uniqueResult != null) {
                 array_push($results, $uniqueResult);
             }
@@ -82,6 +82,7 @@ $serviceRecherche = $this->container->get('app.search');
             'session' => $_SESSION['researchContent'],
         ]);
     }
+
     /**
      * @Route("listing-tags", name="listingTags")
      */
@@ -159,7 +160,7 @@ $serviceRecherche = $this->container->get('app.search');
             ]);
 
 
-            if(empty($soft1) or empty($soft2)) {
+            if (empty($soft1) or empty($soft2)) {
 
                 $softwareNotEntity = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/listing-versus.html.twig', array(
@@ -169,7 +170,7 @@ $serviceRecherche = $this->container->get('app.search');
 
                 ));
 
-            }elseif($soft1 === $soft2) {
+            } elseif ($soft1 === $soft2) {
 
                 $sameSoftwares = "Vous ne pouvez pas comparer deux fois le même logiciel car c'est inutile";
                 return $this->render('default/listing-versus.html.twig', array(
@@ -178,7 +179,7 @@ $serviceRecherche = $this->container->get('app.search');
                     'error' => $sameSoftwares,
                 ));
 
-            }else{
+            } else {
                 $_SESSION['versus1'] = $soft1->getName();
                 $_SESSION['versus2'] = $soft2->getName();
                 return $this->redirectToRoute('versus', array(
@@ -207,13 +208,12 @@ $serviceRecherche = $this->container->get('app.search');
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' =>  $slug1
+            'slug' => $slug1
         ]);
 
         $softmain2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' =>  $slug2
+            'slug' => $slug2
         ]);
-
 
 
         $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
@@ -231,7 +231,7 @@ $serviceRecherche = $this->container->get('app.search');
                 'name' => $data["software2"]
             ]);
 
-            if(empty($soft1) or empty($soft2)){
+            if (empty($soft1) or empty($soft2)) {
                 $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
@@ -240,9 +240,7 @@ $serviceRecherche = $this->container->get('app.search');
                         'error' => $error,
                     )
                 );
-            }
-            elseif($soft1 === $soft2)
-            {
+            } elseif ($soft1 === $soft2) {
                 $error = "Merci de ne pas sélectionner deux fois le même logiciel";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
@@ -251,9 +249,7 @@ $serviceRecherche = $this->container->get('app.search');
                         'error' => $error,
                     )
                 );
-            }
-            else
-            {
+            } else {
                 $_SESSION['versus1'] = $soft1->getName();
                 $_SESSION['versus2'] = $soft2->getName();
                 return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
@@ -261,7 +257,7 @@ $serviceRecherche = $this->container->get('app.search');
         }
 
         return $this->render('default/compare.html.twig', array(
-            'form' => $form->createView(),
+                'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
             )
@@ -302,12 +298,13 @@ $serviceRecherche = $this->container->get('app.search');
         }
 
     }
+
     /**
      * @Route("searchAction", name="searchAction")
      * @Method("GET")
      */
     public function searchAction(Request $request)
     {
-            return $this->redirectToRoute('results', array('researchContent' => $_GET['search']));
+        return $this->redirectToRoute('results', array('researchContent' => $_GET['search']));
     }
 }
