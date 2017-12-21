@@ -17,11 +17,12 @@
                 {% endfor %}
             </ul>
             <ul>
-                {% for bool, nb in bools %}
-                    <li class="col l4 m6 s12">
-                        <a href="">{{ bool }}</a>
-                        <div class="chip">{{ nb }}</div>
+                {% for bool in bools %}
+                        <li class="col l4 m6 s12">
+                            <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
+                            <div class="chip">{{ bool.number }}</div>
                     </li>
+
                 {% endfor %}
             </ul>
         </div>

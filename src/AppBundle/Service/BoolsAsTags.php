@@ -42,8 +42,14 @@ class BoolsAsTags
                $arrayBool = explode(",", $string);
                foreach($arrayBool as $bool) {
                    $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
-                   $bools[$bool] = $number;
+
                }
+               $result = array(
+                   "slug" => $arrayBool[1],
+                   "entitie"  => $arrayBool[0],
+                   "number" => $number
+               );
+               $bools[] = $result;
                $i++;
            }
         $j++;
