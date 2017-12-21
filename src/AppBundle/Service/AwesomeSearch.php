@@ -7,9 +7,17 @@ use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
 use Symfony\Component\Yaml\Yaml;
 use AppBundle\Repository\SoftMainRepository;
+use AppBundle\Entity\SoftInfo;
+use AppBundle\Entity\SoftSupport;
+use AppBundle\Entity\Tag;
+
+
+
 
 class AwesomeSearch
 {
+
+
 
     private $em;
 
@@ -30,6 +38,7 @@ class AwesomeSearch
         $this->em = $em;
         $this->resultFinal = array();
         $this->searchYml = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
+
     }
 
 
@@ -46,18 +55,44 @@ class AwesomeSearch
 
         foreach ($words as $word) {
 
-            $nameResults = $this->em->getRepository(SoftMain::class)->searchInNames($word);
-            $descriptionResults = $this->em->getRepository(SoftMain::class)->searchInDescriptions($word);
+
+            $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
+            $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
+            $commentResults = $this->em->getRepository(SoftMain::class)->searchInComment($word);
+            $advantagesResults = $this->em->getRepository(SoftMain::class)->searchInAdvantages($word);
+            $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
+            $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
+            $customersResults = $this->em->getRepository(SoftInfo::class)->searchInCustomers($word);
+            $hostingCountryResults = $this->em->getRepository(SoftInfo::class)->searchInHostingCountry($word);
+            $creationDateResults = $this->em->getRepository(SoftInfo::class)->searchInCreationDate($word);
+            $webSiteResults = $this->em->getRepository(SoftInfo::class)->searchInWebSite($word);
+            $knowledgeBaseLanguageResults = $this->em->getRepository(SoftSupport::class)->searchInKnowledgeBaseLanguage($word);
+            $tagNameResults = $this->em->getRepository(Tag::class)->searchInTagName($word);
+            $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
+
+
             $boolResults = $this->searchInYml($word);
         }
         return $finalResult;
     }
+
     private function cleanQuery($query)
     {
+
         // Receive  a dirty query, give a clean array of words to explore
-        //explode
-        //delete no effience words
-        return $array;
+
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $goodQuery = [];
+        $emptyWords = $this->getSearchYml()["EmptyWords"];
+
+            foreach ($arrayOfWords as $word) {
+                $isDirtyOrNot = in_array($word, $emptyWords);
+                if ($isDirtyOrNot === false AND strlen($word)) {
+                    $goodQuery[] .= $word;
+                }
+            }
+
+        return $goodQuery;
     }
     public function searchInYml($word)
     {

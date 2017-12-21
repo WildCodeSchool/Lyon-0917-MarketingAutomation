@@ -11,9 +11,9 @@ namespace AppBundle\Repository;
 class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getSoftMainByName($softmain)
+    public function getSoftMainByName($word)
     {
-        $softmain = "%" . $softmain . "%";
+        $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
             ->select('s.name')
@@ -22,6 +22,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
     public function getSoftByAnyBool($booleanKey, $entityName)
     {
 
@@ -30,6 +31,72 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->join('s.' . $entityName , 't')
             ->where('t.' . $booleanKey . ' = :bool')
             ->setParameter('bool', true)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInSoftmainName($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.name LIKE :name')
+            ->setParameter('name', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInSoftmainDescription($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.description LIKE :description')
+            ->setParameter('description', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInComment($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.comments LIKE :comments')
+            ->setParameter('comments', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInType($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.type LIKE :type')
+            ->setParameter('type', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInAdvantages($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.advantages LIKE :advantages')
+            ->setParameter('advantages', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInDrawbacks($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.drawbacks LIKE :drawbacks')
+            ->setParameter('drawbacks', $softmain)
             ->getQuery();
         return $qb->getResult();
     }
