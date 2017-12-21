@@ -27,6 +27,10 @@ class AwesomeSearch
 
 
     const BOOLPOINT = 1;
+    const TAGPOINT = 2;
+    const CONTENUPOINT = 3;
+    const TITLEPOINT = 5;
+
 
 
     /**
@@ -57,17 +61,30 @@ class AwesomeSearch
 
 
             $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
+
+
             $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
+
             $commentResults = $this->em->getRepository(SoftMain::class)->searchInComment($word);
+
             $advantagesResults = $this->em->getRepository(SoftMain::class)->searchInAdvantages($word);
+
             $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
+
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
+
             $customersResults = $this->em->getRepository(SoftInfo::class)->searchInCustomers($word);
+
             $hostingCountryResults = $this->em->getRepository(SoftInfo::class)->searchInHostingCountry($word);
+
             $creationDateResults = $this->em->getRepository(SoftInfo::class)->searchInCreationDate($word);
+
             $webSiteResults = $this->em->getRepository(SoftInfo::class)->searchInWebSite($word);
+
             $knowledgeBaseLanguageResults = $this->em->getRepository(SoftSupport::class)->searchInKnowledgeBaseLanguage($word);
+
             $tagNameResults = $this->em->getRepository(Tag::class)->searchInTagName($word);
+
             $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
 
 
@@ -134,6 +151,24 @@ class AwesomeSearch
         }
         return true;
     }
+
+    public function addPertinencePoint (array $results, $pertinnencePoint)
+    {
+        $resultsPoint = [];
+
+        for ($i = 0; $i < count($results); $i++) {
+
+            $soft = array('soft' => $results[$i]);
+            $point = array('point' => $pertinnencePoint);
+
+          $resultsPoint[] = $soft + $point;
+        }
+
+        return $resultsPoint;
+
+    }
+
+
 
     /**
      * @return EntityManagerInterface
