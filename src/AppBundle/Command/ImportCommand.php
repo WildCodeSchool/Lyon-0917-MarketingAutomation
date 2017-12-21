@@ -33,7 +33,7 @@ class ImportCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $serviceImport = $this->getContainer()->get('app.import');
+        $serviceImport = $this->getContainer()->get('AppBundle\Service\ImportEntities');
         $pathSoft = "app/Resources/datas/import-softwares.csv";
         $pathTags = "app/Resources/datas/import-tags.csv";
         $pathVersus = "app/Resources/datas/import-versus.csv";

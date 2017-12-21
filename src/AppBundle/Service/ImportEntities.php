@@ -35,14 +35,7 @@ class ImportEntities
         $this->em = $em;
         $this->errors = array();
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/import.yml"));
-        /*
-                // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
-                if(!file_exists($fileFromConsole)) {
-                    //TODO : améliorer ce truc
-                    throw new \Exception("Ce n'est pas un fichier");
-                }else{
-                }
-                 */
+
     }
 
     private function fileInit($fileFromConsole)

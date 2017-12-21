@@ -6,17 +6,14 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Repository\SoftMainRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use SensioLabs\Security\Exception\HttpException;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotIdenticalTo;
+use AppBundle\Service\BoolsAsTags;
 
 
 class DefaultController extends Controller
@@ -85,14 +82,20 @@ class DefaultController extends Controller
 
     /**
      * @Route("listing-tags", name="listingTags")
+     * @param Request $request
+     * @param BoolsAsTags $boolsAsTags
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public
-    function listingTagsAction(Request $request)
+    function listingTagsAction(Request $request, BoolsAsTags $boolsAsTags)
     {
+
+        $bools = $boolsAsTags->getGoodBools();
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
         return $this->render('default/listing-tags.html.twig', [
             'tags' => $tags,
+            'bools' => $bools,
         ]);
     }
 

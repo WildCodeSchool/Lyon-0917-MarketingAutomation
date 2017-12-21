@@ -8,47 +8,57 @@ notBool:
     webSite: site web
 
 Booleans:
-    isEmail: Envoi d'email, mail
-    isSms: Envoi de sms, sms
-    isPopin: Utilisation de popin, popin
-    isMailPostal: Courrier postal, courrier postal
-    isCallcenter: Centre d'appels, centre appel
-    isPushMobile: Notification push mobile
-    isApi: Appel api
-    isLandingPage: Page d'atterrissage
-    isForm: Formulaire
-    isTracking: Code de suivi
-    isLiveChat: Live chat
-    isContactObject: Objet contact
-    isCompanyObject: Objet societe
-    isDefinedFields: Champs personnalises
-    isIllimitedFields: Champs illimité, illimite
-    isImportCsv: Import csv
-    isAutoDuplicate: Déduplication automatique, deduplication
-    isLeadStages: Lead stages
-    isSegmentcreation: Creation segment
-    isIntelligentSegment: creation de segment intelligent
-    isLeadScoring: Lead scoring
-    isCreationCampaign: Création campagnes, creation
-    isDripMarketingCampaign: Campagne "Drip Marketing", drip marketing
-    isDragAndDrop: editeur drag drop, éditeur drap drop
-    isTwitterMonitoring: Veille Twitter
-    isTwitterAutoPublication: Publication automatique sur Twitter
-    isFacebookMonitoring: Veille facebook
-    isFacebookAutoPublication: Publication automatique Facebook
-    isLinkedinMonitoring: Veille linkedin
-    isLinkedinAutoPublication: Publication automatique Linkedin
-    isInstagramMonitoring: Veille instagram
-    isInstagramAutoPublication: publication automatique instagram
-    isActivityReportcreation: creation rapport activites
-    isActivityReportPeriodicSend: envoi periodique rapport
-    isEmailSupport: Support email
-    isPhoneSupport: Support telephone
-    isChatSupport: Support chat ligne
-    isKnowledgeBase: Base de connaissance (langues)
-    isTechnicalDocument: Documentation technique
-    isProviderEmailChoice: Choix du provider Email
-    isBlogEdition: Edition d'un blog
-    isTouchPad: Tablette en magasin
-    isSmtpRelay: SMTP Relais (email transactionnel)
-    isRssToEmail: RSS to email, flux
+    softOutbound:
+        isEmail: Envoi d'email, mail
+        isSms: Envoi de sms, sms
+        isPopin: Utilisation de popin, popin
+        isMailPostal: Courrier postal, courrier postal
+        isCallcenter: Centre d'appels, centre appel
+        isPushMobile: Notification push mobile
+        isApi: Appel api
+        isLandingPage: Pag
+    softCommSupport:
+        isLandingPage: Page d'atterrissage
+        isForm: Formulaire
+        isTracking: Code de suivi
+        isLiveChat: Live chat
+    softLeadsOperation:
+        isContactObject: Objet contact
+        isCompanyObject: Objet societe
+        isDefinedFields: Champs personnalises
+        isIllimitedFields: Champs illimité, illimite
+        isImportCsv: Import csv
+        isAutoDuplicate: Déduplication automatique, deduplication
+        isLeadStages: Lead stages
+    softSegmentCreation:
+        isSegmentcreation: Creation segment
+        isIntelligentSegment: creation de segment intelligent
+    softMarketingCampaign:
+        isLeadScoring: Lead scoring
+        isCreationCampaign: Création campagnes, creation
+        isDripMarketingCampaign: Campagne "Drip Marketing", drip marketing
+        isDragAndDrop: éditeur drag drop, editeur drap drop
+    softSocialMedia:
+        isTwitterMonitoring: Veille Twitter
+        isTwitterAutoPublication: Publication automatique sur Twitter
+        isFacebookMonitoring: Veille facebook
+        isFacebookAutoPublication: Publication automatique Facebook
+        isLinkedinMonitoring: Veille linkedin
+        isLinkedinAutoPublication: Publication automatique Linkedin
+        isInstagramMonitoring: Veille instagram
+        isInstagramAutoPublication: Publication automatique instagram
+    softReport:
+        isActivityReportcreation: creation rapport activites
+        isActivityReportPeriodicSend: envoi periodique rapport
+    softSupport:
+        isEmailSupport: Support email
+        isPhoneSupport: Support telephone
+        isChatSupport: Support chat ligne
+        isKnowledgeBase: Base de connaissance (langues)
+        isTechnicalDocument: Documentation technique
+    softOtherFunctionnalities:
+        isProviderEmailChoice: Choix du provider Email
+        isBlogEdition: Edition d'un blog
+        isTouchPad: Tablette en magasin
+        isSmtpRelay: SMTP Relais (email transactionnel)
+        isRssToEmail: RSS to email, flux
