@@ -17,9 +17,10 @@
                 {% endfor %}
             </ul>
             <ul>
-                {% for bool in bools %}
+                {% for bool, nb in bools %}
                     <li class="col l4 m6 s12">
-                        {{ bool }}
+                        <a href="">{{ bool }}</a>
+                        <div class="chip">{{ nb }}</div>
                     </li>
                 {% endfor %}
             </ul>

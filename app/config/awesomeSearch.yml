@@ -13,10 +13,9 @@ Booleans:
         isSms: Envoi de sms, sms
         isPopin: Utilisation de popin, popin
         isMailPostal: Courrier postal, courrier postal
-        isCallcenter: Centre d'appels, centre appel
+        isCallCenter: Centre d'appels, centre appel
         isPushMobile: Notification push mobile
         isApi: Appel api
-        isLandingPage: Pag
     softCommSupport:
         isLandingPage: Page d'atterrissage
         isForm: Formulaire
@@ -30,8 +29,8 @@ Booleans:
         isImportCsv: Import csv
         isAutoDuplicate: Déduplication automatique, deduplication
         isLeadStages: Lead stages
-    softSegmentCreation:
-        isSegmentcreation: Creation segment
+    softSegmentOperation:
+        isSegmentCreation: Creation segment
         isIntelligentSegment: creation de segment intelligent
     softMarketingCampaign:
         isLeadScoring: Lead scoring
@@ -48,7 +47,7 @@ Booleans:
         isInstagramMonitoring: Veille instagram
         isInstagramAutoPublication: Publication automatique instagram
     softReport:
-        isActivityReportcreation: creation rapport activites
+        isActivityReportCreation: creation rapport activites
         isActivityReportPeriodicSend: envoi periodique rapport
     softSupport:
         isEmailSupport: Support email

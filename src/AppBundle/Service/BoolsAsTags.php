@@ -32,18 +32,21 @@ class BoolsAsTags
 
     public function getGoodBools()
    {
-       $entities = $this->getConfig()["Booleans"];
+       $entityKeys = array_keys($this->getConfig()['Booleans']);
        $bools = [];
-       foreach($entities as $entitie) {
-
+       $j = 0;
+       foreach($this->getConfig()['Booleans'] as $entitie) {
+            $i = 0;
+           $booleanKeys = array_keys($entitie);
            foreach($entitie as $key=>$string){
                $arrayBool = explode(",", $string);
                foreach($arrayBool as $bool) {
-                   $number = $this->getNbSoftwaresByBool($key, $entitie);
+                   $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
                    $bools[$bool] = $number;
                }
+               $i++;
            }
-
+        $j++;
        }
 
        return $bools;
