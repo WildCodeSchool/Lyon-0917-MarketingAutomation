@@ -17,6 +17,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotIdenticalTo;
+use AppBundle\Service\AwesomeSearch;
 
 
 class DefaultController extends Controller
@@ -69,20 +70,18 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         $tableDatas = explode(" ", $researchContent);
         $results = [];
+$serviceRecherche = $this->container->get('app.search');
         for ($i = 0; $i < count($tableDatas); $i++) {
-            $uniqueResult = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $tableDatas[$i]
-            ]);
+            $uniqueResult = $serviceRecherche->searchInYml($tableDatas[$i]);
             if ($uniqueResult != null) {
                 array_push($results, $uniqueResult);
             }
         }
         return $this->render('default/results.html.twig', [
-            'softwares' => $results,
+            'softwares' => $uniqueResult,
             'session' => $_SESSION['researchContent'],
         ]);
     }
-
     /**
      * @Route("listing-tags", name="listingTags")
      */

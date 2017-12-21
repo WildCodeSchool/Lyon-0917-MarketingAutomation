@@ -49,39 +49,36 @@ class AwesomeSearch
             $nameResults = $this->em->getRepository(SoftMain::class)->searchInNames($word);
             $descriptionResults = $this->em->getRepository(SoftMain::class)->searchInDescriptions($word);
             $boolResults = $this->searchInYml($word);
-
-
         }
-
         return $finalResult;
-
     }
-
     private function cleanQuery($query)
     {
-
         // Receive  a dirty query, give a clean array of words to explore
-
         //explode
-
         //delete no effience words
-
         return $array;
-
     }
-
-
-    private function searchInYml($word)
+    public function searchInYml($word)
     {
-        $i = 0;
-        $booleanKeys = array_keys($this->getSearchYml()['Booleans']);
-        foreach ($this->getSearchYml()['Booleans'] as $synonym) {
-            if (stristr($synonym, $word) != FALSE) {
-                $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i]);
-                $this->addToFinalResult($resultTable);
+        $resultTable = [];
+        $j = 0;
+        $entityKeys = array_keys($this->getSearchYml()['Booleans']);
+        foreach ($this->getSearchYml()['Booleans'] as $table) {
+            $i=0;
+            $booleanKeys = array_keys($table);
+            foreach ($table as $synonym) {
+                if (stristr($synonym, $word) != FALSE) {
+                    $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i], $entityKeys[$j]);
+                    //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
+                    //$this->addToFinalResult($resultTable);
+                }
+                $i++;
             }
-            $i++;
+            $j++;
         }
+        //Cette function DOIT return uniquement true, mais elle ajoute à final result tous les tableaux trouvés par la query. À LA VERSION FINAL: remplacer par return true
+        return $resultTable;
     }
 
 // cette fonction prend en argument un array et parcourt le resultFinal, lajoute chaque ligne de l'array si elle n'existe pas ou alors ajoute à l'id deja existant
