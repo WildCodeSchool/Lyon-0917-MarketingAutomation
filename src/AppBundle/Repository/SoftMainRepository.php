@@ -23,6 +23,18 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    public function getSoftByAnyBool($booleanKey, $entityName)
+    {
+
+        $qb = $this
+            ->createQueryBuilder('s')
+            ->join('s.' . $entityName , 't')
+            ->where('t.' . $booleanKey . ' = :bool')
+            ->setParameter('bool', true)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
     public function searchInSoftmainName($word)
     {
         $softmain = "%" . $word . "%";
@@ -88,5 +100,4 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
-
 }

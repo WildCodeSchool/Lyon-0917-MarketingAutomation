@@ -8,50 +8,60 @@ notBool:
     webSite: site web
 
 Booleans:
-    isEmail: mail
-    isSms: sms
-    isPopin: popin
-    isMailPostal: courrier postal
-    isCallcenter: centre appel
-    isPushMobile: notification push mobile
-    isApi: appel api
-    isLandingPage: page atterrissage
-    isForm: formulaire
-    isTracking: code suivi
-    isLiveChat: live chat
-    isContactObject: objet contact
-    isCompanyObject: objet societe
-    isDefinedFields: champs personnalises
-    isIllimitedFields: champs illimite
-    isImportCsv: import csv
-    isAutoDuplicate: duplication automatique
-    isLeadStages: lead stages
-    isSegmentcreation: creation segment
-    isIntelligentSegment: creation segment intelligent
-    isLeadScoring: lead scoring
-    isCreationCampaign: creation campagnes
-    isDripMarketingCampaign: campagnes drip marketing
-    isDragAndDrop: editeur drag drop
-    isTwitterMonitoring: twitter veille
-    isTwitterAutoPublication: publication automatique twitter
-    isFacebookMonitoring: veille facebook
-    isFacebookAutoPublication: publication automatique facebook
-    isLinkedinMonitoring: veille linkedin
-    isLinkedinAutoPublication: publication automatique linkedin
-    isInstagramMonitoring: veille instagram
-    isInstagramAutoPublication: publication automatique instagram
-    isActivityReportcreation: creation rapport activites
-    isActivityReportPeriodicSend: envoi periodique rapport
-    isEmailSupport: support email
-    isPhoneSupport: support telephone
-    isChatSupport: support chat ligne
-    isKnowledgeBase: base connaissance
-    isTechnicalDocument: documentation technique
-    isProviderEmailChoice: choix provider email
-    isBlogEdition: edition blog
-    isTouchPad: tablette touchpad magasin
-    isSmtpRelay: smtp relais email transactionnel
-    isRssToEmail: rss email flux
+    softOutbound:
+        isEmail: mail
+        isSms: sms
+        isPopin: popin
+        isMailPostal: courrier postal
+        isCallcenter: centre appel
+        isPushMobile: notification push mobile
+        isApi: appel api
+    softCommSupport:
+        isLandingPage: page atterrissage
+        isForm: formulaire
+        isTracking: code suivi
+        isLiveChat: live chat
+    softLeadsOperation:
+        isContactObject: objet contact
+        isCompanyObject: objet societe
+        isDefinedFields: champs personnalises
+        isIllimitedFields: champs illimite
+        isImportCsv: import csv
+        isAutoDuplicate: duplication automatique
+        isLeadStages: lead stages
+    softSegmentCreation:
+        isSegmentcreation: creation segment
+        isIntelligentSegment: creation segment intelligent
+    softMarketingCampaign:
+        isLeadScoring: lead scoring
+        isCreationCampaign: creation campagnes
+        isDripMarketingCampaign: campagnes drip marketing
+        isDragAndDrop: editeur drag drop
+    softSocialMedia:
+        isTwitterMonitoring: twitter veille
+        isTwitterAutoPublication: publication automatique twitter
+        isFacebookMonitoring: veille facebook
+        isFacebookAutoPublication: publication automatique facebook
+        isLinkedinMonitoring: veille linkedin
+        isLinkedinAutoPublication: publication automatique linkedin
+        isInstagramMonitoring: veille instagram
+        isInstagramAutoPublication: publication automatique instagram
+    softReport:
+        isActivityReportcreation: creation rapport activites
+        isActivityReportPeriodicSend: envoi periodique rapport
+    softSupport:
+        isEmailSupport: support email mail
+        isPhoneSupport: support telephone
+        isChatSupport: support chat ligne
+        isKnowledgeBase: base connaissance
+        isTechnicalDocument: documentation technique
+    softOtherFunctionnalities:
+        isProviderEmailChoice: choix provider email
+        isBlogEdition: edition blog
+        isTouchPad: tablette touchpad magasin
+        isSmtpRelay: smtp relais email transactionnel
+        isRssToEmail: rss email flux
+
 EmptyWords:
     allô
     aucuns
