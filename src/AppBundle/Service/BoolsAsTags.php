@@ -3,6 +3,7 @@
 namespace AppBundle\Service;
 
 
+use AppBundle\Entity\SoftMain;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -38,7 +39,8 @@ class BoolsAsTags
            foreach($entitie as $key=>$string){
                $arrayBool = explode(",", $string);
                foreach($arrayBool as $bool) {
-                   $bools[] = $bool;
+                   $number = $this->getNbSoftwaresByBool($key, $entitie);
+                   $bools[$bool] = $number;
                }
            }
 
@@ -47,10 +49,10 @@ class BoolsAsTags
        return $bools;
    }
 
-   public function getNbSoftwaresByBool($bool){
+   public function getNbSoftwaresByBool($bool, $entity) : int{
 
-
-}
+       return count($this->em->getRepository(SoftMain::class)->getSoftByAnyBool($bool, $entity));
+    }
 
     /**
      * @return mixed
