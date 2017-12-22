@@ -62,23 +62,13 @@ class DefaultController extends Controller
     function resultsAction(Request $request, $researchContent)
     {
         $_SESSION['researchContent'] = $researchContent;
-        $em = $this->getDoctrine()->getManager();
-        $tableDatas = explode(" ", $researchContent);
-        $results = [];
         $serviceRecherche = $this->container->get('app.search');
-        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+
+        $softwares = $serviceRecherche->search($researchContent);
 
 
-        for ($i = 0; $i < count($tableDatas); $i++) {
-            $uniqueResult = $repository->searchInSoftmainName($tableDatas[$i]);
-            $point = $serviceRecherche->addPertinencePoint($uniqueResult,10);
-
-            if ($uniqueResult != null) {
-                array_push($results, $uniqueResult);
-            }
-        }
         return $this->render('default/results.html.twig', [
-            'softwares' => $uniqueResult,
+            'softwares' => $softwares,
             'session' => $_SESSION['researchContent'],
         ]);
     }

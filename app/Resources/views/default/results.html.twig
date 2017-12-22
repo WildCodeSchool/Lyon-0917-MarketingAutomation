@@ -10,12 +10,7 @@
                             class="material-icons">edit</i>Plus de critères</a>
             </div>
 
-            <div class="col s12 m7 l7">
-                <p class="presults">{{ softwares|length }} Résultats <!-- insérer ici le mot-clé recherché --></p>
-                {% for software in softwares %}
-                    {% include('result-software.html.twig') %}
-                {% endfor %}
-            </div>
+            {% dump(softwares) %}
 
             {% include('filters.html.twig') %}
 

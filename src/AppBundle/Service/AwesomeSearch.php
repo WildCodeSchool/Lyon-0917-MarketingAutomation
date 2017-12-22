@@ -111,11 +111,28 @@ class AwesomeSearch
             $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
             $this->addPertinencePoint($tagDescriptionResults, self::TAGPOINT);
 
-            $boolResults = $this->rateByBool($word);
+            $this->rateByBool($word);
 
         }
+
+        $arrayToSort = $this->getFinalResult();
+
+        foreach ($arrayToSort as $key => $row) {
+            $point2[$key] = $row['edition'];
+        }
+
+        array_multisort($point2, SORT_DESC, $arrayToSort);
+
+        $result = [];
+
+        foreach ( $arrayToSort as $cell ) {
+            $result  = $cell['soft'];
+        }
+
+
         return $result;
     }
+
 
     private function cleanQuery(string $query) :array
     {
@@ -129,9 +146,10 @@ class AwesomeSearch
         $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
         $goodQuery = [];
         $emptyWords = $this->getDatas()["EmptyWords"];
+        $arrayEmptyWords = explode(" ", $emptyWords);
 
         foreach ($arrayOfWords as $word) {
-            $isDirtyOrNot = in_array($word, $emptyWords);
+            $isDirtyOrNot = in_array($word, $arrayEmptyWords);
             if ($isDirtyOrNot === false AND strlen($word)) {
                 $goodQuery[] .= $word;
             }
@@ -159,7 +177,7 @@ class AwesomeSearch
                 if (stristr($synonym, $word) != FALSE) {
                     $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i], $entityKeys[$j]);
                     //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
-                    //$this->addToFinalResult($resultTable);
+                    $this->addToFinalResult($resultTable);
                 }
                 $i++;
             }
@@ -218,14 +236,16 @@ class AwesomeSearch
         for ($i = 0; $i < count($results); $i++) {
 
             $soft = array('soft' => $results[$i]);
-            $point = array('point' => $pertinencePoint);
+            $point = array('points' => $pertinencePoint);
 
             $resultsPoint[] = $soft + $point;
             //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
-            //$this->addToFinalResult($resultTable);
         }
+        $this->addToFinalResult($resultsPoint);
 
         return $resultsPoint;
 
     }
+
+
 }
