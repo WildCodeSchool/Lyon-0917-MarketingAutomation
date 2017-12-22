@@ -100,4 +100,85 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+    public function searchInCustomers($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.customers LIKE :customers')
+            ->setParameter('customers', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInHostingCountry($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.hostingCountry LIKE :hostingCountry')
+            ->setParameter('hostingCountry', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInCreationDate($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.creationDate LIKE :creationDate')
+            ->setParameter('creationDate', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInWebSite($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.webSite LIKE :webSite')
+            ->setParameter('webSite', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+    public function searchInTagName($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.tags' , 't')
+            ->where('t.name LIKE :name')
+            ->setParameter('name', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    public function searchInTagDescription($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.tags' , 't')
+            ->where('t.description LIKE :description')
+            ->setParameter('description', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
+    public function searchInKnowledgeBaseLanguage($word)
+    {
+        $softsupport = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softSupport' , 't')
+            ->where('t.knowledgeBaseLanguage LIKE :knowledgeBaseLanguage')
+            ->setParameter('knowledgeBaseLanguage', $softsupport)
+            ->getQuery();
+        return $qb->getResult();
+    }
 }

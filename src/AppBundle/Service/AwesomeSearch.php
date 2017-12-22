@@ -3,6 +3,7 @@
 
 namespace AppBundle\Service;
 
+use AppBundle\Repository\SoftMainRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
@@ -65,6 +66,8 @@ class AwesomeSearch
             /**
              *
              */
+            $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
+            $this->addPertinencePoint($softmainNameResults, self::NAMEPOINT);
 
             $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
             $this->addPertinencePoint($softmainDescriptionResults, self::CONTENTPOINT);
@@ -86,29 +89,29 @@ class AwesomeSearch
             $this->addPertinencePoint($typeResults, self::CONTENTPOINT);
 
 
-            $customersResults = $this->em->getRepository(SoftInfo::class)->searchInCustomers($word);
+            $customersResults = $this->em->getRepository(SoftMain::class)->searchInCustomers($word);
             $this->addPertinencePoint($customersResults, self::CONTENTPOINT);
 
 
-            $hostingCountryResults = $this->em->getRepository(SoftInfo::class)->searchInHostingCountry($word);
+            $hostingCountryResults = $this->em->getRepository(SoftMain::class)->searchInHostingCountry($word);
             $this->addPertinencePoint($hostingCountryResults, self::CONTENTPOINT);
 
 
-            $creationDateResults = $this->em->getRepository(SoftInfo::class)->searchInCreationDate($word);
+            $creationDateResults = $this->em->getRepository(SoftMain::class)->searchInCreationDate($word);
             $this->addPertinencePoint($creationDateResults, self::CONTENTPOINT);
 
-            $webSiteResults = $this->em->getRepository(SoftInfo::class)->searchInWebSite($word);
+            $webSiteResults = $this->em->getRepository(SoftMain::class)->searchInWebSite($word);
             $this->addPertinencePoint($webSiteResults, self::CONTENTPOINT);
 
-            $knowledgeBaseLanguageResults = $this->em->getRepository(SoftSupport::class)->searchInKnowledgeBaseLanguage($word);
+            $knowledgeBaseLanguageResults = $this->em->getRepository(SoftMain::class)->searchInKnowledgeBaseLanguage($word);
             $this->addPertinencePoint($knowledgeBaseLanguageResults, self::CONTENTPOINT);
 
 
-            $tagNameResults = $this->em->getRepository(Tag::class)->searchInTagName($word);
+            $tagNameResults = $this->em->getRepository(SoftMain::class)->searchInTagName($word);
             $this->addPertinencePoint($tagNameResults, self::TAGPOINT);
 
 
-            $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
+            $tagDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInTagDescription($word);
             $this->addPertinencePoint($tagDescriptionResults, self::TAGPOINT);
 
             $this->rateByBool($word);
@@ -118,7 +121,7 @@ class AwesomeSearch
         $arrayToSort = $this->getFinalResult();
 
         foreach ($arrayToSort as $key => $row) {
-            $point2[$key] = $row['edition'];
+            $point2[$key] = $row['points'];
         }
 
         array_multisort($point2, SORT_DESC, $arrayToSort);
@@ -126,7 +129,7 @@ class AwesomeSearch
         $result = [];
 
         foreach ( $arrayToSort as $cell ) {
-            $result  = $cell['soft'];
+            $result[]  = $cell['soft'];
         }
 
 
@@ -177,7 +180,7 @@ class AwesomeSearch
                 if (stristr($synonym, $word) != FALSE) {
                     $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i], $entityKeys[$j]);
                     //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
-                    $this->addToFinalResult($resultTable);
+                    $this->addPertinencePoint($resultTable, self::BOOLPOINT);
                 }
                 $i++;
             }
@@ -191,18 +194,25 @@ class AwesomeSearch
 
     public function addToFinalResult(array $array)
     {
+        $j = 0;
         foreach ($array as $result) {
             $i = 0;
-            foreach ($this->finalResult as $resultFinalLign) {
-                if ($result['soft'] === $resultFinalLign['soft']) {
-                    $this->finalResult[$i]['points'] += $result['points'];
-                    $result['points'] = 0;
+            $maProprieteTest = $this->getFinalResult();
+            if( $maProprieteTest != null) {
+                foreach ($maProprieteTest as $resultFinalLign) {
+                    if ($result['soft'] === $resultFinalLign['soft']) {
+                        $this->finalResult[$i]['points'] += $result['points'];
+                        $result['points'] = 0;
+                    }
+                    $i++;
                 }
-                $i++;
+                if ($result['points'] != 0) {
+                    array_push($this->finalResult, $result);
+                }
+            } else {
+                array_push($this->finalResult, $result);
             }
-            if($result['points'] != 0){
-                array_push($this->finalResult,$result);
-            }
+            $j++;
         }
         return true;
     }
