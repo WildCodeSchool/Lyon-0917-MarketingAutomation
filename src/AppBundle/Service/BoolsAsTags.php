@@ -45,7 +45,7 @@ class BoolsAsTags
 
                }
                $result = array(
-                   "slug" => $arrayBool[1],
+                   "slug" => trim($arrayBool[1]),
                    "entitie"  => $arrayBool[0],
                    "number" => $number
                );
@@ -58,11 +58,40 @@ class BoolsAsTags
        return $bools;
    }
 
-   public function getNbSoftwaresByBool($bool, $entity) : int{
+   public function getNbSoftwaresByBool($bool, $entity) :int{
 
        return count($this->em->getRepository(SoftMain::class)->getSoftByAnyBool($bool, $entity));
     }
 
+
+    public function getListSoftwaresByEntitieSlug($slug) :array {
+
+            $softwares = [];
+            $arrayResult = $this->getBoolAndEntityBySlug($slug);
+            $softwares = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($arrayResult['bool'], $arrayResult['entitie']);
+
+            return $softwares;
+        }
+
+        public function getBoolAndEntityBySlug($slug) {
+
+            $result = [];
+            $j = 0;
+            $entityKeys = array_keys($this->getConfig()['Booleans']);
+            foreach ($this->getConfig()['Booleans'] as $table) {
+                $i=0;
+                $booleanKeys = array_keys($table);
+                foreach ($table as $synonym) {
+                    if (stristr($synonym, $slug) != FALSE) {
+                        $result['bool'] = $booleanKeys[$i] ;
+                        $result['entitie'] = $entityKeys[$j];
+                    }
+                    $i++;
+                }
+                $j++;
+            }
+            return $result;
+        }
     /**
      * @return mixed
      */

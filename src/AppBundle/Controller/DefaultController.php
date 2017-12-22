@@ -101,10 +101,26 @@ class DefaultController extends Controller
 
     /**
      * @Route("tag/{slug}", name="tagSolo")
+     * @param Request $request
+     * @param BoolsAsTags $boolsAsTags
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public
-    function tagAction(Request $request, Tag $tag)
+    function tagAction(Request $request, string $slug, BoolsAsTags $boolsAsTags)
     {
+
+        $repository = $this->getDoctrine()->getRepository(Tag::class);
+        $tag = $repository->findOneBy(['slug' => $slug]);
+
+        if ( empty($tag) ) {
+            $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
+            return $this->render('default/unique-tag.html.twig', [
+
+                'softwares' => $softwares,
+
+            ]);
+        }
+
         return $this->render('default/unique-tag.html.twig', [
 
             'tag' => $tag,
