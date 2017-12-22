@@ -18,6 +18,9 @@ class AwesomeSearch
 {
 
     const BOOLPOINT = 1;
+    const TAGPOINT = 2;
+    const CONTENTPOINT = 3;
+    const NAMEPOINT = 5;
 
     /** @var ObjectManager */
     private $em;
@@ -25,12 +28,12 @@ class AwesomeSearch
     /**
      * @var mixed
      */
-    private $searchYml;
+    private $datas;
 
     /**
      * @var array
      */
-    private $resultFinal;
+    private $finalResult;
 
     /**
      * AwesomeSearch constructor.
@@ -39,16 +42,19 @@ class AwesomeSearch
     public function __construct(EntityManagerInterface $em, $rootDir)
     {
         $this->em = $em;
-        $this->resultFinal = array();
-        $this->searchYml = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
+        $this->finalResult = array();
+        $this->datas = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
 
     }
 
-    public function search($query)
+    public function search(string $query) :array
     {
+        /**
+         *
+         * Receive the exact query ask by user, give a array of ordered softwares, ready to display
+         */
 
-        // Here, we get a query, return an array with results sorts
-        $finalResult = [];
+        $result = [];
 
         // Clean query with method : delete stop and little words
         $words = $this->cleanQuery($query);
@@ -56,66 +62,97 @@ class AwesomeSearch
         // foreach words, look if it's in title, or drescription, or bool
         foreach ($words as $word) {
 
-            $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
+            /**
+             *
+             */
 
             $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
+            $this->addPertinencePoint($softmainDescriptionResults, self::CONTENTPOINT);
+
 
             $commentResults = $this->em->getRepository(SoftMain::class)->searchInComment($word);
+            $this->addPertinencePoint($commentResults, self::CONTENTPOINT);
+
 
             $advantagesResults = $this->em->getRepository(SoftMain::class)->searchInAdvantages($word);
+            $this->addPertinencePoint($advantagesResults, self::CONTENTPOINT);
+
 
             $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
+            $this->addPertinencePoint($drawbacksResults, self::CONTENTPOINT);
+
 
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
+            $this->addPertinencePoint($typeResults, self::CONTENTPOINT);
+
 
             $customersResults = $this->em->getRepository(SoftInfo::class)->searchInCustomers($word);
+            $this->addPertinencePoint($customersResults, self::CONTENTPOINT);
+
 
             $hostingCountryResults = $this->em->getRepository(SoftInfo::class)->searchInHostingCountry($word);
+            $this->addPertinencePoint($hostingCountryResults, self::CONTENTPOINT);
+
 
             $creationDateResults = $this->em->getRepository(SoftInfo::class)->searchInCreationDate($word);
+            $this->addPertinencePoint($creationDateResults, self::CONTENTPOINT);
 
             $webSiteResults = $this->em->getRepository(SoftInfo::class)->searchInWebSite($word);
+            $this->addPertinencePoint($webSiteResults, self::CONTENTPOINT);
 
             $knowledgeBaseLanguageResults = $this->em->getRepository(SoftSupport::class)->searchInKnowledgeBaseLanguage($word);
+            $this->addPertinencePoint($knowledgeBaseLanguageResults, self::CONTENTPOINT);
+
 
             $tagNameResults = $this->em->getRepository(Tag::class)->searchInTagName($word);
+            $this->addPertinencePoint($tagNameResults, self::TAGPOINT);
+
 
             $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
+            $this->addPertinencePoint($tagDescriptionResults, self::TAGPOINT);
 
-            $boolResults = $this->searchInYml($word);
+            $boolResults = $this->rateByBool($word);
 
         }
-        return $finalResult;
+        return $result;
     }
 
-    private function cleanQuery($query)
+    private function cleanQuery(string $query) :array
     {
 
-        // Receive  a dirty query, give a clean array of words to explore
+        /**
+         *
+         * Receive the exact query ask by user, give a clean array of words to explore whithout stop words and other stuffs
+         *
+         */
 
         $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
         $goodQuery = [];
-        $emptyWords = $this->getSearchYml()["EmptyWords"];
+        $emptyWords = $this->getDatas()["EmptyWords"];
 
-            foreach ($arrayOfWords as $word) {
-                $isDirtyOrNot = in_array($word, $emptyWords);
-                if ($isDirtyOrNot === false AND strlen($word)) {
-                    $goodQuery[] .= $word;
-                }
+        foreach ($arrayOfWords as $word) {
+            $isDirtyOrNot = in_array($word, $emptyWords);
+            if ($isDirtyOrNot === false AND strlen($word)) {
+                $goodQuery[] .= $word;
             }
+        }
 
         return $goodQuery;
     }
-    public function searchInYml($word)
+
+
+    public function rateByBool(string $word)
     {
-        /*
-         * This method
+        /**
+         * This method look in data where is the synonym of a given word
+         * When match with any entities and booleans, it get an array of SoftMains where boolean is true.
+         * this array of SoftMains is rated by other method, and finally it merged in class property finalResult.
          */
 
         $resultTable = [];
         $j = 0;
-        $entityKeys = array_keys($this->getSearchYml()['Booleans']);
-        foreach ($this->getSearchYml()['Booleans'] as $table) {
+        $entityKeys = array_keys($this->getDatas()['Booleans']);
+        foreach ($this->getDatas()['Booleans'] as $table) {
             $i=0;
             $booleanKeys = array_keys($table);
             foreach ($table as $synonym) {
@@ -133,19 +170,20 @@ class AwesomeSearch
     }
 
 // cette fonction prend en argument un array et parcourt le resultFinal, lajoute chaque ligne de l'array si elle n'existe pas ou alors ajoute à l'id deja existant
-    public function addToFinalResult($array)
+
+    public function addToFinalResult(array $array)
     {
         foreach ($array as $result) {
             $i = 0;
-            foreach ($this->resultFinal as $resultFinalLign) {
+            foreach ($this->finalResult as $resultFinalLign) {
                 if ($result['soft'] === $resultFinalLign['soft']) {
-                    $this->resultFinal[$i]['points'] += $result['points'];
+                    $this->finalResult[$i]['points'] += $result['points'];
                     $result['points'] = 0;
                 }
                 $i++;
             }
             if($result['points'] != 0){
-                array_push($this->resultFinal,$result);
+                array_push($this->finalResult,$result);
             }
         }
         return true;
@@ -161,15 +199,33 @@ class AwesomeSearch
     /**
      * @return mixed
      */
-    public function getSearchYml()
+    public function getDatas()
     {
-        return $this->searchYml;
+        return $this->datas;
     }
     /**
      * @return array
      */
-    public function getResultFinal()
+    public function getFinalResult()
     {
-        return $this->resultFinal;
+        return $this->finalResult;
+    }
+
+    public function addPertinencePoint(array $results, $pertinencePoint)
+    {
+        $resultsPoint = [];
+
+        for ($i = 0; $i < count($results); $i++) {
+
+            $soft = array('soft' => $results[$i]);
+            $point = array('point' => $pertinencePoint);
+
+            $resultsPoint[] = $soft + $point;
+            //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
+            //$this->addToFinalResult($resultTable);
+        }
+
+        return $resultsPoint;
+
     }
 }
