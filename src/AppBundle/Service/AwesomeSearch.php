@@ -3,10 +3,10 @@
 
 namespace AppBundle\Service;
 
+use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
 use Symfony\Component\Yaml\Yaml;
-use AppBundle\Repository\SoftMainRepository;
 use AppBundle\Entity\SoftInfo;
 use AppBundle\Entity\SoftSupport;
 use AppBundle\Entity\Tag;
@@ -17,17 +17,20 @@ use AppBundle\Entity\Tag;
 class AwesomeSearch
 {
 
-
-
-    private $em;
-
-    private $searchYml;
-
-    private $resultFinal;
-
-
     const BOOLPOINT = 1;
 
+    /** @var ObjectManager */
+    private $em;
+
+    /**
+     * @var mixed
+     */
+    private $searchYml;
+
+    /**
+     * @var array
+     */
+    private $resultFinal;
 
     /**
      * AwesomeSearch constructor.
@@ -41,37 +44,46 @@ class AwesomeSearch
 
     }
 
-
     public function search($query)
     {
 
         // Here, we get a query, return an array with results sorts
-
-        $words = $this->cleanQuery($query);
         $finalResult = [];
 
+        // Clean query with method : delete stop and little words
+        $words = $this->cleanQuery($query);
 
         // foreach words, look if it's in title, or drescription, or bool
-
         foreach ($words as $word) {
 
-
             $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
+
             $softmainDescriptionResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainDescription($word);
+
             $commentResults = $this->em->getRepository(SoftMain::class)->searchInComment($word);
+
             $advantagesResults = $this->em->getRepository(SoftMain::class)->searchInAdvantages($word);
+
             $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
+
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
+
             $customersResults = $this->em->getRepository(SoftInfo::class)->searchInCustomers($word);
+
             $hostingCountryResults = $this->em->getRepository(SoftInfo::class)->searchInHostingCountry($word);
+
             $creationDateResults = $this->em->getRepository(SoftInfo::class)->searchInCreationDate($word);
+
             $webSiteResults = $this->em->getRepository(SoftInfo::class)->searchInWebSite($word);
+
             $knowledgeBaseLanguageResults = $this->em->getRepository(SoftSupport::class)->searchInKnowledgeBaseLanguage($word);
+
             $tagNameResults = $this->em->getRepository(Tag::class)->searchInTagName($word);
+
             $tagDescriptionResults = $this->em->getRepository(Tag::class)->searchInTagDescription($word);
 
-
             $boolResults = $this->searchInYml($word);
+
         }
         return $finalResult;
     }
@@ -96,6 +108,10 @@ class AwesomeSearch
     }
     public function searchInYml($word)
     {
+        /*
+         * This method
+         */
+
         $resultTable = [];
         $j = 0;
         $entityKeys = array_keys($this->getSearchYml()['Booleans']);
