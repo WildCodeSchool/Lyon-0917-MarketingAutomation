@@ -38,7 +38,7 @@ class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->where('s.creationDate LIKE :creationDate')
-            ->setParameter('webScreationDateite', $softinfo)
+            ->setParameter('creationDate', $softinfo)
             ->getQuery();
         return $qb->getResult();
     }
