@@ -7135,6 +7135,8 @@ nav {
 
 #table {
   min-height: 100vh; }
+  #table p {
+    margin-top: 3%; }
 
 #home h1 {
   color: white;
@@ -7375,7 +7377,6 @@ body {
   body p {
     font-size: 1.1em;
     text-align: justify;
-    margin-top: 5%;
     margin-bottom: 5%; }
   body table {
     margin-top: -3%;
