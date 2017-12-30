@@ -261,8 +261,8 @@ class ImportEntities
                 //if line is empty, continue
                 if (implode($row) == null) continue;
                 // if line is ahead, go to next line
-                if ($row[0] === "Nom") {
-                    $splSoftFile->next();
+                if ($row[0] === $this->getConfig()[$type]["header"]) {
+                //    $splSoftFile->next();
                 } else {
                     $convertedData = [];
 //                $stillExists = $this->searchForDuplicate($type, $row);
