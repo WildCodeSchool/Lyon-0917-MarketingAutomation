@@ -65,6 +65,7 @@ class DefaultController extends Controller
     public
     function resultsAction(Request $request, $researchContent)
     {
+        $_SESSION['researchContent'] = $researchContent;
         $em = $this->getDoctrine()->getManager();
         $tableDatas = explode(" ", $researchContent);
         $results = [];
@@ -78,6 +79,7 @@ class DefaultController extends Controller
         }
         return $this->render('default/results.html.twig', [
             'softwares' => $results,
+            'session' => $_SESSION['researchContent'],
         ]);
     }
 
@@ -178,9 +180,11 @@ class DefaultController extends Controller
                 ));
 
             }else{
+                $_SESSION['versus1'] = $soft1->getName();
+                $_SESSION['versus2'] = $soft2->getName();
                 return $this->redirectToRoute('versus', array(
                     'slug1' => $soft1->getSlug(),
-                    'slug2' => $soft2->getSlug()
+                    'slug2' => $soft2->getSlug(),
                 ));
             }
 
@@ -251,6 +255,8 @@ class DefaultController extends Controller
             }
             else
             {
+                $_SESSION['versus1'] = $soft1->getName();
+                $_SESSION['versus2'] = $soft2->getName();
                 return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
             }
         }
