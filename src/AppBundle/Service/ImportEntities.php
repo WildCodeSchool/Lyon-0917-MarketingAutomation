@@ -8,6 +8,22 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
+use SplFileObject;
+
+
+/*
+ * Special service to import 3 CSV files, which can be find in  app/Resources/datas
+ *
+ * To import CSV, figure out service command "ImportCommand"
+ *
+ * 3 files for : softwares (description of each software + list of tags), list of tags, versus (software versus software)
+ * manually set, with a description.
+ *
+ * Important : moulinette use DataBase map, describe in app/config/import.yml
+ *
+ * CSV file must match with fields and relationships.
+ *
+ */
 
 class ImportEntities
 {
@@ -35,35 +51,36 @@ class ImportEntities
         $this->em = $em;
         $this->errors = array();
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/import.yml"));
-        /*
-                // D'abord on vérifie si ce qu'on reçoit est bien un fichier lisible, si c'est pas le cas, on envoie une exception
-                if(!file_exists($fileFromConsole)) {
-                    //TODO : améliorer ce truc
-                    throw new \Exception("Ce n'est pas un fichier");
-                }else{
-                }
-                 */
+
     }
 
-    private function fileInit($fileFromConsole)
-    {
-        //by default delimiter is ","
+    /*
+     * Receive a file, give an object with parameters to read CSV file (delimiter is ",")
+     */
 
-        // Si c'est un fichier, on créé une nouvelle instance de SplFileObject
+    private function fileInit(string $fileFromConsole): \SplFileObject
+    {
+
+
         $file = new \SplFileObject($fileFromConsole);
 
-        // On définit les drapeaux : saute la ligne si elle est vide
 
         $file->setFlags(
-            \SplFileObject::READ_CSV |
-            \SplFileObject::READ_AHEAD |
-            \SplFileObject::SKIP_EMPTY |
-            \SplFileObject::DROP_NEW_LINE);
+            SplFileObject::READ_CSV|
+            SplFileObject::READ_AHEAD |
+            SplFileObject::SKIP_EMPTY |
+            SplFileObject::DROP_NEW_LINE
+            );
 
         return $file;
     }
 
-    private function checkIfInteger($fileName, $line, $value, $column)
+
+    /*
+     * Verify match between expected data (here integer) and effective data, and return error if not matching
+     */
+
+    private function checkIfInteger(string $fileName, int $line, $value, int $column)
     {
 
         if (preg_match("#[0-9]# ", $value) === FALSE && $value != "") {
@@ -71,8 +88,14 @@ class ImportEntities
         }
     }
 
-    private function checkIfBool($fileName, $line, $value, $column)
+
+    /*
+    * Verify correspondance between expected data (here boolean) and effective data, and return error if not matching
+    */
+
+    private function checkIfBool(string $fileName, int $line, $value, int $column)
     {
+
         if (is_bool($value) === FALSE) {
             if (isset($value)) {
                 array_push($this->errors, "Fichier " . $fileName . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
@@ -81,9 +104,13 @@ class ImportEntities
 
     }
 
-// conversion des "oui" ou "non" ou "" par les booleens correspondants
-    private function convertToBool($value)
+    /*
+    * To be display online, translate Booleans from true or false to "oui" or "non"
+    */
+
+    private function convertToBool(string $value)
     {
+
         $value = strtolower($value);
 
         if ($value === "oui") {
@@ -101,7 +128,12 @@ class ImportEntities
         }
     }
 
-    public function searchForDuplicate($file, array $row)
+
+    /*
+    * Check if owner of files inconveniently duplicate data
+    */
+
+    public function searchForDuplicate(string $file, array $row)
     {
 
         switch ($file) {
@@ -123,11 +155,18 @@ class ImportEntities
 
         }
 
-
     }
 
-    public function verifCsv($softFile, $fileName)
+
+    /*
+    *
+    * Check if there are the same number of rows in the config file (import.yml) and in csv file.
+    * If not, return an error in console
+    *
+    */
+    public function verifCsv(string $softFile, string $fileName)
     {
+
         $softEntitiesYml = $this->getConfig()[$fileName]["entities"];
         $splSoftFile = $this->fileInit($softFile);
 
@@ -201,10 +240,19 @@ class ImportEntities
         }
     }
 
-// Ready for softwares and versus files
 
-    public function import($softFile, $type)
+
+    /*
+     *
+     * Final import function : give location of file (not yet an object)
+     * with type of topic (tag or software or versus),
+     * after verifications
+     *
+     */
+
+    public function import(string $softFile, string $type)
     {
+
         $softEntitiesYml = $this->getConfig()[$type]["entities"];
         $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
@@ -212,6 +260,7 @@ class ImportEntities
 
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
+                if(implode($row) == null)continue;
                 $convertedData = [];
 //                $stillExists = $this->searchForDuplicate($type, $row);
 //                if (null === $stillExists) {
@@ -319,53 +368,63 @@ class ImportEntities
     }
 
 
+    /*
+     * Get errors to be display in console
+     * See Console Command service in AppBundle/Command/ImportCommand.php
+     */
 
-public
-function getErrors()
-{
-    return $this->errors;
-}
-
-
-private
-function countLines(\SplFileObject $file)
-{
-
-    // On va à la fin max du fichier
-    $file->seek(PHP_INT_MAX);
-
-    // On récupère le nombre de lignes et on hydrate la propriété avec
-    $totalLines = $file->key() + 1;
-
-    // On remonte le pointeur au début du fichier
-    $file->seek(0);
-
-    return $totalLines;
-}
-
-/**
- * @return mixed
- */
-public
-function getConfig()
-{
-    return $this->config;
-}
-
-/**
- * @param $connection
- */
-//This function has to be implemented inside a transaction with a commit at the end
-public
-function deleteAllContent(Connection $connection, $dbName)
-{
-    $connection->query('SET FOREIGN_KEY_CHECKS=0');
-    foreach ($this->getConfig()["table-names"] as $tableName) {
-        $connection->query("DELETE FROM " . $dbName . "." . $tableName . ";");
-        // Beware of ALTER TABLE here--it's another DDL statement and will cause
-        // an implicit commit.
-
+    public
+    function getErrors()
+    {
+        return $this->errors;
     }
-    $connection->query('SET FOREIGN_KEY_CHECKS=1');
-}
+
+    /*
+     * Count lines and can be useful to set a progress bar.
+     * Finally not use, but still here.
+     */
+
+    private
+    function countLines(\SplFileObject $file)
+    {
+
+        // On va à la fin max du fichier
+        $file->seek(PHP_INT_MAX);
+
+        // On récupère le nombre de lignes et on hydrate la propriété avec
+        $totalLines = $file->key() + 1;
+
+        // On remonte le pointeur au début du fichier
+        $file->seek(0);
+
+        return $totalLines;
+    }
+
+    /**
+     * @return mixed
+     */
+    public
+    function getConfig()
+    {
+        return $this->config;
+    }
+
+    /**
+     *  // TODO : better explanation of this function
+     * This function has to be implemented inside a transaction with a commit at the end
+     * @param $connection
+     */
+
+    public
+    function deleteAllContent(Connection $connection, $dbName)
+    {
+        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+        foreach ($this->getConfig()["table-names"] as $tableName) {
+            $connection->query("DELETE FROM " . $dbName . "." . $tableName . ";");
+            // Beware of ALTER TABLE here--it's another DDL statement and will cause
+            // an implicit commit.
+
+        }
+        $connection->query('SET FOREIGN_KEY_CHECKS=1');
+    }
 }
