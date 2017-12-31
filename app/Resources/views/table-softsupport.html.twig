@@ -3,27 +3,75 @@
     <tbody>
     <tr>
         <th>{{ 'isEmailSupport'|trans }}</th>
-        <td>{{ softmain.softSupport.isEmailSupport }}</td>
+        <td>
+            {% if softmain.softSupport.isEmailSupport  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSupport.isEmailSupport == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isPhoneSupport'|trans }}</th>
-        <td>{{ softmain.softSupport.isPhoneSupport }}</td>
+        <td>
+            {% if softmain.softSupport.isPhoneSupport  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSupport.isPhoneSupport == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isChatSupport'|trans }}</th>
-        <td>{{ softmain.softSupport.isChatSupport }}</td>
+        <td>
+            {% if softmain.softSupport.isChatSupport  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSupport.isChatSupport == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isKnowledgeBase'|trans }}</th>
-        <td>{{ softmain.softSupport.isKnowledgeBase }}</td>
+        <td>
+            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+            {{ softmain.softSupport.isKnowledgeBase }}</td>
     </tr>
     <tr>
         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
-        <td>{{ softmain.softSupport.knowledgeBaseLanguage }}</td>
+        <td>
+            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+            {{ softmain.softSupport.knowledgeBaseLanguage }}</td>
     </tr>
     <tr>
         <th>{{ 'isTechnicalDocument'|trans }}</th>
-        <td>{{ softmain.softSupport.isTechnicalDocument }}</td>
+        <td>
+            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+            {{ softmain.softSupport.isTechnicalDocument }}</td>
     </tr>
     </tbody>
 </table>
