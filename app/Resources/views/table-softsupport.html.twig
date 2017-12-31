@@ -40,38 +40,38 @@
     <tr>
         <th>{{ 'isKnowledgeBase'|trans }}</th>
         <td>
-            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+            {% if softmain.softSupport.isKnowledgeBase  == false %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+            {% elseif softmain.softSupport.isKnowledgeBase == true %}
                 <i class="small material-icons green-text">check</i>
             {% else %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
-            {{ softmain.softSupport.isKnowledgeBase }}</td>
+        </td>
     </tr>
     <tr>
         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
         <td>
-            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+            {% if softmain.softSupport.knowledgeBaseLanguage  == false %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+            {% elseif softmain.softSupport.knowledgeBaseLanguage == true %}
                 <i class="small material-icons green-text">check</i>
             {% else %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
-            {{ softmain.softSupport.knowledgeBaseLanguage }}</td>
+            }</td>
     </tr>
     <tr>
         <th>{{ 'isTechnicalDocument'|trans }}</th>
         <td>
-            {% if softmain.softSocialMedia.isInstagramAutoPublication  == false %}
+            {% if softmain.softSupport.isTechnicalDocument  == false %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softSocialMedia.isInstagramAutoPublication == true %}
+            {% elseif softmain.softSupport.isTechnicalDocument == true %}
                 <i class="small material-icons green-text">check</i>
             {% else %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
-            {{ softmain.softSupport.isTechnicalDocument }}</td>
+        </td>
     </tr>
     </tbody>
 </table>
