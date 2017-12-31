@@ -3,19 +3,51 @@
     <tbody>
     <tr>
         <th>{{ 'isLeadScoring'|trans }}</th>
-        <td>{{ softmain.softMarketingCampaign.isLeadScoring }}</td>
+        <td>
+            {% if softmain.softMarketingCampaign.isLeadScoring == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isLeadScoring == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isCreationCampaign'|trans }}</th>
-        <td>{{ softmain.softMarketingCampaign.isCreationCampaign }}</td>
+        <td>
+            {% if softmain.softMarketingCampaign.isCreationCampaign == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isCreationCampaign == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isDripMarketingCampaign'|trans }}</th>
-        <td>{{ softmain.softMarketingCampaign.isDripMarketingCampaign }}</td>
+        <td>
+            {% if softmain.softMarketingCampaign.isDripMarketingCampaign == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isDripMarketingCampaign == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isDragAndDrop'|trans }}</th>
-        <td>{{ softmain.softMarketingCampaign.isDragAndDrop }}</td>
+        <td>
+            {% if softmain.softMarketingCampaign.isDragAndDrop == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isDragAndDrop == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
