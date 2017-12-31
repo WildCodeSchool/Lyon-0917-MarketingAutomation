@@ -3,31 +3,87 @@
     <tbody>
     <tr>
         <th>{{ 'isContactObject'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isContactObject }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isContactObject == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isContactObject == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isCompanyObject'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isCompanyObject }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isCompanyObject == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isCompanyObject == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isDefinedFields'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isDefinedFields }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isDefinedFields == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isDefinedFields == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isIllimitedFields'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isIllimitedFields }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isIllimitedFields == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isIllimitedFields == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isImportCsv'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isImportCsv }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isImportCsv == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isImportCsv == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isAutoDuplicate'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isAutoDuplicate }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isAutoDuplicate == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isAutoDuplicate == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isLeadStages'|trans }}</th>
-        <td>{{ softmain.softLeadsOperation.isLeadStages }}</td>
+        <td>
+            {% if softmain.softLeadsOperation.isLeadStages == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
