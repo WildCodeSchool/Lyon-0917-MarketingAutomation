@@ -1,13 +1,30 @@
 
-<table class="striped">
+<table class="striped highlight">
     <tbody>
     <tr>
         <th>{{ 'isActivityReportCreation'|trans }}</th>
-        <td>{{ softmain.softReport.isActivityReportCreation }}</td>
+        <td>
+            {% if softmain.softReport.isActivityReportCreation  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
-        <td>{{ softmain.softReport.isActivityReportPeriodicSend }}</td>
+        <td>
+            {% if softmain.softReport.isActivityReportPeriodicSend  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
+
