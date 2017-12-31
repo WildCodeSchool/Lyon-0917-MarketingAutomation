@@ -7382,6 +7382,8 @@ body {
   body th, body td {
     height: 40px;
     vertical-align: middle; }
+    body th p, body td p {
+      margin-bottom: auto; }
   body section {
     min-height: 100vh; }
   body .top {
