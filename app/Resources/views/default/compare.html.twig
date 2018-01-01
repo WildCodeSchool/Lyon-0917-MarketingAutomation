@@ -70,11 +70,11 @@
                 </a>
 
                 {% if versus is defined %}
-                {% for versu in versus %}
-                <div class="col s12 m12" id="SpecificCompareComment">
-                    <p>{{ versu.description }}</p>
-                </div>
-                {% endfor %}
+                    {% for versu in versus %}
+                        <div class="col s12 m12" id="SpecificCompareComment">
+                          <p>{{ versu.description | raw }}</p>
+                        </div>
+                    {% endfor %}
                 {% endif %}
             </div>
             <div id="tableVersus">
