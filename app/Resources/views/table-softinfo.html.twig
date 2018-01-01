@@ -3,55 +3,55 @@
     <tbody>
     <tr>
         <th>{{ 'name'|trans }}</th>
-        <td>{{ softmain.name }}</td>
+        <td>{{ softmain.name | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'type'|trans }}</th>
-        <td>{{ softmain.type }}</td>
+        <td>{{ softmain.type | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'advantages'|trans }}</th>
-        <td>{{ softmain.advantages }}</td>
+        <td>{{ softmain.advantages | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'drawbacks'|trans }}</th>
-        <td>{{ softmain.drawbacks }}</td>
+        <td>{{ softmain.drawbacks | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'rgpd'|trans }}</th>
-        <td>{{ softmain.softInfo.rgpd }}</td>
+        <td>{{ softmain.softInfo.rgpd | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'customers'|trans }}</th>
-        <td>{{ softmain.softInfo.customers }}</td>
+        <td>{{ softmain.softInfo.customers | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'hostingCountry'|trans }}</th>
-        <td>{{ softmain.softInfo.hostingCountry }}</td>
+        <td>{{ softmain.softInfo.hostingCountry | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'creationDate'|trans }}</th>
-        <td>{{ softmain.softInfo.creationDate }}</td>
+        <td>{{ softmain.softInfo.creationDate | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'annualTurnover'|trans }}</th>
-        <td>{{ softmain.softInfo.annualTurnover }}</td>
+        <td>{{ softmain.softInfo.annualTurnover | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'configCost'|trans }}</th>
-        <td>{{ softmain.softInfo.configCost }}</td>
+        <td>{{ softmain.softInfo.configCost | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'subscriptionCost'|trans }}</th>
-        <td>{{ softmain.softInfo.subscriptionCost }}</td>
+        <td>{{ softmain.softInfo.subscriptionCost | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'trainingCost'|trans }}</th>
-        <td>{{ softmain.softInfo.trainingCost }}</td>
+        <td>{{ softmain.softInfo.trainingCost | raw }}</td>
     </tr>
     <tr>
         <th>{{ 'webSite'|trans }}</th>
-        <td><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name }}</a></td>
+        <td><a href="{{ softmain.softInfo.webSite | raw }}">{{ softmain.name  | raw }}</a></td>
     </tr>
     </tbody>
 </table>
