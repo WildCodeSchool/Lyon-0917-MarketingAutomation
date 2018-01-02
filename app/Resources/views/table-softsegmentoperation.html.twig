@@ -1,13 +1,29 @@
 
-<table class="striped highlight">
+<table class="striped">
     <tbody>
     <tr>
         <th>{{ 'isSegmentCreation'|trans }}</th>
-        <td>{{ softmain.softSegmentOperation.isSegmentCreation }}</td>
+        <td>
+        {% if softmain.softSegmentOperation.isSegmentCreation  == false %}
+            <i class="small material-icons red-text">close</i>
+        {% elseif softmain.softSegmentOperation.isSegmentCreation == true %}
+            <i class="small material-icons green-text">check</i>
+        {% else %}
+            <p class="center-align">Non communiqué</p>
+        {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isIntelligentSegment'|trans }}</th>
-        <td>{{ softmain.softSegmentOperation.isIntelligentSegment }}</td>
+        <td>
+            {% if softmain.softSegmentOperation.isIntelligentSegment  == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSegmentOperation.isIntelligentSegment == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
