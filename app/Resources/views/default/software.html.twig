@@ -32,35 +32,35 @@
 
         {% include 'table-softinfo.html.twig' %}
 
-        <h2>Canaux de communication sortants (outbound) de {{ softmain.name }}</h2>
+        <h2>Canaux de communication sortants (outbound)</h2>
 
         {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Supports de communication entrant (inbound) de {{ softmain.name }} </h2>
+        <h2>Supports de communication entrant (inbound)</h2>
 
         {% include 'table-softcommsupport.html.twig' %}
 
-        <h2>Gestion des contacts de {{ softmain.name }}</h2>
+        <h2>Gestion des contacts</h2>
 
         {% include 'table-softleadsoperation.html.twig' %}
 
-        <h2>Gestion des segments de {{ softmain.name }}</h2>
+        <h2>Gestion des segments</h2>
 
         {% include 'table-softsegmentoperation.html.twig' %}
 
-        <h2>Campagnes Marketing Automation de {{ softmain.name }}</h2>
+        <h2>Campagnes Marketing Automation avec {{ softmain.name }}</h2>
 
         {% include 'table-softmarketingcampaign.html.twig' %}
 
-        <h2>Intégration Social Media de {{ softmain.name }}</h2>
+        <h2>Intégration Social Media</h2>
 
         {% include 'table-softsocialmedia.html.twig' %}
 
-        <h2>Rapports de {{ softmain.name }}</h2>
+        <h2>Rapports {{ softmain.name }}</h2>
 
         {% include 'table-softreport.html.twig' %}
 
-        <h2>Support de {{ softmain.name }}</h2>
+        <h2>Support proposé par {{ softmain.name }}</h2>
 
         {% include 'table-softsupport.html.twig' %}
 
@@ -73,12 +73,12 @@
             <div class="col s12 m12 l12 ">
                 <h2>Une question sur {{ softmain.name }} ? Contactez-nous !</h2>
             </div>
-            <div class="col s6">
+            <div class="col offset-s3 s6 card">
                     <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
             </div>
         </div>
 
-        <h2>Voir d'autres logiciels de marketing automation :</h2>
+        <h2>Voir d'autres logiciels de marketing automation</h2>
         <div class="row">
 
             {% for software in softwares %}
