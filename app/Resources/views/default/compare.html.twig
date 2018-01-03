@@ -69,12 +69,13 @@
                     </div>
                 </a>
 
-                <div class="col s12 m12" id="SpecificCompareComment">
-                    <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie.
-                        Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc
-                        nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
-                </div>
+                {% if versus is defined %}
+                    {% for versu in versus %}
+                        <div class="col s12 m12" id="SpecificCompareComment">
+                          <p>{{ versu.description | raw }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div id="tableVersus">
                 <h2>Informations essentielles sur {{ softmain1.name | raw }} et {{ softmain2.name | raw }}</h2>
