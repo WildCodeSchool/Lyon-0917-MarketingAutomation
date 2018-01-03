@@ -32,9 +32,11 @@ class AwesomeSearch
      */
     private $finalResult;
 
+
     /**
      * AwesomeSearch constructor.
-     * @param $em
+     * @param EntityManagerInterface $em
+     * @param $rootDir
      */
     public function __construct(EntityManagerInterface $em, $rootDir)
     {
@@ -44,14 +46,16 @@ class AwesomeSearch
 
     }
 
+
+    /**
+     * Receive the exact query ask by user, give a array of ordered softwares, ready to display
+     * @param string $query
+     * @return array
+     */
+
     public function search(string $query) :array
     {
-        /**
-         *
-         * Receive the exact query ask by user, give a array of ordered softwares, ready to display
-         */
 
-        $result = [];
 
         // Clean query with method : delete stop and little words
         $words = $this->cleanQuery($query);
@@ -59,9 +63,6 @@ class AwesomeSearch
         // foreach words, look if it's in title, or drescription, or bool
         foreach ($words as $word) {
 
-            /**
-             *
-             */
             $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
             $this->addPertinencePoint($softmainNameResults, self::NAMEPOINT);
 
@@ -132,15 +133,16 @@ class AwesomeSearch
         return $result;
     }
 
+    /**
+     *
+     * @param string $query
+     * @return array
+     * Receive the exact query ask by user, give a clean array of words to explore whithout stop words and other stuffs
+     *
+     */
 
     private function cleanQuery(string $query) :array
     {
-
-        /**
-         *
-         * Receive the exact query ask by user, give a clean array of words to explore whithout stop words and other stuffs
-         *
-         */
 
         $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
         $goodQuery = [];
@@ -149,7 +151,7 @@ class AwesomeSearch
 
         foreach ($arrayOfWords as $word) {
             $isDirtyOrNot = in_array($word, $arrayEmptyWords);
-            if ($isDirtyOrNot === false AND strlen($word)) {
+            if ($isDirtyOrNot === false AND strlen($word) > 2) {
                 $goodQuery[] .= $word;
             }
         }
@@ -158,22 +160,29 @@ class AwesomeSearch
     }
 
 
+    /**
+     * @param string $word
+     * @return array
+     *
+     * This method look in data where is the synonym of a given word
+     * When match with any entities and booleans, it get an array of SoftMains where boolean is true.
+     * this array of SoftMains is rated by other method, and finally it merged in class property finalResult.
+     *
+     */
+
     public function rateByBool(string $word)
     {
-        /**
-         * This method look in data where is the synonym of a given word
-         * When match with any entities and booleans, it get an array of SoftMains where boolean is true.
-         * this array of SoftMains is rated by other method, and finally it merged in class property finalResult.
-         */
+
 
         $resultTable = [];
         $j = 0;
         $entityKeys = array_keys($this->getDatas()['Booleans']);
-        foreach ($this->getDatas()['Booleans'] as $table) {
-            $i=0;
+
+        foreach ( $this->getDatas()['Booleans'] as $table ) {
+            $i = 0;
             $booleanKeys = array_keys($table);
-            foreach ($table as $synonym) {
-                if (stristr($synonym, $word) != FALSE) {
+            foreach ( $table as $synonym ) {
+                if ( stristr($synonym, $word) != FALSE ) {
                     $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i], $entityKeys[$j]);
                     //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
                     $this->addPertinencePoint($resultTable, self::BOOLPOINT);
@@ -182,20 +191,26 @@ class AwesomeSearch
             }
             $j++;
         }
-        //Cette function DOIT return uniquement true, mais elle ajoute à final result tous les tableaux trouvés par la query. À LA VERSION FINAL: remplacer par return true
+        // TODO : Cette function DOIT return uniquement true, mais elle ajoute à final result tous les tableaux trouvés par la query. À LA VERSION FINAL: remplacer par return true
+
         return $resultTable;
     }
 
-// cette fonction prend en argument un array et parcourt le resultFinal, lajoute chaque ligne de l'array si elle n'existe pas ou alors ajoute à l'id deja existant
-
+    /**
+     * @param array $array
+     * @return bool
+     *
+     * cette fonction prend en argument un array et parcourt le resultFinal, lajoute chaque ligne de l'array si elle n'existe pas ou alors ajoute à l'id deja existant
+     *
+     */
     public function addToFinalResult(array $array)
     {
         $j = 0;
         foreach ($array as $result) {
             $i = 0;
-            $maProprieteTest = $this->getFinalResult();
-            if( $maProprieteTest != null) {
-                foreach ($maProprieteTest as $resultFinalLign) {
+            $myTestProperty = $this->getFinalResult();
+            if( $myTestProperty != null) {
+                foreach ($myTestProperty as $resultFinalLign) {
                     if ($result['soft'] === $resultFinalLign['soft']) {
                         $this->finalResult[$i]['points'] += $result['points'];
                         $result['points'] = 0;
@@ -216,10 +231,12 @@ class AwesomeSearch
     /**
      * @return EntityManagerInterface
      */
+
     public function getEm()
     {
         return $this->em;
     }
+
     /**
      * @return mixed
      */
@@ -235,6 +252,11 @@ class AwesomeSearch
         return $this->finalResult;
     }
 
+    /**
+     * @param array $results
+     * @param $pertinencePoint
+     * @return array
+     */
     public function addPertinencePoint(array $results, $pertinencePoint)
     {
         $resultsPoint = [];
