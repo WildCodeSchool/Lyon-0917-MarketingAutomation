@@ -111,13 +111,12 @@ class DefaultController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tag = $repository->findOneBy(['slug' => $slug]);
-
         if ( empty($tag) ) {
             $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
             return $this->render('default/unique-tag.html.twig', [
 
                 'softwares' => $softwares,
-
+                'description' => $request->query->get('description'),
             ]);
         }
 

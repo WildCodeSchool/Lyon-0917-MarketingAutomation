@@ -19,7 +19,7 @@
             <ul>
                 {% for bool in bools %}
                         <li class="col l4 m6 s12">
-                            <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
+                            <a href="{{ path('tagSolo', { 'slug': bool.slug , 'description' : bool.entitie }) }}">{{ bool.entitie }}</a>
                             <div class="chip">{{ bool.number }}</div>
                     </li>
 

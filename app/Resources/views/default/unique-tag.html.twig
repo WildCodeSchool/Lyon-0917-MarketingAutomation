@@ -1,25 +1,31 @@
 {% extends 'base.html.twig' %}
         {% block h1 %}
+            {% if tag is defined %}
+                <h1>{{ tag.name }}</h1>
+            {% endif %}
+            {% if softwares is defined %}
+                <h1>{{ description }}</h1>
+            {% endif %}
         {% endblock %}
 {% block body %}
     <div id="tag">
 
         {% if tag is defined %}
 
-        <p>{{ tag.description }}</p>
-        <div class="row" id="listSoftsByTags">
-            {% for software in tag.softMains %}{% include('software-card.html.twig') %}
-            {% endfor %}
+            <p>{{ tag.description }}</p>
+            <div class="row" id="listSoftsByTags">
+                {% for software in tag.softMains %}{% include('software-card.html.twig') %}
+                {% endfor %}
 
-        </div>
-    {%  endif %}
+            </div>
+        {% endif %}
 
         {% if softwares is defined %}
-    <div class="row" id="listSoftsByTags">
+            <div class="row" id="listSoftsByTags">
 
-    {% for software in softwares %}{% include('software-card.html.twig') %}
-            {% endfor %}
+                {% for software in softwares %}{% include('software-card.html.twig') %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
-                {%  endif %}
-        </div>
 {% endblock %}
