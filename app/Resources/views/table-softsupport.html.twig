@@ -53,11 +53,9 @@
         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
         <td>
             {% if softmain.softSupport.knowledgeBaseLanguage == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softSupport.knowledgeBaseLanguage == true %}
-                <i class="small material-icons green-text">check</i>
-            {% else %}
                 <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softSupport.knowledgeBaseLanguage }}
             {% endif %}
         </td>
     </tr>
