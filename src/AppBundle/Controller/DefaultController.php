@@ -55,6 +55,9 @@ class DefaultController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param $researchContent
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("results_{researchContent}", name="results")
      * @Method("GET")
      */
