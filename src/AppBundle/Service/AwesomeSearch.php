@@ -53,12 +53,13 @@ class AwesomeSearch
      * @return array
      */
 
-    public function search(string $query) :array
+    public function search(string $query)
     {
 
 
         // Clean query with method : delete stop and little words
         $words = $this->cleanQuery($query);
+
 
         // foreach words, look if it's in title, or drescription, or bool
         foreach ($words as $word) {
@@ -120,9 +121,9 @@ class AwesomeSearch
         foreach ($arrayToSort as $key => $row) {
             $point2[$key] = $row['points'];
         }
-
-        array_multisort($point2, SORT_DESC, $arrayToSort);
-
+        if (!empty($arrayToSort)) {
+            array_multisort($point2, SORT_DESC, $arrayToSort);
+        }
         $result = [];
 
         foreach ( $arrayToSort as $cell ) {

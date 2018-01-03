@@ -71,6 +71,8 @@ class DefaultController extends Controller
         $softwares = $serviceRecherche->search($researchContent);
 
 
+
+
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
         ]);

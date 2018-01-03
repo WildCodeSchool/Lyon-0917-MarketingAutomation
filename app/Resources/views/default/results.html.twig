@@ -11,7 +11,14 @@
             </div>
 
             <div class="col s12 m7 l7">
-                <p class="presults">{{ softwares|length }} Résultats <!-- insérer ici le mot-clé recherché --></p>
+                <p class="presults">{% if softwares|length > 1 %}  {{ softwares|length }} Résultats
+                    {% endif %}
+                    {% if softwares|length < 2 %}  {{ softwares|length }} Résultat
+                    {% endif %}
+
+                </p>
+                 {% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
+                    {% endif %}
                 {% for software in softwares %}
                     {% include('result-software.html.twig') %}
                 {% endfor %}
