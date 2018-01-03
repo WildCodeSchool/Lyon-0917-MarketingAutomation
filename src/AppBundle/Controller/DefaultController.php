@@ -170,8 +170,8 @@ class DefaultController extends Controller
                 ));
 
             } else {
-                $_SESSION['versus1'] = $soft1->getName();
-                $_SESSION['versus2'] = $soft2->getName();
+                $this->get("session")->set("versus1", $soft1->getName());
+                $this->get("session")->set("versus2", $soft2->getName());
                 return $this->redirectToRoute('versus', array(
                     'slug1' => $soft1->getSlug(),
                     'slug2' => $soft2->getSlug(),
@@ -240,8 +240,8 @@ class DefaultController extends Controller
                     )
                 );
             } else {
-                $_SESSION['versus1'] = $soft1->getName();
-                $_SESSION['versus2'] = $soft2->getName();
+                $this->get("session")->set("versus1", $soft1->getName());
+                $this->get("session")->set("versus2", $soft2->getName());
                 return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
             }
         }
