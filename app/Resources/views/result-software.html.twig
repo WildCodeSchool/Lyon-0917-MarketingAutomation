@@ -7,10 +7,10 @@
     </div>
     <div class="card-stacked">
         <div class="card-action">
-            <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}">{{ software.name}}</a>
+            <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}">{{ software.name |raw }}</a>
         </div>
         <div class="card-content">
-            <p class="troncate">{{ software.description }}</p>
+            <p class="troncate">{{ software.description |raw  }}</p>
         </div>
 
     </div>

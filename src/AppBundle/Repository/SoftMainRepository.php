@@ -11,14 +11,240 @@ namespace AppBundle\Repository;
 class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 {
 
-    public function getSoftMainByName($softmain)
+    /**
+     * @param $word
+     * @return array
+     */
+
+    public function getSoftMainByName($word)
     {
-        $softmain = "%" . $softmain . "%";
+        $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
             ->select('s.name')
             ->where('s.name LIKE :name')
             ->setParameter('name', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $booleanKey
+     * @param $entityName
+     * @return array
+     */
+
+    public function getSoftByAnyBool($booleanKey, $entityName)
+    {
+
+        $qb = $this
+            ->createQueryBuilder('s')
+            ->join('s.' . $entityName , 't')
+            ->where('t.' . $booleanKey . ' = true')
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInSoftmainName($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.name LIKE :name')
+            ->setParameter('name', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+
+    public function searchInSoftmainDescription($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.description LIKE :description')
+            ->setParameter('description', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+
+    public function searchInComment($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.comments LIKE :comments')
+            ->setParameter('comments', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInType($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.type LIKE :type')
+            ->setParameter('type', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInAdvantages($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.advantages LIKE :advantages')
+            ->setParameter('advantages', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInDrawbacks($word)
+    {
+        $softmain = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.drawbacks LIKE :drawbacks')
+            ->setParameter('drawbacks', $softmain)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInCustomers($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.customers LIKE :customers')
+            ->setParameter('customers', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInHostingCountry($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.hostingCountry LIKE :hostingCountry')
+            ->setParameter('hostingCountry', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInCreationDate($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.creationDate LIKE :creationDate')
+            ->setParameter('creationDate', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInWebSite($word)
+    {
+        $softinfo = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softInfo' , 'i')
+            ->where('i.webSite LIKE :webSite')
+            ->setParameter('webSite', $softinfo)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInTagName($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.tags' , 't')
+            ->where('t.name LIKE :name')
+            ->setParameter('name', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInTagDescription($word)
+    {
+        $tag = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.tags' , 't')
+            ->where('t.description LIKE :description')
+            ->setParameter('description', $tag)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $word
+     * @return array
+     */
+    public function searchInKnowledgeBaseLanguage($word)
+    {
+        $softsupport = "%" . $word . "%";
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softSupport' , 't')
+            ->where('t.knowledgeBaseLanguage LIKE :knowledgeBaseLanguage')
+            ->setParameter('knowledgeBaseLanguage', $softsupport)
             ->getQuery();
         return $qb->getResult();
     }
