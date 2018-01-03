@@ -58,10 +58,11 @@ class DefaultController extends Controller
      * @Route("results_{researchContent}", name="results")
      * @Method("GET")
      */
+
     public
     function resultsAction(Request $request, $researchContent)
     {
-        $_SESSION['researchContent'] = $researchContent;
+        $this->get("session")->set("researchContent", $researchContent);
         $serviceRecherche = $this->container->get('app.search');
 
         $softwares = $serviceRecherche->search($researchContent);
@@ -69,7 +70,6 @@ class DefaultController extends Controller
 
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
-            'session' => $_SESSION['researchContent'],
         ]);
     }
 

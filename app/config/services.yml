@@ -46,7 +46,7 @@ services:
             $rootDir: '%root_dir%'
 
     app.search:
-            class:    AppBundle\Service\AwesomeSearch
-            public:   true
-            arguments:
-                $rootDir: '%root_dir%'
+        class:    AppBundle\Service\AwesomeSearch
+        public:   true
+        arguments:
+            $rootDir: '%root_dir%'

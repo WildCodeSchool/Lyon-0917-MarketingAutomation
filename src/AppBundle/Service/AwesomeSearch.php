@@ -3,14 +3,10 @@
 
 namespace AppBundle\Service;
 
-use AppBundle\Repository\SoftMainRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use AppBundle\Entity\SoftMain;
 use Symfony\Component\Yaml\Yaml;
-use AppBundle\Entity\SoftInfo;
-use AppBundle\Entity\SoftSupport;
-use AppBundle\Entity\Tag;
 
 
 
