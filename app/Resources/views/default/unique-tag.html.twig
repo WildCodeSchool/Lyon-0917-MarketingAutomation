@@ -7,7 +7,7 @@
 {% block body %}
     <div id="tag">
 
-        <p>{{ tag.description }}</p>
+        <p>{{ tag.description | raw }}</p>
         <div class="row" id="listSoftsByTags">
             {% for software in tag.softMains %}
                 {% include('software-card.html.twig') %}
