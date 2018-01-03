@@ -46,3 +46,8 @@ services:
     AppBundle\Service\BoolsAsTags:
         arguments:
             $rootDir: '%root_dir%'
+    app.search:
+        class:    AppBundle\Service\AwesomeSearch
+        public:   true
+        arguments:
+            $rootDir: '%root_dir%'
