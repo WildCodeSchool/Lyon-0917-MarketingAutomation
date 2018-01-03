@@ -14,8 +14,6 @@ rgpd: Conformité RGPD
 customers: Pour qui ? - Clientèle
 hostingCountry: Pays d'hébergement des données
 creationDate: Date de création
-annualTurnover: CA annuel
-configCost: Coût de configuration
 subscriptionCost: Abonnement annuel / 10k contact (€ HT)
 trainingCost: Coût de formation
 webSite: Site web
@@ -48,11 +46,12 @@ isLeadStages: Lead Stages
 isSegmentCreation: Création de segment
 isIntelligentSegment: Création de segment intelligent
 
-# SoftMarketingCampaign
+# SoftMarketingCampaignutos
+isAutoResponder: Auto-répondeur
 isLeadScoring: Lead Scoring
 isCreationCampaign: Création de campagnes
-isDripMarketingCampaign: Campagne "Drip Marketing
-isDragAndDrop: Campagne "Drip Marketing"
+isDripMarketingCampaign: Campagne "Drip Marketing"
+isDragAndDrop: Editeur en Drag and Drop
 
 # SoftSocialMedia
 isTwitterMonitoring: Veille Twitter

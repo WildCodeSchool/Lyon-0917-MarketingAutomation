@@ -121,16 +121,6 @@
                         <td>{{ softmain2.softInfo.creationDate | raw }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'annualTurnover'|trans }}</th>
-                        <td>{{ softmain1.softInfo.annualTurnover | raw }}</td>
-                        <td>{{ softmain2.softInfo.annualTurnover | raw }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'configCost'|trans }}</th>
-                        <td>{{ softmain1.softInfo.configCost | raw }}</td>
-                        <td>{{ softmain2.softInfo.configCost | raw }}</td>
-                    </tr>
-                    <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
                         <td>{{ softmain1.softInfo.subscriptionCost | raw  }}</td>
                         <td>{{ softmain2.softInfo.subscriptionCost | raw }}</td>
@@ -270,6 +260,11 @@
                 </table>
                 <h2>Campagnes Marketing Automation</h2>
                 <table class="striped border">
+                    <tr>
+                        <th>{{ 'isAutoResponder'|trans }}</th>
+                        <td>{{ softmain1.softMarketingCampaign.isAutoResponder }}</td>
+                        <td>{{ softmain2.softMarketingCampaign.isAutoResponder }}</td>
+                    </tr>
                     <tr>
                         <th>{{ 'isLeadScoring'|trans }}</th>
                         <td>{{ softmain1.softMarketingCampaign.isLeadScoring }}</td>
