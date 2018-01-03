@@ -6,6 +6,7 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
+use AppBundle\Service\AwesomeSearch;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
