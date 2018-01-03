@@ -11,6 +11,11 @@ namespace AppBundle\Repository;
 class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 {
 
+    /**
+     * @param $word
+     * @return array
+     */
+
     public function getSoftMainByName($word)
     {
         $softmain = "%" . $word . "%";
@@ -23,18 +28,27 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $booleanKey
+     * @param $entityName
+     * @return array
+     */
+
     public function getSoftByAnyBool($booleanKey, $entityName)
     {
 
         $qb = $this
             ->createQueryBuilder('s')
             ->join('s.' . $entityName , 't')
-            ->where('t.' . $booleanKey . ' = :bool')
-            ->setParameter('bool', true)
+            ->where('t.' . $booleanKey . ' = true')
             ->getQuery();
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInSoftmainName($word)
     {
         $softmain = "%" . $word . "%";
@@ -45,6 +59,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
+    /**
+     * @param $word
+     * @return array
+     */
 
     public function searchInSoftmainDescription($word)
     {
@@ -57,6 +76,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
+
     public function searchInComment($word)
     {
         $softmain = "%" . $word . "%";
@@ -68,6 +92,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInType($word)
     {
         $softmain = "%" . $word . "%";
@@ -79,6 +107,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInAdvantages($word)
     {
         $softmain = "%" . $word . "%";
@@ -90,6 +122,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInDrawbacks($word)
     {
         $softmain = "%" . $word . "%";
@@ -100,6 +136,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInCustomers($word)
     {
         $softinfo = "%" . $word . "%";
@@ -112,6 +153,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInHostingCountry($word)
     {
         $softinfo = "%" . $word . "%";
@@ -124,6 +169,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInCreationDate($word)
     {
         $softinfo = "%" . $word . "%";
@@ -136,6 +185,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInWebSite($word)
     {
         $softinfo = "%" . $word . "%";
@@ -147,6 +200,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInTagName($word)
     {
         $tag = "%" . $word . "%";
@@ -159,6 +217,10 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInTagDescription($word)
     {
         $tag = "%" . $word . "%";
@@ -170,6 +232,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
+
+    /**
+     * @param $word
+     * @return array
+     */
     public function searchInKnowledgeBaseLanguage($word)
     {
         $softsupport = "%" . $word . "%";
