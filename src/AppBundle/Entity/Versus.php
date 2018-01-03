@@ -30,6 +30,13 @@ class Versus
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
      * Many Versus have One Software.
      * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus1")
      */
@@ -48,7 +55,6 @@ class Versus
      * @ORM\Column(name="description", type="text")
      */
     private $description;
-
 
     /**
      * Get id
@@ -82,6 +88,30 @@ class Versus
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Versus
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
