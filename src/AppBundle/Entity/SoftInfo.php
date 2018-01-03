@@ -49,19 +49,6 @@ class SoftInfo
      */
     private $creationDate;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="annualTurnover", type="string", length=255, nullable=true)
-     */
-    private $annualTurnover;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="configCost", type="string", length=255, nullable=true)
-     */
-    private $configCost;
 
     /**
      * @var int
@@ -195,54 +182,6 @@ class SoftInfo
     public function getCreationDate()
     {
         return $this->creationDate;
-    }
-
-    /**
-     * Set annualTurnover
-     *
-     * @param string $annualTurnover
-     *
-     * @return SoftInfo
-     */
-    public function setAnnualTurnover($annualTurnover)
-    {
-        $this->annualTurnover = $annualTurnover;
-
-        return $this;
-    }
-
-    /**
-     * Get annualTurnover
-     *
-     * @return string
-     */
-    public function getAnnualTurnover()
-    {
-        return $this->annualTurnover;
-    }
-
-    /**
-     * Set configCost
-     *
-     * @param string $configCost
-     *
-     * @return SoftInfo
-     */
-    public function setConfigCost($configCost)
-    {
-        $this->configCost = $configCost;
-
-        return $this;
-    }
-
-    /**
-     * Get configCost
-     *
-     * @return string
-     */
-    public function getConfigCost()
-    {
-        return $this->configCost;
     }
 
     /**

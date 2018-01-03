@@ -24,6 +24,13 @@ class SoftMarketingCampaign
     /**
      * @var bool
      *
+     * @ORM\Column(name="isAutoResponder", type="boolean", nullable=true)
+     */
+    private $isAutoResponder;
+
+    /**
+     * @var bool
+     *
      * @ORM\Column(name="isLeadScoring", type="boolean", nullable=true)
      */
     private $isLeadScoring;
@@ -64,6 +71,30 @@ class SoftMarketingCampaign
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set isAutoResponder
+     *
+     * @param boolean $isAutoResponder
+     *
+     * @return SoftMarketingCampaign
+     */
+    public function setIsAutoResponder($isAutoResponder)
+    {
+        $this->isAutoResponder = $isAutoResponder;
+
+        return $this;
+    }
+
+    /**
+     * Get isAutoResponder
+     *
+     * @return boolean
+     */
+    public function getIsAutoResponder()
+    {
+        return $this->isAutoResponder;
     }
 
     /**
