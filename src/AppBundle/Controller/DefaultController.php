@@ -295,6 +295,7 @@ class DefaultController extends Controller
      */
     public function searchAction(Request $request)
     {
-        return $this->redirectToRoute('results', array('researchContent' => $_GET['search']));
+        $query = $request->query->get('search');
+        return $this->redirectToRoute('results', array('researchContent' => $query));
     }
 }
