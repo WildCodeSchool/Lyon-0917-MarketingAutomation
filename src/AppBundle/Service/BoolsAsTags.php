@@ -31,67 +31,88 @@ class BoolsAsTags
     }
 
     public function getGoodBools()
-   {
-       $entityKeys = array_keys($this->getConfig()['Booleans']);
-       $bools = [];
-       $j = 0;
-       foreach($this->getConfig()['Booleans'] as $entitie) {
+    {
+        $entityKeys = array_keys($this->getConfig()['Booleans']);
+        $bools = [];
+        $j = 0;
+        foreach ($this->getConfig()['Booleans'] as $entitie) {
             $i = 0;
-           $booleanKeys = array_keys($entitie);
-           foreach($entitie as $key=>$string){
-               $arrayBool = explode(",", $string);
-               foreach($arrayBool as $bool) {
-                   $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
+            $booleanKeys = array_keys($entitie);
+            foreach ($entitie as $key => $string) {
+                $arrayBool = explode(",", $string);
+                foreach ($arrayBool as $bool) {
+                    $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
 
-               }
-               $result = array(
-                   "slug" => trim($arrayBool[1]),
-                   "entitie"  => $arrayBool[0],
-                   "number" => $number
-               );
-               $bools[] = $result;
-               $i++;
-           }
-        $j++;
-       }
+                }
+                $result = array(
+                    "slug" => trim($arrayBool[1]),
+                    "entitie" => $arrayBool[0],
+                    "number" => $number
+                );
+                $bools[] = $result;
+                $i++;
+            }
+            $j++;
+        }
 
-       return $bools;
-   }
+        return $bools;
+    }
 
-   public function getNbSoftwaresByBool($bool, $entity) :int{
+    public function getNbSoftwaresByBool($bool, $entity): int
+    {
 
-       return count($this->em->getRepository(SoftMain::class)->getSoftByAnyBool($bool, $entity));
+        return count($this->em->getRepository(SoftMain::class)->getSoftByAnyBool($bool, $entity));
     }
 
 
-    public function getListSoftwaresByEntitieSlug($slug) :array {
+    public function getListSoftwaresByEntitieSlug($slug): array
+    {
 
-            $softwares = [];
-            $arrayResult = $this->getBoolAndEntityBySlug($slug);
-            $softwares = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($arrayResult['bool'], $arrayResult['entitie']);
+        $softwares = [];
+        $arrayResult = $this->getBoolAndEntityBySlug($slug);
+        $softwares = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($arrayResult['bool'], $arrayResult['entitie']);
 
-            return $softwares;
-        }
+        return $softwares;
+    }
 
-        public function getBoolAndEntityBySlug($slug) {
+    public function getBoolAndEntityBySlug($slug)
+    {
 
-            $result = [];
-            $j = 0;
-            $entityKeys = array_keys($this->getConfig()['Booleans']);
-            foreach ($this->getConfig()['Booleans'] as $table) {
-                $i=0;
-                $booleanKeys = array_keys($table);
-                foreach ($table as $synonym) {
-                    if (stristr($synonym, $slug) != FALSE) {
-                        $result['bool'] = $booleanKeys[$i] ;
-                        $result['entitie'] = $entityKeys[$j];
-                    }
-                    $i++;
+        $result = [];
+        $j = 0;
+        $entityKeys = array_keys($this->getConfig()['Booleans']);
+        foreach ($this->getConfig()['Booleans'] as $table) {
+            $i = 0;
+            $booleanKeys = array_keys($table);
+            foreach ($table as $synonym) {
+                if (stristr($synonym, $slug) != FALSE) {
+                    $result['bool'] = $booleanKeys[$i];
+                    $result['entitie'] = $entityKeys[$j];
                 }
-                $j++;
+                $i++;
             }
-            return $result;
+            $j++;
         }
+        return $result;
+    }
+
+    public function getDescriptionBySlug($slug) {
+
+        $j = 0;
+        foreach ($this->getConfig()['Booleans'] as $table) {
+            $i=0;
+            foreach ($table as $synonym) {
+                if (stristr($synonym, $slug) != FALSE) {
+                    $description = explode(",", $synonym);
+                    $result = $description[0];
+                }
+                $i++;
+            }
+            $j++;
+        }
+        return $result;
+    }
+
     /**
      * @return mixed
      */

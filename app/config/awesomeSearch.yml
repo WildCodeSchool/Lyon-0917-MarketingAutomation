@@ -28,7 +28,7 @@ Booleans:
         isLiveChat: Live chat, live-chat
     softLeadsOperation:
         isContactObject: Objet contact, objet-contact
-        isCompanyObject: Objet societe, objet-societe
+        isCompanyObject: Objet societé, objet-societe
         isDefinedFields: Champs personnalises, champs-personnalises
         isIllimitedFields: Champs illimité, champs-illimite, illimite
         isImportCsv: Import csv, import-csv
