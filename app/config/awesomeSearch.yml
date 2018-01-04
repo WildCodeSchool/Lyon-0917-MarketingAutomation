@@ -9,7 +9,7 @@ notBool:
 
 #There are 2 informations for each booleans, used in service "BoolsAsTags". The aim of this service is to
 # use booleans as tags, so they can be display in listing tags.
-# For this, we need two informations : propertie name (like isEmail), name of property to be display (like Envoi d'email), and slug for url (like envoi-d-email). After that, you can access to each synonym.
+# For this, we need two informations : propertie name (like isEmail), name of property to be display (like Envoi d'email), and slug for url (like envoi-d-email). After that, you can access to each synonymous.
 # DO NOT DELETE ANY OF THIS 2 MAJOR INFORMATIONS. Thank you !
 
 Booleans:
@@ -67,43 +67,136 @@ Booleans:
           Name: Objet societé
           Slug: objet-societe
           Synonymous:
-        isDefinedFields: Champs personnalises, champs-personnalises
-        isIllimitedFields: Champs illimité, champs-illimite, illimite
-        isImportCsv: Import csv, import-csv
-        isAutoDuplicate: Déduplication automatique, deduplication-automatique, deduplication
-        isLeadStages: Lead stages, lead-stages
+        isDefinedFields:
+          Name: Champs personnalises
+          Slug: champs-personnalises
+          Synonymous:
+        isIllimitedFields:
+          Name: Champs illimité
+          Slug: champs-illimite
+          Synonymous: illimite
+        isImportCsv:
+          Name: Import csv
+          Slug: import-csv
+          Synonymous:
+        isAutoDuplicate:
+          Name: Déduplication automatique
+          Slug: deduplication-automatique
+          Synonymous: deduplication
+        isLeadStages:
+          Name: Lead stages
+          Slug: lead-stages
+          Synonymous:
     softSegmentOperation:
-        isSegmentCreation: Creation segment, creation-segment
-        isIntelligentSegment: creation de segment intelligent, creation-segment-intelligent
+        isSegmentCreation:
+          Name: Creation segment
+           Slug: creation-segment
+           Synonymous:
+        isIntelligentSegment:
+          Name: creation de segment intelligent
+          Slug: creation-segment-intelligent
+          Synonymous:
     softMarketingCampaign:
-        isLeadScoring: Lead scoring, lead-scoring
-        isCreationCampaign: Création campagnes, creation-campagnes
-        isDripMarketingCampaign: Campagne "Drip Marketing", campagne-drip-marketing
-        isDragAndDrop: éditeur drag drop, editeur-drap-drop
+        isLeadScoring:
+          Name: Lead scoring
+          Slug: lead-scoring
+          Synonymous:
+        isCreationCampaign:
+          Name: Création campagnes
+          Slug: creation-campagnes
+          Synonymous:
+        isDripMarketingCampaign:
+          Name: Campagne "Drip Marketing"
+          Slug: campagne-drip-marketing
+          Synonymous:
+        isDragAndDrop:
+          Name: éditeur drag drop
+          Slug: editeur-drap-drop
+          Synonymous:
     softSocialMedia:
-        isTwitterMonitoring: Veille Twitter, veille-twitter
-        isTwitterAutoPublication: Publication automatique sur Twitter, publication-automatique-twitter
-        isFacebookMonitoring: Veille facebook, veille-facebook
-        isFacebookAutoPublication: Publication automatique Facebook, publication-automatique-facebook
-        isLinkedinMonitoring: Veille linkedin, veille-linkedin
-        isLinkedinAutoPublication: Publication automatique Linkedin, publication-automatique-linkedin
-        isInstagramMonitoring: Veille instagram, veille-instagram
-        isInstagramAutoPublication: Publication automatique instagram, publication-automatique-instagram
+        isTwitterMonitoring:
+          Name: Veille Twitter
+          Slug: veille-twitter
+          Synonymous:
+        isTwitterAutoPublication:
+          Name: Publication automatique sur Twitter
+          Slug: publication-automatique-twitter
+          Synonymous:
+        isFacebookMonitoring:
+          Name: Veille facebook
+          Slug: veille-facebook
+          Synonymous:
+        isFacebookAutoPublication:
+          Name: Publication automatique Facebook
+          Slug: publication-automatique-facebook
+          Synonymous:
+        isLinkedinMonitoring:
+          Name: Veille linkedin
+          Slug: veille-linkedin
+          Synonymous:
+        isLinkedinAutoPublication:
+          Name: Publication automatique Linkedin
+          Slug: publication-automatique-linkedin
+          Synonymous:
+        isInstagramMonitoring:
+          Name: Veille instagram
+          Slug: veille-instagram
+          Synonymous:
+        isInstagramAutoPublication:
+          Name: Publication automatique instagram
+          Slug: publication-automatique-instagram
+          Synonymous:
     softReport:
-        isActivityReportCreation: creation rapport activites, creation-rapport-activites
-        isActivityReportPeriodicSend: envoi periodique rapport, envoi-periodique-rapport
+        isActivityReportCreation:
+          Name: creation rapport activites
+          Slug: creation-rapport-activites
+          Synonymous:
+        isActivityReportPeriodicSend:
+          Name: envoi periodique rapport
+          Slug: envoi-periodique-rapport
+          Synonymous:
     softSupport:
-        isEmailSupport: Support email, support-email
-        isPhoneSupport: Support telephone, support-telephone
-        isChatSupport: Support chat ligne, support-chat-ligne
-        isKnowledgeBase: Base de connaissance (langues), base-de-connaissance
-        isTechnicalDocument: Documentation technique, documentation-technique
+        isEmailSupport:
+          Name: Support email
+          Slug: support-email
+          Synonymous:
+        isPhoneSupport:
+          Name: Support telephone
+          Slug: support-telephone
+          Synonymous:
+        isChatSupport:
+          Name: Support chat ligne
+          Slug: support-chat-ligne
+          Synonymous:
+        isKnowledgeBase:
+          Name: Base de connaissance (langues)
+          Slug: base-de-connaissance
+          Synonymous:
+        isTechnicalDocument:
+          Name: Documentation technique
+          Slug: documentation-technique
+          Synonymous:
     softOtherFunctionnalities:
-        isProviderEmailChoice: Choix du provider Email, choix-provider-email
-        isBlogEdition: Edition d'un blog, edition-blog
-        isTouchPad: Tablette en magasin, tablette-magasin
-        isSmtpRelay: SMTP Relais (email transactionnel), relais-smtp
-        isRssToEmail: RSS to email, rss-to-email, flux
+        isProviderEmailChoice:
+          Name: Choix du provider Email
+          Slug: choix-provider-email
+          Synonymous:
+        isBlogEdition:
+          Name: Edition d'un blog
+          Slug: edition-blog
+          Synonymous:
+        isTouchPad:
+          Name: Tablette en magasin
+          Slug: tablette-magasin
+          Synonymous:
+        isSmtpRelay:
+          Name: SMTP Relais (email transactionnel)
+          Slug: relais-smtp
+          Synonymous:
+        isRssToEmail:
+          Name: RSS to email
+          Slug: rss-to-email
+          Synonymous: flux
 
 EmptyWords:
     allô
