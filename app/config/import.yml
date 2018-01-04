@@ -16,6 +16,8 @@ table-names:
     table14: versus
 import-tags:
     path: ../Resources/datas/import-tags.csv
+    #First line of header begin by :
+    header: Nom
     entities:
       Tag:
         fields:
@@ -32,6 +34,8 @@ import-tags:
 
 import-softwares:
         path: ../Resources/datas/import-softwares.csv
+        #First line of header begin by :
+        header: Nom
         entities:
           SoftMain:
             fields:
@@ -195,6 +199,8 @@ import-softwares:
 
 import-versus:
         path: ../Resources/datas/import-versus.csv
+        #First line of header begin by :
+        header: Nom
         entities:
           Versus:
             fields:

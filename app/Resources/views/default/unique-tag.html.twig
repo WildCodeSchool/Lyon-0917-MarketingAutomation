@@ -1,17 +1,31 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ tag.name }} : tous les logiciels de marketing automation.{% endblock %}
-{% block metadesc %}Liste des logiciels de marketing automation qui permettent %nom tag% {% endblock %}
         {% block h1 %}
-            <h1>{{ tag.name }}</h1>
+            {% if tag is defined %}
+                <h1>{{ tag.name }}</h1>
+            {% endif %}
+            {% if softwares is defined %}
+                <h1>{{ description }}</h1>
+            {% endif %}
         {% endblock %}
 {% block body %}
     <div id="tag">
+        {% if tag is defined %}
 
-        <p>{{ tag.description | raw }}</p>
-        <div class="row" id="listSoftsByTags">
-            {% for software in tag.softMains %}
-                {% include('software-card.html.twig') %}
-            {% endfor %}
-        </div>
+            <p>{{ tag.description | raw }}</p>
+            <div class="row" id="listSoftsByTags">
+                {% for software in tag.softMains %}{% include('software-card.html.twig') %}
+                {% endfor %}
+
+            </div>
+        {% endif %}
+
+        {% if softwares is defined %}
+            <p>Logiciels comportant le critère "{{ description }}"</p>
+            <div class="row" id="listSoftsByTags">
+
+                {% for software in softwares %}{% include('software-card.html.twig') %}
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}
