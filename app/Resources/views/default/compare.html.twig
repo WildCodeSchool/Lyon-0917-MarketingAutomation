@@ -337,46 +337,169 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isActivityReportCreation'|trans }}</th>
-                        <td>{{ softmain1.softReport.isActivityReportCreation }}</td>
-                        <td>{{ softmain2.softReport.isActivityReportCreation }}</td>
+                        <td>
+                            {% if softmain1.softReport.isActivityReportCreation == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softReport.isActivityReportCreation == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}</td>
+                        <td>
+                            {% if softmain2.softReport.isActivityReportCreation == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softReport.isActivityReportCreation == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
-                        <td>{{ softmain1.softReport.isActivityReportPeriodicSend }}</td>
-                        <td>{{ softmain2.softReport.isActivityReportPeriodicSend }}</td>
+                        <td>
+                            {% if softmain1.softReport.isActivityReportPeriodicSend == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softReport.isActivityReportPeriodicSend == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </table>
                 <h2>Support</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isEmailSupport'|trans }}</th>
-                        <td>{{ softmain1.softSupport.isEmailSupport }}</td>
-                        <td>{{ softmain2.softSupport.isEmailSupport }}</td>
+                        <td>
+                            {% if softmain1.softSupport.isEmailSupport  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSupport.isEmailSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.isEmailSupport  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSupport.isEmailSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isPhoneSupport'|trans }}</th>
-                        <td>{{ softmain1.softSupport.isPhoneSupport }}</td>
-                        <td>{{ softmain2.softSupport.isPhoneSupport }}</td>
+                        <td>
+                            {% if softmain1.softSupport.isPhoneSupport == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSupport.isPhoneSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.isPhoneSupport == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSupport.isPhoneSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isChatSupport'|trans }}</th>
-                        <td>{{ softmain1.softSupport.isChatSupport }}</td>
-                        <td>{{ softmain2.softSupport.isChatSupport }}</td>
+                        <td>
+                            {% if softmain1.softSupport.isChatSupport == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSupport.isChatSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.isChatSupport == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSupport.isChatSupport == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isKnowledgeBase'|trans }}</th>
-                        <td>{{ softmain1.softSupport.isKnowledgeBase }}</td>
-                        <td>{{ softmain2.softSupport.isKnowledgeBase }}</td>
+                        <td>
+                            {% if softmain1.softSupport.isKnowledgeBase == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSupport.isKnowledgeBase == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.isKnowledgeBase == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSupport.isKnowledgeBase == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
-                        <td>{{ softmain1.softSupport.knowledgeBaseLanguage }}</td>
-                        <td>{{ softmain2.softSupport.knowledgeBaseLanguage }}</td>
+                        <td>
+                            {% if softmain1.softSupport.knowledgeBaseLanguage == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.softSupport.knowledgeBaseLanguage }}
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.knowledgeBaseLanguage == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.softSupport.knowledgeBaseLanguage }}
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isTechnicalDocument'|trans }}</th>
-                        <td>{{ softmain1.softSupport.isTechnicalDocument }}</td>
-                        <td>{{ softmain2.softSupport.isTechnicalDocument }}</td>
+                        <td>
+                            {% if softmain1.softSupport.isTechnicalDocument == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSupport.isTechnicalDocument == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSupport.isTechnicalDocument == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSupport.isTechnicalDocument == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </table>
                 <h2>Autres fonctionnalités</h2>

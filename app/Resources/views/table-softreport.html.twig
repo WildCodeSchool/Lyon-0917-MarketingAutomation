@@ -6,7 +6,7 @@
         <td>
             {% if softmain.softReport.isActivityReportCreation == false %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
                 <i class="small material-icons green-text">check</i>
             {% else %}
                 <p class="center-align">Non communiqué</p>
@@ -18,7 +18,7 @@
         <td>
             {% if softmain.softReport.isActivityReportPeriodicSend == false %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
                 <i class="small material-icons green-text">check</i>
             {% else %}
                 <p class="center-align">Non communiqué</p>
