@@ -86,18 +86,60 @@
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
-                        <td>{{ softmain1.type }}</td>
-                        <td>{{ softmain2.type }}</td>
+                        <td>
+                            {% if softmain1.type == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.type }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.type == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.type }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'advantages'|trans }}</th>
-                        <td>{{ softmain1.advantages }}</td>
-                        <td>{{ softmain2.advantages }}</td>
+                        <td>
+                            {% if softmain1.advantages == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.advantages }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.advantages == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.advantages }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'drawbacks'|trans }}</th>
-                        <td>{{ softmain1.drawbacks }}</td>
-                        <td>{{ softmain2.drawbacks }}</td>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'rgpd'|trans }}</th>
@@ -120,33 +162,129 @@
                             {% endif %}
                         </td>
                     </tr>
+
+
                     <tr>
                         <th>{{ 'customers'|trans }}</th>
-                        <td>{{ softmain1.softInfo.customers }}</td>
-                        <td>{{ softmain2.softInfo.customers }}</td>
+                        <td>
+                            {% if softmain1.softInfo.customers == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.softInfo.customers }}
+                            {% endif %}
+                            {{ softmain1.softInfo.customers }}
+                        </td>
+                        <td>
+                            {% if softmain2.softInfo.customers == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.softInfo.customers }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'hostingCountry'|trans }}</th>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                         <td>{{ softmain1.softInfo.hostingCountry }}</td>
                         <td>{{ softmain2.softInfo.hostingCountry }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'creationDate'|trans }}</th>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                         <td>{{ softmain1.softInfo.creationDate }}</td>
                         <td>{{ softmain2.softInfo.creationDate }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                         <td>{{ softmain1.softInfo.subscriptionCost }}</td>
                         <td>{{ softmain2.softInfo.subscriptionCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'trainingCost'|trans }}</th>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                         <td>{{ softmain1.softInfo.trainingCost }}</td>
                         <td>{{ softmain2.softInfo.trainingCost }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'webSite'|trans }}</th>
+                        <td>
+                            {% if softmain1.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain1.drawbacks }}
+                            {% endif %}
+                            {{ softmain1.type }}
+                        </td>
+                        <td>
+                            {% if softmain2.drawbacks == false %}
+                                <p class="center-align">Non communiqué</p>
+                            {% else %}
+                                {{ softmain2.drawbacks }}
+                            {% endif %}
+                            {{ softmain2.type }}
+                        </td>
                         <td><a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name }}</a></td>
                         <td><a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name }}</a></td>
                     </tr>
