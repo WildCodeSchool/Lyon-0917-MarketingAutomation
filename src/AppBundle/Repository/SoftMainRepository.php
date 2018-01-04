@@ -28,12 +28,12 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+
     /**
      * @param $booleanKey
      * @param $entityName
      * @return array
      */
-
     public function getSoftByAnyBool($booleanKey, $entityName)
     {
 

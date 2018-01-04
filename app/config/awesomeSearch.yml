@@ -7,60 +7,65 @@ notBool:
     traingCost: cout formation
     webSite: site web
 
+#There are 2 informations for each booleans, used in service "BoolsAsTags". The aim of this service is to
+# use booleans as tags, so they can be display in listing tags.
+# For this, we need two informations : propertie name (like isEmail), name of property to be display (like Envoi d'email), and slug for url (like envoi-d-email). After that, you can access to each synonym.
+# DO NOT DELETE ANY OF THIS 2 MAJOR INFORMATIONS. Thank you !
+
 Booleans:
     softOutbound:
-        isEmail: mail
-        isSms: sms
-        isPopin: popin
-        isMailPostal: courrier postal
-        isCallcenter: centre appel
-        isPushMobile: notification push mobile
-        isApi: appel api
+        isEmail: Envoi d'email, envoi-d-email, mail
+        isSms: Envoi de sms, envoi-sms, sms
+        isPopin: Utilisation de popin, utilisation-popin, popin
+        isMailPostal: Courrier postal, courrier-postal, courrier postal
+        isCallCenter: Centre d'appels, centre-appel, centre appel
+        isPushMobile: Notification push mobile, notification-push-mobile
+        isApi: Appel api, appel-api
     softCommSupport:
-        isLandingPage: page atterrissage
-        isForm: formulaire
-        isTracking: code suivi
-        isLiveChat: live chat
+        isLandingPage: Page d'atterrissage, page-atterrissage
+        isForm: Formulaire, formulaire
+        isTracking: Code de suivi, code-suivi
+        isLiveChat: Live chat, live-chat
     softLeadsOperation:
-        isContactObject: objet contact
-        isCompanyObject: objet societe
-        isDefinedFields: champs personnalises
-        isIllimitedFields: champs illimite
-        isImportCsv: import csv
-        isAutoDuplicate: duplication automatique
-        isLeadStages: lead stages
-    softSegmentCreation:
-        isSegmentcreation: creation segment
-        isIntelligentSegment: creation segment intelligent
+        isContactObject: Objet contact, objet-contact
+        isCompanyObject: Objet societé, objet-societe
+        isDefinedFields: Champs personnalises, champs-personnalises
+        isIllimitedFields: Champs illimité, champs-illimite, illimite
+        isImportCsv: Import csv, import-csv
+        isAutoDuplicate: Déduplication automatique, deduplication-automatique, deduplication
+        isLeadStages: Lead stages, lead-stages
+    softSegmentOperation:
+        isSegmentCreation: Creation segment, creation-segment
+        isIntelligentSegment: creation de segment intelligent, creation-segment-intelligent
     softMarketingCampaign:
-        isLeadScoring: lead scoring
-        isCreationCampaign: creation campagnes
-        isDripMarketingCampaign: campagnes drip marketing
-        isDragAndDrop: editeur drag drop
+        isLeadScoring: Lead scoring, lead-scoring
+        isCreationCampaign: Création campagnes, creation-campagnes
+        isDripMarketingCampaign: Campagne "Drip Marketing", campagne-drip-marketing
+        isDragAndDrop: éditeur drag drop, editeur-drap-drop
     softSocialMedia:
-        isTwitterMonitoring: twitter veille
-        isTwitterAutoPublication: publication automatique twitter
-        isFacebookMonitoring: veille facebook
-        isFacebookAutoPublication: publication automatique facebook
-        isLinkedinMonitoring: veille linkedin
-        isLinkedinAutoPublication: publication automatique linkedin
-        isInstagramMonitoring: veille instagram
-        isInstagramAutoPublication: publication automatique instagram
+        isTwitterMonitoring: Veille Twitter, veille-twitter
+        isTwitterAutoPublication: Publication automatique sur Twitter, publication-automatique-twitter
+        isFacebookMonitoring: Veille facebook, veille-facebook
+        isFacebookAutoPublication: Publication automatique Facebook, publication-automatique-facebook
+        isLinkedinMonitoring: Veille linkedin, veille-linkedin
+        isLinkedinAutoPublication: Publication automatique Linkedin, publication-automatique-linkedin
+        isInstagramMonitoring: Veille instagram, veille-instagram
+        isInstagramAutoPublication: Publication automatique instagram, publication-automatique-instagram
     softReport:
-        isActivityReportcreation: creation rapport activites
-        isActivityReportPeriodicSend: envoi periodique rapport
+        isActivityReportCreation: creation rapport activites, creation-rapport-activites
+        isActivityReportPeriodicSend: envoi periodique rapport, envoi-periodique-rapport
     softSupport:
-        isEmailSupport: support email mail
-        isPhoneSupport: support telephone
-        isChatSupport: support chat ligne
-        isKnowledgeBase: base connaissance
-        isTechnicalDocument: documentation technique
+        isEmailSupport: Support email, support-email
+        isPhoneSupport: Support telephone, support-telephone
+        isChatSupport: Support chat ligne, support-chat-ligne
+        isKnowledgeBase: Base de connaissance (langues), base-de-connaissance
+        isTechnicalDocument: Documentation technique, documentation-technique
     softOtherFunctionnalities:
-        isProviderEmailChoice: choix provider email
-        isBlogEdition: edition blog
-        isTouchPad: tablette touchpad magasin
-        isSmtpRelay: smtp relais email transactionnel
-        isRssToEmail: rss email flux
+        isProviderEmailChoice: Choix du provider Email, choix-provider-email
+        isBlogEdition: Edition d'un blog, edition-blog
+        isTouchPad: Tablette en magasin, tablette-magasin
+        isSmtpRelay: SMTP Relais (email transactionnel), relais-smtp
+        isRssToEmail: RSS to email, rss-to-email, flux
 
 EmptyWords:
     allô
