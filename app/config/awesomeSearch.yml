@@ -50,6 +50,7 @@ Booleans:
         isForm:
           Name: Formulaire
           Slug: formulaire
+          Synonymous:
         isTracking:
           Name: Code de suivi
           Slug: code-suivi

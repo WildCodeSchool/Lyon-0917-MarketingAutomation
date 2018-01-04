@@ -38,15 +38,12 @@ class BoolsAsTags
         foreach ($this->getConfig()['Booleans'] as $entitie) {
             $i = 0;
             $booleanKeys = array_keys($entitie);
-            foreach ($entitie as $key => $string) {
-                $arrayBool = explode(",", $string);
-                foreach ($arrayBool as $bool) {
-                    $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
+            foreach ($entitie as $entitieArray) {
+                $number = $this->getNbSoftwaresByBool($booleanKeys[$i], $entityKeys[$j]);
 
-                }
                 $result = array(
-                    "slug" => trim($arrayBool[1]),
-                    "entitie" => $arrayBool[0],
+                    "slug" => trim($entitieArray['Slug']),
+                    "entitie" => $entitieArray['Name'],
                     "number" => $number
                 );
                 $bools[] = $result;
@@ -85,7 +82,7 @@ class BoolsAsTags
             $i = 0;
             $booleanKeys = array_keys($table);
             foreach ($table as $synonym) {
-                if (stristr($synonym, $slug) != FALSE) {
+                if (stristr($synonym["Slug"], $slug) != FALSE) {
                     $result['bool'] = $booleanKeys[$i];
                     $result['entitie'] = $entityKeys[$j];
                 }
@@ -102,9 +99,8 @@ class BoolsAsTags
         foreach ($this->getConfig()['Booleans'] as $table) {
             $i=0;
             foreach ($table as $synonym) {
-                if (stristr($synonym, $slug) != FALSE) {
-                    $description = explode(",", $synonym);
-                    $result = $description[0];
+                if (stristr($synonym["Slug"], $slug) != FALSE) {
+                    $result = $synonym["Name"];
                 }
                 $i++;
             }
