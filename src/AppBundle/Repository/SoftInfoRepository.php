@@ -10,4 +10,8 @@ namespace AppBundle\Repository;
  */
 class SoftInfoRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
+
+
 }

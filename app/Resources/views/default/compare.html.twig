@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col s12 center-align">
                             {% if error is defined %}
-                                {{ error }}
+                                {{ error | raw }}
                             {% endif %}
                         </div>
                     </div>
@@ -52,7 +52,7 @@
                             <div class="center-align">
                                 <img src="{{ asset('assets/img/logo/') }}{{ softmain1.slug }}.png">
                             </div>
-                            <div class="center-align"><span class="card-title">{{ softmain1.name }}</span>
+                            <div class="center-align"><span class="card-title">{{ softmain1.name | raw }}</span>
                             </div>
                         </div>
                     </div>
@@ -63,41 +63,42 @@
                             <div class="center-align">
                                 <img src="{{ asset('assets/img/logo/') }}{{ softmain2.slug }}.png">
                             </div>
-                            <div class="center-align"><span class="card-title">{{ softmain2.name }}</span>
+                            <div class="center-align"><span class="card-title">{{ softmain2.name | raw }}</span>
                             </div>
                         </div>
                     </div>
                 </a>
 
-                <div class="col s12 m12" id="SpecificCompareComment">
-                    <p>Ceci est une description pré-écrite de comparatif entre ces deux logiciels. Lorem ipsum dolor
-                        sit amet, consectetur adipiscing elit. Pellentesque et nunc eleifend nisl semper molestie.
-                        Cras viverra leo id nulla consequat, sit amet efficitur orci viverra. Pellentesque nunc
-                        nunc, rhoncus eget neque et, dapibus consectetur nibh.</p>
-                </div>
+                {% if versus is defined %}
+                    {% for versu in versus %}
+                        <div class="col s12 m12" id="SpecificCompareComment">
+                          <p>{{ versu.description | raw }}</p>
+                        </div>
+                    {% endfor %}
+                {% endif %}
             </div>
             <div id="tableVersus">
-                <h2>Informations essentielles sur {{ softmain1.name }} et {{ softmain2.name }}</h2>
+                <h2>Informations essentielles sur {{ softmain1.name | raw }} et {{ softmain2.name | raw }}</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
-                        <td>{{ softmain1.name }}</td>
-                        <td>{{ softmain2.name }}</td>
+                        <td>{{ softmain1.name | raw }}</td>
+                        <td>{{ softmain2.name | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
-                        <td>{{ softmain1.type }}</td>
-                        <td>{{ softmain2.type }}</td>
+                        <td>{{ softmain1.type | raw }}</td>
+                        <td>{{ softmain2.type | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'advantages'|trans }}</th>
-                        <td>{{ softmain1.advantages }}</td>
-                        <td>{{ softmain2.advantages }}</td>
+                        <td>{{ softmain1.advantages | raw }}</td>
+                        <td>{{ softmain2.advantages | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'drawbacks'|trans }}</th>
-                        <td>{{ softmain1.drawbacks }}</td>
-                        <td>{{ softmain2.drawbacks }}</td>
+                        <td>{{ softmain1.drawbacks | raw }}</td>
+                        <td>{{ softmain2.drawbacks | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'rgpd'|trans }}</th>
@@ -127,38 +128,38 @@
                     </tr>
                     <tr>
                         <th>{{ 'hostingCountry'|trans }}</th>
-                        <td>{{ softmain1.softInfo.hostingCountry }}</td>
-                        <td>{{ softmain2.softInfo.hostingCountry }}</td>
+                        <td>{{ softmain1.softInfo.hostingCountry | raw }}</td>
+                        <td>{{ softmain2.softInfo.hostingCountry | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'creationDate'|trans }}</th>
-                        <td>{{ softmain1.softInfo.creationDate }}</td>
-                        <td>{{ softmain2.softInfo.creationDate }}</td>
+                        <td>{{ softmain1.softInfo.creationDate | raw }}</td>
+                        <td>{{ softmain2.softInfo.creationDate | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'annualTurnover'|trans }}</th>
-                        <td>{{ softmain1.softInfo.annualTurnover }}</td>
-                        <td>{{ softmain2.softInfo.annualTurnover }}</td>
+                        <td>{{ softmain1.softInfo.annualTurnover | raw }}</td>
+                        <td>{{ softmain2.softInfo.annualTurnover | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'configCost'|trans }}</th>
-                        <td>{{ softmain1.softInfo.configCost }}</td>
-                        <td>{{ softmain2.softInfo.configCost }}</td>
+                        <td>{{ softmain1.softInfo.configCost | raw }}</td>
+                        <td>{{ softmain2.softInfo.configCost | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
-                        <td>{{ softmain1.softInfo.subscriptionCost }}</td>
-                        <td>{{ softmain2.softInfo.subscriptionCost }}</td>
+                        <td>{{ softmain1.softInfo.subscriptionCost | raw  }}</td>
+                        <td>{{ softmain2.softInfo.subscriptionCost | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'trainingCost'|trans }}</th>
-                        <td>{{ softmain1.softInfo.trainingCost }}</td>
-                        <td>{{ softmain2.softInfo.trainingCost }}</td>
+                        <td>{{ softmain1.softInfo.trainingCost | raw }}</td>
+                        <td>{{ softmain2.softInfo.trainingCost | raw }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'webSite'|trans }}</th>
-                        <td><a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name }}</a></td>
-                        <td><a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name }}</a></td>
+                        <td><a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name | raw }}</a></td>
+                        <td><a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name | raw }}</a></td>
                     </tr>
                 </table>
                 <h2>Canaux de communication sortants (outbound)</h2>

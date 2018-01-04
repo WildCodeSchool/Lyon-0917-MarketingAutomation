@@ -17,7 +17,7 @@
                     <form action='{{ path('searchAction') }}' method='get'>
                         <div class="input-field">
                             <i class="material-icons prefix">search</i></button>
-                            <input type="search" name='search' placeholder="recherche" id="autocomplete-input" value="{% if session is defined %}{{ session }}{% endif %}" required>
+                            <input type="search" name='search' placeholder="recherche" id="autocomplete-input" value="{% if app.session.get('researchContent')  is defined %}{{ app.session.get('researchContent') }}{% endif %}" required>
                         </div>
                     </form>
                 </div>
@@ -63,11 +63,10 @@
 
         </div>
         <div id="lowBarSearch">
-            <form>
+            <form action='{{ path('searchAction') }}' method='get'>
                 <div class="input-field">
-                    <i class="material-icons prefix">search</i>
-                    <input type="search" required id="autocomplete-input" class="autocomplete">
-                    <!--    <label class="label-icon" for="search"></label>-->
+                    <i class="material-icons prefix">search</i></button>
+                    <input type="search" name='search' placeholder="recherche" id="autocomplete-input" value="{% if app.session.get('researchContent')  is defined %}{{ app.session.get('researchContent') }}{% endif %}" required>
                 </div>
             </form>
         </div>

@@ -35,12 +35,19 @@ services:
     #     arguments:
     #         $someArgument: 'some_value'
 
-    app.slug:
-        class:    AppBundle\Service\Slugification
+    AppBundle\Service\Slugification:
         public:   true
 
-    app.import:
-        class:    AppBundle\Service\ImportEntities
+    AppBundle\Service\ImportEntities:
+        public:   true
+        arguments:
+            $rootDir: '%root_dir%'
+
+    AppBundle\Service\BoolsAsTags:
+        arguments:
+            $rootDir: '%root_dir%'
+    app.search:
+        class:    AppBundle\Service\AwesomeSearch
         public:   true
         arguments:
             $rootDir: '%root_dir%'
