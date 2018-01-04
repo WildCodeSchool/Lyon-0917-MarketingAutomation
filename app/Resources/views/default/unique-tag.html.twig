@@ -1,4 +1,18 @@
 {% extends 'base.html.twig' %}
+
+{% block title %}
+    {% if tag.title is defined %}
+        {{ tag.title }}
+    {% else %}
+        {% if tag.name is defined %}
+        Logiciels de Marketing Automation : {{ tag.name }}
+            {% else %}
+                Logiciels de Marketing Automation : {{ description }}
+
+        {% endif %}
+        {% endif %}
+{% endblock %}
+
         {% block h1 %}
             {% if tag is defined %}
                 <h1>{{ tag.name }}</h1>
