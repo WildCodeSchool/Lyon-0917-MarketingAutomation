@@ -33,6 +33,7 @@ Booleans:
         isSegmentcreation: creation segment
         isIntelligentSegment: creation segment intelligent
     softMarketingCampaign:
+        isAutoResponder: auto répondeur
         isLeadScoring: lead scoring
         isCreationCampaign: creation campagnes
         isDripMarketingCampaign: campagnes drip marketing
