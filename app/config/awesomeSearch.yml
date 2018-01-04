@@ -1,0 +1,716 @@
+notBool:
+    rgpd: rgpd conformite
+    customers: qui clientele
+    hostingCountry: pays hebergement
+    creationDate: date creation
+    subscriptionCost: abonnement
+    traingCost: cout formation
+    webSite: site web
+
+## Please, do not change anything except "Synonymous" : you can add as much as words as you want.
+## Change the data, but not titles of each labels.
+
+Booleans:
+    softOutbound:
+        isEmail:
+          Name: Envoi d'email
+          Slug: envoi-d-email
+          Synonymous: mail
+        isSms:
+          Name: Envoi de sms
+          Slug: envoi-sms
+          Synonymous: sms
+        isPopin:
+          Name: Utilisation de popin
+          Slug: utilisation-popin
+          Synonymous: popin
+        isMailPostal:
+          Name: Courrier postal
+          Slug: courrier-postal
+          Synonymous: courrier postal
+        isCallCenter:
+          Name: Centre d'appels
+          Slug: centre-appel
+          Synonymous: centre appel
+        isPushMobile:
+          Name: Notification push mobile
+          Slug: notification-push-mobile
+          Synonymous: notification push mobile
+        isApi:
+          Name: Appel api
+          Slug: appel-api
+          Synonymous: appel api
+    softCommSupport:
+        isLandingPage:
+          Name: Page d'atterrissage
+          Slug: page-atterrissage
+          Synonymous:
+        isForm:
+          Name: Formulaire
+          Slug: formulaire
+          Synonymous:
+        isTracking:
+          Name: Code de suivi
+          Slug: code-suivi
+          Synonymous:
+        isLiveChat:
+          Name: Live chat
+          Slug: live-chat
+          Synonymous:
+    softLeadsOperation:
+        isContactObject:
+          Name: Objet contact
+          Slug: objet-contact
+          Synonymous:
+        isCompanyObject:
+          Name: Objet societé
+          Slug: objet-societe
+          Synonymous:
+        isDefinedFields:
+          Name: Champs personnalises
+          Slug: champs-personnalises
+          Synonymous:
+        isIllimitedFields:
+          Name: Champs illimité
+          Slug: champs-illimite
+          Synonymous: illimite
+        isImportCsv:
+          Name: Import csv
+          Slug: import-csv
+          Synonymous: import
+        isAutoDuplicate:
+          Name: Déduplication automatique
+          Slug: deduplication-automatique
+          Synonymous: deduplication
+        isLeadStages:
+          Name: Lead stages
+          Slug: lead-stages
+          Synonymous: lead
+    softSegmentOperation:
+        isSegmentCreation:
+          Name: Creation segment
+          Slug: creation-segment
+          Synonymous: creation
+        isIntelligentSegment:
+          Name: creation de segment intelligent
+          Slug: creation-segment-intelligent
+          Synonymous: intelligent
+    softMarketingCampaign:
+        isAutoResponder:
+          Name: Auto-répondeur
+          Slug: auto-repondeur
+          Synonymous:
+        isLeadScoring:
+          Name: Lead scoring
+          Slug: lead-scoring
+          Synonymous:
+        isCreationCampaign:
+          Name: Création campagnes
+          Slug: creation-campagnes
+          Synonymous: création
+        isDripMarketingCampaign:
+          Name: Campagne "Drip Marketing"
+          Slug: campagne-drip-marketing
+          Synonymous: campagne
+        isDragAndDrop:
+          Name: éditeur drag drop
+          Slug: editeur-drap-drop
+          Synonymous: éditeur
+    softSocialMedia:
+        isTwitterMonitoring:
+          Name: Veille Twitter
+          Slug: veille-twitter
+          Synonymous: veille
+        isTwitterAutoPublication:
+          Name: Publication automatique sur Twitter
+          Slug: publication-automatique-twitter
+          Synonymous: publication
+        isFacebookMonitoring:
+          Name: Veille facebook
+          Slug: veille-facebook
+          Synonymous: veille
+        isFacebookAutoPublication:
+          Name: Publication automatique Facebook
+          Slug: publication-automatique-facebook
+          Synonymous: publication
+        isLinkedinMonitoring:
+          Name: Veille linkedin
+          Slug: veille-linkedin
+          Synonymous: veille
+        isLinkedinAutoPublication:
+          Name: Publication automatique Linkedin
+          Slug: publication-automatique-linkedin
+          Synonymous: publication
+        isInstagramMonitoring:
+          Name: Veille instagram
+          Slug: veille-instagram
+          Synonymous: veille
+        isInstagramAutoPublication:
+          Name: Publication automatique instagram
+          Slug: publication-automatique-instagram
+          Synonymous: publication
+    softReport:
+        isActivityReportCreation:
+          Name: creation rapport activites
+          Slug: creation-rapport-activites
+          Synonymous: création
+        isActivityReportPeriodicSend:
+          Name: envoi periodique rapport
+          Slug: envoi-periodique-rapport
+          Synonymous: envoi
+    softSupport:
+        isEmailSupport:
+          Name: Support email
+          Slug: support-email
+          Synonymous: support
+        isPhoneSupport:
+          Name: Support telephone
+          Slug: support-telephone
+          Synonymous: support
+        isChatSupport:
+          Name: Support chat ligne
+          Slug: support-chat-ligne
+          Synonymous: support
+        isKnowledgeBase:
+          Name: Base de connaissance (langues)
+          Slug: base-de-connaissance
+          Synonymous:
+        isTechnicalDocument:
+          Name: Documentation technique
+          Slug: documentation-technique
+          Synonymous: documentation
+    softOtherFunctionnalities:
+        isProviderEmailChoice:
+          Name: Choix du provider Email
+          Slug: choix-provider-email
+          Synonymous: choix
+        isBlogEdition:
+          Name: Edition d'un blog
+          Slug: edition-blog
+          Synonymous: édition
+        isTouchPad:
+          Name: Tablette en magasin
+          Slug: tablette-magasin
+          Synonymous: tablette
+        isSmtpRelay:
+          Name: SMTP Relais (email transactionnel)
+          Slug: relais-smtp
+          Synonymous: relilas
+        isRssToEmail:
+          Name: RSS to email
+          Slug: rss-to-email
+          Synonymous: flux
+
+EmptyWords:
+    allô
+    aucuns
+    auriez
+    auxdits
+    aviez
+    ayons
+    bof
+    çà
+    certaines
+    chez
+    comment
+    da
+    desquels
+    deviez
+    devras
+    doit
+    dues
+    dût
+    es
+    êtes
+    eurêka
+    excepté
+    fouchtra
+    fûmes
+    ho
+    hurrah
+    laquelle
+    leur
+    mazette
+    mâtin
+    ne
+    nulle
+    or
+    outre
+    pas
+    plein
+    pourraient
+    pourvu
+    pouviez
+    puis
+    pussent
+    que
+    quoi
+    saperlipopette
+    serait
+    sien
+    sommes
+    ta
+    telles
+    touchant
+    une
+    veuillez
+    voilà
+    voudrez
+    voulante
+    voulue
+    vôtre
+    afin
+    assez
+    alors
+    auquel
+    aurions
+    auxquelles
+    avions
+    aïe
+    boum
+    car
+    certains
+    chic
+    concernant
+    dans
+    devaient
+    devions
+    devrez
+    doive
+    duquel
+    eh
+    et
+    étiez
+    eus
+    eûmes
+    furent
+    fût
+    holà
+    hé
+    le
+    leurs
+    me
+    miséricorde
+    ni
+    nulles
+    ôté
+    palsambleu
+    patatras
+    plouf
+    pourrais
+    pouvaient
+    pouvions
+    puisque
+    put
+    quel
+    quoique
+    sapristi
+    seras
+    sienne
+    son
+    tandis
+    tels
+    tous
+    unième
+    veuillons
+    vos
+    voudriez
+    voulantes
+    voulues
+    vôtres
+    ah
+    apr
+    aura
+    aurons
+    auxquels
+    avoir
+    bah
+    bravissimo
+    ce
+    ces
+    chiche
+    contre
+    de
+    devais
+    devoir
+    devriez
+    doivent
+    durant
+    elle
+    étaient
+    étions
+    eusse
+    eût
+    fus
+    fûtes
+    hop
+    il
+    ledit
+    lorsque
+    merci
+    moi
+    nonobstant
+    nuls
+    ou
+    pan
+    pechère
+    plus
+    pourrait
+    pouvais
+    pouvoir
+    puisse
+    pécaïre
+    quelle
+    rataplan
+    sauf
+    serez
+    siennes
+    sont
+    tant
+    tes
+    tout
+    unièmes
+    veulent
+    votre
+    voudrions
+    voulants
+    voulurent
+    zut
+    ai
+    as
+    aurai
+    auront
+    avaient
+    avons
+    basta
+    bravo
+    ceci
+    cet
+    chouette
+    corbleu
+    debout
+    devait
+    devons
+    devrions
+    doives
+    durent
+    elles
+    étais
+    être
+    eussent
+    eûtes
+    fusse
+    grâce
+    hormis
+    ils
+    lequel
+    lui
+    merde
+    moins
+    nos
+    où
+    par
+    pendant
+    plusieurs
+    pourras
+    pouvait
+    pouvons
+    puissent
+    pût
+    quelles
+    revoici
+    se
+    seriez
+    siens
+    sous
+    taratata
+    tien
+    toute
+    v'lan
+    veut
+    voudra
+    voudrons
+    voulez
+    voulus
+    aie
+    attendu
+    auraient
+    autant
+    avais
+    ayant
+    beaucoup
+    cela
+    cette
+    chut
+    coucou
+    depuis
+    devant
+    devra
+    devrons
+    donc
+    dus
+    en
+    était
+    eu
+    eusses
+    évohé
+    fussent
+    ha
+    hors
+    jarnicoton
+    les
+    là
+    mes
+    mon
+    notre
+    oh
+    ouais
+    parbleu
+    peu
+    pouah
+    pourrez
+    pouvant
+    psitt
+    puisses
+    qq
+    revoilà
+    selon
+    serions
+    sinon
+    soyez
+    tayaut
+    tienne
+    toutes
+    va
+    veux
+    voudrai
+    voudront
+    vouliez
+    voulussent
+    aient
+    au
+    aurais
+    autre
+    avait
+    ayante
+    bernique
+    aura
+    celle
+    ceux
+    ciao
+    couic
+    des
+    devante
+    devrai
+    devront
+    dont
+    dussent
+    encontre
+    étant
+    eue
+    eussiez
+    évoé
+    fusses
+    hein
+    hou
+    je
+    lesdites
+    ma
+    mien
+    morbleu
+    nôtre
+    ohé
+    ouf
+    parce
+    peuchère
+    pour
+    pourriez
+    pouvante
+    pst
+    puissiez
+    qqch.
+    quelqu
+    rien
+    sera
+    serons
+    soi
+    soyons
+    taïaut
+    tiennes
+    tu
+    vers
+    via
+    voudraient
+    voulaient
+    voulions
+    voulut
+    aies
+    aucun
+    aurait
+    autres
+    avant
+    ayantes
+    bien
+    aurait
+    celles
+    chacun
+    clic
+    crac
+    desdites
+    devantes
+    devraient
+    dia
+    du
+    dut
+    endéans
+    étante
+    eues
+    eussions
+    fi
+    fussiez
+    hem
+    hourra
+    jusque
+    lesdits
+    made
+    mienne
+    motus
+    nôtres
+    olé
+    ouille
+    pardi
+    peut
+    pourquoi
+    pourrions
+    pouvantes
+    pu
+    puissions
+    qqn
+    quels
+    sa
+    serai
+    seront
+    soient
+    stop
+    te
+    tiens
+    tudieu
+    veuille
+    vivement
+    voudrais
+    voulais
+    vouloir
+    voulût
+    ait
+    aucune
+    auras
+    aux
+    avec
+    ayants
+    bigre
+    avait
+    celui
+    chacune
+    clac
+    cric
+    desdits
+    devants
+    devrais
+    diantre
+    dudit
+    dès
+    entre
+    étantes
+    euh
+    eut
+    fichtre
+    fussions
+    hep
+    hue
+    la
+    lesquelles
+    mais
+    miennes
+    moyennant
+    nous
+    on
+    oust
+    pardieu
+    peuvent
+    pourra
+    pourrons
+    pouvants
+    pue
+    purent
+    quand
+    qui
+    sacristi
+    seraient
+    ses
+    sois
+    suis
+    tel
+    toi
+    turlututu
+    veuillent
+    vlan
+    voudrait
+    voulait
+    voulons
+    vous
+    aucunes
+    aurez
+    auxdites
+    avez
+    ayez
+    bis
+    ça
+    cependant
+    chaque
+    comme
+    crénom
+    desquelles
+    devez
+    devrait
+    dois
+    due
+    dû
+    envers
+    étants
+    eurent
+    eux
+    fors
+    fut
+    heu
+    hum
+    ladite
+    lesquels
+    malgré
+    miens
+    na
+    nul
+    ont
+    ouste
+    parmi
+    peux
+    pourrai
+    pourront
+    pouvez
+    pues
+    pus
+    quant
+    quiconque
+    sans
+    serais
+    si
+    soit
+    sur
+    telle
+    ton
+    un
+    veuilles
+    voici
+    voudras
+    voulant
+    voulu
+    vu

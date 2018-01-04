@@ -6,18 +6,18 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Repository\SoftMainRepository;
+use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use SensioLabs\Security\Exception\HttpException;
+use AppBundle\Service\BoolsAsTags;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotIdenticalTo;
-
+use AppBundle\Repository\VersusRepository;
 
 class DefaultController extends Controller
 {
@@ -59,47 +59,67 @@ class DefaultController extends Controller
     }
 
     /**
+     * @param Request $request
+     * @param $researchContent
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("results_{researchContent}", name="results")
      * @Method("GET")
      */
+
     public
     function resultsAction(Request $request, $researchContent)
     {
-        $em = $this->getDoctrine()->getManager();
-        $tableDatas = explode(" ", $researchContent);
-        $results = [];
-        for ($i = 0; $i < count($tableDatas); $i++) {
-            $uniqueResult = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-                'name' => $tableDatas[$i]
-            ]);
-            if ($uniqueResult != null) {
-                array_push($results, $uniqueResult);
-            }
-        }
+        $this->get("session")->set("researchContent", $researchContent);
+        $serviceRecherche = $this->container->get('app.search');
+
+        $softwares = $serviceRecherche->search($researchContent);
+
+
         return $this->render('default/results.html.twig', [
-            'softwares' => $results,
+            'softwares' => $softwares,
         ]);
     }
 
     /**
      * @Route("listing-tags", name="listingTags")
+     * @param Request $request
+     * @param BoolsAsTags $boolsAsTags
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public
-    function listingTagsAction(Request $request)
+    function listingTagsAction(Request $request, BoolsAsTags $boolsAsTags)
     {
+
+        $bools = $boolsAsTags->getGoodBools();
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
         return $this->render('default/listing-tags.html.twig', [
             'tags' => $tags,
+            'bools' => $bools,
         ]);
     }
 
     /**
      * @Route("tag/{slug}", name="tagSolo")
+     * @param Request $request
+     * @param BoolsAsTags $boolsAsTags
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public
-    function tagAction(Request $request, Tag $tag)
+    function tagAction(Request $request, string $slug, BoolsAsTags $boolsAsTags)
     {
+
+        $repository = $this->getDoctrine()->getRepository(Tag::class);
+        $tag = $repository->findOneBy(['slug' => $slug]);
+        if (empty($tag)) {
+            $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
+            return $this->render('default/unique-tag.html.twig', [
+
+                'softwares' => $softwares,
+                'description' => $boolsAsTags->getDescriptionBySlug($slug),
+            ]);
+        }
+
         return $this->render('default/unique-tag.html.twig', [
 
             'tag' => $tag,
@@ -142,7 +162,10 @@ class DefaultController extends Controller
 
         $listVersus = $em->getRepository(Versus::class)->findAll();
 
-        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $defaultData = array(
+            'message' => 'Choisissez 2 logiciels à comparer :',
+        );
+
         $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
@@ -158,7 +181,7 @@ class DefaultController extends Controller
             ]);
 
 
-            if(empty($soft1) or empty($soft2)) {
+            if (empty($soft1) or empty($soft2)) {
 
                 $softwareNotEntity = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/listing-versus.html.twig', array(
@@ -168,7 +191,7 @@ class DefaultController extends Controller
 
                 ));
 
-            }elseif($soft1 === $soft2) {
+            } elseif ($soft1 === $soft2) {
 
                 $sameSoftwares = "Vous ne pouvez pas comparer deux fois le même logiciel car c'est inutile";
                 return $this->render('default/listing-versus.html.twig', array(
@@ -177,10 +200,12 @@ class DefaultController extends Controller
                     'error' => $sameSoftwares,
                 ));
 
-            }else{
+            } else {
+                $this->get("session")->set("versus1", $soft1->getName());
+                $this->get("session")->set("versus2", $soft2->getName());
                 return $this->redirectToRoute('versus', array(
                     'slug1' => $soft1->getSlug(),
-                    'slug2' => $soft2->getSlug()
+                    'slug2' => $soft2->getSlug(),
                 ));
             }
 
@@ -204,16 +229,27 @@ class DefaultController extends Controller
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' =>  $slug1
+            'slug' => $slug1
         ]);
 
         $softmain2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' =>  $slug2
+            'slug' => $slug2
         ]);
 
+        // Look for existing versus
+        $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1->getId(), $softmain2->getId());
 
-
-        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        // if versus is not existing this way, test if it's existing in the other way
+        if (empty($versus)) {
+            $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain2->getId(), $softmain1->getId());
+        }
+        $name1 = $softmain1->getName();
+        $name2 = $softmain2->getName();
+        $defaultData = array(
+            'message' => 'Choisissez 2 logiciels à comparer :',
+            'placeholder1' => $name1,
+            'placeholder2' => $name2,
+        );
         $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
@@ -228,7 +264,7 @@ class DefaultController extends Controller
                 'name' => $data["software2"]
             ]);
 
-            if(empty($soft1) or empty($soft2)){
+            if (empty($soft1) or empty($soft2)) {
                 $error = "Merci de sélectionner un logiciel existant dans la liste déroulante";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
@@ -237,9 +273,7 @@ class DefaultController extends Controller
                         'error' => $error,
                     )
                 );
-            }
-            elseif($soft1 === $soft2)
-            {
+            } elseif ($soft1 === $soft2) {
                 $error = "Merci de ne pas sélectionner deux fois le même logiciel";
                 return $this->render('default/compare.html.twig', array(
                         'form' => $form->createView(),
@@ -248,17 +282,18 @@ class DefaultController extends Controller
                         'error' => $error,
                     )
                 );
-            }
-            else
-            {
+            } else {
+                $this->get("session")->set("versus1", $soft1->getName());
+                $this->get("session")->set("versus2", $soft2->getName());
                 return $this->redirectToRoute('versus', array('slug1' => $soft1->getSlug(), 'slug2' => $soft2->getSlug()));
             }
         }
 
         return $this->render('default/compare.html.twig', array(
-            'form' => $form->createView(),
+                'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
+                'versus' => $versus
             )
         );
     }
@@ -297,12 +332,14 @@ class DefaultController extends Controller
         }
 
     }
+
     /**
      * @Route("searchAction", name="searchAction")
      * @Method("GET")
      */
     public function searchAction(Request $request)
     {
-            return $this->redirectToRoute('results', array('researchContent' => $_GET['search']));
+        $query = $request->query->get('search');
+        return $this->redirectToRoute('results', array('researchContent' => $query));
     }
 }

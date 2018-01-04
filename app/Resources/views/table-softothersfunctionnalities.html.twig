@@ -1,25 +1,65 @@
 
-<table class="striped highlight">
+<table class="striped">
     <tbody>
     <tr>
         <th>{{ 'isProviderEmailChoice'|trans }}</th>
-        <td>{{ softmain.softOtherFunctionnalities.isProviderEmailChoice }}</td>
+        <td>
+            {% if softmain.softOtherFunctionnalities.isProviderEmailChoice == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isProviderEmailChoice == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isBlogEdition'|trans }}</th>
-        <td>{{ softmain.softOtherFunctionnalities.isBlogEdition }}</td>
+        <td>
+            {% if softmain.softOtherFunctionnalities.isBlogEdition == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isBlogEdition == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isTouchPad'|trans }}</th>
-        <td>{{ softmain.softOtherFunctionnalities.isTouchPad }}</td>
+        <td>
+            {% if softmain.softOtherFunctionnalities.isTouchPad == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isTouchPad == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isStmtpRelay'|trans }}</th>
-        <td>{{ softmain.softOtherFunctionnalities.isSmtpRelay}}</td>
+        <td>
+            {% if softmain.softOtherFunctionnalities.isSmtpRelay == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isSmtpRelay == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isRssToEmail'|trans }}</th>
-        <td>{{ softmain.softOtherFunctionnalities.isRssToEmail }}</td>
+        <td>
+            {% if softmain.softOtherFunctionnalities.isRssToEmail == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isRssToEmail == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>

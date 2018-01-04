@@ -29,6 +29,13 @@ class SoftMain
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
      * Many SoftMains have Many Tags.
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="softMains")
      */
@@ -68,6 +75,7 @@ class SoftMain
      * @ORM\Column(name="advantages", type="text", nullable=true)
      */
     private $advantages;
+
 
     /**
      * @var string
@@ -156,6 +164,7 @@ class SoftMain
      * @ORM\Column(name="slug", type="string", length=255, nullable=true)
      */
     private $slug;
+
     /**
      * Constructor
      */
@@ -165,6 +174,7 @@ class SoftMain
         $this->versus1 = new \Doctrine\Common\Collections\ArrayCollection();
         $this->versus2 = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -198,6 +208,30 @@ class SoftMain
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return SoftMain
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**

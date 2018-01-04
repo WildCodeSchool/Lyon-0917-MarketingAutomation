@@ -12,4 +12,18 @@
       }
     }
   }
+  .card-content {
+    padding-left: 0;
+    padding-right: 0;
+    .card-title {
+      text-align: center;
+      min-height: 65px;
+      -webkit-hyphens: auto;
+      -moz-hyphens: auto;
+      -ms-hyphens: auto;
+      hyphens: auto;
+      word-wrap: break-word;
+      font-size: 1.3em;
+    }
+  }
 }
