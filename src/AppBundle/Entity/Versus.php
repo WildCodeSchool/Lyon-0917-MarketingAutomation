@@ -25,13 +25,6 @@ class Versus
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
-     */
-    private $name;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
@@ -57,9 +50,9 @@ class Versus
     private $description;
 
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -67,37 +60,13 @@ class Versus
     }
 
     /**
-     * Set name
+     * Set title.
      *
-     * @param string $name
-     *
-     * @return Versus
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * Set title
-     *
-     * @param string $title
+     * @param string|null $title
      *
      * @return Versus
      */
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
         $this->title = $title;
 
@@ -105,9 +74,9 @@ class Versus
     }
 
     /**
-     * Get title
+     * Get title.
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -115,7 +84,7 @@ class Versus
     }
 
     /**
-     * Set description
+     * Set description.
      *
      * @param string $description
      *
@@ -129,7 +98,7 @@ class Versus
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -139,9 +108,9 @@ class Versus
     }
 
     /**
-     * Set software1
+     * Set software1.
      *
-     * @param \AppBundle\Entity\SoftMain $software1
+     * @param \AppBundle\Entity\SoftMain|null $software1
      *
      * @return Versus
      */
@@ -153,9 +122,9 @@ class Versus
     }
 
     /**
-     * Get software1
+     * Get software1.
      *
-     * @return \AppBundle\Entity\SoftMain
+     * @return \AppBundle\Entity\SoftMain|null
      */
     public function getSoftware1()
     {
@@ -163,9 +132,9 @@ class Versus
     }
 
     /**
-     * Set software2
+     * Set software2.
      *
-     * @param \AppBundle\Entity\SoftMain $software2
+     * @param \AppBundle\Entity\SoftMain|null $software2
      *
      * @return Versus
      */
@@ -177,9 +146,9 @@ class Versus
     }
 
     /**
-     * Get software2
+     * Get software2.
      *
-     * @return \AppBundle\Entity\SoftMain
+     * @return \AppBundle\Entity\SoftMain|null
      */
     public function getSoftware2()
     {
