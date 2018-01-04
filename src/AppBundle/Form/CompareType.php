@@ -13,7 +13,6 @@ class CompareType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        dump($options);
         $placeholder1 = "";
         $placeholder2 = "";
         if (isset($options['data']['placeholder1'])){
