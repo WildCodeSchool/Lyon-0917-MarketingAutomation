@@ -26,7 +26,7 @@ class CompareType extends AbstractType
         }else{
             $placeholder2 = '';
         }
-
+        $session->invalidate();
         $builder
             ->add('software1', TextType::class, array(
                 'label' => 'Choisir le premier logiciel :',
