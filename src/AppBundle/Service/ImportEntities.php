@@ -11,7 +11,10 @@ use Symfony\Component\Yaml\Yaml;
 use SplFileObject;
 
 
-/*
+/**
+ * Class ImportEntities
+ * @package AppBundle\Service
+ *
  * Special service to import 3 CSV files, which can be find in  app/Resources/datas
  *
  * To import CSV, figure out service command "ImportCommand"
@@ -54,8 +57,12 @@ class ImportEntities
 
     }
 
-    /*
+    /**
+     * @param string $fileFromConsole
+     * @return SplFileObject
+     *
      * Receive a file, give an object with parameters to read CSV file (delimiter is ",")
+     *
      */
 
     private function fileInit(string $fileFromConsole): \SplFileObject
@@ -76,8 +83,14 @@ class ImportEntities
     }
 
 
-    /*
+    /**
+     * @param string $fileName
+     * @param int $line
+     * @param $value
+     * @param int $column
+     *
      * Verify match between expected data (here integer) and effective data, and return error if not matching
+     *
      */
 
     private function checkIfInteger(string $fileName, int $line, $value, int $column)
@@ -89,9 +102,15 @@ class ImportEntities
     }
 
 
-    /*
-    * Verify correspondance between expected data (here boolean) and effective data, and return error if not matching
-    */
+    /**
+     * @param string $fileName
+     * @param int $line
+     * @param $value
+     * @param int $column
+     *
+     * Verify correspondance between expected data (here boolean) and effective data, and return error if not matching
+     *
+     */
 
     private function checkIfBool(string $fileName, int $line, $value, int $column)
     {
@@ -104,9 +123,13 @@ class ImportEntities
 
     }
 
-    /*
-    * To be display online, translate Booleans from true or false to "oui" or "non"
-    */
+    /**
+     * @param string $value
+     * @return bool|null|string
+     *
+     * To be display online, translate Booleans from true or false to "oui" or "non"
+     *
+     */
 
     private function convertToBool(string $value)
     {
@@ -129,9 +152,13 @@ class ImportEntities
     }
 
 
-    /*
-    * Check if owner of files inconveniently duplicate data
-    */
+    /**
+     * @param string $file
+     * @param array $row
+     *
+     * Check if owner of files inconveniently duplicate data
+     *
+     */
 
     public function searchForDuplicate(string $file, array $row)
     {
@@ -158,12 +185,14 @@ class ImportEntities
     }
 
 
-    /*
-    *
-    * Check if there are the same number of rows in the config file (import.yml) and in csv file.
-    * If not, return an error in console
-    *
-    */
+    /**
+     * @param string $softFile
+     * @param string $fileName
+     *
+     * Check if there are the same number of rows in the config file (import.yml) and in csv file.
+     * If not, return an error in console
+     *
+     */
     public function verifCsv(string $softFile, string $fileName)
     {
 
@@ -240,7 +269,9 @@ class ImportEntities
         }
     }
 
-    /*
+    /**
+     * @param string $softFile
+     * @param string $type
      *
      * Final import function : give location of file (not yet an object)
      * with type of topic (tag or software or versus),
@@ -372,9 +403,12 @@ class ImportEntities
     }
 
 
-    /*
+    /**
+     * @return array
+     *
      * Get errors to be display in console
      * See Console Command service in AppBundle/Command/ImportCommand.php
+     *
      */
 
     public
@@ -383,11 +417,14 @@ class ImportEntities
         return $this->errors;
     }
 
-    /*
-     * Count lines and can be useful to set a progress bar.
-     * Finally not use, but still here.
-     */
 
+    /**
+     * @param SplFileObject $file
+     * @return int
+     * Count lines and can be useful to set a progress bar.
+     * Finally not use, but still here
+     *
+     */
     private
     function countLines(\SplFileObject $file)
     {
@@ -414,9 +451,10 @@ class ImportEntities
     }
 
     /**
+     * @param Connection $connection
+     * @param $dbName
      *  // TODO : better explanation of this function
      * This function has to be implemented inside a transaction with a commit at the end
-     * @param $connection
      */
 
     public
