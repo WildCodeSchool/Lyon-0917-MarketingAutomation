@@ -7,15 +7,33 @@
     </tr>
     <tr>
         <th>{{ 'type'|trans }}</th>
-        <td>{{ softmain.type | raw }}</td>
+        <td>
+            {% if softmain.type | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.type | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'advantages'|trans }}</th>
-        <td>{{ softmain.advantages | raw }}</td>
+        <td>
+            {% if softmain.advantages | raw == null %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.advantages | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'drawbacks'|trans }}</th>
-        <td>{{ softmain.drawbacks | raw }}</td>
+        <td>
+            {% if softmain.drawbacks | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.drawbacks | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'rgpd'|trans }}</th>
@@ -31,27 +49,63 @@
     </tr>
     <tr>
         <th>{{ 'customers'|trans }}</th>
-        <td>{{ softmain.softInfo.customers | raw }}</td>
+        <td>
+            {% if softmain.softInfo.customers == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softInfo.customers }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'hostingCountry'|trans }}</th>
-        <td>{{ softmain.softInfo.hostingCountry | raw }}</td>
+        <td>
+            {% if softmain.softInfo.hostingCountry | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softInfo.hostingCountry | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'creationDate'|trans }}</th>
-        <td>{{ softmain.softInfo.creationDate | raw }}</td>
+        <td>
+            {% if softmain.softInfo.creationDate | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softInfo.creationDate | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'subscriptionCost'|trans }}</th>
-        <td>{{ softmain.softInfo.subscriptionCost | raw }}</td>
+        <td>
+            {% if softmain.softInfo.subscriptionCost | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softInfo.subscriptionCost | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'trainingCost'|trans }}</th>
-        <td>{{ softmain.softInfo.trainingCost | raw }}</td>
+        <td>
+            {% if softmain.softInfo.trainingCost | raw == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                {{ softmain.softInfo.trainingCost | raw }}
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'webSite'|trans }}</th>
-        <td><a href="{{ softmain.softInfo.webSite | raw }}">{{ softmain.name  | raw }}</a></td>
+        <td>
+            {% if softmain.softInfo.webSite == false %}
+                <p class="center-align">Non communiqué</p>
+            {% else %}
+                <a href="{{ softmain.softInfo.webSite }}">{{ softmain.name | raw }}</a>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
