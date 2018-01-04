@@ -14,21 +14,59 @@ notBool:
 
 Booleans:
     softOutbound:
-        isEmail: Envoi d'email, envoi-d-email, mail
-        isSms: Envoi de sms, envoi-sms, sms
-        isPopin: Utilisation de popin, utilisation-popin, popin
-        isMailPostal: Courrier postal, courrier-postal, courrier postal
-        isCallCenter: Centre d'appels, centre-appel, centre appel
-        isPushMobile: Notification push mobile, notification-push-mobile
-        isApi: Appel api, appel-api
+        isEmail:
+          Name: Envoi d'email
+          Slug: envoi-d-email
+          Synonymous: mail
+        isSms:
+          Name: Envoi de sms
+          Slug: envoi-sms
+          Synonymous: sms
+        isPopin:
+          Name: Utilisation de popin
+          Slug: utilisation-popin
+          Synonymous: popin
+        isMailPostal:
+          Name: Courrier postal
+          Slug: courrier-postal
+          Synonymous: courrier postal
+        isCallCenter:
+          Name: Centre d'appels
+          Slug: centre-appel
+          Synonymous: centre appel
+        isPushMobile:
+          Name: Notification push mobile
+          Slug: notification-push-mobile
+          Synonymous: notification push mobile
+        isApi:
+          Name: Appel api
+          Slug: appel-api
+          Synonymous: appel api
     softCommSupport:
-        isLandingPage: Page d'atterrissage, page-atterrissage
-        isForm: Formulaire, formulaire
-        isTracking: Code de suivi, code-suivi
-        isLiveChat: Live chat, live-chat
+        isLandingPage:
+          Name: Page d'atterrissage
+          Slug: page-atterrissage
+          Synonymous:
+        isForm:
+          Name: Formulaire
+          Slug: formulaire
+        isTracking:
+          Name: Code de suivi
+          Slug: code-suivi
+          Synonymous:
+        isLiveChat:
+          Name: Live chat
+          Slug: live-chat
+          Synonymous:
     softLeadsOperation:
-        isContactObject: Objet contact, objet-contact
-        isCompanyObject: Objet societé, objet-societe
+        isContactObject:
+          Name: Objet contact
+          Slug: objet-contact
+          Synonymous:
+        isCompanyObject:
+          Name: Objet societé
+          Slug: objet-societe
+          Synonymous:
         isDefinedFields: Champs personnalises, champs-personnalises
         isIllimitedFields: Champs illimité, champs-illimite, illimite
         isImportCsv: Import csv, import-csv
