@@ -8,6 +8,13 @@ use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use Doctrine\Common\Persistence\ObjectManager;
 
+/**
+ * Class BoolsAsTags :
+ * This is a special service made for display booleans properties of softwares as tags, in listings tags and
+ * in softwares page.
+ *
+ * @package AppBundle\Service
+ */
 
 class BoolsAsTags
 {
@@ -29,6 +36,12 @@ class BoolsAsTags
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
 
     }
+
+    /**
+     * @return array
+     *
+     * Return a list of booleans with explicit name, using awesomeSearch.yml informations.
+     */
 
     public function getGoodBools()
     {
@@ -55,6 +68,14 @@ class BoolsAsTags
         return $bools;
     }
 
+    /**
+     * @param $bool
+     * @param $entity
+     * @return int
+     *
+     * Return number of softwares by boolean, where boolean is true
+     *
+     */
     public function getNbSoftwaresByBool($bool, $entity): int
     {
 
@@ -62,6 +83,13 @@ class BoolsAsTags
     }
 
 
+    /**
+     * @param $slug
+     * @return array
+     *
+     * Return list of softwares by boolean, where boolean is true
+     *
+     */
     public function getListSoftwaresByEntitieSlug($slug): array
     {
 
@@ -72,6 +100,13 @@ class BoolsAsTags
         return $softwares;
     }
 
+    /**
+     * @param $slug
+     * @return array
+     *
+     * Give a slug, return good name of bool and of his entity
+     *
+     */
     public function getBoolAndEntityBySlug($slug)
     {
 
@@ -93,6 +128,13 @@ class BoolsAsTags
         return $result;
     }
 
+    /**
+     * @param $slug
+     * @return mixed
+     *
+     * Return description, using awesomeSearch.yml, by slug
+     *
+     */
     public function getDescriptionBySlug($slug) {
 
         $j = 0;
