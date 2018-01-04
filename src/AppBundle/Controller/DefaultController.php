@@ -14,8 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use SensioLabs\Security\Exception\HttpException;
 use AppBundle\Service\BoolsAsTags;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotIdenticalTo;

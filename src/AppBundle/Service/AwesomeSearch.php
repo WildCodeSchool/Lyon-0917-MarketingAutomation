@@ -61,7 +61,7 @@ class AwesomeSearch
         $words = $this->cleanQuery($query);
 
 
-        // foreach words, look if it's in title, or drescription, or bool
+        // foreach words, look if it's in title, or description, or bool
         foreach ($words as $word) {
 
             $softmainNameResults = $this->em->getRepository(SoftMain::class)->searchInSoftmainName($word);
@@ -182,8 +182,9 @@ class AwesomeSearch
         foreach ( $this->getDatas()['Booleans'] as $table ) {
             $i = 0;
             $booleanKeys = array_keys($table);
-            foreach ( $table as $synonym ) {
-                if ( stristr($synonym, $word) != FALSE ) {
+            foreach ( $table as $val ) {
+                $synonymous = $val["Synonymous"] ;
+                if ( stristr($synonymous, $word) != FALSE ) {
                     $resultTable = $this->em->getRepository(SoftMain::class)->getSoftByAnyBool($booleanKeys[$i], $entityKeys[$j]);
                     //Version finale: ajouter cette methode pour ajouter chaque resultat à la proprieté finale
                     $this->addPertinencePoint($resultTable, self::BOOLPOINT);
