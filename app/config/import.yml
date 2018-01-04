@@ -22,6 +22,7 @@ import-tags:
       Tag:
         fields:
           name: string
+          title: string
           description: string
         links:
           source: ??
@@ -39,6 +40,7 @@ import-softwares:
           SoftMain:
             fields:
                 name: string
+                title: string
                 type: string
                 description: string
                 comments: string
@@ -58,8 +60,6 @@ import-softwares:
                 customers: string
                 hostingCountry: string
                 creationDate: integer
-                annualTurnover: string
-                configCost: string
                 subscriptionCost: integer
                 trainingCost: integer
                 webSite: string
@@ -128,6 +128,7 @@ import-softwares:
 
           SoftMarketingCampaign:
             fields:
+                isAutoResponder: boolean
                 isLeadScoring: boolean
                 isCreationCampaign: boolean
                 isDripMarketingCampaign: boolean
@@ -211,6 +212,7 @@ import-versus:
                   link: One-to-Many
                   source: SoftMain
                   inversedby: versus2
+                title: string
                 description: string
             links:
               source: no

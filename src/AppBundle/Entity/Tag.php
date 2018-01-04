@@ -31,6 +31,13 @@ class Tag
     private $name;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
+     */
+    private $title;
+
+    /**
      * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
      *
@@ -57,6 +64,7 @@ class Tag
     {
         $this->softMains = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
 
     /**
      * Get id
@@ -90,6 +98,30 @@ class Tag
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return Tag
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
