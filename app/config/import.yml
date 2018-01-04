@@ -128,7 +128,7 @@ import-softwares:
 
           SoftMarketingCampaign:
             fields:
-                isAutoResponder: Boolean
+                isAutoResponder: boolean
                 isLeadScoring: boolean
                 isCreationCampaign: boolean
                 isDripMarketingCampaign: boolean
