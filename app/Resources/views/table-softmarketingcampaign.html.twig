@@ -2,6 +2,18 @@
 <table class="striped">
     <tbody>
     <tr>
+        <th>{{ 'isAutoResponder'|trans }}</th>
+        <td>
+            {% if softmain.softMarketingCampaign.isAutoResponder == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isAutoResponder == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
+    </tr>
+    <tr>
         <th>{{ 'isLeadScoring'|trans }}</th>
         <td>
             {% if softmain.softMarketingCampaign.isLeadScoring == false %}

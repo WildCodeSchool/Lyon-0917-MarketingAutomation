@@ -136,16 +136,6 @@
                         <td>{{ softmain2.softInfo.creationDate }}</td>
                     </tr>
                     <tr>
-                        <th>{{ 'annualTurnover'|trans }}</th>
-                        <td>{{ softmain1.softInfo.annualTurnover }}</td>
-                        <td>{{ softmain2.softInfo.annualTurnover }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'configCost'|trans }}</th>
-                        <td>{{ softmain1.softInfo.configCost }}</td>
-                        <td>{{ softmain2.softInfo.configCost }}</td>
-                    </tr>
-                    <tr>
                         <th>{{ 'subscriptionCost'|trans }}</th>
                         <td>{{ softmain1.softInfo.subscriptionCost }}</td>
                         <td>{{ softmain2.softInfo.subscriptionCost }}</td>
@@ -633,6 +623,27 @@
                 </table>
                 <h2>Campagnes Marketing Automation</h2>
                 <table class="striped border">
+                    <tr>
+                        <th>{{ 'isAutoResponder'|trans }}</th>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isAutoResponder == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isAutoResponder == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isAutoResponder == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isAutoResponder == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                    </tr>
                     <tr>
                         <th>{{ 'isLeadScoring'|trans }}</th>
                         <td>
