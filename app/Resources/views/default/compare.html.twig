@@ -258,79 +258,303 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isSegmentCreation'|trans }}</th>
-                        <td>{{ softmain1.softSegmentOperation.isSegmentCreation }}</td>
-                        <td>{{ softmain2.softSegmentOperation.isSegmentCreation }}</td>
+                        <td>
+                            {% if softmain.softSegmentOperation.isSegmentCreation  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain.softSegmentOperation.isSegmentCreation == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                            {{ softmain1.softSegmentOperation.isSegmentCreation }}</td>
+                        <td>
+                            {% if softmain.softSegmentOperation.isSegmentCreation  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain.softSegmentOperation.isSegmentCreation == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                            {{ softmain2.softSegmentOperation.isSegmentCreation }}</td>
                     </tr>
                     <tr>
                         <th>{{ 'isIntelligentSegment'|trans }}</th>
-                        <td>{{ softmain1.softSegmentOperation.isIntelligentSegment }}</td>
-                        <td>{{ softmain2.softSegmentOperation.isIntelligentSegment }}</td>
+                        <td>
+                            {% if softmain1.softSegmentOperation.isIntelligentSegment  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSegmentOperation.isIntelligentSegment  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </table>
                 <h2>Campagnes Marketing Automation</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isLeadScoring'|trans }}</th>
-                        <td>{{ softmain1.softMarketingCampaign.isLeadScoring }}</td>
-                        <td>{{ softmain2.softMarketingCampaign.isLeadScoring }}</td>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isLeadScoring == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isLeadScoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isLeadScoring == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isLeadScoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isCreationCampaign'|trans }}</th>
-                        <td>{{ softmain1.softMarketingCampaign.isCreationCampaign }}</td>
-                        <td>{{ softmain2.softMarketingCampaign.isCreationCampaign }}</td>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isCreationCampaign == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isCreationCampaign == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isDripMarketingCampaign'|trans }}</th>
-                        <td>{{ softmain1.softMarketingCampaign.isDripMarketingCampaign }}</td>
-                        <td>{{ softmain2.softMarketingCampaign.isDripMarketingCampaign }}</td>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isDripMarketingCampaign == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isDripMarketingCampaign == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isDragAndDrop'|trans }}</th>
-                        <td>{{ softmain1.softMarketingCampaign.isDragAndDrop }}</td>
-                        <td>{{ softmain2.softMarketingCampaign.isDragAndDrop }}</td>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isDragAndDrop == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isDragAndDrop == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </table>
                 <h2>Intégration Social Media</h2>
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isTwitterMonitoring'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isTwitterMonitoring }}</td>
-                        <td>{{ softmain2.softSocialMedia.isTwitterMonitoring }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isTwitterMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isTwitterMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isTwitterMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isTwitterMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isTwitterAutoPublication'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isTwitterAutoPublication }}</td>
-                        <td>{{ softmain2.softSocialMedia.isTwitterAutoPublication }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isTwitterAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isTwitterAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isTwitterAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isTwitterAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isFacebookMonitoring'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isFacebookMonitoring }}</td>
-                        <td>{{ softmain2.softSocialMedia.isFacebookMonitoring }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isFacebookMonitoring   == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isFacebookMonitoring  == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isFacebookMonitoring   == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isFacebookMonitoring  == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isFacebookAutoPublication'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isFacebookAutoPublication }}</td>
-                        <td>{{ softmain2.softSocialMedia.isFacebookAutoPublication }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isFacebookAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isFacebookAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isFacebookAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isFacebookAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isLinkedinMonitoring'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isLinkedinMonitoring }}</td>
-                        <td>{{ softmain2.softSocialMedia.isLinkedinMonitoring }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isLinkedinMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isLinkedinMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isLinkedinMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isLinkedinMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isLinkedinAutoPublication'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isLinkedinAutoPublication }}</td>
-                        <td>{{ softmain2.softSocialMedia.isLinkedinAutoPublication }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isLinkedinAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isLinkedinAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isInstagramMonitoring'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isInstagramMonitoring }}</td>
-                        <td>{{ softmain2.softSocialMedia.isInstagramMonitoring }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isInstagramMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isInstagramMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isInstagramMonitoring  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isInstagramMonitoring == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                     <tr>
                         <th>{{ 'isInstagramAutoPublication'|trans }}</th>
-                        <td>{{ softmain1.softSocialMedia.isInstagramAutoPublication }}</td>
-                        <td>{{ softmain2.softSocialMedia.isInstagramAutoPublication }}</td>
+                        <td>
+                            {% if softmain1.softSocialMedia.isInstagramAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSocialMedia.isInstagramAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softSocialMedia.isInstagramAutoPublication  == false %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSocialMedia.isInstagramAutoPublication == true %}
+                                <i class="small material-icons green-text">check</i>
+                            {% else %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
                     </tr>
                 </table>
                 <h2>Rapports</h2>
