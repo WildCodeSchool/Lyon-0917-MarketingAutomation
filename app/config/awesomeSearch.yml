@@ -96,6 +96,10 @@ Booleans:
           Slug: creation-segment-intelligent
           Synonymous: intelligent
     softMarketingCampaign:
+        isAutoResponder:
+          Name: Auto-répondeur
+          Slug: auto-repondeur
+          Synonymous:
         isLeadScoring:
           Name: Lead scoring
           Slug: lead-scoring
