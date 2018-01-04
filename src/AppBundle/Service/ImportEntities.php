@@ -290,29 +290,24 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
                 //if line is empty, continue
-                if (implode($row) == null) continue;
-                // if line is ahead, go to next line
-                if ($row[0] === $this->getConfig()[$type]["header"]) {
-                //    $splSoftFile->next();
+
+                if ($row[0] === $this->getConfig()[$type]["header"] or implode($row) == null) {
+                $splSoftFile->next();
                 } else {
                     $convertedData = [];
-//                $stillExists = $this->searchForDuplicate($type, $row);
-//                if (null === $stillExists) {
-
-                    //définition des variables de la boucle:
                     $caseImport = 0;
                     $i = 0;
                     $j = 0;
                     $eachEntity = [];
 
-                    //parcourt chaque entité pour ajouter les valeurs
+                    // Explore each entity to add data
                     foreach ($softEntitiesYml as $entity) {
                         $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
                         $eachEntity[$i] = new $myClass();
                         $listFields = array_keys($entity["fields"]);
 
 
-                        //parcourt les proprietés de chaque entity
+                        // Explore each properties of each entities
                         foreach ($entity["fields"] as $property) {
 
                             if ($property === "boolean") {
@@ -364,7 +359,7 @@ class ImportEntities
 
                     foreach ($softEntitiesYml as $entity) {
 
-                        //ATTENTION: Rajouter une boucle si les entités ont plusieurs links et plusieurs sources
+                        //TODO: improve to manage other relations
 
                         if ($entity["links"]["relation"] === "Many-to-Many") {
                             $eachSetterLink = "add" . $entityKeys[$k];
