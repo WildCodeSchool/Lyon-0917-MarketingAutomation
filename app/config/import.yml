@@ -59,9 +59,9 @@ import-softwares:
                 rgpd: boolean
                 customers: string
                 hostingCountry: string
-                creationDate: integer
-                subscriptionCost: integer
-                trainingCost: integer
+                creationDate: string
+                subscriptionCost: string
+                trainingCost: string
                 webSite: string
             links:
               source: SoftMain

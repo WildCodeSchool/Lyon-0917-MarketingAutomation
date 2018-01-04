@@ -43,24 +43,24 @@ class SoftInfo
     private $hostingCountry;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="creationDate", type="integer", nullable=true)
+     * @ORM\Column(name="creationDate", type="string", length=255, nullable=true)
      */
     private $creationDate;
 
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="subscriptionCost", type="integer", nullable=true)
+     * @ORM\Column(name="subscriptionCost", type="string", length=255, nullable=true)
      */
     private $subscriptionCost;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="trainingCost", type="integer", nullable=true)
+     * @ORM\Column(name="trainingCost", type="text", nullable=true)
      */
     private $trainingCost;
 
@@ -78,10 +78,11 @@ class SoftInfo
     private $softMain;
 
 
+
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -89,13 +90,13 @@ class SoftInfo
     }
 
     /**
-     * Set rgpd
+     * Set rgpd.
      *
-     * @param boolean $rgpd
+     * @param bool|null $rgpd
      *
      * @return SoftInfo
      */
-    public function setRgpd($rgpd)
+    public function setRgpd($rgpd = null)
     {
         $this->rgpd = $rgpd;
 
@@ -103,9 +104,9 @@ class SoftInfo
     }
 
     /**
-     * Get rgpd
+     * Get rgpd.
      *
-     * @return boolean
+     * @return bool|null
      */
     public function getRgpd()
     {
@@ -113,13 +114,13 @@ class SoftInfo
     }
 
     /**
-     * Set customers
+     * Set customers.
      *
-     * @param string $customers
+     * @param string|null $customers
      *
      * @return SoftInfo
      */
-    public function setCustomers($customers)
+    public function setCustomers($customers = null)
     {
         $this->customers = $customers;
 
@@ -127,9 +128,9 @@ class SoftInfo
     }
 
     /**
-     * Get customers
+     * Get customers.
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomers()
     {
@@ -137,13 +138,13 @@ class SoftInfo
     }
 
     /**
-     * Set hostingCountry
+     * Set hostingCountry.
      *
-     * @param string $hostingCountry
+     * @param string|null $hostingCountry
      *
      * @return SoftInfo
      */
-    public function setHostingCountry($hostingCountry)
+    public function setHostingCountry($hostingCountry = null)
     {
         $this->hostingCountry = $hostingCountry;
 
@@ -151,9 +152,9 @@ class SoftInfo
     }
 
     /**
-     * Get hostingCountry
+     * Get hostingCountry.
      *
-     * @return string
+     * @return string|null
      */
     public function getHostingCountry()
     {
@@ -161,13 +162,13 @@ class SoftInfo
     }
 
     /**
-     * Set creationDate
+     * Set creationDate.
      *
-     * @param integer $creationDate
+     * @param string|null $creationDate
      *
      * @return SoftInfo
      */
-    public function setCreationDate($creationDate)
+    public function setCreationDate($creationDate = null)
     {
         $this->creationDate = $creationDate;
 
@@ -175,9 +176,9 @@ class SoftInfo
     }
 
     /**
-     * Get creationDate
+     * Get creationDate.
      *
-     * @return integer
+     * @return string|null
      */
     public function getCreationDate()
     {
@@ -185,13 +186,13 @@ class SoftInfo
     }
 
     /**
-     * Set subscriptionCost
+     * Set subscriptionCost.
      *
-     * @param integer $subscriptionCost
+     * @param string|null $subscriptionCost
      *
      * @return SoftInfo
      */
-    public function setSubscriptionCost($subscriptionCost)
+    public function setSubscriptionCost($subscriptionCost = null)
     {
         $this->subscriptionCost = $subscriptionCost;
 
@@ -199,9 +200,9 @@ class SoftInfo
     }
 
     /**
-     * Get subscriptionCost
+     * Get subscriptionCost.
      *
-     * @return integer
+     * @return string|null
      */
     public function getSubscriptionCost()
     {
@@ -209,13 +210,13 @@ class SoftInfo
     }
 
     /**
-     * Set trainingCost
+     * Set trainingCost.
      *
-     * @param integer $trainingCost
+     * @param string|null $trainingCost
      *
      * @return SoftInfo
      */
-    public function setTrainingCost($trainingCost)
+    public function setTrainingCost($trainingCost = null)
     {
         $this->trainingCost = $trainingCost;
 
@@ -223,9 +224,9 @@ class SoftInfo
     }
 
     /**
-     * Get trainingCost
+     * Get trainingCost.
      *
-     * @return integer
+     * @return string|null
      */
     public function getTrainingCost()
     {
@@ -233,13 +234,13 @@ class SoftInfo
     }
 
     /**
-     * Set webSite
+     * Set webSite.
      *
-     * @param string $webSite
+     * @param string|null $webSite
      *
      * @return SoftInfo
      */
-    public function setWebSite($webSite)
+    public function setWebSite($webSite = null)
     {
         $this->webSite = $webSite;
 
@@ -247,9 +248,9 @@ class SoftInfo
     }
 
     /**
-     * Get webSite
+     * Get webSite.
      *
-     * @return string
+     * @return string|null
      */
     public function getWebSite()
     {
@@ -257,9 +258,9 @@ class SoftInfo
     }
 
     /**
-     * Set softMain
+     * Set softMain.
      *
-     * @param \AppBundle\Entity\SoftMain $softMain
+     * @param \AppBundle\Entity\SoftMain|null $softMain
      *
      * @return SoftInfo
      */
@@ -271,9 +272,9 @@ class SoftInfo
     }
 
     /**
-     * Get softMain
+     * Get softMain.
      *
-     * @return \AppBundle\Entity\SoftMain
+     * @return \AppBundle\Entity\SoftMain|null
      */
     public function getSoftMain()
     {
