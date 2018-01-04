@@ -248,19 +248,4 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->getQuery();
         return $qb->getResult();
     }
-
-    /**
-     * @param $word
-     * @return array
-     */
-    public function getSoftMainNameBySlug($slug)
-    {
-
-        $qb = $this->createQueryBuilder('s')
-            ->select('s.name')
-            ->where('s.name LIKE :name')
-            ->setParameter('name', $softmain)
-            ->getQuery();
-        return $qb->getResult();
-    }
 }
