@@ -16,10 +16,13 @@ table-names:
     table14: versus
 import-tags:
     path: ../Resources/datas/import-tags.csv
+    #First line of header begin by :
+    header: Nom
     entities:
       Tag:
         fields:
           name: string
+          title: string
           description: string
         links:
           source: ??
@@ -31,10 +34,13 @@ import-tags:
 
 import-softwares:
         path: ../Resources/datas/import-softwares.csv
+        #First line of header begin by :
+        header: Nom
         entities:
           SoftMain:
             fields:
                 name: string
+                title: string
                 type: string
                 description: string
                 comments: string
@@ -53,11 +59,9 @@ import-softwares:
                 rgpd: boolean
                 customers: string
                 hostingCountry: string
-                creationDate: integer
-                annualTurnover: string
-                configCost: string
-                subscriptionCost: integer
-                trainingCost: integer
+                creationDate: string
+                subscriptionCost: string
+                trainingCost: string
                 webSite: string
             links:
               source: SoftMain
@@ -124,6 +128,7 @@ import-softwares:
 
           SoftMarketingCampaign:
             fields:
+                isAutoResponder: boolean
                 isLeadScoring: boolean
                 isCreationCampaign: boolean
                 isDripMarketingCampaign: boolean
@@ -194,6 +199,8 @@ import-softwares:
 
 import-versus:
         path: ../Resources/datas/import-versus.csv
+        #First line of header begin by :
+        header: Nom
         entities:
           Versus:
             fields:
@@ -205,6 +212,7 @@ import-versus:
                   link: One-to-Many
                   source: SoftMain
                   inversedby: versus2
+                title: string
                 description: string
             links:
               source: no

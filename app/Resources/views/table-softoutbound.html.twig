@@ -1,33 +1,89 @@
 
-<table class="striped highlight">
+<table class="striped">
     <tbody>
     <tr>
         <th>{{ 'isEmail'|trans }}</th>
-        <td>{{ softmain.softOutbound.isEmail }}</td>
+        <td>
+            {% if softmain.softOutbound.isEmail == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isEmail == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isSms'|trans }}</th>
-        <td>{{ softmain.softOutbound.isSms }}</td>
+        <td>
+            {% if softmain.softOutbound.isSms == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isSms == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isPopin'|trans }}</th>
-        <td>{{ softmain.softOutbound.isPopin }}</td>
+        <td>
+            {% if softmain.softOutbound.isPopin == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isPopin == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isMailPostal'|trans }}</th>
-        <td>{{ softmain.softOutbound.isMailPostal }}</td>
+        <td>
+            {% if softmain.softOutbound.isMailPostal == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isMailPostal == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isCallCenter'|trans }}</th>
-        <td>{{ softmain.softOutbound.isCallCenter }}</td>
+        <td>
+            {% if softmain.softOutbound.isCallCenter == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isCallCenter == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isPushMobile'|trans }}</th>
-        <td>{{ softmain.softOutbound.isPushMobile }}</td>
+        <td>
+            {% if softmain.softOutbound.isPushMobile == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isPushMobile == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isApi'|trans }}</th>
-        <td>{{ softmain.softOutbound.isApi }}</td>
+        <td>
+            {% if softmain.softOutbound.isApi == false %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isApi == true %}
+                <i class="small material-icons green-text">check</i>
+            {% else %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     </tbody>
 </table>
