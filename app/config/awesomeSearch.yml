@@ -7,10 +7,8 @@ notBool:
     traingCost: cout formation
     webSite: site web
 
-#There are 2 informations for each booleans, used in service "BoolsAsTags". The aim of this service is to
-# use booleans as tags, so they can be display in listing tags.
-# For this, we need two informations : propertie name (like isEmail), name of property to be display (like Envoi d'email), and slug for url (like envoi-d-email). After that, you can access to each synonymous.
-# DO NOT DELETE ANY OF THIS 2 MAJOR INFORMATIONS. Thank you !
+## Please, do not change anything except "Synonymous" : you can add as much as words as you want.
+## Change the data, but not titles of each labels.
 
 Booleans:
     softOutbound:
