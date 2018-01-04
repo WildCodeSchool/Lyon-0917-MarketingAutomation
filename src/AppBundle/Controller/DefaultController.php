@@ -75,8 +75,6 @@ class DefaultController extends Controller
         $softwares = $serviceRecherche->search($researchContent);
 
 
-
-
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
         ]);
@@ -113,7 +111,7 @@ class DefaultController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tag = $repository->findOneBy(['slug' => $slug]);
-        if ( empty($tag) ) {
+        if (empty($tag)) {
             $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
             return $this->render('default/unique-tag.html.twig', [
 
@@ -164,7 +162,10 @@ class DefaultController extends Controller
 
         $listVersus = $em->getRepository(Versus::class)->findAll();
 
-        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        $defaultData = array(
+            'message' => 'Choisissez 2 logiciels à comparer :',
+        );
+
         $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
@@ -239,11 +240,16 @@ class DefaultController extends Controller
         $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1->getId(), $softmain2->getId());
 
         // if versus is not existing this way, test if it's existing in the other way
-        if(empty($versus)){
+        if (empty($versus)) {
             $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain2->getId(), $softmain1->getId());
-            }
-
-        $defaultData = array('message' => 'Choisissez 2 logiciels à comparer :');
+        }
+        $name1 = $softmain1->getName();
+        $name2 = $softmain2->getName();
+        $defaultData = array(
+            'message' => 'Choisissez 2 logiciels à comparer :',
+            'placeholder1' => $name1,
+            'placeholder2' => $name2,
+        );
         $form = $this->createForm(CompareType::class, $defaultData);
 
         $form->handleRequest($request);
