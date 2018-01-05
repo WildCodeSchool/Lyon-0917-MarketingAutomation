@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
-{% block title %}Résultats de votre recherche{% endblock %}
+{% block title %} Votre recherche :  {{ research }} - Logiciel de Marketing Automation {% endblock %}
+
 {% block body %}
     <div id="results">
         <div class="row">
@@ -11,9 +12,9 @@
             </div>
 
             <div class="col s12 m7 l7">
-                <p class="presults">{% if softwares|length > 1 %}  {{ softwares|length }} Résultats
+                <p class="presults">{% if softwares|length > 1 %}  {{ softwares|length }} résultats pour votre recherche : {{ research }}
                     {% endif %}
-                    {% if softwares|length < 2 %}  {{ softwares|length }} Résultat
+                    {% if softwares|length < 2 %}  {{ softwares|length }} Résultat pour votre recherche : {{ research }}
                     {% endif %}
 
                 </p>

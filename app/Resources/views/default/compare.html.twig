@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {% if versus %}
+    {% if versus|length > 0 %}
         {% for versu in versus %}
                 {{ versu.title }}
         {% endfor %}
