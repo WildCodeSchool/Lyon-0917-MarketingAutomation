@@ -54,7 +54,7 @@ class SeeAlso
         $result = $this->getAwesomeSearch()->search($query);
 
 
-        return $result = array_slice($result, 0, $nb);
+        return $result = array_slice($result, 1, $nb);
     }
 
     /**
