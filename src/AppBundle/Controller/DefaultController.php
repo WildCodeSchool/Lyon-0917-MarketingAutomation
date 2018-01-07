@@ -38,9 +38,11 @@ class DefaultController extends Controller
     {
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $repository->findAll();
+        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
+            'versusList' => $versusList,
         ]);
     }
 
