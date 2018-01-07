@@ -38,11 +38,11 @@ class AwesomeSearch
      * @param EntityManagerInterface $em
      * @param $rootDir
      */
-    public function __construct(EntityManagerInterface $em, $rootDir)
+    public function __construct(EntityManagerInterface $em)
     {
         $this->em = $em;
         $this->finalResult = array();
-        $this->datas = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
+        $this->datas = Yaml::parse(file_get_contents( "/home/anne-laure/Bureau/projets/Lyon-0917-MarketingAutomation/app/config/awesomeSearch.yml"));
 
     }
 

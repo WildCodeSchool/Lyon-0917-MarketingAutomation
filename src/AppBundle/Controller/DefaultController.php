@@ -6,7 +6,6 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,9 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotIdenticalTo;
-use AppBundle\Repository\VersusRepository;
+use AppBundle\Service\SeeAlso;
 
 class DefaultController extends Controller
 {
@@ -34,10 +31,9 @@ class DefaultController extends Controller
      * @Method("GET")
      */
     public
-    function softwareSoloAction(Request $request, SoftMain $softMain)
+    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso)
     {
-        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
-        $softMains = $repository->findAll();
+        $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
