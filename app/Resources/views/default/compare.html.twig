@@ -2,13 +2,13 @@
 {% block title %}
     {% if versus|length > 0 %}
         {% for versu in versus %}
-                {{ versu.title }}
+            {{ versu.title }}
         {% endfor %}
-        {% else %}
-            Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
+    {% else %}
+        Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
     {% endif %}
 
-   {% endblock %}
+{% endblock %}
 {% block metadesc %}Un doute? Comparez 2 logiciels de marketing automation selon leurs fonctionnalités.{% endblock %}
 
         {% block h1 %}
@@ -81,7 +81,7 @@
                 {% if versus is defined %}
                     {% for versu in versus %}
                         <div class="col s12 m12" id="SpecificCompareComment">
-                          <p>{{ versu.description | raw }}</p>
+                            <p>{{ versu.description | raw }}</p>
                         </div>
                     {% endfor %}
                 {% endif %}
