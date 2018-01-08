@@ -6,7 +6,6 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -221,7 +220,11 @@ class DefaultController extends Controller
     public function VersusAction(Request $request, string $slug1, string $slug2)
 
     {
+        $canonical = array($slug1, $slug2);
+        sort($canonical);
+
         $em = $this->getDoctrine()->getManager();
+
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
@@ -289,7 +292,8 @@ class DefaultController extends Controller
                 'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
-                'versus' => $versus
+                'versus' => $versus,
+                'canonical' => $canonical
             )
         );
     }
