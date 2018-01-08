@@ -141,23 +141,22 @@
                         <td>
                             {% if softmain1.softInfo.rgpd == false %}
                                 <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softInfo.rgpd == null %}
+                                <p class="center-align">Non communiqué</p>
                             {% elseif softmain1.softInfo.rgpd == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.rgpd == false %}
                                 <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softInfo.rgpd == null %}
+                                <p class="center-align">Non communiqué</p>
                             {% elseif softmain2.softInfo.rgpd == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
-
                     <tr>
                         <th>{{ 'customers'|trans }}</th>
                         <td>
@@ -266,105 +265,105 @@
                     <tr>
                         <th>{{ 'isEmail'|trans }}</th>
                         <td>
-                            {% if softmain1.softOutbound.isEmail == false %}
+                            {% if softmain1.softOutbound.isEmail == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain1.softOutbound.isEmail == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isEmail == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softOutbound.isEmail == false %}
+                            {% if softmain2.softOutbound.isEmail is empty %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain2.softOutbound.isEmail == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isEmail == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
                         <th>{{ 'isSms'|trans }}</th>
                         <td>
-                            {% if softmain1.softOutbound.isSms == false %}
+                            {% if softmain1.softOutbound.isSms == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain1.softOutbound.isSms == 0 %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isSms == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softOutbound.isSms == false %}
+                            {% if softmain2.softOutbound.isSms == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain2.softOutbound.isSms == 0 %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isSms == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
                         <th>{{ 'isPopin'|trans }}</th>
                         <td>
-                            {% if softmain1.softOutbound.isPopin == false %}
+                            {% if softmain1.softOutbound.isPopin == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain1.softOutbound.isPopin == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isPopin == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softOutbound.isPopin == false %}
+                            {% if softmain2.softOutbound.isPopin == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain2.softOutbound.isPopin == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isPopin == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
                         <th>{{ 'isMailPostal'|trans }}</th>
                         <td>
-                            {% if softmain1.softOutbound.isMailPostal == false %}
+                            {% if softmain1.softOutbound.isMailPostal == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain1.softOutbound.isMailPostal == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isMailPostal == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softOutbound.isMailPostal == false %}
+                            {% if softmain2.softOutbound.isMailPostal == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain2.softOutbound.isMailPostal == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isMailPostal == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
                         <th>{{ 'isCallCenter'|trans }}</th>
                         <td>
-                            {% if softmain1.softOutbound.isCallCenter == false %}
+                            {% if softmain1.softOutbound.isCallCenter == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain1.softOutbound.isCallCenter == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isCallCenter == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softOutbound.isCallCenter == false %}
+                            {% if softmain2.softOutbound.isCallCenter == null %}
+                                <p class="center-align">Non communiqué</p>
+                            {% elseif softmain2.softOutbound.isCallCenter == false %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isCallCenter == true %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
-                                <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -541,20 +540,22 @@
                     <tr>
                         <th>{{ 'isContactObject'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isContactObject == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isContactObject == true %}
+                            {{ dump(softmain1.softLeadsOperation.isContactObject) }}
+                            {% if softmain1.softLeadsOperation.isContactObject is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isContactObject is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isContactObject is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isContactObject == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isContactObject == true %}
-                                <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {{ dump(softmain2.softLeadsOperation.isContactObject) }}
+                            {% if softmain2.softLeadsOperation.isContactObject is same as(true) %}
+                            <i class="small material-icons green-text">check</i>
+                            {% elseif softmain2.softLeadsOperation.isContactObject is same as(false) %}
+                            <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isContactObject is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
