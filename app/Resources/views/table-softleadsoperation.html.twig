@@ -4,11 +4,11 @@
     <tr>
         <th>{{ 'isContactObject'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isContactObject == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isContactObject == true %}
+            {% if softmain.softLeadsOperation.isContactObject is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isContactObject is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isContactObject is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -16,11 +16,11 @@
     <tr>
         <th>{{ 'isCompanyObject'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isCompanyObject == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isCompanyObject == true %}
+            {% if softmain.softLeadsOperation.isCompanyObject is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isCompanyObject is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isCompanyObject is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -28,11 +28,11 @@
     <tr>
         <th>{{ 'isDefinedFields'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isDefinedFields == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isDefinedFields == true %}
+            {% if softmain.softLeadsOperation.isDefinedFields is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isDefinedFields is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isDefinedFields is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -40,11 +40,11 @@
     <tr>
         <th>{{ 'isIllimitedFields'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isIllimitedFields == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isIllimitedFields == true %}
+            {% if softmain.softLeadsOperation.isIllimitedFields is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isIllimitedFields is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isIllimitedFields is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -52,11 +52,11 @@
     <tr>
         <th>{{ 'isImportCsv'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isImportCsv == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isImportCsv == true %}
+            {% if softmain.softLeadsOperation.isImportCsv is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isImportCsv is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isImportCsv is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -64,11 +64,11 @@
     <tr>
         <th>{{ 'isAutoDuplicate'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isAutoDuplicate == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isAutoDuplicate == true %}
+            {% if softmain1.softLeadsOperation.isAutoDuplicate is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -76,11 +76,11 @@
     <tr>
         <th>{{ 'isLeadStages'|trans }}</th>
         <td>
-            {% if softmain.softLeadsOperation.isLeadStages == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softLeadsOperation.isLeadStages == true %}
+            {% if softmain.softLeadsOperation.isLeadStages is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softLeadsOperation.isLeadStages is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softLeadsOperation.isLeadStages is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
