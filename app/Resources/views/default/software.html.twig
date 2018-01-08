@@ -10,12 +10,6 @@
 
             {% block h1 %}
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
-                <p id="tagOnSoft">
-                        {% for tag in softmain.tags  %}
-                            <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>
-                        {% if loop.last == false %}, {% endif %}
-                    {% endfor %}
-                </p>
             {% endblock %}
 {% block body %}
 
@@ -74,6 +68,19 @@
 
         {% include 'table-softothersfunctionnalities.html.twig' %}
 
+        <h2>Tags associés à {{ softmain.name | raw }}</h2>
+
+        <p id="tagOnSoft">
+            {% for tag in softmain.tags  %}
+                <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>,
+            {% endfor %}
+            {% for bool in bools %}
+                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
+                {% if loop.last == false %}, {% endif %}
+            {% endfor %}
+
+
+        </p>
 
         <div class="row">
             <div class="col s12 m12 l12 ">
