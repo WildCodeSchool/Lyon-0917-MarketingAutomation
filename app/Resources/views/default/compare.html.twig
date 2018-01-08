@@ -410,126 +410,88 @@
                         </td>
                     </tr>
                 </table>
-                <h2>Supports de communication entrants (inbound)</h2>
+                <h2>Support de communication</h2>
                 <table class="striped border">
                     <tr>
-                        <th>{{ 'isEmailSupport'|trans }}</th>
+                        <th>{{ 'isLandingPage'|trans }}</th>
                         <td>
-                            {% if softmain1.softSupport.isEmailSupport is same as(true) %}
+                            {% if softmain1.softCommSupport.isLandingPage is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isEmailSupport is same as(false) %}
+                            {% elseif softmain1.softCommSupport.isLandingPage is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isEmailSupport is same as(null) %}
+                            {% elseif softmain1.softCommSupport.isLandingPage is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSupport.isEmailSupport is same as(true) %}
+                            {% if softmain2.softCommSupport.isLandingPage is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isEmailSupport is same as(false) %}
+                            {% elseif softmain2.softCommSupport.isLandingPage is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isEmailSupport is same as(null) %}
+                            {% elseif softmain2.softCommSupport.isLandingPage is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
-                        <th>{{ 'isPhoneSupport'|trans }}</th>
+                        <th>{{ 'isForm'|trans }}</th>
                         <td>
-                            {% if softmain1.softSupport.isPhoneSupport is same as(true) %}
+                            {% if softmain1.softCommSupport.isForm is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isPhoneSupport is same as(false) %}
+                            {% elseif softmain1.softCommSupport.isForm is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isPhoneSupport is same as(null) %}
+                            {% elseif softmain1.softCommSupport.isForm is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSupport.isPhoneSupport is same as(true) %}
+                            {% if softmain2.softCommSupport.isForm is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isPhoneSupport is same as(false) %}
+                            {% elseif softmain2.softCommSupport.isForm is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isPhoneSupport is same as(null) %}
+                            {% elseif softmain2.softCommSupport.isForm is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
-                        <th>{{ 'isChatSupport'|trans }}</th>
+                        <th>{{ 'isTracking'|trans }}</th>
                         <td>
-                            {% if softmain1.softSupport.isChatSupport is same as(true) %}
+                            {% if softmain1.softCommSupport.isTracking is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isChatSupport is same as(false) %}
+                            {% elseif softmain1.softCommSupport.isTracking is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isChatSupport is same as(null) %}
+                            {% elseif softmain1.softCommSupport.isTracking is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSupport.isChatSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isChatSupport is same as(false) %}
+                            {% if softmain2.softCommSupport.isTracking is same as(true) %}
+                            <i class="small material-icons green-text">check</i>
+                            {% elseif softmain2.softCommSupport.isTracking is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isChatSupport is same as(null) %}
+                            {% elseif softmain2.softCommSupport.isTracking is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
-                        <th>{{ 'isKnowledgeBase'|trans }}</th>
+                        <th>{{ 'isLiveChat'|trans }}</th>
                         <td>
-                            {% if softmain1.softSupport.isKnowledgeBase is same as(true) %}
+                            {% if softmain1.softCommSupport.isLiveChat is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isKnowledgeBase is same as(false) %}
+                            {% elseif softmain1.softCommSupport.isLiveChat is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isKnowledgeBase is same as(null) %}
+                            {% elseif softmain1.softCommSupport.isLiveChat is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSupport.isKnowledgeBase is same as(true) %}
+                            {% if softmain2.softCommSupport.isLiveChat is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isKnowledgeBase is same as(false) %}
+                            {% elseif softmain2.softCommSupport.isLiveChat is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isKnowledgeBase is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softSupport.knowledgeBaseLanguage }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softSupport.knowledgeBaseLanguage }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isTechnicalDocument'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isTechnicalDocument is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isTechnicalDocument is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isTechnicalDocument is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isTechnicalDocument is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isTechnicalDocument is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isTechnicalDocument is same as(null) %}
+                            {% elseif softmain2.softCommSupport.isLiveChat is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
