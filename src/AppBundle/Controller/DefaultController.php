@@ -6,6 +6,7 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
+use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -63,12 +64,11 @@ class DefaultController extends Controller
      */
 
     public
-    function resultsAction(Request $request, $researchContent)
+    function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
-        $serviceRecherche = $this->container->get('app.search');
 
-        $softwares = $serviceRecherche->search($researchContent);
+        $softwares = $awesomeSearch->search($researchContent);
 
 
         return $this->render('default/results.html.twig', [

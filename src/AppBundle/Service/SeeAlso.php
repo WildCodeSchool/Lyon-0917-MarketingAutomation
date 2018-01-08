@@ -15,6 +15,12 @@ class SeeAlso
     /** @var AwesomeSearch */
     private $awesomeSearch;
 
+    /**
+     * SeeAlso constructor.
+     * @param EntityManagerInterface $em
+     * @param AwesomeSearch $awesomeSearch
+     * Use AwesomeSearch to give an array of softwares same as one
+     */
     public function __construct(EntityManagerInterface $em, AwesomeSearch $awesomeSearch)
     {
         $this->em = $em;
@@ -48,6 +54,11 @@ class SeeAlso
         return $query;
     }
 
+    /**
+     * @param $software
+     * @param $nb
+     * @return array
+     */
     public function getListOfSameSoftwares($software, $nb) {
         $query = $this->getListTagsToString($software->getName());
 
@@ -64,8 +75,5 @@ class SeeAlso
     {
         return $this->awesomeSearch;
     }
-
-
-
 
 }
