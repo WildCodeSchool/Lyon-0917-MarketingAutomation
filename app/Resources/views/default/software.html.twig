@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {% if softmain.title is defined %}
+    {% if softmain.title == true %}
         {{ softmain.title }}
     {% else %}
         {{ softmain.name }} - logiciel de marketing automation

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {% if tag.title is defined %}
+    {% if tag.title == true %}
         {{ tag.title }}
     {% else %}
         {% if tag.name is defined %}
