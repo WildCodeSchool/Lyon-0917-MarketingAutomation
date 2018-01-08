@@ -15,6 +15,7 @@ use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
 use AppBundle\Service\SeeAlso;
+use AppBundle\Service\AwesomeSearch;
 
 class DefaultController extends Controller
 {
