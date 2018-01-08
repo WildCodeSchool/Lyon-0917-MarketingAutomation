@@ -153,6 +153,7 @@ class BoolsAsTags
 
     /**
      * @param SoftMain $softMain
+     * @return array
      */
     public function getBoolsBySoftware(SoftMain $softMain)
     {
@@ -165,7 +166,6 @@ class BoolsAsTags
             foreach ($entitie as $entitieArray) {
                 $requestResult = $this->em->getRepository(SoftMain::class)->getBoolByAnySoft($softMain->getName(), $booleanKeys[$i], $entityKeys[$j]);
                 if (!empty($requestResult)) {
-
                     $result = array(
                         "slug" => trim($entitieArray['Slug']),
                         "entitie" => $entitieArray['Name'],
@@ -176,9 +176,11 @@ class BoolsAsTags
             }
             $j++;
         }
+        return $bools;
+    }
 
 
-        /**
+    /**
      * @return mixed
      */
     public function getConfig()

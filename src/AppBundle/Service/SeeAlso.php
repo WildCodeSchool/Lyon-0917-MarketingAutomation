@@ -15,16 +15,20 @@ class SeeAlso
     /** @var AwesomeSearch */
     private $awesomeSearch;
 
+    /**@var BoolsAsTags */
+    private $boolsAsTags;
+
     /**
      * SeeAlso constructor.
      * @param EntityManagerInterface $em
      * @param AwesomeSearch $awesomeSearch
      * Use AwesomeSearch to give an array of softwares same as one
      */
-    public function __construct(EntityManagerInterface $em, AwesomeSearch $awesomeSearch)
+    public function __construct(EntityManagerInterface $em, AwesomeSearch $awesomeSearch, BoolsAsTags $boolsAsTags)
     {
         $this->em = $em;
         $this->awesomeSearch = $awesomeSearch;
+        $this->boolsAsTags = $boolsAsTags;
 
     }
 
@@ -40,6 +44,7 @@ class SeeAlso
             ->setParameter('name', $software)
             ->getQuery()->getResult();
 
+
         $query = "";
 
         foreach($softMains as $softMain) {
@@ -50,6 +55,14 @@ class SeeAlso
             }
         }
 
+        $bools = [];
+        foreach($softMains as $software) {
+            $bools = $this->boolsAsTags->getBoolsBySoftware($software);
+        }
+
+        foreach($bools as $bool) {
+            $query .= $bool["entitie"];
+        }
 
         return $query;
     }
