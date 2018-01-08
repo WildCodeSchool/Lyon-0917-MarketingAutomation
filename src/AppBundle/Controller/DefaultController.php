@@ -6,7 +6,6 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -15,9 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
-use Symfony\Component\Validator\Constraints\NotBlank;
-use Symfony\Component\Validator\Constraints\NotIdenticalTo;
-use AppBundle\Repository\VersusRepository;
 
 class DefaultController extends Controller
 {
@@ -31,16 +27,19 @@ class DefaultController extends Controller
 
     /**
      * @Route("/logiciels/{slug}", name="softwareSolo")
+     * @param BoolsAsTags $boolsAsTags
      * @Method("GET")
      */
     public
-    function softwareSoloAction(Request $request, SoftMain $softMain)
+    function softwareSoloAction(Request $request, SoftMain $softMain, BoolsAsTags $boolsAsTags)
     {
+        $bools = $boolsAsTags->getBoolsBySoftware($softMain);
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $repository->findAll();
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
+            'bools' => $bools,
         ]);
     }
 
