@@ -64,11 +64,11 @@
     <tr>
         <th>{{ 'isAutoDuplicate'|trans }}</th>
         <td>
-            {% if softmain1.softLeadsOperation.isAutoDuplicate is same as(true) %}
+            {% if softmain.softLeadsOperation.isAutoDuplicate is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
+            {% elseif softmain.softLeadsOperation.isAutoDuplicate is same as(false) %}
                 <i class="small material-icons red-text">close</i>
-            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
+            {% elseif softmain.softLeadsOperation.isAutoDuplicate is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
