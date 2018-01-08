@@ -4,11 +4,11 @@
     <tr>
         <th>{{ 'isProviderEmailChoice'|trans }}</th>
         <td>
-            {% if softmain.softOtherFunctionnalities.isProviderEmailChoice == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOtherFunctionnalities.isProviderEmailChoice == true %}
+            {% if softmain.softOtherFunctionnalities.isProviderEmailChoice is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -16,11 +16,11 @@
     <tr>
         <th>{{ 'isBlogEdition'|trans }}</th>
         <td>
-            {% if softmain.softOtherFunctionnalities.isBlogEdition == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOtherFunctionnalities.isBlogEdition == true %}
+            {% if softmain.softOtherFunctionnalities.isBlogEdition is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOtherFunctionnalities.isBlogEdition is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isBlogEdition is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -28,11 +28,11 @@
     <tr>
         <th>{{ 'isTouchPad'|trans }}</th>
         <td>
-            {% if softmain.softOtherFunctionnalities.isTouchPad == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOtherFunctionnalities.isTouchPad == true %}
+            {% if softmain.softOtherFunctionnalities.isTouchPad is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOtherFunctionnalities.isTouchPad is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isTouchPad is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -40,11 +40,11 @@
     <tr>
         <th>{{ 'isStmtpRelay'|trans }}</th>
         <td>
-            {% if softmain.softOtherFunctionnalities.isSmtpRelay == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOtherFunctionnalities.isSmtpRelay == true %}
+            {% if softmain.softOtherFunctionnalities.isSmtpRelay is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -52,11 +52,11 @@
     <tr>
         <th>{{ 'isRssToEmail'|trans }}</th>
         <td>
-            {% if softmain.softOtherFunctionnalities.isRssToEmail == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOtherFunctionnalities.isRssToEmail == true %}
+            {% if softmain.softOtherFunctionnalities.isRssToEmail is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOtherFunctionnalities.isRssToEmail is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOtherFunctionnalities.isRssToEmail is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>

@@ -4,11 +4,11 @@
     <tr>
         <th>{{ 'isLandingPage'|trans }}</th>
         <td>
-            {% if softmain.softCommSupport.isLandingPage == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softCommSupport.isLandingPage == true %}
+            {% if softmain.softCommSupport.isLandingPage is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softCommSupport.isLandingPage is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softCommSupport.isLandingPage is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -16,11 +16,11 @@
     <tr>
         <th>{{ 'isForm'|trans }}</th>
         <td>
-            {% if softmain.softCommSupport.isForm == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softCommSupport.isForm == true %}
+            {% if softmain.softCommSupport.isForm is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softCommSupport.isForm is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softCommSupport.isForm is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -28,11 +28,11 @@
     <tr>
         <th>{{ 'isTracking'|trans }}</th>
         <td>
-            {% if softmain.softCommSupport.isTracking == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softCommSupport.isTracking == true %}
+            {% if softmain.softCommSupport.isTracking is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softCommSupport.isTracking is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softCommSupport.isTracking is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -40,11 +40,11 @@
     <tr>
         <th>{{ 'isLiveChat'|trans }}</th>
         <td>
-            {% if softmain.softCommSupport.isLiveChat == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softCommSupport.isLiveChat == true %}
+            {% if softmain.softCommSupport.isLiveChat is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softCommSupport.isLiveChat is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softCommSupport.isLiveChat is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>

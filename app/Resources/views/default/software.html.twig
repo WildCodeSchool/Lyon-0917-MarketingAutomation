@@ -38,19 +38,19 @@
 
         {% include 'table-softinfo.html.twig' %}
 
-        <h2>Canaux de communication sortants (outbound)</h2>
+        <h2>Canaux de communication sortants (outbound) de {{ softmain.name | raw }} </h2>
 
         {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Supports de communication entrant (inbound)</h2>
+        <h2>Supports de communication de {{ softmain.name | raw }} </h2>
 
         {% include 'table-softcommsupport.html.twig' %}
 
-        <h2>Gestion des contacts</h2>
+        <h2>Gestion des contacts avec {{ softmain.name | raw }} </h2>
 
         {% include 'table-softleadsoperation.html.twig' %}
 
-        <h2>Gestion des segments</h2>
+        <h2>Gestion des segments avec {{ softmain.name | raw }} </h2>
 
         {% include 'table-softsegmentoperation.html.twig' %}
 
@@ -58,7 +58,7 @@
 
         {% include 'table-softmarketingcampaign.html.twig' %}
 
-        <h2>Intégration Social Media</h2>
+        <h2>Intégration Social Media {{ softmain.name | raw }} </h2>
 
         {% include 'table-softsocialmedia.html.twig' %}
 
