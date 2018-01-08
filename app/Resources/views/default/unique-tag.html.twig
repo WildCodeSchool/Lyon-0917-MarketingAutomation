@@ -1,14 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {% if tag.title == true %}
+    {% if description is defined %}
+        Logiciels de Marketing Automation : {{ description }}
+    {% else %}
+        {% if tag.title == true %}
         {{ tag.title }}
     {% else %}
-        {% if tag.name is defined %}
+        {% if tag.name == true %}
         Logiciels de Marketing Automation : {{ tag.name }}
-            {% else %}
-                Logiciels de Marketing Automation : {{ description }}
 
+        {% endif %}
         {% endif %}
         {% endif %}
 {% endblock %}
