@@ -147,6 +147,11 @@ class DefaultController extends Controller
         ]);
     }
 
+    private static function compare(Versus $a, Versus $b) {
+        return strcmp($a->getSoftware1()->getName(), $b->getSoftware1()->getName());
+
+    }
+
     /**
      * @Route("comparatifs", name="listingVersus")
      */
@@ -157,6 +162,9 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $listVersus = $em->getRepository(Versus::class)->findAll();
+
+
+        usort($listVersus, "self::compare");
 
         $defaultData = array(
             'message' => 'Choisissez 2 logiciels à comparer :',
