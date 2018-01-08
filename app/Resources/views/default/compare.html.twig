@@ -558,23 +558,24 @@
                             {% endif %}
                         </td>
                     </tr>
+
                     <tr>
                         <th>{{ 'isCompanyObject'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isCompanyObject == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isCompanyObject == true %}
+                            {% if softmain1.softLeadsOperation.isCompanyObject is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isCompanyObject == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isCompanyObject == true %}
+                            {% if softmain2.softLeadsOperation.isCompanyObject is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -582,20 +583,20 @@
                     <tr>
                         <th>{{ 'isDefinedFields'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isDefinedFields == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isDefinedFields == true %}
+                            {% if softmain1.softLeadsOperation.isDefinedFields is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isDefinedFields == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isDefinedFields == true %}
+                            {% if softmain2.softLeadsOperation.isDefinedFields is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -603,20 +604,20 @@
                     <tr>
                         <th>{{ 'isIllimitedFields'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isIllimitedFields == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isIllimitedFields == true %}
+                            {% if softmain1.softLeadsOperation.isIllimitedFields is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isIllimitedFields == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isIllimitedFields == true %}
+                            {% if softmain2.softLeadsOperation.isIllimitedFields is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -624,20 +625,20 @@
                     <tr>
                         <th>{{ 'isImportCsv'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isImportCsv == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isImportCsv == true %}
+                            {% if softmain1.softLeadsOperation.isImportCsv is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isImportCsv is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isImportCsv is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isImportCsv == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isImportCsv == true %}
+                            {% if softmain2.softLeadsOperation.isImportCsv is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isImportCsv is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isImportCsv is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -645,20 +646,20 @@
                     <tr>
                         <th>{{ 'isAutoDuplicate'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isAutoDuplicate == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isAutoDuplicate == true %}
+                            {% if softmain1.softLeadsOperation.isAutoDuplicate is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isAutoDuplicate == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isAutoDuplicate == true %}
+                            {% if softmain2.softLeadsOperation.isAutoDuplicate is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -666,20 +667,20 @@
                     <tr>
                         <th>{{ 'isLeadStages'|trans }}</th>
                         <td>
-                            {% if softmain1.softLeadsOperation.isLeadStages == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isLeadStages == true %}
+                            {% if softmain1.softLeadsOperation.isLeadStages is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softLeadsOperation.isLeadStages is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softLeadsOperation.isLeadStages is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softLeadsOperation.isLeadStages == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isLeadStages == true %}
+                            {% if softmain2.softLeadsOperation.isLeadStages is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softLeadsOperation.isLeadStages is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softLeadsOperation.isLeadStages is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
