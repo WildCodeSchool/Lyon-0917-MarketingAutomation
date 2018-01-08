@@ -177,34 +177,6 @@ class BoolsAsTags
         return $bools;
     }
 
-    /**
-     * @param SoftMain $softMain
-     * @return array
-     */
-    public function getBoolsBySoftware(SoftMain $softMain)
-    {
-        $entityKeys = array_keys($this->getConfig()['Booleans']);
-        $bools = [];
-        $j = 0;
-        foreach ($this->getConfig()['Booleans'] as $entitie) {
-            $i = 0;
-            $booleanKeys = array_keys($entitie);
-            foreach ($entitie as $entitieArray) {
-                $requestResult = $this->em->getRepository(SoftMain::class)->getBoolByAnySoft($softMain->getName(), $booleanKeys[$i], $entityKeys[$j]);
-                if (!empty($requestResult)) {
-                    $result = array(
-                        "slug" => trim($entitieArray['Slug']),
-                        "entitie" => $entitieArray['Name'],
-                    );
-                    $bools[] = $result;
-                }
-                $i++;
-            }
-            $j++;
-        }
-        return $bools;
-    }
-
 
     /**
      * @return mixed

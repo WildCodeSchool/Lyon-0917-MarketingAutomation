@@ -269,15 +269,5 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
-    public function getBoolByAnySoft($softMainName, $booleanKey, $entityName)
-    {
-        $qb = $this
-            ->createQueryBuilder('s')
-            ->join('s.' . $entityName , 't')
-            ->setParameter('name', $softMainName)
-            ->where('s.name LIKE :name')
-            ->andWhere('t.' . $booleanKey . ' = true')
-            ->getQuery();
-        return $qb->getResult();
-    }
+
 }
