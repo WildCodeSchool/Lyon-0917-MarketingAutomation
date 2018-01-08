@@ -15,6 +15,7 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\NotIdenticalTo;
 use AppBundle\Repository\VersusRepository;
@@ -69,15 +70,25 @@ class DefaultController extends Controller
     public
     function resultsAction(Request $request, $researchContent)
     {
+
         $this->get("session")->set("researchContent", $researchContent);
         $serviceRecherche = $this->container->get('app.search');
 
         $softwares = $serviceRecherche->search($researchContent);
+        $serializer = $this->get('jms_serializer');
+        $data = $serializer->serialize($softwares,'json');
 
+        $response = new Response();
 
-        return $this->render('default/results.html.twig', [
-            'softwares' => $softwares,
-        ]);
+        $response->setContent($data);
+        //$response->setStatusCode(Response::HTTP_OK);
+
+// set a HTTP response header
+        $response->headers->set('Content-Type', 'application/json');
+
+// print the HTTP headers followed by the content
+       return $response->send();
+
     }
 
     /**
