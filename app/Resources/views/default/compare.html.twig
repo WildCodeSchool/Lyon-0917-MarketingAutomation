@@ -1014,19 +1014,19 @@
                     <tr>
                         <th>{{ 'isActivityReportCreation'|trans }}</th>
                         <td>
-                            {% if softmain1.softReport.isActivityReportCreation == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softReport.isActivityReportCreation == true %}
+                            {% if softmain1.softReport.isActivityReportCreation is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softReport.isActivityReportCreation is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softReport.isActivityReportCreation is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
-                            {% endif %}</td>
+                            {% endif %}
                         <td>
-                            {% if softmain2.softReport.isActivityReportCreation == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softReport.isActivityReportCreation == true %}
+                            {% if softmain2.softReport.isActivityReportCreation is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softReport.isActivityReportCreation is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softReport.isActivityReportCreation is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -1034,20 +1034,20 @@
                     <tr>
                         <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
                         <td>
-                            {% if softmain1.softReport.isActivityReportPeriodicSend == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+                            {% if softmain1.softReport.isActivityReportPeriodicSend is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softReport.isActivityReportPeriodicSend == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+                            {% if softmain2.softReport.isActivityReportPeriodicSend is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
