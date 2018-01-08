@@ -3,16 +3,24 @@
     <tbody>
     <tr>
         <th>{{ 'isAutoResponder'|trans }}</th>
-        <td>{{ softmain.softMarketingCampaign.isLeadScoring }}</td>
+        <td>
+            {% if softmain.softMarketingCampaign.isAutoResponder is same as(true) %}
+                <i class="small material-icons green-text">check</i>
+            {% elseif softmain.softMarketingCampaign.isAutoResponder is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isAutoResponder is same as(null) %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
+        </td>
     </tr>
     <tr>
         <th>{{ 'isLeadScoring'|trans }}</th>
         <td>
-            {% if softmain.softMarketingCampaign.isLeadScoring == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softMarketingCampaign.isLeadScoring == true %}
+            {% if softmain.softMarketingCampaign.isLeadScoring is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softMarketingCampaign.isLeadScoring is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isLeadScoring is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -20,11 +28,11 @@
     <tr>
         <th>{{ 'isCreationCampaign'|trans }}</th>
         <td>
-            {% if softmain.softMarketingCampaign.isCreationCampaign == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softMarketingCampaign.isCreationCampaign == true %}
+            {% if softmain.softMarketingCampaign.isCreationCampaign is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softMarketingCampaign.isCreationCampaign is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isCreationCampaign is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -32,11 +40,11 @@
     <tr>
         <th>{{ 'isDripMarketingCampaign'|trans }}</th>
         <td>
-            {% if softmain.softMarketingCampaign.isDripMarketingCampaign == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softMarketingCampaign.isDripMarketingCampaign == true %}
+            {% if softmain.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -44,11 +52,11 @@
     <tr>
         <th>{{ 'isDragAndDrop'|trans }}</th>
         <td>
-            {% if softmain.softMarketingCampaign.isDragAndDrop == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softMarketingCampaign.isDragAndDrop == true %}
+            {% if softmain.softMarketingCampaign.isDragAndDrop is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softMarketingCampaign.isDragAndDrop is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softMarketingCampaign.isDragAndDrop is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
