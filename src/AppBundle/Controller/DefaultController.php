@@ -73,6 +73,7 @@ class DefaultController extends Controller
 
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
+            'research' => $researchContent
         ]);
     }
 
