@@ -38,12 +38,12 @@
     <tr>
         <th>{{ 'rgpd'|trans }}</th>
         <td>
-            {% if softmain.softInfo.rgpd == null %}
-                <p class="center-align">Non communiqué</p>
-            {% elseif softmain.softInfo.rgpd == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softInfo.rgpd == true %}
+            {% if softmain.softInfo.rgpd is same as(true) %}
                 <i class="small material-icons green-text">check</i>
+            {% elseif softmain.softInfo.rgpd is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softInfo.rgpd is same as(null) %}
+                <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
     </tr>

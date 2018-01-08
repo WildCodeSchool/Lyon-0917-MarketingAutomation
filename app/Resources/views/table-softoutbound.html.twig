@@ -4,11 +4,11 @@
     <tr>
         <th>{{ 'isEmail'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isEmail == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isEmail == true %}
+            {% if softmain.softOutbound.isEmail is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isEmail is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isEmail is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -16,11 +16,11 @@
     <tr>
         <th>{{ 'isSms'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isSms == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isSms == true %}
+            {% if softmain.softOutbound.isSms is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isSms is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isSms is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -28,11 +28,11 @@
     <tr>
         <th>{{ 'isPopin'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isPopin == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isPopin == true %}
+            {% if softmain.softOutbound.isPopin is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isPopin is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isPopin is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -40,11 +40,11 @@
     <tr>
         <th>{{ 'isMailPostal'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isMailPostal == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isMailPostal == true %}
+            {% if softmain.softOutbound.isMailPostal is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isMailPostal is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isMailPostal is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -52,11 +52,11 @@
     <tr>
         <th>{{ 'isCallCenter'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isCallCenter == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isCallCenter == true %}
+            {% if softmain.softOutbound.isCallCenter is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isMailPostal is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isMailPostal is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -64,11 +64,11 @@
     <tr>
         <th>{{ 'isPushMobile'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isPushMobile == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isPushMobile == true %}
+            {% if softmain.softOutbound.isPushMobile is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isPushMobile is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isPushMobile is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -76,11 +76,11 @@
     <tr>
         <th>{{ 'isApi'|trans }}</th>
         <td>
-            {% if softmain.softOutbound.isApi == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softOutbound.isApi == true %}
+            {% if softmain.softOutbound.isApi is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softOutbound.isApi is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softOutbound.isApi is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
