@@ -558,7 +558,6 @@
                             {% endif %}
                         </td>
                     </tr>
-
                     <tr>
                         <th>{{ 'isCompanyObject'|trans }}</th>
                         <td>
@@ -691,20 +690,20 @@
                     <tr>
                         <th>{{ 'isSegmentCreation'|trans }}</th>
                         <td>
-                            {% if softmain1.softSegmentOperation.isSegmentCreation  == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSegmentOperation.isSegmentCreation == true %}
+                            {% if softmain1.softSegmentOperation.isSegmentCreation is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSegmentOperation.isSegmentCreation  == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSegmentOperation.isSegmentCreation == true %}
+                            {% if softmain2.softSegmentOperation.isSegmentCreation is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -712,20 +711,20 @@
                     <tr>
                         <th>{{ 'isIntelligentSegment'|trans }}</th>
                         <td>
-                            {% if softmain1.softSegmentOperation.isIntelligentSegment  == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment == true %}
+                            {% if softmain1.softSegmentOperation.isIntelligentSegment is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softSegmentOperation.isIntelligentSegment  == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment == true %}
+                            {% if softmain2.softSegmentOperation.isIntelligentSegment is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -735,26 +734,42 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'isAutoResponder'|trans }}</th>
-                        <td>{{ softmain1.softMarketingCampaign.isAutoResponder }}</td>
-                        <td>{{ softmain2.softMarketingCampaign.isAutoResponder }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLeadScoring'|trans }}</th>
                         <td>
-                            {% if softmain1.softMarketingCampaign.isLeadScoring == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isLeadScoring == true %}
+                            {% if softmain1.softMarketingCampaign.isAutoResponder is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softMarketingCampaign.isLeadScoring == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isLeadScoring == true %}
+                            {% if softmain2.softMarketingCampaign.isAutoResponder is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(null) %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>{{ 'isLeadScoring'|trans }}</th>
+                        <td>
+                            {% if softmain1.softMarketingCampaign.isLeadScoring is same as(true) %}
+                                <i class="small material-icons green-text">check</i>
+                            {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(null) %}
+                                <p class="center-align">Non communiqué</p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if softmain2.softMarketingCampaign.isLeadScoring is same as(true) %}
+                                <i class="small material-icons green-text">check</i>
+                            {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -762,20 +777,20 @@
                     <tr>
                         <th>{{ 'isCreationCampaign'|trans }}</th>
                         <td>
-                            {% if softmain1.softMarketingCampaign.isCreationCampaign == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign == true %}
+                            {% if softmain1.softMarketingCampaign.isCreationCampaign is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softMarketingCampaign.isCreationCampaign == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign == true %}
+                            {% if softmain2.softMarketingCampaign.isCreationCampaign is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -783,20 +798,20 @@
                     <tr>
                         <th>{{ 'isDripMarketingCampaign'|trans }}</th>
                         <td>
-                            {% if softmain1.softMarketingCampaign.isDripMarketingCampaign == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign == true %}
+                            {% if softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softMarketingCampaign.isDripMarketingCampaign == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign == true %}
+                            {% if softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
@@ -804,20 +819,20 @@
                     <tr>
                         <th>{{ 'isDragAndDrop'|trans }}</th>
                         <td>
-                            {% if softmain1.softMarketingCampaign.isDragAndDrop == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop == true %}
+                            {% if softmain1.softMarketingCampaign.isDragAndDrop is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
                         <td>
-                            {% if softmain2.softMarketingCampaign.isDragAndDrop == false %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop == true %}
+                            {% if softmain2.softMarketingCampaign.isDragAndDrop is same as(true) %}
                                 <i class="small material-icons green-text">check</i>
-                            {% else %}
+                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(false) %}
+                                <i class="small material-icons red-text">close</i>
+                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(null) %}
                                 <p class="center-align">Non communiqué</p>
                             {% endif %}
                         </td>
