@@ -6,7 +6,6 @@ use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
-use AppBundle\Service\AwesomeSearch;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use SensioLabs\Security\Exception\HttpException;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -16,6 +15,7 @@ use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
 use AppBundle\Service\SeeAlso;
+use AppBundle\Service\AwesomeSearch;
 
 class DefaultController extends Controller
 {
@@ -29,15 +29,21 @@ class DefaultController extends Controller
 
     /**
      * @Route("/logiciels/{slug}", name="softwareSolo")
+     * @param BoolsAsTags $boolsAsTags
      * @Method("GET")
      */
     public
-    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso)
+
+    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
+        $bools = $boolsAsTags->getBoolsBySoftware($softMain);
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
+
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
+            'bools' => $bools,
         ]);
     }
 
@@ -73,6 +79,7 @@ class DefaultController extends Controller
 
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
+            'research' => $researchContent
         ]);
     }
 
@@ -221,7 +228,11 @@ class DefaultController extends Controller
     public function VersusAction(Request $request, string $slug1, string $slug2)
 
     {
+        $canonical = array($slug1, $slug2);
+        sort($canonical);
+
         $em = $this->getDoctrine()->getManager();
+
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
@@ -289,7 +300,8 @@ class DefaultController extends Controller
                 'form' => $form->createView(),
                 'softmain1' => $softmain1,
                 'softmain2' => $softmain2,
-                'versus' => $versus
+                'versus' => $versus,
+                'canonical' => $canonical
             )
         );
     }

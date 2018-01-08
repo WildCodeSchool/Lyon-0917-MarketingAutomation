@@ -1,6 +1,7 @@
 <?php
 
 namespace AppBundle\Repository;
+use AppBundle\Entity\SoftMain;
 
 /**
  * SoftMainRepository
@@ -41,6 +42,25 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->createQueryBuilder('s')
             ->join('s.' . $entityName , 't')
             ->where('t.' . $booleanKey . ' = true')
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
+     * @param $softMainName
+     * @param $booleanKey
+     * @param $entityName
+     * @return mixed
+     */
+    public function getBoolByAnySoft($softMainName, $booleanKey, $entityName)
+    {
+
+        $qb = $this
+            ->createQueryBuilder('s')
+            ->join('s.' . $entityName , 't')
+            ->setParameter('name', $softMainName)
+            ->where('s.name LIKE :name')
+            ->andWhere('t.' . $booleanKey . ' = true')
             ->getQuery();
         return $qb->getResult();
     }
