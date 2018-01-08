@@ -4,11 +4,11 @@
     <tr>
         <th>{{ 'isActivityReportCreation'|trans }}</th>
         <td>
-            {% if softmain.softReport.isActivityReportCreation == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+            {% if softmain.softReport.isActivityReportCreation is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softReport.isActivityReportCreation is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softReport.isActivityReportCreation is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>
@@ -16,11 +16,11 @@
     <tr>
         <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
         <td>
-            {% if softmain.softReport.isActivityReportPeriodicSend == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softReport.isActivityReportPeriodicSend == true %}
+            {% if softmain.softReport.isActivityReportPeriodicSend is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softReport.isActivityReportPeriodicSend is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softReport.isActivityReportPeriodicSend is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>

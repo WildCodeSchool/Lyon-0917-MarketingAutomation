@@ -15,7 +15,6 @@ use Doctrine\Common\Persistence\ObjectManager;
  *
  * @package AppBundle\Service
  */
-
 class BoolsAsTags
 {
     /** @var ObjectManager */
@@ -135,11 +134,12 @@ class BoolsAsTags
      * Return description, using awesomeSearch.yml, by slug
      *
      */
-    public function getDescriptionBySlug($slug) {
+    public function getDescriptionBySlug($slug)
+    {
 
         $j = 0;
         foreach ($this->getConfig()['Booleans'] as $table) {
-            $i=0;
+            $i = 0;
             foreach ($table as $synonym) {
                 if (stristr($synonym["Slug"], $slug) != FALSE) {
                     $result = $synonym["Name"];
@@ -149,6 +149,32 @@ class BoolsAsTags
             $j++;
         }
         return $result;
+    }
+
+    public function getBoolsBySoftware(SoftMain $softMain)
+    {
+        $entityKeys = array_keys($this->getConfig()['Booleans']);
+        $bools = [];
+        $j = 0;
+        foreach ($this->getConfig()['Booleans'] as $entitie) {
+            $i = 0;
+            $booleanKeys = array_keys($entitie);
+            foreach ($entitie as $entitieArray) {
+                $requestResult = $this->em->getRepository(SoftMain::class)->getBoolByAnySoft($softMain->getName(), $booleanKeys[$i], $entityKeys[$j]);
+                if (!empty($requestResult)) {
+
+                    $result = array(
+                        "slug" => trim($entitieArray['Slug']),
+                        "entitie" => $entitieArray['Name'],
+                    );
+                    $bools[] = $result;
+                }
+                $i++;
+            }
+            $j++;
+        }
+
+        return $bools;
     }
 
     /**

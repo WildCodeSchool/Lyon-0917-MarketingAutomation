@@ -29,15 +29,21 @@ class DefaultController extends Controller
 
     /**
      * @Route("/logiciels/{slug}", name="softwareSolo")
+     * @param BoolsAsTags $boolsAsTags
      * @Method("GET")
      */
     public
-    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso)
+
+    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
+        $bools = $boolsAsTags->getBoolsBySoftware($softMain);
+        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
+
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
+            'bools' => $bools,
         ]);
     }
 
@@ -73,6 +79,7 @@ class DefaultController extends Controller
 
         return $this->render('default/results.html.twig', [
             'softwares' => $softwares,
+            'research' => $researchContent
         ]);
     }
 
