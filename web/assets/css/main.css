@@ -7297,8 +7297,9 @@ table {
     margin-top: 4%; }
   #software p {
     text-align: left; }
-  th p, td p {
-    margin-bottom: auto; }
+  th, td {
+    vertical-align: middle;
+    text-align: left; }
   .softwareCard .card-content .card-title {
     font-size: 1.5em; } }
 
