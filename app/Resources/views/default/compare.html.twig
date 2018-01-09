@@ -256,20 +256,13 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>{{ 'webSite'|trans }}</th>
+                        <th>Fiches logiciels</th>
                         <td>
-                            {% if softmain1.softInfo.webSite == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                <a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name | raw }}</a>
-                            {% endif %}
+                            <a href="{{ path('softwareSolo', { 'slug': softmain1.slug }) }}">Voir la fiche complète</a>
                         </td>
                         <td>
-                            {% if softmain2.softInfo.webSite == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                <a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name | raw }}</a>
-                            {% endif %}
+                            <a href="{{ path('softwareSolo', { 'slug': softmain2.slug }) }}">Voir la fiche complète</a>
+
                         </td>
                     </tr>
                 </table>
