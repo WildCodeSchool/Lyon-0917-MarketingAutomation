@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use AppBundle\Controller\DefaultController;
+use AppBundle\Entity\Tag;
 
 
 class SiteMap
@@ -41,11 +42,18 @@ class SiteMap
             );
         }
 
+        $tags = $this->em->getRepository(Tag::class)->findAll();
+        foreach($tags as $tag) {
+            $urls[] = array(
+                'loc' => $this->router->generate('tagSolo', array('slug' => $tag->getSlug()), true)
+            );
+        }
+
         $routes = $this->router->getRouteCollection()->all();
         foreach($routes as $route) {
             $pattern = '(^(\/_))';
             $path = $route->getPath();
-            if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/\/slug/', $path)))
+            if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/slug/', $path)) and (!preg_match('/softmain/', $path)))
             {
                 $urls[] = array(
                     'route' => $path
