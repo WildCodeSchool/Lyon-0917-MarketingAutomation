@@ -177,6 +177,7 @@ class BoolsAsTags
         return $bools;
     }
 
+
     /**
      * @return mixed
      */

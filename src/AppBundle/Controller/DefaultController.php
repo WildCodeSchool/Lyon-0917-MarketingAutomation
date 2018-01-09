@@ -14,6 +14,8 @@ use Symfony\Component\HttpFoundation\Request;
 use AppBundle\Service\SiteMap;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use AppBundle\Service\BoolsAsTags;
+use AppBundle\Service\SeeAlso;
+use AppBundle\Service\AwesomeSearch;
 
 class DefaultController extends Controller
 {
@@ -31,11 +33,13 @@ class DefaultController extends Controller
      * @Method("GET")
      */
     public
-    function softwareSoloAction(Request $request, SoftMain $softMain, BoolsAsTags $boolsAsTags)
+
+    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
         $bools = $boolsAsTags->getBoolsBySoftware($softMain);
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
-        $softMains = $repository->findAll();
+        $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
+
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
@@ -66,12 +70,11 @@ class DefaultController extends Controller
      */
 
     public
-    function resultsAction(Request $request, $researchContent)
+    function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
-        $serviceRecherche = $this->container->get('app.search');
 
-        $softwares = $serviceRecherche->search($researchContent);
+        $softwares = $awesomeSearch->search($researchContent);
 
 
         return $this->render('default/results.html.twig', [
