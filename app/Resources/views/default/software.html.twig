@@ -86,7 +86,7 @@
                 <h2>Une question sur {{ softmain.name | raw }}&nbsp;? Contactez-nous&nbsp;!</h2>
             </div>
             <div class="col offset-s3 s6 card">
-                    <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
+                <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
             </div>
         </div>
 
@@ -99,15 +99,37 @@
 
 
         </div>
+        {% if versusList|length > 0 %}
+            <div class="row">
+                <h2>Comparer {{ softmain.name }}  avec d'autres logiciels de marketing automation</h2>
+                {% for versus in versusList %}
+                    <div class="col s6 m3 l2 softwareCard">
+                        <div class="card">
+                            <div class="marginLogo">
+                                <div class="card-image responsive-img">
+                                    <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"><img class="responsive-img" src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png"></a>
 
-        <h2>Comparer MailChimp avec d'autres logiciels de marketing automation</h2>
-        <div class="row">
-                        {% for software in softwares %}
-                            {% include('software-card.html.twig') %}
-                        {% endfor %}
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}">
+                <span class="card-title">
+                        {{ softmain.name }} comparé à
+                    {% if versus.software1.name == softmain.name %}
+                        {{ versus.software2.name }}
+                    {% else %}
+                        {{ versus.software1.name }}
+                    {% endif %}
+                </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
 
 
-        </div>
     </div>
 
     <aside id="share">

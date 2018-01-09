@@ -38,11 +38,14 @@ class DefaultController extends Controller
     {
         $bools = $boolsAsTags->getBoolsBySoftware($softMain);
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
+
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
+        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain); 
 
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
             'softwares' => $softMains,
+            'versusList' => $versusList,
             'bools' => $bools,
         ]);
     }
