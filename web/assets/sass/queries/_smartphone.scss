@@ -29,13 +29,14 @@
       margin-top: 4%;
     }
   }
-  #software p {
+  #software {
     text-align: left;
   }
-
   th, td {
     vertical-align: middle;
-    text-align: left;
+    p {
+      text-align: center;
+    }
   }
 
   .softwareCard {

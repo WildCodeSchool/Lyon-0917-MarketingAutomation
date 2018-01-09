@@ -7295,11 +7295,12 @@ table {
     display: none; }
   #home .presentation {
     margin-top: 4%; }
-  #software p {
+  #software {
     text-align: left; }
   th, td {
-    vertical-align: middle;
-    text-align: left; }
+    vertical-align: middle; }
+    th p, td p {
+      text-align: center; }
   .softwareCard .card-content .card-title {
     font-size: 1.5em; } }
 
