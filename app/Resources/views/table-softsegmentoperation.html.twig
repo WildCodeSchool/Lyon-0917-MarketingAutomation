@@ -4,23 +4,23 @@
     <tr>
         <th>{{ 'isSegmentCreation'|trans }}</th>
         <td>
-        {% if softmain.softSegmentOperation.isSegmentCreation  == false %}
-            <i class="small material-icons red-text">close</i>
-        {% elseif softmain.softSegmentOperation.isSegmentCreation == true %}
-            <i class="small material-icons green-text">check</i>
-        {% else %}
-            <p class="center-align">Non communiqué</p>
-        {% endif %}
+            {% if softmain.softSegmentOperation.isSegmentCreation is same as(true) %}
+                <i class="small material-icons green-text">check</i>
+            {% elseif softmain.softSegmentOperation.isSegmentCreation is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSegmentOperation.isSegmentCreation is same as(null) %}
+                <p class="center-align">Non communiqué</p>
+            {% endif %}
         </td>
     </tr>
     <tr>
         <th>{{ 'isIntelligentSegment'|trans }}</th>
         <td>
-            {% if softmain.softSegmentOperation.isIntelligentSegment  == false %}
-                <i class="small material-icons red-text">close</i>
-            {% elseif softmain.softSegmentOperation.isIntelligentSegment == true %}
+            {% if softmain.softSegmentOperation.isIntelligentSegment is same as(true) %}
                 <i class="small material-icons green-text">check</i>
-            {% else %}
+            {% elseif softmain.softSegmentOperation.isIntelligentSegment is same as(false) %}
+                <i class="small material-icons red-text">close</i>
+            {% elseif softmain.softSegmentOperation.isIntelligentSegment is same as(null) %}
                 <p class="center-align">Non communiqué</p>
             {% endif %}
         </td>

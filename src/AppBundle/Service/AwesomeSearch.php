@@ -42,7 +42,7 @@ class AwesomeSearch
     {
         $this->em = $em;
         $this->finalResult = array();
-        $this->datas = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
+        $this->datas = Yaml::parse(file_get_contents( $rootDir . "/config/awesomeSearch.yml"));
 
     }
 

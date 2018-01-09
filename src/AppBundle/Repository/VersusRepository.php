@@ -10,6 +10,14 @@ namespace AppBundle\Repository;
  */
 class VersusRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    /**
+     * @param $soft1
+     * @param $soft2
+     * @return array
+     * Find Good versus by names of softwares. Try 2 possibilities.
+     *
+     */
     public function findWithSoftNames($soft1, $soft2)
     {
 
@@ -20,7 +28,24 @@ class VersusRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('soft2', $soft2)
             ->getQuery();
         return $qb->getResult();
+    }
 
+    /**
+     * @param $software
+     * @return array
+     *
+     * Find versus where 1 software is concerned.
+     *
+     */
+    public function findVersusByOneSoftware($software)
+    {
+        $qb = $this->createQueryBuilder('s')
+            ->where('s.software1 = :soft1')
+            ->orWhere('s.software2 = :soft1')
+            ->setParameter('soft1', $software)
+            ->getQuery();
+        return $qb->getResult();
 
     }
+
 }
