@@ -31,8 +31,13 @@
   }
   #software p {
     text-align: left;
-
   }
+  th, td {
+    p {
+      margin-bottom: auto;
+    }
+  }
+
   .softwareCard {
     .card-content {
       .card-title {
@@ -41,3 +46,5 @@
     }
   }
 }
+
+
