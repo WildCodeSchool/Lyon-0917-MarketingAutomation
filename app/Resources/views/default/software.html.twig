@@ -1,18 +1,17 @@
 {% extends 'base.html.twig' %}
-{% block title %}{{ softmain.name }} - logiciel de marketing automation {% endblock %}
+{% block title %}
+    {% if softmain.title == true %}
+        {{ softmain.title }}
+    {% else %}
+        {{ softmain.name }} - logiciel de marketing automation
+    {% endif %}
+{% endblock %}
 {% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
 
             {% block h1 %}
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
-                <p id="tagOnSoft">
-                    {% for tag in softmain.tags  %}
-                        <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>
-                        {% if loop.last == false %}, {% endif %}
-                    {% endfor %}
-                </p>
             {% endblock %}
 {% block body %}
-
     <div id="software">
 
         <div class="row">
@@ -32,19 +31,19 @@
 
         {% include 'table-softinfo.html.twig' %}
 
-        <h2>Canaux de communication sortants (outbound)</h2>
+        <h2>Canaux de communication sortants (outbound) de {{ softmain.name | raw }} </h2>
 
         {% include 'table-softoutbound.html.twig' %}
 
-        <h2>Supports de communication entrant (inbound)</h2>
+        <h2>Supports de communication de {{ softmain.name | raw }} </h2>
 
         {% include 'table-softcommsupport.html.twig' %}
 
-        <h2>Gestion des contacts</h2>
+        <h2>Gestion des contacts avec {{ softmain.name | raw }} </h2>
 
         {% include 'table-softleadsoperation.html.twig' %}
 
-        <h2>Gestion des segments</h2>
+        <h2>Gestion des segments avec {{ softmain.name | raw }} </h2>
 
         {% include 'table-softsegmentoperation.html.twig' %}
 
@@ -52,7 +51,7 @@
 
         {% include 'table-softmarketingcampaign.html.twig' %}
 
-        <h2>Intégration Social Media</h2>
+        <h2>Intégration Social Media {{ softmain.name | raw }} </h2>
 
         {% include 'table-softsocialmedia.html.twig' %}
 
@@ -68,10 +67,23 @@
 
         {% include 'table-softothersfunctionnalities.html.twig' %}
 
+        <h2>Tags associés à {{ softmain.name | raw }}</h2>
+
+        <p id="tagOnSoft">
+            {% for tag in softmain.tags  %}
+                <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>,
+            {% endfor %}
+            {% for bool in bools %}
+                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
+                {% if loop.last == false %}, {% endif %}
+            {% endfor %}
+
+
+        </p>
 
         <div class="row">
             <div class="col s12 m12 l12 ">
-                <h2>Une question sur {{ softmain.name | raw }} ? Contactez-nous !</h2>
+                <h2>Une question sur {{ softmain.name | raw }}&nbsp;? Contactez-nous&nbsp;!</h2>
             </div>
             <div class="col offset-s3 s6 card">
                 <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
