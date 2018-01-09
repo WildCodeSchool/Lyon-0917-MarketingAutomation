@@ -7295,6 +7295,8 @@ table {
     display: none; }
   #home .presentation {
     margin-top: 4%; }
+  #software p {
+    text-align: left; }
   .softwareCard .card-content .card-title {
     font-size: 1.5em; } }
 
