@@ -20,13 +20,18 @@ nav {
       margin-top: 7px;
       vertical-align: middle
     }
-    .input-field .prefix {
-      position: absolute;
-      margin-left: 92%;
-    }
+
     input {
       margin-left: 1.5rem;
       width: calc(100% - 4rem);
+
+    }
+    .loupe {
+      background: url("../img/loupe.png") no-repeat 0 0;
+      position: absolute;
+      margin-left: 92%;
+      margin-top: 8px;
+
     }
 
   }
@@ -41,7 +46,17 @@ nav {
       margin-left: 1.5rem;
       width: calc(100% - 4rem);
     }
+
+    .loupe {
+      background: url("../img/loupe.png") no-repeat 0 0;
+      position: absolute;
+      margin-left: 88%;
+      margin-top: 8px;
+
+    }
   }
+
+
 
   .left {
     li {
