@@ -8,14 +8,7 @@
 
         <h2>Cliquez sur un tag pour obtenir la liste des logiciels associés.</h2>
         <div class="row">
-            <ul>
-                {% for tag in tags %}
-                    <li class="col l4 m6 s12">
-                        <a href="{{ path('tagSolo', { 'slug': tag.slug }) }}">{{ tag.name }}</a>
-                        <div class="chip">{{ tag.softMains|length }}</div>
-                    </li>
-                {% endfor %}
-            </ul>
+
             <ul>
                 {% for bool in bools %}
                         <li class="col l4 m6 s12">

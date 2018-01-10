@@ -28,13 +28,14 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/logiciels/{slug}", name="softwareSolo")
+     * @param Request $request
+     * @param SoftMain $softMain
+     * @param SeeAlso $seeAlso
      * @param BoolsAsTags $boolsAsTags
-     * @Method("GET")
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/logiciels/{slug}", name="softwareSolo")
      */
-    public
-
-    function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
+    public function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
         $bools = $boolsAsTags->getBoolsBySoftware($softMain);
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
@@ -53,8 +54,7 @@ class DefaultController extends Controller
     /**
      * @Route("logiciels", name="listingSoftware")
      */
-    public
-    function listingSoftwareAction(Request $request)
+    public function listingSoftwareAction(Request $request)
     {
 
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
@@ -72,8 +72,7 @@ class DefaultController extends Controller
      * @Method("GET")
      */
 
-    public
-    function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
+    public function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
 
@@ -86,21 +85,32 @@ class DefaultController extends Controller
         ]);
     }
 
+    private static function compareTags(array $a, array $b) {
+        return $b['number'] - $a['number'];
+
+    }
+
     /**
      * @Route("listing-tags", name="listingTags")
      * @param Request $request
      * @param BoolsAsTags $boolsAsTags
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public
-    function listingTagsAction(Request $request, BoolsAsTags $boolsAsTags)
+    public function listingTagsAction(Request $request, BoolsAsTags $boolsAsTags)
     {
 
         $bools = $boolsAsTags->getGoodBools();
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
+
+        foreach($tags as $tag) {
+            $bools[] = array('slug' => $tag->getSlug(), 'number' => count($tag->getSoftMains()), 'entitie' => $tag->getName());
+        }
+
+        usort($bools, 'self::compareTags');
+
+
         return $this->render('default/listing-tags.html.twig', [
-            'tags' => $tags,
             'bools' => $bools,
         ]);
     }
@@ -111,8 +121,7 @@ class DefaultController extends Controller
      * @param BoolsAsTags $boolsAsTags
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public
-    function tagAction(Request $request, string $slug, BoolsAsTags $boolsAsTags)
+    public function tagAction(Request $request, string $slug, BoolsAsTags $boolsAsTags)
     {
 
         $repository = $this->getDoctrine()->getRepository(Tag::class);
