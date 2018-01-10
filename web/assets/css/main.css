@@ -612,7 +612,8 @@ nav {
       vertical-align: middle; }
     nav #topBarSearch input {
       margin-left: 1.5rem;
-      width: calc(100% - 4rem); }
+      width: calc(100% - 4rem);
+      font-size: 1.2em; }
     nav #topBarSearch .loupe {
       background: url("../img/loupe.png") no-repeat 0 0;
       position: absolute;
@@ -624,7 +625,8 @@ nav {
   nav #lowBarSearch input {
     text-align: center;
     margin-left: 1.5rem;
-    width: calc(100% - 4rem); }
+    width: calc(100% - 4rem);
+    font-size: 1.2em; }
   nav #lowBarSearch .loupe {
     background: url("../img/loupe.png") no-repeat 0 0;
     position: absolute;
