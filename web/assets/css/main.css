@@ -7394,6 +7394,8 @@ body {
     text-align: right;
     bottom: 0;
     right: 0; }
+  body #autocomplete_compare_software1, body #autocomplete_compare_software2 {
+    cursor: pointer; }
   body ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: grey;
