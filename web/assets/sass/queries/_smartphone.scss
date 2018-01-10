@@ -30,12 +30,14 @@
     }
   }
   #software {
-    text-align: left;
-  }
-  th, td {
-    vertical-align: middle;
     p {
-      text-align: center;
+      text-align: left;
+    }
+    th, td {
+      vertical-align: middle;
+      p {
+        text-align: center;
+      }
     }
   }
 
