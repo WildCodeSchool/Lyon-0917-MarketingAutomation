@@ -38,6 +38,7 @@ class SoftMain
     /**
      * Many SoftMains have Many Tags.
      * @ORM\ManyToMany(targetEntity="Tag", inversedBy="softMains")
+     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $tags;
 
@@ -87,18 +88,21 @@ class SoftMain
     /**
      * One SoftMain has Many Versus.
      * @ORM\OneToMany(targetEntity="Versus", mappedBy="software1")
+     * @ORM\JoinColumn(name="versusId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $versus1;
 
     /**
      * One SoftMain has Many Versus.
      * @ORM\OneToMany(targetEntity="Versus", mappedBy="software2")
+     * @ORM\JoinColumn(name="versusId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $versus2;
 
     /**
      * One SoftMain has One SoftInfo.
      * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softInfoId", referencedColumnName="id", onDelete="CASCADE")
      */
 
     private $softInfo;
@@ -106,6 +110,7 @@ class SoftMain
     /**
      * One SoftMain has One SoftOutbound.
      * @ORM\OneToOne(targetEntity="SoftOutbound", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softOutBoundId", referencedColumnName="id",onDelete="CASCADE")
      */
 
     private $softOutbound;
@@ -113,55 +118,63 @@ class SoftMain
     /**
      * One SoftMain has One SoftCommSupport.
      * @ORM\OneToOne(targetEntity="SoftCommSupport", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softCommSupportId", referencedColumnName="id",onDelete="CASCADE")
      */
     private $softCommSupport;
 
     /**
      * One SoftMain has One SoftCommSupport.
      * @ORM\OneToOne(targetEntity="SoftLeadsOperation", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softLeadsOperationId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softLeadsOperation;
 
     /**
      * One SoftMain has One SoftSegmentOperation.
      * @ORM\OneToOne(targetEntity="SoftSegmentOperation", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softSegmentOperationId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softSegmentOperation;
 
     /**
      * One SoftMain has One SoftMarketingCampaign.
      * @ORM\OneToOne(targetEntity="SoftMarketingCampaign", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softMarketingCampaignId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMarketingCampaign;
 
     /**
      * One SoftMain has One SoftSocialMedia.
      * @ORM\OneToOne(targetEntity="SoftSocialMedia", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softSocialMedia", referencedColumnName="id",onDelete="CASCADE")
      */
     private $softSocialMedia;
 
     /**
      * One SoftMain has One SoftReport.
      * @ORM\OneToOne(targetEntity="SoftReport", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softReportId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softReport;
 
     /**
      * One SoftMain has One SoftSupport.
      * @ORM\OneToOne(targetEntity="SoftSupport", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softSupportId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softSupport;
 
     /**
      * One SoftMain has One SoftOtherFunctionnalities.
      * @ORM\OneToOne(targetEntity="SoftOtherFunctionnalities", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softOtherFunctionnalitiesId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softOtherFunctionnalities;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=255, nullable=true)
+     * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
 

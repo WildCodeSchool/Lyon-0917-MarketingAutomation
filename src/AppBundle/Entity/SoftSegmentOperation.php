@@ -37,6 +37,7 @@ class SoftSegmentOperation
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSegmentOperation")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 
