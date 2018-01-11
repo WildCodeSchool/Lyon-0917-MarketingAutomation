@@ -2,7 +2,7 @@
 {% block title %} Votre recherche :  {{ research }} - Logiciel de Marketing Automation {% endblock %}
 
 {% block body %}
-    <div id="results">
+    <div class="result" id="results">
         <div class="row">
 
 
@@ -20,11 +20,28 @@
                 </p>
                  {% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
                     {% endif %}
-                {% for software in softwares %}
-                    {% include('result-software.html.twig') %}
-                {% endfor %}
-            </div>
+                <div v-for="software in sofwarefiltres">
 
+                    <div class="card horizontal">
+
+                        <div class="marginLogo">
+                            <div class="card-image result-logo-responsive">
+                                <a :href="`/logiciels/${software.slug}`"><img class="responsive-img" :src="`/assets/img/logo/${software.slug}.png`"></a>
+                            </div>
+                        </div>
+                        <div class="card-stacked">
+                            <div class="card-action">
+                                <a :href="`/logiciels/${software.slug}`">${ software.name }</a>
+                            </div>
+                            <div class="card-content">
+                                <p class="troncate">${ software.description }</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
             {% include('filters.html.twig') %}
 
 
@@ -36,4 +53,118 @@
     <script type="text/javascript" src="{{ asset('assets/js/application.filters.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/nouislider.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/resultHide.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+    <script>
+        var app = new Vue({
+            delimiters: ['${', '}'],
+            el: '.result',
+            data: {
+                softwaresList : [],
+                sms: false,
+                mail: false,
+                rgpd: false,
+                popin: false,
+                mailpostal: false,
+                callCenter: false,
+                pushmobile: false,
+                api: false,
+                reportcreation: false,
+                reportperiodic: false,
+                emailsupport: false,
+                phonesupport: false,
+                chatsupport: false,
+
+            },
+            created(){
+                axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+                axios.get('/results_{{ research }}', {
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    transformResponse: axios.defaults.transformResponse.concat((data) => {
+                        this.softwaresList = data.data
+                    })
+                })
+
+            },
+            computed: {
+
+                sofwarefiltres: function(){
+
+                    let condSms = true;
+                    let condMail = true;
+                    let condRgpd = true;
+                    let condPopin = true;
+                    let condMailPostal = true;
+                    let condCallCenter = true;
+                    let condPushmobile = true;
+                    let condisApi = true;
+                    let condReportCreation = true;
+                    let condReportPeriodic = true;
+                    let condEmailSupport = true;
+                    let condPhoneSupport = true;
+                    let condChatSupport = true;
+
+                    return this.softwaresList.filter((elt) => {
+                        if(this.sms === true){
+                            condSms = elt.isSms
+                        }
+                        if(this.rgpd === true){
+                            condRgpd = elt.isRgpd
+                        }
+                        if(this.mail === true){
+                            condMail = elt.isEmail
+                        }
+                        if(this.popin === true){
+                            condPopin = elt.isPopin
+                        }
+                        if(this.mailpostal === true){
+                            condMailPostal = elt.isMailPostal
+                        }
+                        if(this.callCenter === true){
+                            condCallCenter = elt.isCallCenter
+                        }
+                        if(this.pushmobile === true){
+                            condPushmobile = elt.isPushMobile
+                        }
+                        if(this.api === true){
+                            condisApi = elt.isApi
+                        }
+                        if(this.reportcreation === true){
+                            condReportCreation = elt.isActivityReportCreation
+                        }
+                        if(this.reportperiodic === true){
+                            condReportPeriodic = elt.isActivityReportPeriodicSend
+                        }
+                        if(this.emailsupport === true){
+                            condEmailSupport = elt.isEmailSupport
+                        }
+                        if(this.phonesupport === true){
+                            condPhoneSupport = elt.isPhoneSupport
+                        }
+                        if(this.chatsupport === true){
+                            condChatSupport = elt.isChatSupport
+                        }
+                        return  condSms &&
+                            condMail &&
+                            condRgpd &&
+                            condPopin &&
+                            condMailPostal &&
+                            condPushmobile &&
+                            condisApi &&
+                            condReportCreation &&
+                            condReportPeriodic &&
+                            condPhoneSupport &&
+                            condEmailSupport &&
+                            condChatSupport;
+                    });
+
+                }
+            }
+
+        });
+
+    </script>
 {% endblock %}

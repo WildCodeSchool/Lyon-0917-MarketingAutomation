@@ -7,59 +7,68 @@
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">
-                First filter family
+                Fonctionnalités générales
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test1"/>
-                        <label for="test1">Sms</label>
+                        <input type="checkbox" class="filled-in" v-model="sms" id="sms" />
+
+                        <label for="sms">Sms</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test2"/>
-                        <label for="test2">Mail</label>
+                        <input type="checkbox" class="filled-in"  v-model="mail"  id="mail"/>
+                        <label for="mail">Mail</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test3"/>
-                        <label for="test3">Pigeon voyageur</label>
+                        <input type="checkbox" class="filled-in" v-model="rgpd" id="rgpd"/>
+                        <label for="rgpd">conformité RGPD</label>
                     </p>
                 </form>
             </div>
         </li>
         <li>
             <div class="collapsible-header">
-                Second filter Family
+                Canaux de communication sortants
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test4"/>
-                        <label for="test4">BtoB</label>
+                        <input type="checkbox" class="filled-in" v-model="popin" id="popin"/>
+                        <label for="popin">Pop in</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test5"/>
-                        <label for="test5">BtoC</label>
+                        <input type="checkbox" class="filled-in" v-model="mailpostal" id="mailpostal"/>
+                        <label for="mailpostal">Mail Postal</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test6"/>
-                        <label for="test6">BtoBtoC</label>
+                        <input type="checkbox" class="filled-in" v-model="callCenter" id="callCenter"/>
+                        <label for="callCenter">Call center</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="pushmobile" id="pushmobile"/>
+                        <label for="pushmobile">Push Mobile</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="api" id="api"/>
+                        <label for="api">API</label>
                     </p>
                 </form>
             </div>
         </li>
         <li>
             <div class="collapsible-header">
-                Others
+                Fonctionnalités de reporting
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test4"/>
-                        <label for="test4">Cycle long</label>
+                        <input type="checkbox" class="filled-in" v-model="reportcreation" id="reportcreation"/>
+                        <label for="reportcreation">Report Creation</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test5"/>
-                        <label for="test5">Français</label>
+                        <input type="checkbox" class="filled-in" v-model="reportperiodic" id="reportperiodic"/>
+                        <label for="reportperiodic">Rapport périodique</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" id="test6"/>
@@ -68,12 +77,31 @@
                 </form>
             </div>
         </li>
+
+        <li>
+            <div class="collapsible-header">
+                Support
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="emailsupport" id="emailsupport"/>
+                        <label for="emailsupport">Support par email</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="phonesupport" id="phonesupport"/>
+                        <label for="phonesupport">Support par tél</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="chatsupport" id="chatsupport"/>
+                        <label for="chatsupport">Support par chat</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+
     </ul>
-    <div class="center-align">
-        <div class="filters-responsive-btn ">
-            <a class="waves-effect waves-light btn">Actualiser</a>
-        </div>
-    </div>
+
 
 </div>
 {# Filters bar for responsive only ! #}
@@ -96,15 +124,14 @@
             <div class="collapsible-body filters-responsive">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox1"/>
-                        <label for="checkbox1">Sms</label>
+                        <label for="sms">Sms</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox2"/>
-                        <label for="checkbox2">Mail</label>
+                        <input type="checkbox" class="filled-in" id="mail"/>
+                        <label for="mail">Mail</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox3"/>
+                        <input type="checkbox" class="filled-in"  v-model="mail" id="checkbox3"/>
                         <label for="checkbox3">Pigeon voyageur</label>
                     </p>
                 </form>

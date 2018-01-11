@@ -42,7 +42,7 @@ class AwesomeSearch
     {
         $this->em = $em;
         $this->finalResult = array();
-        $this->datas = Yaml::parse(file_get_contents( $rootDir . "/config/awesomeSearch.yml"));
+        $this->datas = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));
 
     }
 
@@ -53,7 +53,7 @@ class AwesomeSearch
      * @return array
      */
 
-    public function search(string $query)
+    public function search(string $query = "")
     {
 
 
@@ -130,8 +130,49 @@ class AwesomeSearch
             $result[]  = $cell['soft'];
         }
 
-
-        return $result;
+        $response = [];
+        foreach($result as $software) {
+            $response[] = array(
+                'name' => $software->getName(),
+                'slug' => $software->getSlug(),
+                'description' => mb_strimwidth($software->getDescription(), 0, 160),
+                'logo' => $software->getLogoUrl(),
+                'isRgpd' => $software->getSoftInfo()->getRgpd(),
+                'isSms' => $software->getSoftOutBound()->getIsSms(),
+                'isEmail' => $software->getSoftOutBound()->getIsEmail(),
+                'isPopin' => $software->getSoftOutBound()->getIsPopin(),
+                'isMailPostal' => $software->getSoftOutBound()->getIsMailPostal(),
+                'isCallCenter' => $software->getSoftOutBound()->getIsCallCenter(),
+                'isPushMobile' => $software->getSoftOutBound()->getIsPushMobile(),
+                'isApi' => $software->getSoftOutBound()->getIsApi(),
+                'isActivityReportCreation' => $software->getSoftReport()->getIsActivityReportCreation(),
+                'isActivityReportPeriodicSend' => $software->getSoftReport()->getIsActivityReportPeriodicSend(),
+                'isSegmentCreation' => $software->getSoftSegmentOperation()->getIsSegmentCreation(),
+                'isTwitterMonitoring' => $software->getSoftSocialMedia()->getIsTwitterMonitoring(),
+                'isTwitterAutoPublication' => $software->getSoftSocialMedia()->getIsTwitterAutoPublication(),
+                'isLinkedinMonitoring' => $software->getSoftSocialMedia()->getIsLinkedinMonitoring(),
+                'isLinkedinAutoPublication' => $software->getSoftSocialMedia()->getIsLinkedinAutoPublication(),
+                'isInstagramAutoPublication' => $software->getSoftSocialMedia()->getIsInstagramAutoPublication(),
+                'isInstagramMonitoring' => $software->getSoftSocialMedia()->getIsInstagramMonitoring(),
+                'isEmailSupport' => $software->getSoftSupport()->getIsEmailSupport(),
+                'isPhoneSupport' => $software->getSoftSupport()->getIsPhoneSupport(),
+                'isChatSupport' => $software->getSoftSupport()->getIsChatSupport(),
+                'isKnowledgeBase' => $software->getSoftSupport()->getIsKnowledgeBase(),
+                'isTechnicalDocument' => $software->getSoftSupport()->getIsTechnicalDocument(),
+                'isContactObject' => $software->getSoftLeadsOperation()->getIsContactObject(),
+                'isCompanyObject' => $software->getSoftLeadsOperation()->getIsCompanyObject(),
+                'isDefinedFields' => $software->getSoftLeadsOperation()->getIsDefinedFields(),
+                'isIllimitedFields' => $software->getSoftLeadsOperation()->getIsIllimitedFields(),
+                'isImportCsv' => $software->getSoftLeadsOperation()->getIsImportCsv(),
+                'isAutoDuplicate' => $software->getSoftLeadsOperation()->getIsAutoDuplicate(),
+                'isLeadStages' => $software->getSoftLeadsOperation()->getIsLeadStages(),
+                'isLandingPage' => $software->getSoftCommSupport()->getIsLandingPage(),
+                'isForm' => $software->getSoftCommSupport()->getIsForm(),
+                'isTracking' => $software->getSoftCommSupport()->getIsTracking(),
+                'isLiveChat' => $software->getSoftCommSupport()->getIsLiveChat(),
+            );
+        }
+        return $response;
     }
 
     /**
