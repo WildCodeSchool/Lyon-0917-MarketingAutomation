@@ -2,26 +2,26 @@
 <table class="striped">
     <tbody>
     <tr>
-        <th>{{ 'name'|trans }}</th>
-        <td>{{ softmain.name | raw }}</td>
+        <th><p>{{ 'name'|trans }}</p></th>
+        <td><p>{{ softmain.name | raw }}</p></td>
     </tr>
     <tr>
-        <th>{{ 'type'|trans }}</th>
+        <th><p>{{ 'type'|trans }}</p></th>
         <td>
             {% if softmain.type | raw == false %}
                 <p class="center-align">Non communiqué</p>
             {% else %}
-                {{ softmain.type | raw }}
+                <p>{{ softmain.type | raw }}</p>
             {% endif %}
         </td>
     </tr>
     <tr>
-        <th>{{ 'advantages'|trans }}</th>
+        <th><p>{{ 'advantages'|trans }}</p></th>
         <td>
             {% if softmain.advantages | raw == null %}
                 <p class="center-align">Non communiqué</p>
             {% else %}
-                {{ softmain.advantages | raw }}
+                <p>{{ softmain.advantages | raw }}</p>
             {% endif %}
         </td>
     </tr>

@@ -7380,11 +7380,9 @@ body {
     margin-bottom: 5%; }
   body th, body td {
     height: 8vh;
-    vertical-align: middle;
-    font-size: 1em; }
+    vertical-align: middle; }
     body th p, body td p {
-      margin-bottom: auto;
-      font-size: 1em; }
+      margin-bottom: auto; }
   body section {
     min-height: 100vh; }
   body .top {
