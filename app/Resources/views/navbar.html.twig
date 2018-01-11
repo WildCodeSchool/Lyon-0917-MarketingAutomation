@@ -17,7 +17,7 @@
                     <form action='{{ path('searchAction') }}' method='get'>
                         <div class="input-field">
                             <input class="loupe" type="submit" value="">
-                            <input type="search" name='search' placeholder="recherche" id="autocomplete-input"
+                            <input type="search" name='search' placeholder="recherche"
                                    value="{% if app.session.get('researchContent')  is defined %}{{ app.session.get('researchContent') }}{% endif %}"
                                    required>
                         </div>
@@ -68,7 +68,7 @@
             <form action='{{ path('searchAction') }}' method='get'>
                 <div class="input-field">
                     <input class="loupe" type="submit" value="">
-                    <input type="search" name='search' placeholder="recherche" id="autocomplete-input"
+                    <input type="search" name='search' placeholder="recherche"
                            value="{% if app.session.get('researchContent')  is defined %}{{ app.session.get('researchContent') }}{% endif %}"
                            required>
                 </div>
