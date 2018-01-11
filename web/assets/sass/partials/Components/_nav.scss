@@ -21,19 +21,21 @@ nav {
       vertical-align: middle
     }
 
+    .loupe {
+      background: url("../img/loupe.png") no-repeat 0 0;
+      position: absolute;
+      margin-left: 92%;
+      margin-top: 8px;
+      width: 10px;
+    }
+
     input {
       margin-left: 1.5rem;
       width: calc(100% - 4rem);
       font-size: 1.2em;
 
     }
-    .loupe {
-      background: url("../img/loupe.png") no-repeat 0 0;
-      position: absolute;
-      margin-left: 92%;
-      margin-top: 8px;
 
-    }
 
   }
 
@@ -42,6 +44,15 @@ nav {
       position: absolute;
       margin-left: 90%;
     }
+
+    .loupe {
+      background: url("../img/loupe.png") no-repeat 0 0;
+      position: absolute;
+      margin-left: 88%;
+      margin-top: 8px;
+      width: 10px;
+    }
+
     input {
       text-align: center;
       margin-left: 1.5rem;
@@ -49,13 +60,6 @@ nav {
       font-size: 1.2em;
     }
 
-    .loupe {
-      background: url("../img/loupe.png") no-repeat 0 0;
-      position: absolute;
-      margin-left: 88%;
-      margin-top: 8px;
-
-    }
   }
 
 
