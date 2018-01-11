@@ -7379,8 +7379,10 @@ body {
     margin-top: -3%;
     margin-bottom: 5%; }
   body th, body td {
+    max-width: 50px;
     height: 40px;
-    vertical-align: middle; }
+    vertical-align: middle;
+    font-size: 1em; }
     body th p, body td p {
       margin-bottom: auto; }
   body section {
