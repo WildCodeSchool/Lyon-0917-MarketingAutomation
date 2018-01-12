@@ -201,7 +201,8 @@ textarea {
   font-size: 1.1em; }
 
 .page-footer p {
-  margin: auto; }
+  margin: auto;
+  font-size: 1.1em; }
 
 #filters {
   margin-top: 4%; }
@@ -7144,6 +7145,11 @@ nav {
 #table {
   min-height: 100vh; }
 
+.striped li {
+  font-size: 1.2em; }
+.striped th {
+  font-size: 1.2em; }
+
 #home h1 {
   color: white;
   margin-top: 25px;
@@ -7219,6 +7225,8 @@ table {
   table td {
     width: 66%;
     text-align: center; }
+    table td p {
+      text-align: center; }
 
 #softwareh1 {
   margin-bottom: 0; }
@@ -7292,6 +7300,20 @@ table {
   #home .presentation {
     margin-top: 4%; }
 
+  #software p {
+    text-align: left; }
+  #software th, #software td {
+    vertical-align: middle; }
+    #software th p, #software td p {
+      text-align: center; }
+
+  #compare p {
+    text-align: left; }
+  #compare th, #compare td {
+    vertical-align: middle; }
+    #compare th p, #compare td p {
+      text-align: center; }
+
   .softwareCard .card-content .card-title {
     font-size: 1.5em; } }
 @media (min-width: 400px) and (max-width: 1056px) {
@@ -7316,6 +7338,8 @@ table {
     font-size: 1.2em; } }
 #compare {
   margin-bottom: 5%; }
+  #compare li a {
+    font-size: 1.2em; }
   #compare th {
     width: 34%;
     padding-left: 10px;
@@ -7323,6 +7347,8 @@ table {
   #compare td {
     width: 33%;
     text-align: center; }
+    #compare td p {
+      text-align: center; }
   #compare h1 {
     margin-top: 8%; }
   #compare table {
@@ -7366,19 +7392,19 @@ body {
     margin-bottom: 5%; }
   body h2 {
     font-size: 1.7em;
-    margin-top: 1%;
+    margin-top: 10%;
     margin-bottom: 5%; }
   body h3 {
     font-size: 1.5em; }
   body p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: justify;
     margin-bottom: 5%; }
-  body table {
+  body #table {
     margin-top: -3%;
     margin-bottom: 5%; }
   body th, body td {
-    height: 40px;
+    height: 8vh;
     vertical-align: middle; }
     body th p, body td p {
       margin-bottom: auto; }

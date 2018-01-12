@@ -3,15 +3,15 @@
     <tbody>
     <tr>
         <th>{{ 'name'|trans }}</th>
-        <td>{{ softmain.name | raw }}</td>
+        <td><p>{{ softmain.name | raw }}</p></td>
     </tr>
     <tr>
         <th>{{ 'type'|trans }}</th>
         <td>
             {% if softmain.type | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.type | raw }}
+                <p>{{ softmain.type | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -19,9 +19,9 @@
         <th>{{ 'advantages'|trans }}</th>
         <td>
             {% if softmain.advantages | raw == null %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.advantages | raw }}
+                <p>{{ softmain.advantages | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -31,7 +31,7 @@
             {% if softmain.drawbacks | raw == false %}
                 <p class="center-align">Non communiqué</p>
             {% else %}
-                {{ softmain.drawbacks | raw }}
+                <p>{{ softmain.drawbacks | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -43,7 +43,7 @@
             {% elseif softmain.softInfo.rgpd is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softInfo.rgpd is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -51,9 +51,9 @@
         <th>{{ 'customers'|trans }}</th>
         <td>
             {% if softmain.softInfo.customers == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.softInfo.customers }}
+                <p>{{ softmain.softInfo.customers }}</p>
             {% endif %}
         </td>
     </tr>
@@ -61,9 +61,9 @@
         <th>{{ 'hostingCountry'|trans }}</th>
         <td>
             {% if softmain.softInfo.hostingCountry | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.softInfo.hostingCountry | raw }}
+                <p>{{ softmain.softInfo.hostingCountry | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -71,9 +71,9 @@
         <th>{{ 'creationDate'|trans }}</th>
         <td>
             {% if softmain.softInfo.creationDate | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.softInfo.creationDate | raw }}
+                <p>{{ softmain.softInfo.creationDate | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -81,9 +81,9 @@
         <th>{{ 'subscriptionCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.subscriptionCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.softInfo.subscriptionCost | raw }}
+                <p>{{ softmain.softInfo.subscriptionCost | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -91,9 +91,9 @@
         <th>{{ 'trainingCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.trainingCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                {{ softmain.softInfo.trainingCost | raw }}
+                <p>{{ softmain.softInfo.trainingCost | raw }}</p>
             {% endif %}
         </td>
     </tr>
@@ -101,9 +101,9 @@
         <th>{{ 'webSite'|trans }}</th>
         <td>
             {% if softmain.softInfo.webSite == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                <a href="{{ softmain.softInfo.webSite }}">{{ softmain.name | raw }}</a>
+                <p><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name | raw }}</a></p>
             {% endif %}
         </td>
     </tr>
