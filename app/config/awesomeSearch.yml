@@ -40,6 +40,11 @@ Booleans:
           Name: Appel api
           Slug: appel-api
           Synonymous: appel api
+    softInfo:
+        rgpd:
+            Name: RGPD
+            Slug: rgpd
+            Synonymous: Rgpd rgpd RGPD
     softCommSupport:
         isLandingPage:
           Name: Page d'atterrissage

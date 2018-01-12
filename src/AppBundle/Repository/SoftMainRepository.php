@@ -146,21 +146,6 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
      * @param $word
      * @return array
      */
-    public function searchInDrawbacks($word)
-    {
-        $softmain = "%" . $word . "%";
-
-        $qb = $this->createQueryBuilder('s')
-            ->where('s.drawbacks LIKE :drawbacks')
-            ->setParameter('drawbacks', $softmain)
-            ->getQuery();
-        return $qb->getResult();
-    }
-
-    /**
-     * @param $word
-     * @return array
-     */
     public function searchInCustomers($word)
     {
         $softinfo = "%" . $word . "%";
