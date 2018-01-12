@@ -82,6 +82,10 @@ body {
     bottom: 0;
     right:0;
   }
+  #autocomplete_compare_software1, #autocomplete_compare_software2 {
+    cursor: pointer;
+   }
+
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: grey;
     opacity: 1; /* Firefox */

@@ -3,10 +3,10 @@
     {% for url in urls %}
         <url>
             {% if url.loc is defined %}
-            <loc>compare.pro{{ url.loc }}</loc>
+            <loc>{{ app.request.schemeAndHttpHost }}{{ url.loc }}</loc>
             {% endif %}
             {% if url.route is defined %}
-                <loc>compare.pro{{ url.route }}</loc>
+                <loc>{{ app.request.schemeAndHttpHost }}{{ url.route }}</loc>
             {% endif %}
         </url>
     {% endfor %}
