@@ -7139,6 +7139,9 @@ nav {
 .striped li {
   font-size: 1.2em; }
 
+.striped th {
+  font-size: 1.2em; }
+
 #home h1 {
   color: white;
   margin-top: 25px;
