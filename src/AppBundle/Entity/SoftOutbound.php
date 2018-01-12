@@ -72,6 +72,7 @@ class SoftOutbound
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softOutbound")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 

@@ -73,6 +73,7 @@ class SoftLeadsOperation
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softLeadsOperation")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 

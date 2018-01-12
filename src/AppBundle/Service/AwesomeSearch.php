@@ -140,8 +140,8 @@ class AwesomeSearch
 
     private function cleanQuery(string $query) :array
     {
-
-        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $lowerQuery = strtolower($query);
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $lowerQuery);
         $goodQuery = [];
         $emptyWords = $this->getDatas()["EmptyWords"];
         $arrayEmptyWords = explode(" ", $emptyWords);

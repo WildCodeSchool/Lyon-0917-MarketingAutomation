@@ -97,7 +97,7 @@ Booleans:
           Slug: creation-segment
           Synonymous: creation
         isIntelligentSegment:
-          Name: creation de segment intelligent
+          Name: Creation de segment intelligent
           Slug: creation-segment-intelligent
           Synonymous: intelligent
     softMarketingCampaign:
@@ -118,7 +118,7 @@ Booleans:
           Slug: campagne-drip-marketing
           Synonymous: campagne
         isDragAndDrop:
-          Name: éditeur drag drop
+          Name: Editeur drag drop
           Slug: editeur-drap-drop
           Synonymous: éditeur
     softSocialMedia:
@@ -156,11 +156,11 @@ Booleans:
           Synonymous: publication
     softReport:
         isActivityReportCreation:
-          Name: creation rapport activites
+          Name: Création rapport activites
           Slug: creation-rapport-activites
           Synonymous: création
         isActivityReportPeriodicSend:
-          Name: envoi periodique rapport
+          Name: Envoi periodique rapport
           Slug: envoi-periodique-rapport
           Synonymous: envoi
     softSupport:

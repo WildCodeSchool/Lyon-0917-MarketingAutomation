@@ -65,6 +65,7 @@ class SoftSupport
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSupport")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 
