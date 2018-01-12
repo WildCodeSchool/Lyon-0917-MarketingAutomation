@@ -1,36 +1,262 @@
+
 {% extends 'base.html.twig' %}
+
 {% block title %} Votre recherche :  {{ research }} - Logiciel de Marketing Automation {% endblock %}
 
 {% block body %}
-    <div id="results">
+    <div class="result" id="results">
         <div class="row">
 
-
-            <div class="center-align hide-on-med-and-up">
-                <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
-                            class="material-icons">edit</i>Plus de critères</a>
-            </div>
 
             <div class="col s12 m7 l7">
                 <p class="presults">{% if softwares|length > 1 %}  {{ softwares|length }} résultats pour votre recherche : {{ research }}
                     {% endif %}
-                    {% if softwares|length < 2 %}  {{ softwares|length }} résultat pour votre recherche : {{ research }}
+                    {% if softwares|length < 2 %}  {{ softwares|length }} Résultat pour votre recherche : {{ research }}
                     {% endif %}
 
                 </p>
-                 {% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
-                    {% endif %}
-                {% for software in softwares %}
-                    {% include('result-software.html.twig') %}
-                {% endfor %}
+                {% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
+{% endif %}
+
+
+<div v-for="software in sofwarefiltres">
+
+    <div class="card horizontal">
+
+        <div class="marginLogo">
+            <div class="card-image result-logo-responsive">
+                <a :href="`/logiciels/${software.slug}`"><img class="responsive-img" :src="`/assets/img/logo/${software.slug}.png`"></a>
+            </div>
+        </div>
+        <div class="card-stacked">
+            <div class="card-action">
+                <a :href="`/logiciels/${software.slug}`">${ software.name }</a>
+            </div>
+            <div class="card-content">
+                <p class="troncate">${ software.description }</p>
             </div>
 
-            {% include('filters.html.twig') %}
-
-
-
         </div>
+
     </div>
+</div>
+</div>
+{% include('filters.html.twig') %}
+
+<div class="center-align hide-on-med-and-up">
+    <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
+                class="material-icons">edit</i>Plus de critères</a>
+</div>
+
+
+</div>
+
+
+</div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+<script>
+    var app = new Vue({
+        delimiters: ['${', '}'],
+        el: '.result',
+        data: {
+            softwaresList : [],
+            sms: false,
+            mail: false,
+            rgpd: false,
+            popin: false,
+            mailpostal: false,
+            callCenter: false,
+            pushmobile: false,
+            api: false,
+            reportcreation: false,
+            reportperiodic: false,
+            emailsupport: false,
+            phonesupport: false,
+            chatsupport: false,
+            landing: false,
+            formulaire: false,
+            codesuivi: false,
+            livechat: false,
+            knowledgebase: false,
+            technicalDoc: false,
+            twitterMon: false,
+            twitterAuto: false,
+            linkedinAuto: false,
+            linkedinMon: false,
+            instagramMon: false,
+            instagramAuto: false,
+            facebookMon: false,
+            facebookAuto: false,
+        },
+        created(){
+            axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+            axios.get('/results_{{ research }}', {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                transformResponse: axios.defaults.transformResponse.concat((data) => {
+                    this.softwaresList = data.data
+                })
+            })
+        },
+        computed: {
+
+            sofwarefiltres: function(){
+                let condFbMon = true;
+                let condFbAuto = true;
+                let condInstagramMon = true;
+                let condinstragramAuto = true;
+                let condlinkedinAuto = true;
+                let condlinkedinMon = true;
+                let condtwitterMon = true;
+                let condtwitterAuto= true;
+                let condSms = true;
+                let condMail = true;
+                let condRgpd = true;
+                let condPopin = true;
+                let condMailPostal = true;
+                let condCallCenter = true;
+                let condPushmobile = true;
+                let condisApi = true;
+                let condReportCreation = true;
+                let condReportPeriodic = true;
+                let condEmailSupport = true;
+                let condPhoneSupport = true;
+                let condChatSupport = true;
+                let condLanding = true;
+                let condForm = true;
+                let condCodesuivi = true;
+                let condLivechat = true;
+                let condisKnowledgeBase = true;
+                let condTechnicalDoc = true;
+
+
+                return this.softwaresList.filter((elt) => {
+                    if(this.facebookMon === true){
+                        condFbMon = elt.isFbMon
+                    }
+                    if(this.facebookAuto === true){
+                        condFbAuto = elt.isFbAuto
+                    }
+                    if(this.twitterAuto === true){
+                        condtwitterAuto = elt.isTwitterAutoPublication
+                    }
+                    if(this.twitterMon === true){
+                        condtwitterMon = elt.isTwitterMonitoring
+                    }
+                    if(this.linkedinAuto === true){
+                        condlinkedinAuto = elt.isLinkedinAutoPublication
+                    }
+                    if(this.linkedinMon === true){
+                        condlinkedinMon = elt.isLinkedinMonitoring
+                    }
+                    if(this.instagramMon === true){
+                        condInstagramMon = elt.isInstagramMonitoring
+                    }
+                    if(this.instagramAuto === true){
+                        condinstragramAuto = elt.isInstagramAutoPublication
+                    }
+
+                    if(this.knowledgebase === true){
+                        condisKnowledgeBase = elt.isKnowledgeBase
+                    }
+
+                    if(this.knowledgebase === true){
+                        condisKnowledgeBase = elt.isKnowledgeBase
+                    }
+                    if(this.technicalDoc === true){
+                        condTechnicalDoc = elt.isTechnicalDocument
+                    }
+
+                    if(this.formulaire === true){
+                        condForm = elt.isForm
+                    }
+                    if(this.codesuivi === true){
+                        condCodesuivi = elt.isTracking
+                    }
+                    if(this.livechat === true){
+                        condLivechat = elt.isLiveChat
+                    }
+                    if(this.sms === true){
+                        condSms = elt.isSms
+                    }
+                    if(this.rgpd === true){
+                        condRgpd = elt.isRgpd
+                    }
+                    if(this.mail === true){
+                        condMail = elt.isEmail
+                    }
+                    if(this.popin === true){
+                        condPopin = elt.isPopin
+                    }
+                    if(this.mailpostal === true){
+                        condMailPostal = elt.isMailPostal
+                    }
+                    if(this.callCenter === true){
+                        condCallCenter = elt.isCallCenter
+                    }
+                    if(this.pushmobile === true){
+                        condPushmobile = elt.isPushMobile
+                    }
+                    if(this.api === true){
+                        condisApi = elt.isApi
+                    }
+                    if(this.reportcreation === true){
+                        condReportCreation = elt.isActivityReportCreation
+                    }
+                    if(this.reportperiodic === true){
+                        condReportPeriodic = elt.isActivityReportPeriodicSend
+                    }
+                    if(this.emailsupport === true){
+                        condEmailSupport = elt.isEmailSupport
+                    }
+                    if(this.phonesupport === true){
+                        condPhoneSupport = elt.isPhoneSupport
+                    }
+                    if(this.chatsupport === true){
+                        condChatSupport = elt.isChatSupport
+                    }
+                    if(this.landing === true){
+                        condLanding = elt.isLandingPage
+                    }
+
+                    return  condSms &&
+                        condMail &&
+                        condRgpd &&
+                        condPopin &&
+                        condCallCenter &&
+                        condMailPostal &&
+                        condPushmobile &&
+                        condisApi &&
+                        condReportCreation &&
+                        condReportPeriodic &&
+                        condPhoneSupport &&
+                        condEmailSupport &&
+                        condChatSupport &&
+                        condLanding  &&
+                        condForm &&
+                        condCodesuivi &&
+                        condisKnowledgeBase &&
+                        condTechnicalDoc &&
+                        condLivechat &&
+                        condInstagramMon &&
+                        condinstragramAuto &&
+                        condlinkedinAuto &&
+                        condlinkedinMon &&
+                        condtwitterMon &&
+                        condtwitterAuto
+                        ;
+                });
+
+            }
+        }
+
+    });
+
+</script>
 {% endblock %}
 {% block javascripts %}{{ parent() }}
     <script type="text/javascript" src="{{ asset('assets/js/application.filters.js') }}"></script>
