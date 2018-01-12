@@ -79,10 +79,6 @@ class AwesomeSearch
             $this->addPertinencePoint($advantagesResults, self::CONTENTPOINT);
 
 
-            $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
-            $this->addPertinencePoint($drawbacksResults, self::CONTENTPOINT);
-
-
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
             $this->addPertinencePoint($typeResults, self::CONTENTPOINT);
 
