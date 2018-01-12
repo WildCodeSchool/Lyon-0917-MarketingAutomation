@@ -41,6 +41,17 @@
       }
     }
   }
+  #compare {
+    p {
+      text-align: left;
+    }
+    th, td {
+      vertical-align: middle;
+      p {
+        text-align: center;
+      }
+    }
+  }
   .softwareCard {
     .card-content {
       .card-title {
