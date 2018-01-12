@@ -9,7 +9,7 @@
         <th>{{ 'type'|trans }}</th>
         <td>
             {% if softmain.type | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.type | raw }}
             {% endif %}
@@ -19,7 +19,7 @@
         <th>{{ 'advantages'|trans }}</th>
         <td>
             {% if softmain.advantages | raw == null %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.advantages | raw }}
             {% endif %}
@@ -29,7 +29,7 @@
         <th>{{ 'drawbacks'|trans }}</th>
         <td>
             {% if softmain.drawbacks | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.drawbacks | raw }}
             {% endif %}
@@ -43,7 +43,7 @@
             {% elseif softmain.softInfo.rgpd is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softInfo.rgpd is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% endif %}
         </td>
     </tr>
@@ -51,7 +51,7 @@
         <th>{{ 'customers'|trans }}</th>
         <td>
             {% if softmain.softInfo.customers == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.softInfo.customers }}
             {% endif %}
@@ -61,7 +61,7 @@
         <th>{{ 'hostingCountry'|trans }}</th>
         <td>
             {% if softmain.softInfo.hostingCountry | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.softInfo.hostingCountry | raw }}
             {% endif %}
@@ -71,7 +71,7 @@
         <th>{{ 'creationDate'|trans }}</th>
         <td>
             {% if softmain.softInfo.creationDate | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.softInfo.creationDate | raw }}
             {% endif %}
@@ -81,7 +81,7 @@
         <th>{{ 'subscriptionCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.subscriptionCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.softInfo.subscriptionCost | raw }}
             {% endif %}
@@ -91,7 +91,7 @@
         <th>{{ 'trainingCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.trainingCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 {{ softmain.softInfo.trainingCost | raw }}
             {% endif %}
@@ -101,7 +101,7 @@
         <th>{{ 'webSite'|trans }}</th>
         <td>
             {% if softmain.softInfo.webSite == false %}
-                <p class="center-align">Non communiqué</p>
+                <p class="center-align">NC</p>
             {% else %}
                 <a href="{{ softmain.softInfo.webSite }}">{{ softmain.name | raw }}</a>
             {% endif %}

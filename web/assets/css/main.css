@@ -7292,6 +7292,13 @@ table {
   #home .presentation {
     margin-top: 4%; }
 
+  #software p {
+    text-align: left; }
+  #software th, #software td {
+    vertical-align: middle; }
+    #software th p, #software td p {
+      text-align: center; }
+
   .softwareCard .card-content .card-title {
     font-size: 1.5em; } }
 @media (min-width: 400px) and (max-width: 1056px) {
