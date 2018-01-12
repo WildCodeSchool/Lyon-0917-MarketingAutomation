@@ -201,7 +201,8 @@ textarea {
   font-size: 1.1em; }
 
 .page-footer p {
-  margin: auto; }
+  margin: auto;
+  font-size: 1.1em; }
 
 #filters {
   margin-top: 4%; }
