@@ -74,8 +74,7 @@
                 <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>,
             {% endfor %}
             {% for bool in bools %}
-                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
-                {% if loop.last == false %}, {% endif %}
+                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>{% if loop.last == false %}, {% endif %}
             {% endfor %}
 
 
