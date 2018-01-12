@@ -9,7 +9,7 @@
         <th>{{ 'type'|trans }}</th>
         <td>
             {% if softmain.type | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.type | raw }}</p>
             {% endif %}
@@ -19,7 +19,7 @@
         <th>{{ 'advantages'|trans }}</th>
         <td>
             {% if softmain.advantages | raw == null %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.advantages | raw }}</p>
             {% endif %}
@@ -43,7 +43,7 @@
             {% elseif softmain.softInfo.rgpd is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softInfo.rgpd is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -51,7 +51,7 @@
         <th>{{ 'customers'|trans }}</th>
         <td>
             {% if softmain.softInfo.customers == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.softInfo.customers }}</p>
             {% endif %}
@@ -61,7 +61,7 @@
         <th>{{ 'hostingCountry'|trans }}</th>
         <td>
             {% if softmain.softInfo.hostingCountry | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.softInfo.hostingCountry | raw }}</p>
             {% endif %}
@@ -71,7 +71,7 @@
         <th>{{ 'creationDate'|trans }}</th>
         <td>
             {% if softmain.softInfo.creationDate | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.softInfo.creationDate | raw }}</p>
             {% endif %}
@@ -81,7 +81,7 @@
         <th>{{ 'subscriptionCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.subscriptionCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.softInfo.subscriptionCost | raw }}</p>
             {% endif %}
@@ -91,7 +91,7 @@
         <th>{{ 'trainingCost'|trans }}</th>
         <td>
             {% if softmain.softInfo.trainingCost | raw == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.softInfo.trainingCost | raw }}</p>
             {% endif %}
@@ -101,7 +101,7 @@
         <th>{{ 'webSite'|trans }}</th>
         <td>
             {% if softmain.softInfo.webSite == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p><a href="{{ softmain.softInfo.webSite }}">{{ softmain.name | raw }}</a></p>
             {% endif %}
