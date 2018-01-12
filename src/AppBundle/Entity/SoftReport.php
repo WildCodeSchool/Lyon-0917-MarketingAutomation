@@ -38,6 +38,7 @@ class SoftReport
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softReport")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 

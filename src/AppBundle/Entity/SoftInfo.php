@@ -74,6 +74,7 @@ class SoftInfo
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softInfo")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id",onDelete="CASCADE")
      */
     private $softMain;
 
