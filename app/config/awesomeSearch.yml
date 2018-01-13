@@ -31,17 +31,17 @@ Booleans:
           Description: <p>Permet l'envoie de courrier papier.</p>
           Name: Courrier postal
           Slug: courrier-postal
-          Synonymous: courrier postal
+          Synonymous: courrier postal poste
         isCallCenter:
           Description: <p>Logiciel permettant de déclencher une campagne d'appel téléphone en passant par un centre d'appel interne ou externalisé.</p>
           Name: Centre d'appels
           Slug: centre-appel
-          Synonymous: centre appel
+          Synonymous: centre centres appel appels call center
         isPushMobile:
           Description: <p>Logiciel permettant d'envoyer des notifications (push mobile) dans vos applications Androïd et iOS.</p>
           Name: Notification push mobile
           Slug: notification-push-mobile
-          Synonymous: notification push mobile
+          Synonymous: notification push mobile app application
         isApi:
           Description: <p>Logiciel permettant de faire appel à une API ou un webservice tierces au passage d'un déclencheur.</p>
           Name: Appel api
@@ -94,7 +94,7 @@ Booleans:
           Description: <p>Dans le cas de champs personnalisés, le fait est que pour des raisons de performance certains logiciels limitent le nombre de champs pouvant être créé.</p>
           Name: Champs illimité
           Slug: champs-illimite
-          Synonymous: illimite
+          Synonymous: hamps champ illimite illimités illimité
         isImportCsv:
           Description: <p>Le fait de pouvoir importer vos données de contacts et d'entreprise via un fichier à plat de type CSV (Comma-separated values). Ce fichier peux être généré à partir d'un fichier Excel.</p>
           Name: Import csv
@@ -206,48 +206,48 @@ Booleans:
           Slug: support-email
           Synonymous: support
         isPhoneSupport:
-          Description: support
+          Description: <p></p>
           Name: Support telephone
           Slug: support-telephone
           Synonymous: support
         isChatSupport:
-          Description: support
+          Description: <p></p>
           Name: Support chat ligne
           Slug: support-chat-ligne
           Synonymous: support
         isKnowledgeBase:
-          Description: support
+          Description: <p></p>
           Name: Base de connaissance (langues)
           Slug: base-de-connaissance
           Synonymous:
         isTechnicalDocument:
-          Description: support
+          Description: <p></p>
           Name: Documentation technique
           Slug: documentation-technique
           Synonymous: documentation
     softOtherFunctionnalities:
         isProviderEmailChoice:
-          Description: support
+          Description: <p></p>
           Name: Choix du provider Email
           Slug: choix-provider-email
           Synonymous: choix
         isBlogEdition:
-          Description: support
+          Description: <p></p>
           Name: Edition d'un blog
           Slug: edition-blog
           Synonymous: édition
         isTouchPad:
-          Description: support
+          Description: <p></p>
           Name: Tablette en magasin
           Slug: tablette-magasin
           Synonymous: tablette
         isSmtpRelay:
-          Description: support
+          Description: <p></p>
           Name: SMTP Relais (email transactionnel)
           Slug: relais-smtp
           Synonymous: relilas
         isRssToEmail:
-          Description: support
+          Description: <p>Permet de transformer un flux RSS en messages envoyés périodiquement.</p>
           Name: RSS to email
           Slug: rss-to-email
           Synonymous: flux
