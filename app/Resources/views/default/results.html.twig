@@ -18,7 +18,10 @@
                 {% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
 {% endif %}
 
-
+                <div class="center-align hide-on-med-and-up">
+                    <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
+                                class="material-icons">edit</i>Plus de critères</a>
+                </div>
 <div v-for="software in sofwarefiltres">
 
     <div class="card horizontal">
@@ -41,12 +44,10 @@
     </div>
 </div>
 </div>
+
 {% include('filters.html.twig') %}
 
-<div class="center-align hide-on-med-and-up">
-    <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
-                class="material-icons">edit</i>Plus de critères</a>
-</div>
+
 
 
 </div>
@@ -89,6 +90,26 @@
             instagramAuto: false,
             facebookMon: false,
             facebookAuto: false,
+            SegmentCreation: false,
+            IntelligentSegmentCreation: false,
+            AutoResponder: false,
+            LeadScoring: false,
+            CreationCampaign: false,
+            DripMarketingCampaign: false,
+            DragAndDrop: false,
+            ContactObject: false,
+            CompanyObject: false,
+            DefinedFields: false,
+            IllimitedFields: false,
+            ImportCsv: false,
+            AutoDuplicate: false,
+            LeadStages: false,
+            ProviderEmailChoice: false,
+            BlogEdition: false,
+            TouchPad: false,
+            RssToEmail: false,
+            SmtpRelay: false,
+            price: "",
         },
         created(){
             axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
@@ -132,14 +153,95 @@
                 let condLivechat = true;
                 let condisKnowledgeBase = true;
                 let condTechnicalDoc = true;
+                let condSegmentCreation = true;
+                let condIntelligentSegmentCreation = true;
+                let condAutoResponder = true;
+                let condLeadScoring = true;
+                let condisCreationCampaign = true;
+                let condisDripMarketingCampaign = true;
+                let condisDragAndDrop = true;
+                let condisContactObject = true;
+                let condisCompanyObject = true;
+                let condisDefinedFields = true;
+                let condisIllimitedFields = true;
+                let condisImportCsv = true;
+                let condisAutoDuplicate = true;
+                let condisLeadStages = true;
+                let condisProviderEmailChoice = true;
+                let condisisBlogEdition = true;
+                let condisisTouchPad = true;
+                let condisRssToEmail = true;
+                let condisSmtpRelay = true;
+                let conditionPrice = true;
+                let reg = new RegExp(this.price, "i");
 
 
                 return this.softwaresList.filter((elt) => {
                     if(this.facebookMon === true){
                         condFbMon = elt.isFbMon
                     }
+                    if(this.price === true){
+                        conditionPrice = elt.isFbMon
+                    }
+                    if(this.SmtpRelay === true){
+                        condisSmtpRelay = elt.isSmtpRelay
+                    }
+                    if(this.RssToEmail === true){
+                        condisRssToEmail = elt.isRssToEmail
+                    }
+                    if(this.TouchPad === true){
+                        condisisTouchPad = elt.isTouchPad
+                    }
+                    if(this.BlogEdition === true){
+                        condisisBlogEdition = elt.isBlogEdition
+                    }
+                    if(this.ProviderEmailChoice === true){
+                        condisProviderEmailChoice = elt.isProviderEmailChoice
+                    }
+                    if(this.LeadStages === true){
+                        condisLeadStages = elt.sLeadStages
+                    }
+                    if(this.AutoDuplicate === true){
+                        condisAutoDuplicate = elt.isAutoDuplicate
+                    }
+                    if(this.ImportCsv === true){
+                        condisImportCsv = elt.isImportCsv
+                    }
+                    if(this.IllimitedFields === true){
+                        condisIllimitedFields = elt.isIllimitedFields
+                    }
+                    if(this.DefinedFields === true){
+                        condisDefinedFields = elt.isDefinedFields
+                    }
+                    if(this.CompanyObject === true){
+                        condisCompanyObject = elt.isCompanyObject
+                    }
+                    if(this.ContactObject === true){
+                        condisContactObject = elt.isContactObject
+                    }
+                    if(this.DragAndDrop === true){
+                        condisDragAndDrop = elt.isDragAndDrop
+                    }
+                    if(this.DripMarketingCampaign === true){
+                        condisDripMarketingCampaign = elt.isDripMarketingCampaign
+                    }
+                    if(this.CreationCampaign === true){
+                        condisCreationCampaign = elt.isCreationCampaign
+                    }
+                    if(this.LeadScoring === true){
+                        condLeadScoring = elt.isLeadScoring
+                    }
+                    if(this.AutoResponder === true){
+                        condAutoResponder = elt.isAutoResponder
+                    }
+                    if(this.IntelligentSegmentCreation === true){
+                        condIntelligentSegmentCreation = elt.isIntelligentSegmentCreation
+                    }
                     if(this.facebookAuto === true){
                         condFbAuto = elt.isFbAuto
+                    }
+                    if(this.SegmentCreation === true){
+                        condSegmentCreation = elt.isSegmentCreation
                     }
                     if(this.twitterAuto === true){
                         condtwitterAuto = elt.isTwitterAutoPublication
@@ -247,7 +349,26 @@
                         condlinkedinAuto &&
                         condlinkedinMon &&
                         condtwitterMon &&
-                        condtwitterAuto
+                        condtwitterAuto &&
+                        condSegmentCreation &&
+                        condIntelligentSegmentCreation &&
+                        condLeadScoring &&
+                        condisCreationCampaign &&
+                        condisDripMarketingCampaign &&
+                        condisDragAndDrop &&
+                        condisContactObject &&
+                        condisCompanyObject &&
+                        condisDefinedFields &&
+                        condisIllimitedFields &&
+                        condisImportCsv &&
+                        condisLeadStages &&
+                        condisAutoDuplicate &&
+                        condisProviderEmailChoice &&
+                        condisisBlogEdition &&
+                        condisisTouchPad &&
+                        condisRssToEmail &&
+                        condAutoResponder &&
+                            reg.test(elt.isPrice)
                         ;
                 });
 

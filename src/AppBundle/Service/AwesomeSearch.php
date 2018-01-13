@@ -144,6 +144,7 @@ class AwesomeSearch
                 'isActivityReportCreation' => $software->getSoftReport()->getIsActivityReportCreation(),
                 'isActivityReportPeriodicSend' => $software->getSoftReport()->getIsActivityReportPeriodicSend(),
                 'isSegmentCreation' => $software->getSoftSegmentOperation()->getIsSegmentCreation(),
+                'isIntelligentSegmentCreation' => $software->getSoftSegmentOperation()->getIsIntelligentSegment(),
                 'isTwitterMonitoring' => $software->getSoftSocialMedia()->getIsTwitterMonitoring(),
                 'isTwitterAutoPublication' => $software->getSoftSocialMedia()->getIsTwitterAutoPublication(),
                 'isLinkedinMonitoring' => $software->getSoftSocialMedia()->getIsLinkedinMonitoring(),
@@ -168,6 +169,17 @@ class AwesomeSearch
                 'isLiveChat' => $software->getSoftCommSupport()->getIsLiveChat(),
                 'isFbAuto' => $software->getSoftSocialMedia()->getIsFacebookAutoPublication(),
                 'isFbMon' => $software->getSoftSocialMedia()->getIsFacebookMonitoring(),
+                'isAutoResponder' => $software->getSoftMarketingCampaign()->getIsAutoResponder(),
+                'isLeadScoring' => $software->getSoftMarketingCampaign()->getIsLeadScoring(),
+                'isCreationCampaign' => $software->getSoftMarketingCampaign()->getIsCreationCampaign(),
+                'isDripMarketingCampaign' => $software->getSoftMarketingCampaign()->getIsDripMarketingCampaign(),
+                'isDragAndDrop' => $software->getSoftMarketingCampaign()->getIsDragAndDrop(),
+                'isProviderEmailChoice' => $software->getSoftOtherFunctionnalities()->getIsProviderEmailChoice(),
+                'isBlogEdition' => $software->getSoftOtherFunctionnalities()->getIsBlogEdition(),
+                'isTouchPad' => $software->getSoftOtherFunctionnalities()->getIsTouchPad(),
+                'isRssToEmail' => $software->getSoftOtherFunctionnalities()->getIsRssToEmail(),
+                'isSmtpRelay' => $software->getSoftOtherFunctionnalities()->getIsSmtpRelay(),
+                'isPrice' => $software->getSoftInfo()->getSubscriptionCost(),
             );
         }
         return $response;
