@@ -7,6 +7,20 @@
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">
+                Informations essentielles
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="rgpd" id="rgpd"/>
+                        <label for="rgpd">Conformité RGPD</label>
+                    </p>
+
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
                 Canaux de communication sortants
             </div>
             <div class="collapsible-body">
@@ -14,35 +28,32 @@
                     <p>
                         <input type="checkbox" class="filled-in" v-model="sms" id="sms" />
 
-                        <label for="sms">Sms</label>
+                        <label for="sms">SMS</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in"  v-model="mail"  id="mail"/>
-                        <label for="mail">Mail</label>
+                        <label for="mail">Email</label>
                     </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="rgpd" id="rgpd"/>
-                        <label for="rgpd">conformité RGPD</label>
-                    </p>
+
                     <p>
                         <input type="checkbox" class="filled-in" v-model="popin" id="popin"/>
-                        <label for="popin">Pop in</label>
+                        <label for="popin">Popin sur le site</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="mailpostal" id="mailpostal"/>
-                        <label for="mailpostal">Mail Postal</label>
+                        <label for="mailpostal">Courrier postal	</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="callCenter" id="callCenter"/>
-                        <label for="callCenter">Call center</label>
+                        <label for="callCenter">Centre d'appel</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="pushmobile" id="pushmobile"/>
-                        <label for="pushmobile">Push Mobile</label>
+                        <label for="pushmobile">Notifications Push Mobile	</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="api" id="api"/>
-                        <label for="api">API</label>
+                        <label for="api">Appel API</label>
                     </p>
                 </form>
             </div>
@@ -55,7 +66,7 @@
                 <form action="#">
                     <p>
                         <input type="checkbox" class="filled-in" v-model="landing" id="landing"/>
-                        <label for="landing">Landing pages</label>
+                        <label for="landing">Page d'atterrissage</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="formulaire" id="formulaire"/>
@@ -74,17 +85,59 @@
         </li>
         <li>
             <div class="collapsible-header">
-                Fonctionnalités de reporting
+                Intégration Social Media
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterMon" id="twitterMon"/>
+                        <label for="twitterMon">Veille Twitter</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterAuto" id="twitterAuto"/>
+                        <label for="twitterAuto">Publication automatique sur Twitter</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookAuto" id="facebookAuto"/>
+                        <label for="facebookAuto">Publication automatique sur Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookMon" id="facebookMon"/>
+                        <label for="facebookMon">Veille Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinMon" id="linkedinMon"/>
+                        <label for="linkedinMon">Veille Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinAuto" id="linkedinAuto"/>
+                        <label for="linkedinAuto">Publication automatique sur Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramMon" id="instagramMon"/>
+                        <label for="instagramMon">Veille Instagram</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramAuto" id="instagramAuto"/>
+                        <label for="instagramAuto">Publication automatique sur Instagram</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Rapports
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
                         <input type="checkbox" class="filled-in" v-model="reportcreation" id="reportcreation"/>
-                        <label for="reportcreation">Report Creation</label>
+                        <label for="reportcreation">Création de rapports d'activité	</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="reportperiodic" id="reportperiodic"/>
-                        <label for="reportperiodic">Rapport périodique</label>
+                        <label for="reportperiodic">Envoi périodique des rapports	</label>
                     </p>
                 </form>
             </div>
@@ -92,7 +145,7 @@
 
         <li>
             <div class="collapsible-header">
-                Support
+                Support proposé
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -102,7 +155,7 @@
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="phonesupport" id="phonesupport"/>
-                        <label for="phonesupport">Support par tél</label>
+                        <label for="phonesupport">Support téléphonique	</label>
                     </p>
                     <p>
                         <input type="checkbox" class="filled-in" v-model="chatsupport" id="chatsupport"/>
@@ -120,48 +173,7 @@
             </div>
         </li>
 
-        <li>
-            <div class="collapsible-header">
-                Intégration Social Media
-            </div>
-            <div class="collapsible-body">
-                <form action="#">
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="twitterMon" id="twitterMon"/>
-                        <label for="twitterMon">Veille Twitter</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="twitterAuto" id="twitterAuto"/>
-                        <label for="twitterAuto">Publication automatique sur Twitter</label>
-                    </p>
 
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="facebookAuto" id="facebookAuto"/>
-                        <label for="facebookAuto">Publication automatique sur Facebook	</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="facebookMon" id="facebookMon"/>
-                        <label for="facebookMon">Veille Facebook	</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="linkedinMon" id="linkedinMon"/>
-                        <label for="linkedinMon">Veille Linkedin</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="linkedinAuto" id="linkedinAuto"/>
-                        <label for="linkedinAuto">Publication automatique sur Linkedin</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="instagramMon" id="instagramMon"/>
-                        <label for="instagramMon">Veille Instagram	</label>
-                    </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" v-model="instagramAuto" id="instagramAuto"/>
-                        <label for="instagramAuto">Publication automatique sur Instagram	</label>
-                    </p>
-                </form>
-            </div>
-        </li>
 
     </ul>
 
