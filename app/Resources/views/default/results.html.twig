@@ -9,13 +9,14 @@
 
 
             <div class="col s12 m7 l7">
-                <p class="presults">${ sofwarefiltres.length } résultat(s) pour votre mot-clé "{{ research }}".
+                <p class="presults">${ softwaresList.length } résultat(s) pour votre mot-clé "{{ research }}".
                 </p>
                 <div class="center-align hide-on-med-and-up">
                     <a href="#" data-activates="slide-out" class="button-collapse btn-large"><i
                                 class="material-icons">edit</i>Plus de critères</a>
                 </div>
-                Filtres actifs :
+                Filtres actifs (résultats: ${ sofwarefiltres.length }) :
+
                 <b v-if="mail == true">Mail,</b>
                 <b v-if="sms == true">SMS,</b>
                 <b v-if="popin == true">Popin sur le site,</b>
@@ -64,8 +65,6 @@
 <b v-if="SmtpRelay == true">SMTP Relais,</b>
 
 
-{% if softwares|length < 1 %}   <p>Votre recherche n'est pas assez précise. Essayez de mieux décrire votre recherche</p>
-{% endif %}
 
 
 
@@ -161,7 +160,7 @@
         created(){
             axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-            axios.get('/results_{{ research }}', {
+            axios.get('/resultsJson_{{ research }}', {
                 headers: {
                     'Content-Type': 'application/json'
                 },

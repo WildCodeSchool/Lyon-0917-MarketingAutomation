@@ -41,7 +41,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
 
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
-        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain); 
+        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);
 
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
@@ -74,21 +74,32 @@ class DefaultController extends Controller
     public function resultsAction(Request $request, $researchContent = "", AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
-        $test = array('name' => "pierrick", 'slug' => "pireux");
+
+        return $this->render('default/results.html.twig', [
+            'research' => $researchContent,
+
+        ]);
+
+    }
+
+    /**
+     * @param Request $request
+     * @param $researchContent
+     * @return JsonResponse
+     * @Route("resultsJson_{researchContent}", name="resultsJson", defaults={"researchContent": ""})
+     */
+
+    public function resultsJsonAction(Request $request, $researchContent = "", AwesomeSearch $awesomeSearch)
+    {
         $softwares = $awesomeSearch->search($researchContent);
         if ($request->isXmlHttpRequest()) {
 
             return new JsonResponse(array('data' => $softwares));
-
-
         } else {
-            return $this->render('default/results.html.twig', [
-                'research' => $researchContent,
-                'softwares' => $softwares
-            ]);
+            throw new HttpException('500', 'Invalid call');
         }
     }
-    
+
      /**
      * @param array $a
      * @param array $b
@@ -111,7 +122,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
 
-        foreach($tags as $tag) {
+        foreach ($tags as $tag) {
             $bools[] = array('slug' => $tag->getSlug(), 'number' => count($tag->getSoftMains()), 'entitie' => $tag->getName());
         }
 
@@ -172,7 +183,8 @@ class DefaultController extends Controller
         ]);
     }
 
-    private static function compare(Versus $a, Versus $b) {
+    private static function compare(Versus $a, Versus $b)
+    {
         return strcmp($a->getSoftware1()->getName(), $b->getSoftware1()->getName());
 
     }
@@ -258,7 +270,6 @@ class DefaultController extends Controller
         sort($canonical);
 
         $em = $this->getDoctrine()->getManager();
-
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
