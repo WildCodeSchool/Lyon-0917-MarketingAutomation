@@ -20,7 +20,7 @@
         </div>
         {% if softmain.comments|length > 1 %}
             <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
-            <p>{{ softmain.comments }}</p>
+            <p>{{ softmain.comments | raw }}</p>
         {% endif %}
         
         <h2>Informations essentielles sur {{ softmain.name | raw }}</h2>
