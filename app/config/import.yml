@@ -60,7 +60,7 @@ import-softwares:
                 customers: string
                 hostingCountry: string
                 creationDate: string
-                subscriptionCost: string
+                subscriptionCost: integer
                 trainingCost: string
                 webSite: string
             links:
