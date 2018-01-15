@@ -60,7 +60,8 @@ ol, ul {
   margin: 0; }
 
 li {
-  list-style: none; }
+  /* list-style: none; */
+}
 
 /* Text-level semantics */
 a:focus {
