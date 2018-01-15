@@ -138,11 +138,13 @@ class BoolsAsTags
     {
 
         $j = 0;
+        $result = [];
         foreach ($this->getConfig()['Booleans'] as $table) {
             $i = 0;
             foreach ($table as $synonym) {
                 if (stristr($synonym["Slug"], $slug) != FALSE) {
-                    $result = $synonym["Name"];
+                    $result["name"] = $synonym["Name"];
+                    $result["description"] = $synonym["Description"];
                 }
                 $i++;
             }

@@ -131,7 +131,7 @@ class DefaultController extends Controller
             return $this->render('default/unique-tag.html.twig', [
 
                 'softwares' => $softwares,
-                'description' => $boolsAsTags->getDescriptionBySlug($slug),
+                'boolean' => $boolsAsTags->getDescriptionBySlug($slug),
             ]);
         }
 

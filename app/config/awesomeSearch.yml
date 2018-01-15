@@ -15,193 +15,239 @@ Booleans:
         isEmail:
           Name: Envoi d'email
           Slug: envoi-d-email
+          Description: <p>Logiciel permettant l'envoi de campagne email.</p>
           Synonymous: mail
         isSms:
           Name: Envoi de sms
           Slug: envoi-sms
+          Description: <p>Logiciel permettant l'envoi de campagne SMS.</p>
           Synonymous: sms
         isPopin:
+          Description: <p>Permet l'ouverture popin directement sur une page du site.</p>
           Name: Utilisation de popin
           Slug: utilisation-popin
           Synonymous: popin
         isMailPostal:
+          Description: <p>Permet l'envoie de courrier papier.</p>
           Name: Courrier postal
           Slug: courrier-postal
-          Synonymous: courrier postal
+          Synonymous: courrier postal poste
         isCallCenter:
+          Description: <p>Logiciel permettant de déclencher une campagne d'appel téléphone en passant par un centre d'appel interne ou externalisé.</p>
           Name: Centre d'appels
           Slug: centre-appel
-          Synonymous: centre appel
+          Synonymous: centre centres appel appels call center
         isPushMobile:
+          Description: <p>Logiciel permettant d'envoyer des notifications (push mobile) dans vos applications Androïd et iOS.</p>
           Name: Notification push mobile
           Slug: notification-push-mobile
-          Synonymous: notification push mobile
+          Synonymous: notification push mobile app application
         isApi:
+          Description: <p>Logiciel permettant de faire appel à une API ou un webservice tierces au passage d'un déclencheur.</p>
           Name: Appel api
           Slug: appel-api
-          Synonymous: appel api
+          Synonymous: appel api webservice webservices service services web
     softInfo:
         rgpd:
+            Description: <p>Logiciel permettant de faire appel à une API ou un webservice tierces au passage d'un déclencheur.</p>
             Name: RGPD
             Slug: rgpd
             Synonymous: Rgpd rgpd RGPD
     softCommSupport:
         isLandingPage:
+          Description: <p>Fonctionnalité permettant la mise en page et l'affichage de pages dédiés à la conversion.</p>
           Name: Page d'atterrissage
           Slug: page-atterrissage
-          Synonymous:
+          Synonymous: landing page pages atterrissage atterrissages
         isForm:
+          Description: <p>Fonctionnalité permettant la création de formulaires destinés à la collecte d'informations sur votre site internet ou vos page d'atterrissage.</p>
           Name: Formulaire
           Slug: formulaire
-          Synonymous:
+          Synonymous: formulaires form forms
         isTracking:
+          Description: <p>Fonctionnalité permettant le suivi des visites sur votre site internet. Le code de tracking remonte l'ensemble des visiteurs qui ont parcours votre site internet que ce soit de façon anonyme ou connu. Cela permet d'enrichir la base de données de prospects de données comportementales.</p>
           Name: Code de suivi
           Slug: code-suivi
-          Synonymous:
+          Synonymous: tracking code codes
         isLiveChat:
+          Description: <p>Fonctionnalité permettant d'afficher un chat sur les pages de votre site internet ou de votre application. Permet d'engager la discussion avec vos visiteurs et clients.</p>
           Name: Live chat
           Slug: live-chat
-          Synonymous:
+          Synonymous: chats
     softLeadsOperation:
         isContactObject:
+          Description: <p>L'object contact stocke l'ensemble des informations liées à vos contacts, prospects et clients. Que ce soit des informations déclaratives comme le nom, le prénom, le titre, la marque de la voiture ou bien les informations comportementales comme l'adresse IP, les pages visitées ou les emails ouverts.</p>
           Name: Objet contact
           Slug: objet-contact
-          Synonymous:
+          Synonymous: contacts
         isCompanyObject:
+          Description: <p>L'object entreprise stocke l'ensemble des informations liées aux entreprises de vos contacts. Que ce soit des informations déclaratives comme le nom, l'adresse, le nombre d'employés ou bien les informations comportementales comme le scoring ou le nombre de contacts liés à l'entreprise.</p>
           Name: Objet societé
           Slug: objet-societe
-          Synonymous:
+          Synonymous: société sociétés entreprise entreprises company
         isDefinedFields:
+          Description: <p>Désigne la capacité à renseigner des informations supplémentaires en rapport avec notre coeur de métier en plus des informations prévus par les développeurs du logiciel de marketing automation.</p>
           Name: Champs personnalises
           Slug: champs-personnalises
-          Synonymous:
+          Synonymous: champs champ personnalisé personalisé personnallisé personallisé personnalisés personalisés personnallisés personallisés
         isIllimitedFields:
+          Description: <p>Dans le cas de champs personnalisés, le fait est que pour des raisons de performance certains logiciels limitent le nombre de champs pouvant être créé.</p>
           Name: Champs illimité
           Slug: champs-illimite
-          Synonymous: illimite
+          Synonymous: hamps champ illimite illimités illimité
         isImportCsv:
+          Description: <p>Le fait de pouvoir importer vos données de contacts et d'entreprise via un fichier à plat de type CSV (Comma-separated values). Ce fichier peux être généré à partir d'un fichier Excel.</p>
           Name: Import csv
           Slug: import-csv
-          Synonymous: import
+          Synonymous: import Comma Coma separated values value
         isAutoDuplicate:
+          Description: <p></p>
           Name: Déduplication automatique
           Slug: deduplication-automatique
-          Synonymous: deduplication
+          Synonymous: deduplication deduplications déduplications
         isLeadStages:
+          Description: <p></p>
           Name: Lead stages
           Slug: lead-stages
-          Synonymous: lead
+          Synonymous: lead stage prospect prospects niveau
     softSegmentOperation:
         isSegmentCreation:
+          Description: <p></p>
           Name: Creation segment
           Slug: creation-segment
-          Synonymous: creation
+          Synonymous: creation segments
         isIntelligentSegment:
+          Description: <p></p>
           Name: Creation de segment intelligent
           Slug: creation-segment-intelligent
           Synonymous: intelligent
     softMarketingCampaign:
         isAutoResponder:
+          Description: <p></p>
           Name: Auto-répondeur
           Slug: auto-repondeur
-          Synonymous:
+          Synonymous: répondeurs
         isLeadScoring:
+          Description: <p></p>
           Name: Lead scoring
           Slug: lead-scoring
-          Synonymous:
+          Synonymous: score prospect prospects
         isCreationCampaign:
+          Description: <p></p>
           Name: Création campagnes
           Slug: creation-campagnes
           Synonymous: création
         isDripMarketingCampaign:
+          Description: <p></p>
           Name: Campagne "Drip Marketing"
           Slug: campagne-drip-marketing
-          Synonymous: campagne
+          Synonymous: création campagne
         isDragAndDrop:
+          Description: <p></p>
           Name: Editeur drag drop
           Slug: editeur-drap-drop
-          Synonymous: éditeur
+          Synonymous: éditeur editeurs éditeur
     softSocialMedia:
         isTwitterMonitoring:
+          Description: <p></p>
           Name: Veille Twitter
           Slug: veille-twitter
           Synonymous: veille
         isTwitterAutoPublication:
+          Description: <p></p>
           Name: Publication automatique sur Twitter
           Slug: publication-automatique-twitter
           Synonymous: publication
         isFacebookMonitoring:
+          Description: <p></p>
           Name: Veille facebook
           Slug: veille-facebook
           Synonymous: veille
         isFacebookAutoPublication:
+          Description: <p></p>
           Name: Publication automatique Facebook
           Slug: publication-automatique-facebook
           Synonymous: publication
         isLinkedinMonitoring:
+          Description: <p></p>
           Name: Veille linkedin
           Slug: veille-linkedin
           Synonymous: veille
         isLinkedinAutoPublication:
+          Description: <p></p>
           Name: Publication automatique Linkedin
           Slug: publication-automatique-linkedin
           Synonymous: publication
         isInstagramMonitoring:
+          Description: <p></p>
           Name: Veille instagram
           Slug: veille-instagram
           Synonymous: veille
         isInstagramAutoPublication:
+          Description: <p></p>
           Name: Publication automatique instagram
           Slug: publication-automatique-instagram
           Synonymous: publication
     softReport:
         isActivityReportCreation:
+          Description: <p></p>
           Name: Création rapport activites
           Slug: creation-rapport-activites
           Synonymous: création
         isActivityReportPeriodicSend:
+          Description: <p></p>
           Name: Envoi periodique rapport
           Slug: envoi-periodique-rapport
           Synonymous: envoi
     softSupport:
         isEmailSupport:
+          Description: <p></p>
           Name: Support email
           Slug: support-email
           Synonymous: support
         isPhoneSupport:
+          Description: <p></p>
           Name: Support telephone
           Slug: support-telephone
           Synonymous: support
         isChatSupport:
+          Description: <p></p>
           Name: Support chat ligne
           Slug: support-chat-ligne
           Synonymous: support
         isKnowledgeBase:
+          Description: <p></p>
           Name: Base de connaissance (langues)
           Slug: base-de-connaissance
           Synonymous:
         isTechnicalDocument:
+          Description: <p></p>
           Name: Documentation technique
           Slug: documentation-technique
           Synonymous: documentation
     softOtherFunctionnalities:
         isProviderEmailChoice:
+          Description: <p></p>
           Name: Choix du provider Email
           Slug: choix-provider-email
           Synonymous: choix
         isBlogEdition:
+          Description: <p></p>
           Name: Edition d'un blog
           Slug: edition-blog
           Synonymous: édition
         isTouchPad:
+          Description: <p></p>
           Name: Tablette en magasin
           Slug: tablette-magasin
           Synonymous: tablette
         isSmtpRelay:
+          Description: <p></p>
           Name: SMTP Relais (email transactionnel)
           Slug: relais-smtp
           Synonymous: relilas
         isRssToEmail:
+          Description: <p>Permet de transformer un flux RSS en messages envoyés périodiquement.</p>
           Name: RSS to email
           Slug: rss-to-email
           Synonymous: flux
