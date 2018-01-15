@@ -14,7 +14,7 @@ $(document).ready(function() {
         }
         let elt = $(this);
         let idelt = $(this).attr('id');
-        if (softmain.length >=2) {
+        if (softmain.length >=1) {
             $.ajax({
                 type: "POST",
                 url:"/comparatifs/list/" + softmain,
