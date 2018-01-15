@@ -172,6 +172,13 @@ class SoftMain
     private $softOtherFunctionnalities;
 
     /**
+     * One SoftMain has One SoftContact.
+     * @ORM\OneToOne(targetEntity="SoftContact", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softContactId", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $softContact;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=255)
@@ -188,11 +195,10 @@ class SoftMain
         $this->versus2 = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -200,7 +206,7 @@ class SoftMain
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -214,7 +220,7 @@ class SoftMain
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -224,13 +230,13 @@ class SoftMain
     }
 
     /**
-     * Set title
+     * Set title.
      *
-     * @param string $title
+     * @param string|null $title
      *
      * @return SoftMain
      */
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
         $this->title = $title;
 
@@ -238,9 +244,9 @@ class SoftMain
     }
 
     /**
-     * Get title
+     * Get title.
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -248,13 +254,13 @@ class SoftMain
     }
 
     /**
-     * Set logoUrl
+     * Set logoUrl.
      *
-     * @param string $logoUrl
+     * @param string|null $logoUrl
      *
      * @return SoftMain
      */
-    public function setLogoUrl($logoUrl)
+    public function setLogoUrl($logoUrl = null)
     {
         $this->logoUrl = $logoUrl;
 
@@ -262,9 +268,9 @@ class SoftMain
     }
 
     /**
-     * Get logoUrl
+     * Get logoUrl.
      *
-     * @return string
+     * @return string|null
      */
     public function getLogoUrl()
     {
@@ -272,13 +278,13 @@ class SoftMain
     }
 
     /**
-     * Set type
+     * Set type.
      *
-     * @param string $type
+     * @param string|null $type
      *
      * @return SoftMain
      */
-    public function setType($type)
+    public function setType($type = null)
     {
         $this->type = $type;
 
@@ -286,9 +292,9 @@ class SoftMain
     }
 
     /**
-     * Get type
+     * Get type.
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -296,13 +302,13 @@ class SoftMain
     }
 
     /**
-     * Set description
+     * Set description.
      *
-     * @param string $description
+     * @param string|null $description
      *
      * @return SoftMain
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -310,9 +316,9 @@ class SoftMain
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -320,13 +326,13 @@ class SoftMain
     }
 
     /**
-     * Set comments
+     * Set comments.
      *
-     * @param string $comments
+     * @param string|null $comments
      *
      * @return SoftMain
      */
-    public function setComments($comments)
+    public function setComments($comments = null)
     {
         $this->comments = $comments;
 
@@ -334,9 +340,9 @@ class SoftMain
     }
 
     /**
-     * Get comments
+     * Get comments.
      *
-     * @return string
+     * @return string|null
      */
     public function getComments()
     {
@@ -344,13 +350,13 @@ class SoftMain
     }
 
     /**
-     * Set advantages
+     * Set advantages.
      *
-     * @param string $advantages
+     * @param string|null $advantages
      *
      * @return SoftMain
      */
-    public function setAdvantages($advantages)
+    public function setAdvantages($advantages = null)
     {
         $this->advantages = $advantages;
 
@@ -358,9 +364,9 @@ class SoftMain
     }
 
     /**
-     * Get advantages
+     * Get advantages.
      *
-     * @return string
+     * @return string|null
      */
     public function getAdvantages()
     {
@@ -368,13 +374,13 @@ class SoftMain
     }
 
     /**
-     * Set drawbacks
+     * Set drawbacks.
      *
-     * @param string $drawbacks
+     * @param string|null $drawbacks
      *
      * @return SoftMain
      */
-    public function setDrawbacks($drawbacks)
+    public function setDrawbacks($drawbacks = null)
     {
         $this->drawbacks = $drawbacks;
 
@@ -382,9 +388,9 @@ class SoftMain
     }
 
     /**
-     * Get drawbacks
+     * Get drawbacks.
      *
-     * @return string
+     * @return string|null
      */
     public function getDrawbacks()
     {
@@ -392,7 +398,7 @@ class SoftMain
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -406,7 +412,7 @@ class SoftMain
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -416,7 +422,7 @@ class SoftMain
     }
 
     /**
-     * Add tag
+     * Add tag.
      *
      * @param \AppBundle\Entity\Tag $tag
      *
@@ -430,17 +436,19 @@ class SoftMain
     }
 
     /**
-     * Remove tag
+     * Remove tag.
      *
      * @param \AppBundle\Entity\Tag $tag
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeTag(\AppBundle\Entity\Tag $tag)
     {
-        $this->tags->removeElement($tag);
+        return $this->tags->removeElement($tag);
     }
 
     /**
-     * Get tags
+     * Get tags.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -450,7 +458,7 @@ class SoftMain
     }
 
     /**
-     * Add versus1
+     * Add versus1.
      *
      * @param \AppBundle\Entity\Versus $versus1
      *
@@ -464,17 +472,19 @@ class SoftMain
     }
 
     /**
-     * Remove versus1
+     * Remove versus1.
      *
      * @param \AppBundle\Entity\Versus $versus1
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeVersus1(\AppBundle\Entity\Versus $versus1)
     {
-        $this->versus1->removeElement($versus1);
+        return $this->versus1->removeElement($versus1);
     }
 
     /**
-     * Get versus1
+     * Get versus1.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -484,7 +494,7 @@ class SoftMain
     }
 
     /**
-     * Add versus2
+     * Add versus2.
      *
      * @param \AppBundle\Entity\Versus $versus2
      *
@@ -498,17 +508,19 @@ class SoftMain
     }
 
     /**
-     * Remove versus2
+     * Remove versus2.
      *
      * @param \AppBundle\Entity\Versus $versus2
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeVersus2(\AppBundle\Entity\Versus $versus2)
     {
-        $this->versus2->removeElement($versus2);
+        return $this->versus2->removeElement($versus2);
     }
 
     /**
-     * Get versus2
+     * Get versus2.
      *
      * @return \Doctrine\Common\Collections\Collection
      */
@@ -518,9 +530,9 @@ class SoftMain
     }
 
     /**
-     * Set softInfo
+     * Set softInfo.
      *
-     * @param \AppBundle\Entity\SoftInfo $softInfo
+     * @param \AppBundle\Entity\SoftInfo|null $softInfo
      *
      * @return SoftMain
      */
@@ -532,9 +544,9 @@ class SoftMain
     }
 
     /**
-     * Get softInfo
+     * Get softInfo.
      *
-     * @return \AppBundle\Entity\SoftInfo
+     * @return \AppBundle\Entity\SoftInfo|null
      */
     public function getSoftInfo()
     {
@@ -542,9 +554,9 @@ class SoftMain
     }
 
     /**
-     * Set softOutbound
+     * Set softOutbound.
      *
-     * @param \AppBundle\Entity\SoftOutbound $softOutbound
+     * @param \AppBundle\Entity\SoftOutbound|null $softOutbound
      *
      * @return SoftMain
      */
@@ -556,9 +568,9 @@ class SoftMain
     }
 
     /**
-     * Get softOutbound
+     * Get softOutbound.
      *
-     * @return \AppBundle\Entity\SoftOutbound
+     * @return \AppBundle\Entity\SoftOutbound|null
      */
     public function getSoftOutbound()
     {
@@ -566,9 +578,9 @@ class SoftMain
     }
 
     /**
-     * Set softCommSupport
+     * Set softCommSupport.
      *
-     * @param \AppBundle\Entity\SoftCommSupport $softCommSupport
+     * @param \AppBundle\Entity\SoftCommSupport|null $softCommSupport
      *
      * @return SoftMain
      */
@@ -580,9 +592,9 @@ class SoftMain
     }
 
     /**
-     * Get softCommSupport
+     * Get softCommSupport.
      *
-     * @return \AppBundle\Entity\SoftCommSupport
+     * @return \AppBundle\Entity\SoftCommSupport|null
      */
     public function getSoftCommSupport()
     {
@@ -590,9 +602,9 @@ class SoftMain
     }
 
     /**
-     * Set softLeadsOperation
+     * Set softLeadsOperation.
      *
-     * @param \AppBundle\Entity\SoftLeadsOperation $softLeadsOperation
+     * @param \AppBundle\Entity\SoftLeadsOperation|null $softLeadsOperation
      *
      * @return SoftMain
      */
@@ -604,9 +616,9 @@ class SoftMain
     }
 
     /**
-     * Get softLeadsOperation
+     * Get softLeadsOperation.
      *
-     * @return \AppBundle\Entity\SoftLeadsOperation
+     * @return \AppBundle\Entity\SoftLeadsOperation|null
      */
     public function getSoftLeadsOperation()
     {
@@ -614,9 +626,9 @@ class SoftMain
     }
 
     /**
-     * Set softSegmentOperation
+     * Set softSegmentOperation.
      *
-     * @param \AppBundle\Entity\SoftSegmentOperation $softSegmentOperation
+     * @param \AppBundle\Entity\SoftSegmentOperation|null $softSegmentOperation
      *
      * @return SoftMain
      */
@@ -628,9 +640,9 @@ class SoftMain
     }
 
     /**
-     * Get softSegmentOperation
+     * Get softSegmentOperation.
      *
-     * @return \AppBundle\Entity\SoftSegmentOperation
+     * @return \AppBundle\Entity\SoftSegmentOperation|null
      */
     public function getSoftSegmentOperation()
     {
@@ -638,9 +650,9 @@ class SoftMain
     }
 
     /**
-     * Set softMarketingCampaign
+     * Set softMarketingCampaign.
      *
-     * @param \AppBundle\Entity\SoftMarketingCampaign $softMarketingCampaign
+     * @param \AppBundle\Entity\SoftMarketingCampaign|null $softMarketingCampaign
      *
      * @return SoftMain
      */
@@ -652,9 +664,9 @@ class SoftMain
     }
 
     /**
-     * Get softMarketingCampaign
+     * Get softMarketingCampaign.
      *
-     * @return \AppBundle\Entity\SoftMarketingCampaign
+     * @return \AppBundle\Entity\SoftMarketingCampaign|null
      */
     public function getSoftMarketingCampaign()
     {
@@ -662,9 +674,9 @@ class SoftMain
     }
 
     /**
-     * Set softSocialMedia
+     * Set softSocialMedia.
      *
-     * @param \AppBundle\Entity\SoftSocialMedia $softSocialMedia
+     * @param \AppBundle\Entity\SoftSocialMedia|null $softSocialMedia
      *
      * @return SoftMain
      */
@@ -676,9 +688,9 @@ class SoftMain
     }
 
     /**
-     * Get softSocialMedia
+     * Get softSocialMedia.
      *
-     * @return \AppBundle\Entity\SoftSocialMedia
+     * @return \AppBundle\Entity\SoftSocialMedia|null
      */
     public function getSoftSocialMedia()
     {
@@ -686,9 +698,9 @@ class SoftMain
     }
 
     /**
-     * Set softReport
+     * Set softReport.
      *
-     * @param \AppBundle\Entity\SoftReport $softReport
+     * @param \AppBundle\Entity\SoftReport|null $softReport
      *
      * @return SoftMain
      */
@@ -700,9 +712,9 @@ class SoftMain
     }
 
     /**
-     * Get softReport
+     * Get softReport.
      *
-     * @return \AppBundle\Entity\SoftReport
+     * @return \AppBundle\Entity\SoftReport|null
      */
     public function getSoftReport()
     {
@@ -710,9 +722,9 @@ class SoftMain
     }
 
     /**
-     * Set softSupport
+     * Set softSupport.
      *
-     * @param \AppBundle\Entity\SoftSupport $softSupport
+     * @param \AppBundle\Entity\SoftSupport|null $softSupport
      *
      * @return SoftMain
      */
@@ -724,9 +736,9 @@ class SoftMain
     }
 
     /**
-     * Get softSupport
+     * Get softSupport.
      *
-     * @return \AppBundle\Entity\SoftSupport
+     * @return \AppBundle\Entity\SoftSupport|null
      */
     public function getSoftSupport()
     {
@@ -734,9 +746,9 @@ class SoftMain
     }
 
     /**
-     * Set softOtherFunctionnalities
+     * Set softOtherFunctionnalities.
      *
-     * @param \AppBundle\Entity\SoftOtherFunctionnalities $softOtherFunctionnalities
+     * @param \AppBundle\Entity\SoftOtherFunctionnalities|null $softOtherFunctionnalities
      *
      * @return SoftMain
      */
@@ -748,12 +760,36 @@ class SoftMain
     }
 
     /**
-     * Get softOtherFunctionnalities
+     * Get softOtherFunctionnalities.
      *
-     * @return \AppBundle\Entity\SoftOtherFunctionnalities
+     * @return \AppBundle\Entity\SoftOtherFunctionnalities|null
      */
     public function getSoftOtherFunctionnalities()
     {
         return $this->softOtherFunctionnalities;
+    }
+
+    /**
+     * Set softContact.
+     *
+     * @param \AppBundle\Entity\SoftContact|null $softContact
+     *
+     * @return SoftMain
+     */
+    public function setSoftContact(\AppBundle\Entity\SoftContact $softContact = null)
+    {
+        $this->softContact = $softContact;
+
+        return $this;
+    }
+
+    /**
+     * Get softContact.
+     *
+     * @return \AppBundle\Entity\SoftContact|null
+     */
+    public function getSoftContact()
+    {
+        return $this->softContact;
     }
 }
