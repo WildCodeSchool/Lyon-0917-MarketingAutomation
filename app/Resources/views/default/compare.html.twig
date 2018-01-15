@@ -227,14 +227,14 @@
                             {% if softmain1.softInfo.subscriptionCost | raw == false %}
                                 <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                <p>{{ softmain1.softInfo.subscriptionCost | raw }}</p>
+                                {{ softmain1.softInfo.subscriptionCost | raw }} €
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.subscriptionCost | raw == false %}
                                 <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                <p>{{ softmain2.softInfo.subscriptionCost | raw }}</p>
+                                {{ softmain2.softInfo.subscriptionCost | raw }} €
                             {% endif %}
                         </td>
                     </tr>

@@ -83,7 +83,8 @@
             {% if softmain.softInfo.subscriptionCost | raw == false %}
                 <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                <p>{{ softmain.softInfo.subscriptionCost | raw }}</p>
+                {{ softmain.softInfo.subscriptionCost | raw }} €
+
             {% endif %}
         </td>
     </tr>

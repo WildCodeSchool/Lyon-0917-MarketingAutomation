@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {% if boolean is defined %}
-        Logiciels de Marketing Automation : {{ boolean.name }}
+    {% if boolean is defined %}Logiciels de Marketing Automation : {{ boolean.name }}
     {% else %}
         {% if tag.title == true %}
         {{ tag.title }}
@@ -13,6 +12,11 @@
         {% endif %}
         {% endif %}
         {% endif %}
+{% endblock %}
+{% block metadesc %}
+{% if tag is defined %}
+{{ tag.description | raw | slice(0,350) }}
+{% elseif softwares is defined %}{{ boolean.description | slice(0,350) | raw}}{% endif %}
 {% endblock %}
 
         {% block h1 %}
@@ -34,7 +38,6 @@
 
             </div>
         {% endif %}
-
         {% if softwares is defined %}
         {{ boolean.description | raw }}
             <div class="row" id="listSoftsByTags">

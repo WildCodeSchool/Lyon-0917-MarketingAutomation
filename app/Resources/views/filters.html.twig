@@ -1,79 +1,305 @@
 <div class="offset-m1 offset-l1 col s12 m4 l4 hide-on-small-only full-label" id="filters">
     <h2>Affinez votre recherche avec des critères</h2>
 
-    <p>Indiquez une fourchette de prix:</p><br>
     <div id="slider"></div>
 
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">
-                First filter family
+                Informations essentielles
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test1"/>
-                        <label for="test1">Sms</label>
+                        <input type="checkbox" class="filled-in" v-model="rgpd" id="rgpd"/>
+                        <label for="rgpd">Conformité RGPD</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test2"/>
-                        <label for="test2">Mail</label>
+                        <label for="price">Prix max pour l'abonnement annuel :<label>
+                                <input type="text" v-model="price" id="price" />
+                    </p>
+
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Canaux de communication sortants
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="sms" id="sms" />
+
+                        <label for="sms">SMS</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test3"/>
-                        <label for="test3">Pigeon voyageur</label>
+                        <input type="checkbox" class="filled-in"  v-model="mail"  id="mail"/>
+                        <label for="mail">Email</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="popin" id="popin"/>
+                        <label for="popin">Popin sur le site</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="mailpostal" id="mailpostal"/>
+                        <label for="mailpostal">Courrier postal	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="callCenter" id="callCenter"/>
+                        <label for="callCenter">Centre d'appel</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="pushmobile" id="pushmobile"/>
+                        <label for="pushmobile">Notifications Push Mobile	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="api" id="api"/>
+                        <label for="api">Appel API</label>
                     </p>
                 </form>
             </div>
         </li>
         <li>
             <div class="collapsible-header">
-                Second filter Family
+                Supports de communication
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test4"/>
-                        <label for="test4">BtoB</label>
+                        <input type="checkbox" class="filled-in" v-model="landing" id="landing"/>
+                        <label for="landing">Page d'atterrissage</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test5"/>
-                        <label for="test5">BtoC</label>
+                        <input type="checkbox" class="filled-in" v-model="formulaire" id="formulaire"/>
+                        <label for="formulaire">Formulaire</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test6"/>
-                        <label for="test6">BtoBtoC</label>
+                        <input type="checkbox" class="filled-in" v-model="codesuivi" id="codesuivi"/>
+                        <label for="codesuivi">Code de suivi</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="livechat" id="livechat"/>
+                        <label for="livechat">Live Chat</label>
                     </p>
                 </form>
             </div>
         </li>
         <li>
             <div class="collapsible-header">
-                Others
+                Gestion des contacts
             </div>
             <div class="collapsible-body">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="test4"/>
-                        <label for="test4">Cycle long</label>
+                        <input type="checkbox" class="filled-in" v-model="ContactObject" id="ContactObject"/>
+                        <label for="ContactObject">Objet contact</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test5"/>
-                        <label for="test5">Français</label>
+                        <input type="checkbox" class="filled-in" v-model="CompanyObject" id="CompanyObject"/>
+                        <label for="CompanyObject">Objet société</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="test6"/>
-                        <label for="test6">Utilisable sur Mac</label>
+                        <input type="checkbox" class="filled-in" v-model="DefinedFields" id="DefinedFields"/>
+                        <label for="DefinedFields">Champs personnalisés</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IllimitedFields" id="IllimitedFields"/>
+                        <label for="IllimitedFields">Champs illimités	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="ImportCsv" id="ImportCsv"/>
+                        <label for="ImportCsv">Import CSV</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="AutoDuplicate" id="AutoDuplicate"/>
+                        <label for="AutoDuplicate">Déduplication automatique</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="LeadStages" id="LeadStages"/>
+                        <label for="LeadStages">Lead Stages</label>
+                    </p>
+
+
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Gestion des segments
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="SegmentCreation" id="SegmentCreation"/>
+                        <label for="SegmentCreation">Création de segment</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IntelligentSegmentCreation" id="IntelligentSegmentCreation"/>
+                        <label for="IntelligentSegmentCreation">Création de segment intelligents</label>
+                    </p>
+
+
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Campagnes marketing
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="AutoResponder" id="AutoResponder"/>
+                        <label for="AutoResponder">Auto-répondeur	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IntelligentSegmentCreation" id="IntelligentSegmentCreation"/>
+                        <label for="IntelligentSegmentCreation">Lead Scoring</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="CreationCampaign" id="CreationCampaign"/>
+                        <label for="CreationCampaign">Création de campagnes</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="DripMarketingCampaign" id="DripMarketingCampaign"/>
+                        <label for="DripMarketingCampaign">Campagne "Drip Marketing"</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="DragAndDrop" id="DragAndDrop"/>
+                        <label for="DragAndDrop">Editeur en Drag and Drop</label>
+                    </p>
+
+
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Intégration Social Media
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterMon" id="twitterMon"/>
+                        <label for="twitterMon">Veille Twitter</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterAuto" id="twitterAuto"/>
+                        <label for="twitterAuto">Publication automatique sur Twitter</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookAuto" id="facebookAuto"/>
+                        <label for="facebookAuto">Publication automatique sur Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookMon" id="facebookMon"/>
+                        <label for="facebookMon">Veille Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinMon" id="linkedinMon"/>
+                        <label for="linkedinMon">Veille Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinAuto" id="linkedinAuto"/>
+                        <label for="linkedinAuto">Publication automatique sur Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramMon" id="instagramMon"/>
+                        <label for="instagramMon">Veille Instagram</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramAuto" id="instagramAuto"/>
+                        <label for="instagramAuto">Publication automatique sur Instagram</label>
                     </p>
                 </form>
             </div>
         </li>
+        <li>
+            <div class="collapsible-header">
+                Rapports
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="reportcreation" id="reportcreation"/>
+                        <label for="reportcreation">Création de rapports d'activité	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="reportperiodic" id="reportperiodic"/>
+                        <label for="reportperiodic">Envoi périodique des rapports	</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                Support proposé
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="emailsupport" id="emailsupport"/>
+                        <label for="emailsupport">Support par email</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="phonesupport" id="phonesupport"/>
+                        <label for="phonesupport">Support téléphonique</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="chatsupport" id="chatsupport"/>
+                        <label for="chatsupport">Support par chat</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="knowledgebase" id="knowledgebase"/>
+                        <label for="knowledgebase">Base de connaissance</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="technicalDoc" id="technicalDoc"/>
+                        <label for="technicalDoc">Documentation technique</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header">
+                Autres fonctionnalités
+            </div>
+            <div class="collapsible-body">
+                <form action="#">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="ProviderEmailChoice" id="ProviderEmailChoice"/>
+                        <label for="ProviderEmailChoice">Choix du provider Email</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="BlogEdition" id="BlogEdition"/>
+                        <label for="BlogEdition">Edition d'un blog</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="TouchPad" id="TouchPad"/>
+                        <label for="TouchPad">Tablette en magasin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="SmtpRelay" id="SmtpRelay"/>
+                        <label for="SmtpRelay">SMTP Relais (email transactionnel)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="RssToEmail" id="RssToEmail"/>
+                        <label for="RssToEmail">RSS to email</label>
+                    </p>
+                </form>
+            </div>
+        </li>
+
+
+
     </ul>
-    <div class="center-align">
-        <div class="filters-responsive-btn ">
-            <a class="waves-effect waves-light btn">Actualiser</a>
-        </div>
-    </div>
+    <a @click="reset" class="waves-effect waves-light btn">Vider les filtres</a>
+
+
 
 </div>
 {# Filters bar for responsive only ! #}
@@ -83,57 +309,312 @@
         <li>Sélectionnez vos critères</li>
     </div>
 
-    <div class="filters-responsive">
-        <p>Indiquez une fourchette de prix:</p><br>
-        <div id="range-responsive"></div>
-    </div>
 
     <div class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">
-                <i class="material-icons">expand_more</i>Spécialités
+                <i class="material-icons">expand_more</i>Informations essentielles
             </div>
             <div class="collapsible-body filters-responsive">
                 <form action="#">
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox1"/>
-                        <label for="checkbox1">Sms</label>
+                        <label for="price">Prix max pour l'abonnement annuel :<label>
+                                <input type="text" v-model="price" id="price" />
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox2"/>
-                        <label for="checkbox2">Mail</label>
+                        <input type="checkbox" class="filled-in" v-model="rgpd" id="rgpd"/>
+                        <label for="rgpd">Conformité RGPD</label>
                     </p>
-                    <p>
-                        <input type="checkbox" class="filled-in" id="checkbox3"/>
-                        <label for="checkbox3">Pigeon voyageur</label>
-                    </p>
+
+
                 </form>
             </div>
         </li>
         <li>
             <div class="collapsible-header">
                 <i class="material-icons">expand_more</i>
-                Prix
+                Canaux de communication sortants
             </div>
             <div class="collapsible-body filters-responsive">
                 <form action="#" class="">
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox4"/>
-                        <label for="checkbox4">Sms</label>
+                        <input type="checkbox" class="filled-in" v-model="sms" id="sms" />
+
+                        <label for="sms">SMS</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox5"/>
-                        <label for="checkbox5">Mail</label>
+                        <input type="checkbox" class="filled-in"  v-model="mail"  id="mail"/>
+                        <label for="mail">Email</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="popin" id="popin"/>
+                        <label for="popin">Popin sur le site</label>
                     </p>
                     <p>
-                        <input type="checkbox" class="filled-in" id="checkbox6"/>
-                        <label for="checkbox6">Pigeon voyageur</label>
+                        <input type="checkbox" class="filled-in" v-model="mailpostal" id="mailpostal"/>
+                        <label for="mailpostal">Courrier postal	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="callCenter" id="callCenter"/>
+                        <label for="callCenter">Centre d'appel</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="pushmobile" id="pushmobile"/>
+                        <label for="pushmobile">Notifications Push Mobile	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="api" id="api"/>
+                        <label for="api">Appel API</label>
                     </p>
                 </form>
             </div>
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Support de communication
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="landing" id="landing"/>
+                        <label for="landing">Page d'atterrissage</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="formulaire" id="formulaire"/>
+                        <label for="formulaire">Formulaire</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="codesuivi" id="codesuivi"/>
+                        <label for="codesuivi">Code de suivi</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="livechat" id="livechat"/>
+                        <label for="livechat">Live Chat</label>
+                    </p>
+
+                </form>
+            </div>
+
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Gestion des contacts
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="ContactObject" id="ContactObject"/>
+                        <label for="ContactObject">Objet contact</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="CompanyObject" id="CompanyObject"/>
+                        <label for="CompanyObject">Objet société</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="DefinedFields" id="DefinedFields"/>
+                        <label for="DefinedFields">Champs personnalisés</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IllimitedFields" id="IllimitedFields"/>
+                        <label for="IllimitedFields">Champs illimités	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="ImportCsv" id="ImportCsv"/>
+                        <label for="ImportCsv">Import CSV</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="AutoDuplicate" id="AutoDuplicate"/>
+                        <label for="AutoDuplicate">Déduplication automatique</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="LeadStages" id="LeadStages"/>
+                        <label for="LeadStages">Lead Stages</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Gestion des segments
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="SegmentCreation" id="SegmentCreation"/>
+                        <label for="SegmentCreation">Création de segment</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IntelligentSegmentCreation" id="IntelligentSegmentCreation"/>
+                        <label for="IntelligentSegmentCreation">Création de segment intelligents</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Campagnes marketing Automation
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="AutoResponder" id="AutoResponder"/>
+                        <label for="AutoResponder">Auto-répondeur	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="IntelligentSegmentCreation" id="IntelligentSegmentCreation"/>
+                        <label for="IntelligentSegmentCreation">Lead Scoring</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="CreationCampaign" id="CreationCampaign"/>
+                        <label for="CreationCampaign">Création de campagnes</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="DripMarketingCampaign" id="DripMarketingCampaign"/>
+                        <label for="DripMarketingCampaign">Campagne "Drip Marketing"</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="DragAndDrop" id="DragAndDrop"/>
+                        <label for="DragAndDrop">Editeur en Drag and Drop</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Intégration Social Media
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterMon" id="twitterMon"/>
+                        <label for="twitterMon">Veille Twitter</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="twitterAuto" id="twitterAuto"/>
+                        <label for="twitterAuto">Publication automatique sur Twitter</label>
+                    </p>
+
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookAuto" id="facebookAuto"/>
+                        <label for="facebookAuto">Publication automatique sur Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="facebookMon" id="facebookMon"/>
+                        <label for="facebookMon">Veille Facebook</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinMon" id="linkedinMon"/>
+                        <label for="linkedinMon">Veille Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="linkedinAuto" id="linkedinAuto"/>
+                        <label for="linkedinAuto">Publication automatique sur Linkedin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramMon" id="instagramMon"/>
+                        <label for="instagramMon">Veille Instagram</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="instagramAuto" id="instagramAuto"/>
+                        <label for="instagramAuto">Publication automatique sur Instagram</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Rapports
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="reportcreation" id="reportcreation"/>
+                        <label for="reportcreation">Création de rapports d'activité	</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="reportperiodic" id="reportperiodic"/>
+                        <label for="reportperiodic">Envoi périodique des rapports	</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Support proposé
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="emailsupport" id="emailsupport"/>
+                        <label for="emailsupport">Support par email</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="phonesupport" id="phonesupport"/>
+                        <label for="phonesupport">Support téléphonique</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="chatsupport" id="chatsupport"/>
+                        <label for="chatsupport">Support par chat</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="knowledgebase" id="knowledgebase"/>
+                        <label for="knowledgebase">Base de connaissance</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="technicalDoc" id="technicalDoc"/>
+                        <label for="technicalDoc">Documentation technique</label>
+                    </p>
+                </form>
+            </div>
+
+        </li>
+        <li>
+            <div class="collapsible-header">
+                <i class="material-icons">expand_more</i>
+                Autres fonctionnalités
+            </div>
+            <div class="collapsible-body filters-responsive">
+                <form action="#" class="">
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="ProviderEmailChoice" id="ProviderEmailChoice"/>
+                        <label for="ProviderEmailChoice">Choix du provider Email</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="BlogEdition" id="BlogEdition"/>
+                        <label for="BlogEdition">Edition d'un blog</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="TouchPad" id="TouchPad"/>
+                        <label for="TouchPad">Tablette en magasin</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="SmtpRelay" id="SmtpRelay"/>
+                        <label for="SmtpRelay">SMTP Relais (email transactionnel)</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" class="filled-in" v-model="RssToEmail" id="RssToEmail"/>
+                        <label for="RssToEmail">RSS to email</label>
+                    </p>
+                </form>
+            </div>
+
         </li>
     </div>
-    <div class="filters-responsive-btn center-align">
-        <a class="waves-effect waves-light btn">Actualiser</a>
-    </div>
+    <a @click="reset" class="waves-effect waves-light btn">Vider les filtres</a>
+
 </ul>

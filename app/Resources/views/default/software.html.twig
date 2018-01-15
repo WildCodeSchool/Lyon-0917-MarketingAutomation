@@ -1,12 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if softmain.title == true %}
-        {{ softmain.title }}
-    {% else %}
-        {{ softmain.name }} - logiciel de marketing automation
-    {% endif %}
+{% block title %}{% if softmain.title == true %}{{ softmain.title }}{% else %}{{ softmain.name }} - logiciel de marketing automation{% endif %}
 {% endblock %}
-{% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
+{% block metadesc %}{{ softmain.name }} - {{ softmain.description| slice(0,350) | raw }}. {% endblock %}
 
             {% block h1 %}
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
@@ -27,7 +22,7 @@
             <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
             <p>{{ softmain.comments }}</p>
         {% endif %}
-
+        
         <h2>Informations essentielles sur {{ softmain.name | raw }}</h2>
 
         {% include 'table-softinfo.html.twig' %}
@@ -91,7 +86,7 @@
             </div>
         </div>
 
-        <h2>Voir d'autres logiciels de marketing automation</h2>
+        <h2>Découvrir d'autres logiciels de marketing automation</h2>
         <div class="row">
 
             {% for software in softwares %}

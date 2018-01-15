@@ -217,7 +217,7 @@ Booleans:
           Synonymous: support
         isKnowledgeBase:
           Description: <p></p>
-          Name: Base de connaissance (langues)
+          Name: Base de connaissance
           Slug: base-de-connaissance
           Synonymous:
         isTechnicalDocument:
