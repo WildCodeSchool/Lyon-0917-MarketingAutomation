@@ -40,6 +40,7 @@ class Tag
     /**
      * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      *
      */
     private $softMains;

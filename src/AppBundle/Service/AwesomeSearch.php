@@ -79,10 +79,6 @@ class AwesomeSearch
             $this->addPertinencePoint($advantagesResults, self::CONTENTPOINT);
 
 
-            $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
-            $this->addPertinencePoint($drawbacksResults, self::CONTENTPOINT);
-
-
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
             $this->addPertinencePoint($typeResults, self::CONTENTPOINT);
 
@@ -144,8 +140,8 @@ class AwesomeSearch
 
     private function cleanQuery(string $query) :array
     {
-
-        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $lowerQuery = strtolower($query);
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $lowerQuery);
         $goodQuery = [];
         $emptyWords = $this->getDatas()["EmptyWords"];
         $arrayEmptyWords = explode(" ", $emptyWords);

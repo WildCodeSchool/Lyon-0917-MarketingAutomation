@@ -41,7 +41,7 @@ body {
 
   h2 {
     font-size: 1.7em;
-    margin-top: 1%;
+    margin-top: 10%;
     margin-bottom: 5%;
   }
 
@@ -50,17 +50,17 @@ body {
   }
 
   p {
-    font-size: 1.1em;
+    font-size: 1.2em;
     text-align: justify;
     margin-bottom: 5%;
   }
 
-  table {
+  #table {
     margin-top: -3%;
     margin-bottom: 5%;
   }
   th, td {
-    height: 40px;
+    height: 8vh;
     vertical-align: middle;
     p {
       margin-bottom: auto;
@@ -82,6 +82,10 @@ body {
     bottom: 0;
     right:0;
   }
+  #autocomplete_compare_software1, #autocomplete_compare_software2 {
+    cursor: pointer;
+   }
+
   ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: grey;
     opacity: 1; /* Firefox */

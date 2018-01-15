@@ -1,5 +1,10 @@
 #compare {
   margin-bottom: 5%;
+  li{
+    a{
+      font-size: 1.2em;
+    }
+  }
   th {
     width: 34%;
     padding-left: 10px;
@@ -8,6 +13,10 @@
   td {
     width: 33%;
     text-align: center;
+    p{
+      padding: 10px;
+      text-align: center;
+    }
   }
   h1 {
     margin-top: 8%;

@@ -15,7 +15,7 @@
     <div id="software">
 
         <div class="row">
-            <div class="col m3 s12 l3">
+            <div class="col m3 s12 l3 hide-on-small-only">
                 <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
                      width="250" class="responsive-img">
             </div>
@@ -23,7 +23,7 @@
                 <p>{{ softmain.description | raw }}</p>
             </div>
         </div>
-        <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
+        <h2>Notre avis sur {{ softmain.name | raw }}</h2>
         <p>{{ softmain.comments }}</p>
 
 
@@ -74,8 +74,7 @@
                 <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>,
             {% endfor %}
             {% for bool in bools %}
-                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>
-                {% if loop.last == false %}, {% endif %}
+                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>{% if loop.last == false %}, {% endif %}
             {% endfor %}
 
 
@@ -134,7 +133,7 @@
 
     <aside id="share">
         <div class="hide-on-med-and-down">
-            <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
+            <a href="https://twitter.com/share?url={{ app.request.uri }}&via=pierre_a" rel="nofollow"
                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
             <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" rel="nofollow"
@@ -151,7 +150,7 @@
 
 
         <div class="hide-on-large-only mobile">
-            <a href=https://twitter.com/share?url= {{ app.request.uri }} &via=Marketing_automation" target="_blank"
+            <a href="https://twitter.com/share?url={{ app.request.uri }}&via=pierre_a" target="_blank"
                rel="nofollow"
                class="mdi mdi-twitter mdi-24px mdi-light hidden social"></a>
             <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" target="_blank" rel="nofollow"

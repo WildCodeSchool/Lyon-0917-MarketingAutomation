@@ -95,23 +95,23 @@
                 <table class="striped border">
                     <tr>
                         <th>{{ 'name'|trans }}</th>
-                        <td>{{ softmain1.name | raw }}</td>
-                        <td>{{ softmain2.name | raw }}</td>
+                        <td><p>{{ softmain1.name | raw }}</p></td>
+                        <td><p>{{ softmain2.name | raw }}</p></td>
                     </tr>
                     <tr>
                         <th>{{ 'type'|trans }}</th>
                         <td>
                             {% if softmain1.type | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.type | raw }}
+                                <p>{{ softmain1.type | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.type | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.type | raw }}
+                                <p>{{ softmain2.type | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -119,16 +119,16 @@
                         <th>{{ 'advantages'|trans }}</th>
                         <td>
                             {% if softmain1.advantages | raw == null %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.advantages | raw }}
+                                <p>{{ softmain1.advantages | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.advantages | raw == null %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.advantages | raw }}
+                                <p>{{ softmain2.advantages | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -136,16 +136,16 @@
                         <th>{{ 'drawbacks'|trans }}</th>
                         <td>
                             {% if softmain1.drawbacks | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.drawbacks | raw }}
+                                <p>{{ softmain1.drawbacks | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.drawbacks | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.drawbacks | raw }}
+                                <p>{{ softmain2.drawbacks | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -157,7 +157,7 @@
                             {% elseif softmain1.softInfo.rgpd is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softInfo.rgpd is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -166,7 +166,7 @@
                             {% elseif softmain2.softInfo.rgpd is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softInfo.rgpd is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -174,16 +174,16 @@
                         <th>{{ 'customers'|trans }}</th>
                         <td>
                             {% if softmain1.softInfo.customers == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.softInfo.customers }}
+                                <p>{{ softmain1.softInfo.customers }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.customers == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.softInfo.customers }}
+                                <p>{{ softmain2.softInfo.customers }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -191,16 +191,16 @@
                         <th>{{ 'hostingCountry'|trans }}</th>
                         <td>
                             {% if softmain1.softInfo.hostingCountry | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.softInfo.hostingCountry | raw }}
+                                <p>{{ softmain1.softInfo.hostingCountry | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.hostingCountry | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.softInfo.hostingCountry | raw }}
+                                <p>{{ softmain2.softInfo.hostingCountry | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -208,16 +208,16 @@
                         <th>{{ 'creationDate'|trans }}</th>
                         <td>
                             {% if softmain1.softInfo.creationDate | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.softInfo.creationDate | raw }}
+                                <p>{{ softmain1.softInfo.creationDate | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.creationDate | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.softInfo.creationDate | raw }}
+                                <p>{{ softmain2.softInfo.creationDate | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -225,16 +225,16 @@
                         <th>{{ 'subscriptionCost'|trans }}</th>
                         <td>
                             {% if softmain1.softInfo.subscriptionCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.softInfo.subscriptionCost | raw }}
+                                <p>{{ softmain1.softInfo.subscriptionCost | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.subscriptionCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.softInfo.subscriptionCost | raw }}
+                                <p>{{ softmain2.softInfo.subscriptionCost | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
@@ -242,34 +242,26 @@
                         <th>{{ 'trainingCost'|trans }}</th>
                         <td>
                             {% if softmain1.softInfo.trainingCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain1.softInfo.trainingCost | raw }}
+                                <p>{{ softmain1.softInfo.trainingCost | raw }}</p>
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softInfo.trainingCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
-                                {{ softmain2.softInfo.trainingCost | raw }}
+                                <p>{{ softmain2.softInfo.trainingCost | raw }}</p>
                             {% endif %}
                         </td>
                     </tr>
                     <tr>
-                        <th>{{ 'webSite'|trans }}</th>
+                        <th>Fiches logiciels</th>
                         <td>
-                            {% if softmain1.softInfo.webSite == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                <a href="{{ softmain1.softInfo.webSite }}">{{ softmain1.name | raw }}</a>
-                            {% endif %}
+                            <a href="{{ path('softwareSolo', { 'slug': softmain1.slug }) }}">Voir la fiche complète</a>
                         </td>
                         <td>
-                            {% if softmain2.softInfo.webSite == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                <a href="{{ softmain2.softInfo.webSite }}">{{ softmain2.name | raw }}</a>
-                            {% endif %}
+                            <a href="{{ path('softwareSolo', { 'slug': softmain2.slug }) }}">Voir la fiche complète</a>
                         </td>
                     </tr>
                 </table>
@@ -283,7 +275,7 @@
                             {% elseif softmain1.softOutbound.isEmail is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -292,7 +284,7 @@
                             {% elseif softmain2.softOutbound.isEmail is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -304,7 +296,7 @@
                             {% elseif softmain1.softOutbound.isSms is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isSms is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -313,7 +305,7 @@
                             {% elseif softmain2.softOutbound.isSms is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isSms is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -325,7 +317,7 @@
                             {% elseif softmain1.softOutbound.isPopin is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isPopin is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -334,7 +326,7 @@
                             {% elseif softmain2.softOutbound.isPopin is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isPopin is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -346,7 +338,7 @@
                             {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -355,7 +347,7 @@
                             {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -367,7 +359,7 @@
                             {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -376,7 +368,7 @@
                             {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -388,7 +380,7 @@
                             {% elseif softmain1.softOutbound.isPushMobile is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isPushMobile is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -397,7 +389,7 @@
                             {% elseif softmain2.softOutbound.isPushMobile is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isPushMobile is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -409,7 +401,7 @@
                             {% elseif softmain1.softOutbound.isApi is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOutbound.isApi is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -418,7 +410,7 @@
                             {% elseif softmain2.softOutbound.isApi is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOutbound.isApi is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -433,7 +425,7 @@
                             {% elseif softmain1.softCommSupport.isLandingPage is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softCommSupport.isLandingPage is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -442,7 +434,7 @@
                             {% elseif softmain2.softCommSupport.isLandingPage is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softCommSupport.isLandingPage is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -454,7 +446,7 @@
                             {% elseif softmain1.softCommSupport.isForm is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softCommSupport.isForm is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -463,7 +455,7 @@
                             {% elseif softmain2.softCommSupport.isForm is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softCommSupport.isForm is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -475,7 +467,7 @@
                             {% elseif softmain1.softCommSupport.isTracking is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softCommSupport.isTracking is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -484,7 +476,7 @@
                             {% elseif softmain2.softCommSupport.isTracking is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softCommSupport.isTracking is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -496,7 +488,7 @@
                             {% elseif softmain1.softCommSupport.isLiveChat is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softCommSupport.isLiveChat is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -505,7 +497,7 @@
                             {% elseif softmain2.softCommSupport.isLiveChat is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softCommSupport.isLiveChat is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -520,7 +512,7 @@
                             {% elseif softmain1.softLeadsOperation.isContactObject is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isContactObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -529,7 +521,7 @@
                             {% elseif softmain2.softLeadsOperation.isContactObject is same as(false) %}
                             <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isContactObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -541,7 +533,7 @@
                             {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -550,7 +542,7 @@
                             {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -562,7 +554,7 @@
                             {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -571,7 +563,7 @@
                             {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -583,7 +575,7 @@
                             {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -592,7 +584,7 @@
                             {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -604,7 +596,7 @@
                             {% elseif softmain1.softLeadsOperation.isImportCsv is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isImportCsv is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -613,7 +605,7 @@
                             {% elseif softmain2.softLeadsOperation.isImportCsv is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isImportCsv is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -625,7 +617,7 @@
                             {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -634,7 +626,7 @@
                             {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -646,7 +638,7 @@
                             {% elseif softmain1.softLeadsOperation.isLeadStages is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softLeadsOperation.isLeadStages is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -655,7 +647,7 @@
                             {% elseif softmain2.softLeadsOperation.isLeadStages is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softLeadsOperation.isLeadStages is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -670,7 +662,7 @@
                             {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -679,7 +671,7 @@
                             {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -691,7 +683,7 @@
                             {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -700,7 +692,7 @@
                             {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -715,7 +707,7 @@
                             {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -724,7 +716,7 @@
                             {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -736,7 +728,7 @@
                             {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -745,7 +737,7 @@
                             {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -757,7 +749,7 @@
                             {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -766,7 +758,7 @@
                             {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -778,7 +770,7 @@
                             {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -787,7 +779,7 @@
                             {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -799,7 +791,7 @@
                             {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -808,7 +800,7 @@
                             {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -823,7 +815,7 @@
                             {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -832,7 +824,7 @@
                             {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -844,7 +836,7 @@
                             {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -853,7 +845,7 @@
                             {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -865,7 +857,7 @@
                             {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -874,7 +866,7 @@
                             {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -886,7 +878,7 @@
                             {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -895,7 +887,7 @@
                             {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -907,7 +899,7 @@
                             {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -916,7 +908,7 @@
                             {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -928,7 +920,7 @@
                             {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -937,7 +929,7 @@
                             {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -949,7 +941,7 @@
                             {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -958,7 +950,7 @@
                             {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -970,7 +962,7 @@
                             {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -979,7 +971,7 @@
                             {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -994,7 +986,7 @@
                             {% elseif softmain1.softReport.isActivityReportCreation is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softReport.isActivityReportCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         <td>
                             {% if softmain2.softReport.isActivityReportCreation is same as(true) %}
@@ -1002,7 +994,7 @@
                             {% elseif softmain2.softReport.isActivityReportCreation is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softReport.isActivityReportCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1014,7 +1006,7 @@
                             {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1023,7 +1015,7 @@
                             {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1038,7 +1030,7 @@
                             {% elseif softmain1.softSupport.isEmailSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSupport.isEmailSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1047,7 +1039,7 @@
                             {% elseif softmain2.softSupport.isEmailSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSupport.isEmailSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1059,7 +1051,7 @@
                             {% elseif softmain1.softSupport.isPhoneSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSupport.isPhoneSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1068,7 +1060,7 @@
                             {% elseif softmain2.softSupport.isPhoneSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSupport.isPhoneSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1080,7 +1072,7 @@
                             {% elseif softmain1.softSupport.isChatSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSupport.isChatSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1089,7 +1081,7 @@
                             {% elseif softmain2.softSupport.isChatSupport is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSupport.isChatSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1101,7 +1093,7 @@
                             {% elseif softmain1.softSupport.isKnowledgeBase is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSupport.isKnowledgeBase is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1110,7 +1102,7 @@
                             {% elseif softmain2.softSupport.isKnowledgeBase is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSupport.isKnowledgeBase is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1118,14 +1110,14 @@
                         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
                         <td>
                             {% if softmain1.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
                                 {{ softmain1.softSupport.knowledgeBaseLanguage }}
                             {% endif %}
                         </td>
                         <td>
                             {% if softmain2.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% else %}
                                 {{ softmain2.softSupport.knowledgeBaseLanguage }}
                             {% endif %}
@@ -1139,7 +1131,7 @@
                             {% elseif softmain1.softSupport.isTechnicalDocument is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softSupport.isTechnicalDocument is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1148,7 +1140,7 @@
                             {% elseif softmain2.softSupport.isTechnicalDocument is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softSupport.isTechnicalDocument is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1163,7 +1155,7 @@
                             {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1172,7 +1164,7 @@
                             {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1184,7 +1176,7 @@
                             {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1193,7 +1185,7 @@
                             {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1205,7 +1197,7 @@
                             {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1214,7 +1206,7 @@
                             {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1226,7 +1218,7 @@
                             {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1235,7 +1227,7 @@
                             {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>
@@ -1247,7 +1239,7 @@
                             {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                         <td>
@@ -1256,7 +1248,7 @@
                             {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(false) %}
                                 <i class="small material-icons red-text">close</i>
                             {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
+                                <i class="small material-icons grey-text">help_outline</i>
                             {% endif %}
                         </td>
                     </tr>

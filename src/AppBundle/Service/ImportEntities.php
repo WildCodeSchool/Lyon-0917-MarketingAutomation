@@ -455,13 +455,13 @@ class ImportEntities
     public
     function deleteAllContent(Connection $connection, $dbName)
     {
-        $connection->query('SET FOREIGN_KEY_CHECKS=0');
+
         foreach ($this->getConfig()["table-names"] as $tableName) {
-            $connection->query("DELETE FROM " . $dbName . "." . $tableName . ";");
+            $connection->query("DELETE FROM " . $tableName . ";");
             // Beware of ALTER TABLE here--it's another DDL statement and will cause
             // an implicit commit.
 
         }
-        $connection->query('SET FOREIGN_KEY_CHECKS=1');
+
     }
 }
