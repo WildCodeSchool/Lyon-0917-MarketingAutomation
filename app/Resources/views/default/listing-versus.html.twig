@@ -46,7 +46,9 @@
 
             <ul>
                 {% for versus in listVersus %}
-                    <li> <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"> {{ versus.software1.name }} comparé à {{ versus.software2.name }} </a>  </li>
+                    <li class="col l4 m6 s12">
+                        <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"> {{ versus.software1.name }} comparé à {{ versus.software2.name }} </a>
+                    </li>
                 {% endfor %}
             </ul>
         </div>

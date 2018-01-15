@@ -18,6 +18,7 @@
       margin-right: 0;
     }
   }
+
   .result-logo-responsive {
     display: none;
   }
@@ -27,6 +28,28 @@
   #home {
     .presentation {
       margin-top: 4%;
+    }
+  }
+  #software {
+    p {
+      text-align: left;
+    }
+    th, td {
+      vertical-align: middle;
+      p {
+        text-align: center;
+      }
+    }
+  }
+  #compare {
+    p {
+      text-align: left;
+    }
+    th, td {
+      vertical-align: middle;
+      p {
+        text-align: center;
+      }
     }
   }
   .softwareCard {
