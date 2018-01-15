@@ -128,17 +128,15 @@ class DefaultController extends Controller
         $tag = $repository->findOneBy(['slug' => $slug]);
         if (empty($tag)) {
             $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
+            $boolean = $boolsAsTags->getDescriptionBySlug($slug);;
             return $this->render('default/unique-tag.html.twig', [
-
                 'softwares' => $softwares,
-                'boolean' => $boolsAsTags->getDescriptionBySlug($slug),
+                'boolean' => $boolean,
             ]);
         }
 
         return $this->render('default/unique-tag.html.twig', [
-
             'tag' => $tag,
-
         ]);
     }
 

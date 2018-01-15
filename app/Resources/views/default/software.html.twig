@@ -1,10 +1,5 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if softmain.title == true %}
-        {{ softmain.title }}
-    {% else %}
-        {{ softmain.name }} - logiciel de marketing automation
-    {% endif %}
+{% block title %}{% if softmain.title == true %}{{ softmain.title }}{% else %}{{ softmain.name }} - logiciel de marketing automation{% endif %}
 {% endblock %}
 {% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
 
