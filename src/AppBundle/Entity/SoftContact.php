@@ -24,7 +24,7 @@ class SoftContact
     /**
      * @var string|null
      *
-     * @ORM\Column(name="firstNaame", type="string", length=255, nullable=true)
+     * @ORM\Column(name="firstName", type="string", length=255, nullable=true)
      */
     private $firstName;
 
