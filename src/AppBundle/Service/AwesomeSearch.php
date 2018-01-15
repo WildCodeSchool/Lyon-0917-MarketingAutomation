@@ -131,7 +131,7 @@ class AwesomeSearch
             $response[] = array(
                 'name' => $software->getName(),
                 'slug' => $software->getSlug(),
-                'description' => mb_strimwidth($software->getDescription(), 0, 160),
+                'description' => strip_tags(mb_strimwidth($software->getDescription(), 0, 160)),
                 'logo' => $software->getLogoUrl(),
                 'isRgpd' => $software->getSoftInfo()->getRgpd(),
                 'isSms' => $software->getSoftOutBound()->getIsSms(),
