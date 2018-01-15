@@ -68,28 +68,36 @@ class DefaultController extends Controller
      * @param Request $request
      * @param $researchContent
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("results_{researchContent}", name="results")
-     * @Method("GET")
+     * @Route("results_{researchContent}", name="results", defaults={"researchContent": ""})
      */
 
-    public function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
+    public function resultsAction(Request $request, $researchContent = "", AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
-
+        $test = array('name' => "pierrick", 'slug' => "pireux");
         $softwares = $awesomeSearch->search($researchContent);
+        if ($request->isXmlHttpRequest()) {
+
+            return new JsonResponse(array('data' => $softwares));
 
 
-        return $this->render('default/results.html.twig', [
-            'softwares' => $softwares,
-            'research' => $researchContent
-        ]);
+        } else {
+            return $this->render('default/results.html.twig', [
+                'research' => $researchContent,
+                'softwares' => $softwares
+            ]);
+        }
     }
-
+    
+     /**
+     * @param array $a
+     * @param array $b
+     * @return mixed
+     */
     private static function compareTags(array $a, array $b) {
         return $b['number'] - $a['number'];
-
     }
-
+    
     /**
      * @Route("listing-tags", name="listingTags")
      * @param Request $request

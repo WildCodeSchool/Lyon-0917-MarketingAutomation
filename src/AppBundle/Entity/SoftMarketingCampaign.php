@@ -217,4 +217,6 @@ class SoftMarketingCampaign
     {
         return $this->softMain;
     }
+
+
 }
