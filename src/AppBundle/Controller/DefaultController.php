@@ -100,7 +100,15 @@ class DefaultController extends Controller
         }
     }
 
-
+     /**
+     * @param array $a
+     * @param array $b
+     * @return mixed
+     */
+    private static function compareTags(array $a, array $b) {
+        return $b['number'] - $a['number'];
+    }
+    
     /**
      * @Route("listing-tags", name="listingTags")
      * @param Request $request
