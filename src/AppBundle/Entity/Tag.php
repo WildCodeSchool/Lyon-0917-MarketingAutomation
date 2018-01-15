@@ -40,6 +40,7 @@ class Tag
     /**
      * @var ArrayCollection
      * @ORM\ManyToMany(targetEntity="SoftMain", mappedBy="tags")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      *
      */
     private $softMains;
@@ -47,7 +48,7 @@ class Tag
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="string", length=255, nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
@@ -65,11 +66,10 @@ class Tag
         $this->softMains = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-
     /**
-     * Get id
+     * Get id.
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -77,7 +77,7 @@ class Tag
     }
 
     /**
-     * Set name
+     * Set name.
      *
      * @param string $name
      *
@@ -91,7 +91,7 @@ class Tag
     }
 
     /**
-     * Get name
+     * Get name.
      *
      * @return string
      */
@@ -101,13 +101,13 @@ class Tag
     }
 
     /**
-     * Set title
+     * Set title.
      *
-     * @param string $title
+     * @param string|null $title
      *
      * @return Tag
      */
-    public function setTitle($title)
+    public function setTitle($title = null)
     {
         $this->title = $title;
 
@@ -115,9 +115,9 @@ class Tag
     }
 
     /**
-     * Get title
+     * Get title.
      *
-     * @return string
+     * @return string|null
      */
     public function getTitle()
     {
@@ -125,13 +125,13 @@ class Tag
     }
 
     /**
-     * Set description
+     * Set description.
      *
-     * @param string $description
+     * @param string|null $description
      *
      * @return Tag
      */
-    public function setDescription($description)
+    public function setDescription($description = null)
     {
         $this->description = $description;
 
@@ -139,9 +139,9 @@ class Tag
     }
 
     /**
-     * Get description
+     * Get description.
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -149,13 +149,13 @@ class Tag
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
-     * @param string $slug
+     * @param string|null $slug
      *
      * @return Tag
      */
-    public function setSlug($slug)
+    public function setSlug($slug = null)
     {
         $this->slug = $slug;
 
@@ -163,9 +163,9 @@ class Tag
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
-     * @return string
+     * @return string|null
      */
     public function getSlug()
     {
@@ -173,7 +173,7 @@ class Tag
     }
 
     /**
-     * Add softMain
+     * Add softMain.
      *
      * @param \AppBundle\Entity\SoftMain $softMain
      *
@@ -187,17 +187,19 @@ class Tag
     }
 
     /**
-     * Remove softMain
+     * Remove softMain.
      *
      * @param \AppBundle\Entity\SoftMain $softMain
+     *
+     * @return boolean TRUE if this collection contained the specified element, FALSE otherwise.
      */
     public function removeSoftMain(\AppBundle\Entity\SoftMain $softMain)
     {
-        $this->softMains->removeElement($softMain);
+        return $this->softMains->removeElement($softMain);
     }
 
     /**
-     * Get softMains
+     * Get softMains.
      *
      * @return \Doctrine\Common\Collections\Collection
      */

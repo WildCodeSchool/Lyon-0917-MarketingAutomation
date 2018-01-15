@@ -79,6 +79,7 @@ class SoftSocialMedia
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softSocialMedia")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 

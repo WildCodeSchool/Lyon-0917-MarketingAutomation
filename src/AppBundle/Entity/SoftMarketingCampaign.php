@@ -59,6 +59,7 @@ class SoftMarketingCampaign
 
     /**
      * @ORM\OneToOne(targetEntity="SoftMain", mappedBy="softMarketingCampaign")
+     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMain;
 
@@ -216,4 +217,6 @@ class SoftMarketingCampaign
     {
         return $this->softMain;
     }
+
+
 }

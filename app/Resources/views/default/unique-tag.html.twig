@@ -1,8 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}
-    {% if description is defined %}
-        Logiciels de Marketing Automation : {{ description }}
+    {% if boolean is defined %}Logiciels de Marketing Automation : {{ boolean.name }}
     {% else %}
         {% if tag.title == true %}
         {{ tag.title }}
@@ -14,13 +13,18 @@
         {% endif %}
         {% endif %}
 {% endblock %}
+{% block metadesc %}
+{% if tag is defined %}
+{{ tag.description | raw | slice(0,350) }}
+{% elseif softwares is defined %}{{ boolean.description | slice(0,350) | raw}}{% endif %}
+{% endblock %}
 
         {% block h1 %}
             {% if tag is defined %}
                 <h1>{{ tag.name }}</h1>
             {% endif %}
             {% if softwares is defined %}
-                <h1>{{ description }}</h1>
+                <h1>{{ boolean.name }}</h1>
             {% endif %}
         {% endblock %}
 {% block body %}
@@ -34,9 +38,8 @@
 
             </div>
         {% endif %}
-
         {% if softwares is defined %}
-            <p>Logiciels comportant le critère "{{ description }}"</p>
+        {{ boolean.description | raw }}
             <div class="row" id="listSoftsByTags">
 
                 {% for software in softwares %}{% include('software-card.html.twig') %}

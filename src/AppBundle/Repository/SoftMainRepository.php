@@ -19,11 +19,11 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
     public function getSoftMainByName($word)
     {
-        $softmain = "%" . $word . "%";
+        $softmain = strtolower("%" . $word . "%");
 
         $qb = $this->createQueryBuilder('s')
             ->select('s.name')
-            ->where('s.name LIKE :name')
+            ->where('lower(s.name) LIKE :name')
             ->setParameter('name', $softmain)
             ->getQuery();
         return $qb->getResult();
@@ -74,7 +74,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->where('s.name LIKE :name')
+            ->where('lower(s.name) LIKE :name')
             ->setParameter('name', $softmain)
             ->getQuery();
         return $qb->getResult();
@@ -90,7 +90,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->where('s.description LIKE :description')
+            ->where('lower(s.description) LIKE :description')
             ->setParameter('description', $softmain)
             ->getQuery();
         return $qb->getResult();
@@ -106,7 +106,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->where('s.comments LIKE :comments')
+            ->where('lower(s.comments) LIKE :comments')
             ->setParameter('comments', $softmain)
             ->getQuery();
         return $qb->getResult();
@@ -121,7 +121,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->where('s.type LIKE :type')
+            ->where('lower(s.type) LIKE :type')
             ->setParameter('type', $softmain)
             ->getQuery();
         return $qb->getResult();
@@ -136,23 +136,8 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         $softmain = "%" . $word . "%";
 
         $qb = $this->createQueryBuilder('s')
-            ->where('s.advantages LIKE :advantages')
+            ->where('lower(s.advantages) LIKE :advantages')
             ->setParameter('advantages', $softmain)
-            ->getQuery();
-        return $qb->getResult();
-    }
-
-    /**
-     * @param $word
-     * @return array
-     */
-    public function searchInDrawbacks($word)
-    {
-        $softmain = "%" . $word . "%";
-
-        $qb = $this->createQueryBuilder('s')
-            ->where('s.drawbacks LIKE :drawbacks')
-            ->setParameter('drawbacks', $softmain)
             ->getQuery();
         return $qb->getResult();
     }
@@ -167,7 +152,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.softInfo' , 'i')
-            ->where('i.customers LIKE :customers')
+            ->where('lower(i.customers) LIKE :customers')
             ->setParameter('customers', $softinfo)
             ->getQuery();
         return $qb->getResult();
@@ -199,7 +184,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.softInfo' , 'i')
-            ->where('i.creationDate LIKE :creationDate')
+            ->where('lower(i.creationDate) LIKE :creationDate')
             ->setParameter('creationDate', $softinfo)
             ->getQuery();
         return $qb->getResult();
@@ -215,7 +200,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.softInfo' , 'i')
-            ->where('i.webSite LIKE :webSite')
+            ->where('lower(i.webSite) LIKE :webSite')
             ->setParameter('webSite', $softinfo)
             ->getQuery();
         return $qb->getResult();
@@ -231,7 +216,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.tags' , 't')
-            ->where('t.name LIKE :name')
+            ->where('lower(t.name) LIKE :name')
             ->setParameter('name', $tag)
             ->getQuery();
         return $qb->getResult();
@@ -247,7 +232,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.tags' , 't')
-            ->where('t.description LIKE :description')
+            ->where('lower(t.description) LIKE :description')
             ->setParameter('description', $tag)
             ->getQuery();
         return $qb->getResult();
@@ -263,7 +248,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
 
         $qb = $this->createQueryBuilder('s')
             ->join('s.softSupport' , 't')
-            ->where('t.knowledgeBaseLanguage LIKE :knowledgeBaseLanguage')
+            ->where('lower(t.knowledgeBaseLanguage) LIKE :knowledgeBaseLanguage')
             ->setParameter('knowledgeBaseLanguage', $softsupport)
             ->getQuery();
         return $qb->getResult();

@@ -16,8 +16,9 @@
     padding-left: 0;
     padding-right: 0;
     .card-title {
+      overflow: hidden;
       text-align: center;
-      min-height: 65px;
+      height: 65px;
       -webkit-hyphens: auto;
       -moz-hyphens: auto;
       -ms-hyphens: auto;

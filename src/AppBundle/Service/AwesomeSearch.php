@@ -79,10 +79,6 @@ class AwesomeSearch
             $this->addPertinencePoint($advantagesResults, self::CONTENTPOINT);
 
 
-            $drawbacksResults = $this->em->getRepository(SoftMain::class)->searchInDrawbacks($word);
-            $this->addPertinencePoint($drawbacksResults, self::CONTENTPOINT);
-
-
             $typeResults = $this->em->getRepository(SoftMain::class)->searchInType($word);
             $this->addPertinencePoint($typeResults, self::CONTENTPOINT);
 
@@ -130,8 +126,63 @@ class AwesomeSearch
             $result[]  = $cell['soft'];
         }
 
-
-        return $result;
+        $response = [];
+        foreach($result as $software) {
+            $response[] = array(
+                'name' => $software->getName(),
+                'slug' => $software->getSlug(),
+                'description' => strip_tags(mb_strimwidth($software->getDescription(), 0, 160)),
+                'logo' => $software->getLogoUrl(),
+                'isRgpd' => $software->getSoftInfo()->getRgpd(),
+                'isSms' => $software->getSoftOutBound()->getIsSms(),
+                'isEmail' => $software->getSoftOutBound()->getIsEmail(),
+                'isPopin' => $software->getSoftOutBound()->getIsPopin(),
+                'isMailPostal' => $software->getSoftOutBound()->getIsMailPostal(),
+                'isCallCenter' => $software->getSoftOutBound()->getIsCallCenter(),
+                'isPushMobile' => $software->getSoftOutBound()->getIsPushMobile(),
+                'isApi' => $software->getSoftOutBound()->getIsApi(),
+                'isActivityReportCreation' => $software->getSoftReport()->getIsActivityReportCreation(),
+                'isActivityReportPeriodicSend' => $software->getSoftReport()->getIsActivityReportPeriodicSend(),
+                'isSegmentCreation' => $software->getSoftSegmentOperation()->getIsSegmentCreation(),
+                'isIntelligentSegmentCreation' => $software->getSoftSegmentOperation()->getIsIntelligentSegment(),
+                'isTwitterMonitoring' => $software->getSoftSocialMedia()->getIsTwitterMonitoring(),
+                'isTwitterAutoPublication' => $software->getSoftSocialMedia()->getIsTwitterAutoPublication(),
+                'isLinkedinMonitoring' => $software->getSoftSocialMedia()->getIsLinkedinMonitoring(),
+                'isLinkedinAutoPublication' => $software->getSoftSocialMedia()->getIsLinkedinAutoPublication(),
+                'isInstagramAutoPublication' => $software->getSoftSocialMedia()->getIsInstagramAutoPublication(),
+                'isInstagramMonitoring' => $software->getSoftSocialMedia()->getIsInstagramMonitoring(),
+                'isEmailSupport' => $software->getSoftSupport()->getIsEmailSupport(),
+                'isPhoneSupport' => $software->getSoftSupport()->getIsPhoneSupport(),
+                'isChatSupport' => $software->getSoftSupport()->getIsChatSupport(),
+                'isKnowledgeBase' => $software->getSoftSupport()->getIsKnowledgeBase(),
+                'isTechnicalDocument' => $software->getSoftSupport()->getIsTechnicalDocument(),
+                'isContactObject' => $software->getSoftLeadsOperation()->getIsContactObject(),
+                'isCompanyObject' => $software->getSoftLeadsOperation()->getIsCompanyObject(),
+                'isDefinedFields' => $software->getSoftLeadsOperation()->getIsDefinedFields(),
+                'isIllimitedFields' => $software->getSoftLeadsOperation()->getIsIllimitedFields(),
+                'isImportCsv' => $software->getSoftLeadsOperation()->getIsImportCsv(),
+                'isAutoDuplicate' => $software->getSoftLeadsOperation()->getIsAutoDuplicate(),
+                'isLeadStages' => $software->getSoftLeadsOperation()->getIsLeadStages(),
+                'isLandingPage' => $software->getSoftCommSupport()->getIsLandingPage(),
+                'isForm' => $software->getSoftCommSupport()->getIsForm(),
+                'isTracking' => $software->getSoftCommSupport()->getIsTracking(),
+                'isLiveChat' => $software->getSoftCommSupport()->getIsLiveChat(),
+                'isFbAuto' => $software->getSoftSocialMedia()->getIsFacebookAutoPublication(),
+                'isFbMon' => $software->getSoftSocialMedia()->getIsFacebookMonitoring(),
+                'isAutoResponder' => $software->getSoftMarketingCampaign()->getIsAutoResponder(),
+                'isLeadScoring' => $software->getSoftMarketingCampaign()->getIsLeadScoring(),
+                'isCreationCampaign' => $software->getSoftMarketingCampaign()->getIsCreationCampaign(),
+                'isDripMarketingCampaign' => $software->getSoftMarketingCampaign()->getIsDripMarketingCampaign(),
+                'isDragAndDrop' => $software->getSoftMarketingCampaign()->getIsDragAndDrop(),
+                'isProviderEmailChoice' => $software->getSoftOtherFunctionnalities()->getIsProviderEmailChoice(),
+                'isBlogEdition' => $software->getSoftOtherFunctionnalities()->getIsBlogEdition(),
+                'isTouchPad' => $software->getSoftOtherFunctionnalities()->getIsTouchPad(),
+                'isRssToEmail' => $software->getSoftOtherFunctionnalities()->getIsRssToEmail(),
+                'isSmtpRelay' => $software->getSoftOtherFunctionnalities()->getIsSmtpRelay(),
+                'isPrice' => $software->getSoftInfo()->getSubscriptionCost(),
+            );
+        }
+        return $response;
     }
 
     /**
@@ -144,8 +195,8 @@ class AwesomeSearch
 
     private function cleanQuery(string $query) :array
     {
-
-        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $query);
+        $lowerQuery = strtolower($query);
+        $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $lowerQuery);
         $goodQuery = [];
         $emptyWords = $this->getDatas()["EmptyWords"];
         $arrayEmptyWords = explode(" ", $emptyWords);
