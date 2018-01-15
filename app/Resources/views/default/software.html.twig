@@ -1,12 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if softmain.title == true %}
-        {{ softmain.title }}
-    {% else %}
-        {{ softmain.name }} - logiciel de marketing automation
-    {% endif %}
+{% block title %}{% if softmain.title == true %}{{ softmain.title }}{% else %}{{ softmain.name }} - logiciel de marketing automation{% endif %}
 {% endblock %}
-{% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
+{% block metadesc %}{{ softmain.name }} - {{ softmain.description| slice(0,350) | raw }}. {% endblock %}
 
             {% block h1 %}
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
@@ -14,7 +9,7 @@
 {% block body %}
     <div id="software">
 
-        <div class="row">
+        <div class="row valign-wrapper">
             <div class="col m3 s12 l3 hide-on-small-only">
                 <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
                      width="250" class="responsive-img">
@@ -23,8 +18,10 @@
                 <p>{{ softmain.description | raw }}</p>
             </div>
         </div>
-        <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
-        <p>{{ softmain.comments }}</p>
+        {% if softmain.comments|length > 1 %}
+            <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
+            <p>{{ softmain.comments | raw }}</p>
+        {% endif %}
 
         <ul class="collapsible" data-collapsible="expandable" id="listOfTableSoftSolo">
             <li>
@@ -77,6 +74,7 @@
                 <div class="collapsible-body">{% include 'table-softothersfunctionnalities.html.twig' %}</div>
             </li>
         </ul>
+  
         <h2>Tags associés à {{ softmain.name | raw }}</h2>
 
         <p id="tagOnSoft">
@@ -100,7 +98,7 @@
             </div>
         </div>
 
-        <h2>Voir d'autres logiciels de marketing automation</h2>
+        <h2>Découvrir d'autres logiciels de marketing automation</h2>
         <div class="row">
 
             {% for software in softwares %}

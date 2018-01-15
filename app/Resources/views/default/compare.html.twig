@@ -93,6 +93,7 @@
                 {% endif %}
             </div>
             <div id="tableVersus">
+
                 <ul class="collapsible" data-collapsible="expandable" id="listOfTableSoftSolo">
                     <li>
                         <div class="collapsible-header"><h2>Informations essentielles sur {{ softmain1.name | raw }}
@@ -217,14 +218,14 @@
                                         {% if softmain1.softInfo.creationDate | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain1.softInfo.creationDate | raw }}</p>
+                                            <p>{{ softmain1.softInfo.creationDate | raw }}€</p>
                                         {% endif %}
                                     </td>
                                     <td>
                                         {% if softmain2.softInfo.creationDate | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain2.softInfo.creationDate | raw }}</p>
+                                            <p>{{ softmain2.softInfo.creationDate | raw }}€</p>
                                         {% endif %}
                                     </td>
                                 </tr>
