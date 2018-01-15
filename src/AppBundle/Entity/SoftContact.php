@@ -26,7 +26,7 @@ class SoftContact
      *
      * @ORM\Column(name="firstNaame", type="string", length=255, nullable=true)
      */
-    private $firstNaame;
+    private $firstName;
 
     /**
      * @var string|null
@@ -73,27 +73,27 @@ class SoftContact
     }
 
     /**
-     * Set firstNaame.
+     * Set firstName.
      *
-     * @param string|null $firstNaame
+     * @param string|null $firstName
      *
      * @return SoftContact
      */
-    public function setFirstNaame($firstNaame = null)
+    public function setFirstName($firstName = null)
     {
-        $this->firstNaame = $firstNaame;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
     /**
-     * Get firstNaame.
+     * Get firstName.
      *
      * @return string|null
      */
-    public function getFirstNaame()
+    public function getFirstName()
     {
-        return $this->firstNaame;
+        return $this->firstName;
     }
 
     /**
