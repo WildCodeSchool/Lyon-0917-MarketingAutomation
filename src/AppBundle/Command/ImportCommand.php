@@ -2,17 +2,14 @@
 
 namespace AppBundle\Command;
 
-
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-
 class ImportCommand extends ContainerAwareCommand
 
-//chercher comment utiliser le service (get container)
 {
 
     private $em;
@@ -49,7 +46,6 @@ class ImportCommand extends ContainerAwareCommand
 
         }
       
-        // To do : Check if this is really csv in good format. If not, threw exception. Because we need 3 good csv to work.
         if (file_exists($pathSoft)) {
             $type = "import-softwares";
             $serviceImport->verifCsv($pathSoft, $type);
@@ -70,28 +66,14 @@ class ImportCommand extends ContainerAwareCommand
             foreach ($errors as $error) {
                 $output->writeln($error);
             }
-
         } else {
-          
-        //encapsuler le code dans un try pour récupérer l'erreur, si elle ne vient pas de nous (c'est à dire du fichier)
-
-         
             $connection->beginTransaction();
-
-
             try {
                 $serviceImport->deleteAllContent($connection, $dbName);
-
                 $serviceImport->import($pathTags, "import-tags");
-
                 $serviceImport->import($pathSoft, "import-softwares");
-
                 $serviceImport->import($pathVersus, "import-versus");
-              
-                // End of transaction and commit if already went good.
-
                 $connection->commit();
-
                 $output->writeln("La BDD a bien été importée." . PHP_EOL . '
 ____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
 \   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
@@ -110,9 +92,6 @@ ____    __    ____  _______  __       __          _______   ______   .__   __.  
 
                 $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
             }
-
         }
-
     }
-
 }
