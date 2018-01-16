@@ -58,4 +58,16 @@
   #versus-button {
     margin: 20px;
   }
+  .collapsible {
+    border: none!important;
+    box-shadow: none!important;
+    margin-bottom: 6vh;
+
+  }
+  .collapsible-body {
+    padding: 0;
+  }
+  .collapsible-header {
+    padding-left: 0;
+  }
 }
