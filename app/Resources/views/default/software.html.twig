@@ -12,7 +12,7 @@
         <div class="row valign-wrapper">
             <div class="col m3 s12 l3 hide-on-small-only">
                 <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
-                     width="250" class="responsive-img">
+                     width="250" class="responsive-img" alt="software">
             </div>
             <div class="col m9 s12">
                 <p>{{ softmain.description | raw }}</p>
@@ -117,7 +117,7 @@
                                 <div class="card-image responsive-img">
                                     <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"><img
                                                 class="responsive-img"
-                                                src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png"></a>
+                                                src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png" alt="comparatif"></a>
 
                                 </div>
                             </div>
@@ -177,5 +177,5 @@
 
 {% endblock %}
 {% block javascripts %}{{ parent() }}
-    <script type="text/javascript" src="{{ asset('assets/js/social.js') }}"></script>
+    <script src="{{ asset('assets/js/social.js') }}"></script>
 {% endblock %}

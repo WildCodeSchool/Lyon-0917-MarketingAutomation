@@ -19,7 +19,6 @@ body {
 #home :-ms-input-placeholder { /* Internet Explorer 10-11 */
     color: lightgrey;
 }
-
 #home :-ms-input-placeholder { /* Microsoft Edge */
     color: lightgrey;
 }
@@ -29,7 +28,7 @@ body {
 #lowBarSearch {
     display: none;
 }
-#navBar {
+.navBar {
     background-color: RGBA(0,0,0,0);
 }
 .navmob{
