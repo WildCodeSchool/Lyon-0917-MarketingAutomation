@@ -80,14 +80,14 @@ body {
   .top{
     cursor: pointer;
     text-align: right;
-    margin-right: 5px;
+    margin-right: 30px;
 
   }
   #topFixed{
     position: fixed;
     text-align: right;
     bottom: 0;
-    right:0;
+    right:10px;
   }
   #autocomplete_compare_software1, #autocomplete_compare_software2 {
     cursor: pointer;
