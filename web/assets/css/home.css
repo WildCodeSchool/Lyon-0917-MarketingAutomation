@@ -12,16 +12,16 @@ body {
 
 }
 #home ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: white;
+    color: lightgrey;
     opacity: 1; /* Firefox */
 }
 
 #home :-ms-input-placeholder { /* Internet Explorer 10-11 */
-    color: white;
+    color: lightgrey;
 }
 
 #home :-ms-input-placeholder { /* Microsoft Edge */
-    color: white;
+    color: lightgrey;
 }
 #topBarSearch {
     display: none;
