@@ -7225,26 +7225,37 @@ nav {
   color: grey;
   margin-top: 8%; }
 
-#tagOnSoft {
+#software #tagOnSoft {
   margin-bottom: 2%;
   color: grey; }
-  #tagOnSoft a {
+  #software #tagOnSoft a {
     color: grey;
     text-decoration: underline; }
 
-table {
+#software .collapsible {
+  border: none !important;
+  box-shadow: none !important;
+  margin-bottom: 6vh; }
+
+#software .collapsible-body {
+  padding: 0; }
+
+#software .collapsible-header {
+  padding-left: 0; }
+
+#software table {
   margin-top: 5%; }
-  table th {
+  #software table th {
     width: 34%;
     padding-left: 10px;
     padding-right: 10px; }
-  table td {
+  #software table td {
     width: 66%;
     text-align: center; }
-    table td p {
+    #software table td p {
       text-align: center; }
 
-#softwareh1 {
+#software #softwareh1 {
   margin-bottom: 0; }
 
 #listing-tags .chip {
@@ -7362,6 +7373,8 @@ table {
     #compare td p {
       padding: 10px;
       text-align: center; }
+      #compare td p a {
+        font-size: 1.0em; }
   #compare h1 {
     margin-top: 8%; }
   #compare .labelcomparatif {
@@ -7391,6 +7404,14 @@ table {
     position: relative; }
   #compare #versus-button {
     margin: 20px; }
+  #compare .collapsible {
+    border: none !important;
+    box-shadow: none !important;
+    margin-bottom: 6vh; }
+  #compare .collapsible-body {
+    padding: 0; }
+  #compare .collapsible-header {
+    padding-left: 0; }
 
 body {
   font-family: 'Lato', sans-serif;
@@ -7428,7 +7449,7 @@ body {
   body .top {
     cursor: pointer;
     text-align: right;
-    margin-right: 5px; }
+    margin-right: 29px; }
   body #topFixed {
     position: fixed;
     text-align: right;
@@ -7447,11 +7468,3 @@ body {
   body :-ms-input-placeholder {
     /* Microsoft Edge */
     color: grey; }
-  body .collapsible {
-    border: none !important;
-    box-shadow: none !important;
-    margin-bottom: 6vh; }
-  body .collapsible-body {
-    padding: 0; }
-  body .collapsible-header {
-    padding-left: 0; }

@@ -80,7 +80,7 @@ body {
   .top{
     cursor: pointer;
     text-align: right;
-    margin-right: 5px;
+    margin-right: 29px;
 
   }
   #topFixed{
@@ -104,17 +104,5 @@ body {
 
   :-ms-input-placeholder { /* Microsoft Edge */
     color: grey;
-  }
-  .collapsible {
-    border: none!important;
-    box-shadow: none!important;
-    margin-bottom: 6vh;
-
-  }
-  .collapsible-body {
-    padding: 0;
-  }
-  .collapsible-header {
-    padding-left: 0;
   }
 }
