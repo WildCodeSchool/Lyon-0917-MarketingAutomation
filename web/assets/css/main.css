@@ -7373,6 +7373,8 @@ nav {
     #compare td p {
       padding: 10px;
       text-align: center; }
+      #compare td p a {
+        font-size: 1.0em; }
   #compare h1 {
     margin-top: 8%; }
   #compare .labelcomparatif {
