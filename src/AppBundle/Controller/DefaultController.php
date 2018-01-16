@@ -41,7 +41,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
 
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
-        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain); 
+        $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);
 
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
@@ -68,28 +68,47 @@ class DefaultController extends Controller
      * @param Request $request
      * @param $researchContent
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("results_{researchContent}", name="results")
-     * @Method("GET")
+     * @Route("results_{researchContent}", name="results", defaults={"researchContent": ""})
      */
 
-    public function resultsAction(Request $request, $researchContent, AwesomeSearch $awesomeSearch)
+    public function resultsAction(Request $request, $researchContent = "", AwesomeSearch $awesomeSearch)
     {
         $this->get("session")->set("researchContent", $researchContent);
 
-        $softwares = $awesomeSearch->search($researchContent);
-
-
         return $this->render('default/results.html.twig', [
-            'softwares' => $softwares,
-            'research' => $researchContent
+            'research' => $researchContent,
+
         ]);
+
     }
 
+    /**
+     * @param Request $request
+     * @param $researchContent
+     * @return JsonResponse
+     * @Route("resultsJson_{researchContent}", name="resultsJson", defaults={"researchContent": ""})
+     */
+
+    public function resultsJsonAction(Request $request, $researchContent = "", AwesomeSearch $awesomeSearch)
+    {
+        $softwares = $awesomeSearch->search($researchContent);
+        if ($request->isXmlHttpRequest()) {
+
+            return new JsonResponse(array('data' => $softwares));
+        } else {
+            throw new HttpException('500', 'Invalid call');
+        }
+    }
+
+     /**
+     * @param array $a
+     * @param array $b
+     * @return mixed
+     */
     private static function compareTags(array $a, array $b) {
         return $b['number'] - $a['number'];
-
     }
-
+    
     /**
      * @Route("listing-tags", name="listingTags")
      * @param Request $request
@@ -103,7 +122,7 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository(Tag::class);
         $tags = $repository->findAll();
 
-        foreach($tags as $tag) {
+        foreach ($tags as $tag) {
             $bools[] = array('slug' => $tag->getSlug(), 'number' => count($tag->getSoftMains()), 'entitie' => $tag->getName());
         }
 
@@ -128,17 +147,15 @@ class DefaultController extends Controller
         $tag = $repository->findOneBy(['slug' => $slug]);
         if (empty($tag)) {
             $softwares = $boolsAsTags->getListSoftwaresByEntitieSlug($slug);
+            $boolean = $boolsAsTags->getDescriptionBySlug($slug);;
             return $this->render('default/unique-tag.html.twig', [
-
                 'softwares' => $softwares,
-                'description' => $boolsAsTags->getDescriptionBySlug($slug),
+                'boolean' => $boolean,
             ]);
         }
 
         return $this->render('default/unique-tag.html.twig', [
-
             'tag' => $tag,
-
         ]);
     }
 
@@ -166,7 +183,8 @@ class DefaultController extends Controller
         ]);
     }
 
-    private static function compare(Versus $a, Versus $b) {
+    private static function compare(Versus $a, Versus $b)
+    {
         return strcmp($a->getSoftware1()->getName(), $b->getSoftware1()->getName());
 
     }
@@ -252,7 +270,6 @@ class DefaultController extends Controller
         sort($canonical);
 
         $em = $this->getDoctrine()->getManager();
-
 
 
         $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([

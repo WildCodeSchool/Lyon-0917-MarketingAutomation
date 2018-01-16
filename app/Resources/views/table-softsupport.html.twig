@@ -9,7 +9,7 @@
             {% elseif softmain.softSupport.isEmailSupport is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softSupport.isEmailSupport is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -21,7 +21,7 @@
             {% elseif softmain.softSupport.isPhoneSupport is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softSupport.isPhoneSupport is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -33,7 +33,7 @@
             {% elseif softmain.softSupport.isChatSupport is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softSupport.isChatSupport is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -45,7 +45,7 @@
             {% elseif softmain.softSupport.isKnowledgeBase is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softSupport.isKnowledgeBase is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>
@@ -53,7 +53,7 @@
         <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
         <td>
             {% if softmain.softSupport.knowledgeBaseLanguage == false %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 {{ softmain.softSupport.knowledgeBaseLanguage }}
             {% endif %}
@@ -67,7 +67,7 @@
             {% elseif softmain.softSupport.isTechnicalDocument is same as(false) %}
                 <i class="small material-icons red-text">close</i>
             {% elseif softmain.softSupport.isTechnicalDocument is same as(null) %}
-                <p class="center-align">Non communiqué</p>
+                <i class="small material-icons grey-text">help_outline</i>
             {% endif %}
         </td>
     </tr>

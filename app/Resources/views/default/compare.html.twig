@@ -3,9 +3,9 @@
     {% if versus|length > 0 %}
         {% for versu in versus %}
             {% if versu.title == true %}
-            {{ versu.title }}
-                {% else %}
-                    Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
+                {{ versu.title }}
+            {% else %}
+                Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
             {% endif %}
         {% endfor %}
     {% endif %}
@@ -13,7 +13,9 @@
 
 {% endblock %}
 {% block metadesc %}Un doute? Comparez 2 logiciels de marketing automation selon leurs fonctionnalités.{% endblock %}
-{% block canonical %} <link rel="canonical" href="{{ app.request.schemeAndHttpHost }}/comparatifs/{{ canonical.0  }}_vs_{{ canonical.1  }}" /> {% endblock %}
+{% block canonical %}
+    <link rel="canonical"
+          href="{{ app.request.schemeAndHttpHost }}/comparatifs/{{ canonical.0 }}_vs_{{ canonical.1 }}"/> {% endblock %}
 
         {% block h1 %}
             <h1>Comparez 2 logiciels de marketing automation</h1>
@@ -91,1169 +93,1232 @@
                 {% endif %}
             </div>
             <div id="tableVersus">
-                <h2>Informations essentielles sur {{ softmain1.name | raw }} et {{ softmain2.name | raw }}</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'name'|trans }}</th>
-                        <td>{{ softmain1.name | raw }}</td>
-                        <td>{{ softmain2.name | raw }}</td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'type'|trans }}</th>
-                        <td>
-                            {% if softmain1.type | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.type | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.type | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.type | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'advantages'|trans }}</th>
-                        <td>
-                            {% if softmain1.advantages | raw == null %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.advantages | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.advantages | raw == null %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.advantages | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'drawbacks'|trans }}</th>
-                        <td>
-                            {% if softmain1.drawbacks | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.drawbacks | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.drawbacks | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.drawbacks | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'rgpd'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.rgpd is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softInfo.rgpd is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softInfo.rgpd is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.rgpd is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softInfo.rgpd is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softInfo.rgpd is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'customers'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.customers == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softInfo.customers }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.customers == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softInfo.customers }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'hostingCountry'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.hostingCountry | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softInfo.hostingCountry | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.hostingCountry | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softInfo.hostingCountry | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'creationDate'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.creationDate | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softInfo.creationDate | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.creationDate | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softInfo.creationDate | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'subscriptionCost'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.subscriptionCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softInfo.subscriptionCost | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.subscriptionCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softInfo.subscriptionCost | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'trainingCost'|trans }}</th>
-                        <td>
-                            {% if softmain1.softInfo.trainingCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softInfo.trainingCost | raw }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softInfo.trainingCost | raw == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softInfo.trainingCost | raw }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Fiches logiciels</th>
-                        <td>
-                            <a href="{{ path('softwareSolo', { 'slug': softmain1.slug }) }}">Voir la fiche complète</a>
-                        </td>
-                        <td>
-                            <a href="{{ path('softwareSolo', { 'slug': softmain2.slug }) }}">Voir la fiche complète</a>
 
-                        </td>
-                    </tr>
-                </table>
-                <h2>Canaux de communication sortants (outbound)</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isEmail'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isEmail is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isEmail is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isEmail is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isEmail is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isSms'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isSms is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isSms is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isSms is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isSms is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isSms is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isSms is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isPopin'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isPopin is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isPopin is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isPopin is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isPopin is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isPopin is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isPopin is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isMailPostal'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isMailPostal is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isMailPostal is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isCallCenter'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isCallCenter is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isCallCenter is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isPushMobile'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isPushMobile is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isPushMobile is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isPushMobile is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isPushMobile is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isPushMobile is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isPushMobile is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isApi'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOutbound.isApi is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOutbound.isApi is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOutbound.isApi is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOutbound.isApi is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOutbound.isApi is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOutbound.isApi is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Support de communication</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isLandingPage'|trans }}</th>
-                        <td>
-                            {% if softmain1.softCommSupport.isLandingPage is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softCommSupport.isLandingPage is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softCommSupport.isLandingPage is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softCommSupport.isLandingPage is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softCommSupport.isLandingPage is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softCommSupport.isLandingPage is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isForm'|trans }}</th>
-                        <td>
-                            {% if softmain1.softCommSupport.isForm is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softCommSupport.isForm is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softCommSupport.isForm is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softCommSupport.isForm is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softCommSupport.isForm is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softCommSupport.isForm is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isTracking'|trans }}</th>
-                        <td>
-                            {% if softmain1.softCommSupport.isTracking is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softCommSupport.isTracking is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softCommSupport.isTracking is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softCommSupport.isTracking is same as(true) %}
-                            <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softCommSupport.isTracking is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softCommSupport.isTracking is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLiveChat'|trans }}</th>
-                        <td>
-                            {% if softmain1.softCommSupport.isLiveChat is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softCommSupport.isLiveChat is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softCommSupport.isLiveChat is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softCommSupport.isLiveChat is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softCommSupport.isLiveChat is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softCommSupport.isLiveChat is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Gestion des contacts</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isContactObject'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isContactObject is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isContactObject is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isContactObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isContactObject is same as(true) %}
-                            <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isContactObject is same as(false) %}
-                            <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isContactObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isCompanyObject'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isCompanyObject is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isCompanyObject is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isDefinedFields'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isDefinedFields is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isDefinedFields is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isIllimitedFields'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isIllimitedFields is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isIllimitedFields is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isImportCsv'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isImportCsv is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isImportCsv is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isImportCsv is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isImportCsv is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isImportCsv is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isImportCsv is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isAutoDuplicate'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isAutoDuplicate is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isAutoDuplicate is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLeadStages'|trans }}</th>
-                        <td>
-                            {% if softmain1.softLeadsOperation.isLeadStages is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softLeadsOperation.isLeadStages is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softLeadsOperation.isLeadStages is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softLeadsOperation.isLeadStages is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softLeadsOperation.isLeadStages is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softLeadsOperation.isLeadStages is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Gestion des segments</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isSegmentCreation'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSegmentOperation.isSegmentCreation is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSegmentOperation.isSegmentCreation is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isIntelligentSegment'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSegmentOperation.isIntelligentSegment is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSegmentOperation.isIntelligentSegment is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Campagnes Marketing Automation</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isAutoResponder'|trans }}</th>
-                        <td>
-                            {% if softmain1.softMarketingCampaign.isAutoResponder is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softMarketingCampaign.isAutoResponder is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLeadScoring'|trans }}</th>
-                        <td>
-                            {% if softmain1.softMarketingCampaign.isLeadScoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softMarketingCampaign.isLeadScoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isCreationCampaign'|trans }}</th>
-                        <td>
-                            {% if softmain1.softMarketingCampaign.isCreationCampaign is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softMarketingCampaign.isCreationCampaign is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isDripMarketingCampaign'|trans }}</th>
-                        <td>
-                            {% if softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isDragAndDrop'|trans }}</th>
-                        <td>
-                            {% if softmain1.softMarketingCampaign.isDragAndDrop is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softMarketingCampaign.isDragAndDrop is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Intégration Social Media</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isTwitterMonitoring'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isTwitterMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isTwitterMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isTwitterAutoPublication'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isTwitterAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isTwitterAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isFacebookMonitoring'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isFacebookMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isFacebookMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isFacebookAutoPublication'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isFacebookAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isFacebookAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLinkedinMonitoring'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isLinkedinMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isLinkedinMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isLinkedinAutoPublication'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isLinkedinAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isLinkedinAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isInstagramMonitoring'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isInstagramMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isInstagramMonitoring is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isInstagramAutoPublication'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSocialMedia.isInstagramAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSocialMedia.isInstagramAutoPublication is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Rapports</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isActivityReportCreation'|trans }}</th>
-                        <td>
-                            {% if softmain1.softReport.isActivityReportCreation is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softReport.isActivityReportCreation is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softReport.isActivityReportCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        <td>
-                            {% if softmain2.softReport.isActivityReportCreation is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softReport.isActivityReportCreation is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softReport.isActivityReportCreation is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
-                        <td>
-                            {% if softmain1.softReport.isActivityReportPeriodicSend is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softReport.isActivityReportPeriodicSend is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Support</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isEmailSupport'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isEmailSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isEmailSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isEmailSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isEmailSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isEmailSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isEmailSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isPhoneSupport'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isPhoneSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isPhoneSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isPhoneSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isPhoneSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isPhoneSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isPhoneSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isChatSupport'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isChatSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isChatSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isChatSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isChatSupport is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isChatSupport is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isChatSupport is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isKnowledgeBase'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isKnowledgeBase is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isKnowledgeBase is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isKnowledgeBase is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isKnowledgeBase is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isKnowledgeBase is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isKnowledgeBase is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain1.softSupport.knowledgeBaseLanguage }}
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.knowledgeBaseLanguage == false %}
-                                <p class="center-align">Non communiqué</p>
-                            {% else %}
-                                {{ softmain2.softSupport.knowledgeBaseLanguage }}
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isTechnicalDocument'|trans }}</th>
-                        <td>
-                            {% if softmain1.softSupport.isTechnicalDocument is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softSupport.isTechnicalDocument is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softSupport.isTechnicalDocument is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softSupport.isTechnicalDocument is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softSupport.isTechnicalDocument is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softSupport.isTechnicalDocument is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
-                <h2>Autres fonctionnalités</h2>
-                <table class="striped border">
-                    <tr>
-                        <th>{{ 'isProviderEmailChoice'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isBlogEdition'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOtherFunctionnalities.isBlogEdition is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOtherFunctionnalities.isBlogEdition is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isTouchPad'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOtherFunctionnalities.isTouchPad is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOtherFunctionnalities.isTouchPad is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isStmtpRelay'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOtherFunctionnalities.isSmtpRelay is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOtherFunctionnalities.isSmtpRelay is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>{{ 'isRssToEmail'|trans }}</th>
-                        <td>
-                            {% if softmain1.softOtherFunctionnalities.isRssToEmail is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                        <td>
-                            {% if softmain2.softOtherFunctionnalities.isRssToEmail is same as(true) %}
-                                <i class="small material-icons green-text">check</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(false) %}
-                                <i class="small material-icons red-text">close</i>
-                            {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(null) %}
-                                <p class="center-align">Non communiqué</p>
-                            {% endif %}
-                        </td>
-                    </tr>
-                </table>
+                <ul class="collapsible" data-collapsible="expandable" id="listOfTableSoftSolo">
+                    <li>
+                        <div class="collapsible-header"><h2>Informations essentielles sur {{ softmain1.name | raw }}
+                                et {{ softmain2.name | raw }}</h2><i class="large material-icons ">arrow_drop_down</i>
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'name'|trans }}</th>
+                                    <td><p>{{ softmain1.name | raw }}</p></td>
+                                    <td><p>{{ softmain2.name | raw }}</p></td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'type'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.type | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.type | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.type | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.type | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'advantages'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.advantages | raw == null %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.advantages | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.advantages | raw == null %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.advantages | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'drawbacks'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.drawbacks | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.drawbacks | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.drawbacks | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.drawbacks | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'rgpd'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.rgpd is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softInfo.rgpd is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softInfo.rgpd is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.rgpd is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softInfo.rgpd is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softInfo.rgpd is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'customers'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.customers == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.softInfo.customers }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.customers == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.softInfo.customers }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'hostingCountry'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.hostingCountry | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.softInfo.hostingCountry | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.hostingCountry | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.softInfo.hostingCountry | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'creationDate'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.creationDate | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.softInfo.creationDate | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.creationDate | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.softInfo.creationDate | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'subscriptionCost'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.subscriptionCost | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.softInfo.subscriptionCost | raw }} €</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.subscriptionCost | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.softInfo.subscriptionCost | raw }} €</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'trainingCost'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softInfo.trainingCost | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain1.softInfo.trainingCost | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softInfo.trainingCost | raw == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            <p>{{ softmain2.softInfo.trainingCost | raw }}</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>Fiches logiciels</th>
+                                    <td>
+                                        <a href="{{ path('softwareSolo', { 'slug': softmain1.slug }) }}">Voir la fiche
+                                            complète</a>
+                                    </td>
+                                    <td>
+                                        <a href="{{ path('softwareSolo', { 'slug': softmain2.slug }) }}">Voir la fiche
+                                            complète</a>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Canaux de communication sortants (outbound)</h2><i
+                                    class="large material-icons ">arrow_drop_down</i></div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isEmail'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isEmail is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isEmail is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isEmail is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isEmail is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isEmail is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isEmail is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isSms'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isSms is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isSms is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isSms is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isSms is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isSms is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isSms is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isPopin'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isPopin is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isPopin is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isPopin is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isPopin is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isPopin is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isPopin is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isMailPostal'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isMailPostal is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isMailPostal is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isCallCenter'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isCallCenter is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isMailPostal is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isMailPostal is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isCallCenter is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isMailPostal is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isMailPostal is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isPushMobile'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isPushMobile is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isPushMobile is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isPushMobile is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isPushMobile is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isPushMobile is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isPushMobile is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isApi'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOutbound.isApi is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOutbound.isApi is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOutbound.isApi is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOutbound.isApi is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOutbound.isApi is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOutbound.isApi is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Support de communication</h2><i
+                                    class="large material-icons ">arrow_drop_down</i></div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isLandingPage'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softCommSupport.isLandingPage is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softCommSupport.isLandingPage is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softCommSupport.isLandingPage is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softCommSupport.isLandingPage is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softCommSupport.isLandingPage is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softCommSupport.isLandingPage is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isForm'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softCommSupport.isForm is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softCommSupport.isForm is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softCommSupport.isForm is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softCommSupport.isForm is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softCommSupport.isForm is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softCommSupport.isForm is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isTracking'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softCommSupport.isTracking is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softCommSupport.isTracking is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softCommSupport.isTracking is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softCommSupport.isTracking is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softCommSupport.isTracking is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softCommSupport.isTracking is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isLiveChat'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softCommSupport.isLiveChat is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softCommSupport.isLiveChat is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softCommSupport.isLiveChat is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softCommSupport.isLiveChat is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softCommSupport.isLiveChat is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softCommSupport.isLiveChat is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Gestion des contacts</h2><i class="large material-icons ">arrow_drop_down</i>
+                        </div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isContactObject'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isContactObject is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isContactObject is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isContactObject is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isContactObject is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isContactObject is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isContactObject is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isCompanyObject'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isCompanyObject is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isCompanyObject is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isCompanyObject is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isCompanyObject is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isDefinedFields'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isDefinedFields is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isDefinedFields is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isDefinedFields is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isDefinedFields is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isIllimitedFields'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isIllimitedFields is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isIllimitedFields is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isIllimitedFields is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isIllimitedFields is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isImportCsv'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isImportCsv is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isImportCsv is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isImportCsv is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isImportCsv is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isImportCsv is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isImportCsv is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isAutoDuplicate'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isAutoDuplicate is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isAutoDuplicate is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isAutoDuplicate is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isAutoDuplicate is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isLeadStages'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softLeadsOperation.isLeadStages is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softLeadsOperation.isLeadStages is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softLeadsOperation.isLeadStages is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softLeadsOperation.isLeadStages is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softLeadsOperation.isLeadStages is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softLeadsOperation.isLeadStages is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Gestion des segments</h2><i class="large material-icons ">arrow_drop_down</i>
+                        </div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isSegmentCreation'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSegmentOperation.isSegmentCreation is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSegmentOperation.isSegmentCreation is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSegmentOperation.isSegmentCreation is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSegmentOperation.isSegmentCreation is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isIntelligentSegment'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSegmentOperation.isIntelligentSegment is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSegmentOperation.isIntelligentSegment is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSegmentOperation.isIntelligentSegment is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSegmentOperation.isIntelligentSegment is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Campagnes Marketing Automation</h2><i
+                                    class="large material-icons ">arrow_drop_down</i></div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isAutoResponder'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softMarketingCampaign.isAutoResponder is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softMarketingCampaign.isAutoResponder is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softMarketingCampaign.isAutoResponder is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softMarketingCampaign.isAutoResponder is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isLeadScoring'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softMarketingCampaign.isLeadScoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softMarketingCampaign.isLeadScoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softMarketingCampaign.isLeadScoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softMarketingCampaign.isLeadScoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isCreationCampaign'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softMarketingCampaign.isCreationCampaign is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softMarketingCampaign.isCreationCampaign is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softMarketingCampaign.isCreationCampaign is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softMarketingCampaign.isCreationCampaign is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isDripMarketingCampaign'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softMarketingCampaign.isDripMarketingCampaign is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isDragAndDrop'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softMarketingCampaign.isDragAndDrop is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softMarketingCampaign.isDragAndDrop is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softMarketingCampaign.isDragAndDrop is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softMarketingCampaign.isDragAndDrop is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Intégration Social Media</h2><i
+                                    class="large material-icons ">arrow_drop_down</i></div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isTwitterMonitoring'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isTwitterMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isTwitterMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isTwitterMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isTwitterMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isTwitterAutoPublication'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isTwitterAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isTwitterAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isTwitterAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isTwitterAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isFacebookMonitoring'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isFacebookMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isFacebookMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isFacebookMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isFacebookMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isFacebookAutoPublication'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isFacebookAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isFacebookAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isFacebookAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isFacebookAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isLinkedinMonitoring'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isLinkedinMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isLinkedinMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isLinkedinMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isLinkedinMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isLinkedinAutoPublication'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isLinkedinAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isLinkedinAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isLinkedinAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isInstagramMonitoring'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isInstagramMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isInstagramMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isInstagramMonitoring is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isInstagramMonitoring is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isInstagramAutoPublication'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSocialMedia.isInstagramAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSocialMedia.isInstagramAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSocialMedia.isInstagramAutoPublication is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSocialMedia.isInstagramAutoPublication is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Rapports</h2><i class="large material-icons ">arrow_drop_down</i>
+                        </div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isActivityReportCreation'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softReport.isActivityReportCreation is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softReport.isActivityReportCreation is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softReport.isActivityReportCreation is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    <td>
+                                        {% if softmain2.softReport.isActivityReportCreation is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softReport.isActivityReportCreation is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softReport.isActivityReportCreation is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isActivityReportPeriodicSend'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softReport.isActivityReportPeriodicSend is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softReport.isActivityReportPeriodicSend is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softReport.isActivityReportPeriodicSend is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softReport.isActivityReportPeriodicSend is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Support</h2><i
+                                    class="large material-icons ">arrow_drop_down</i></div>
+
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isEmailSupport'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.isEmailSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSupport.isEmailSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSupport.isEmailSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.isEmailSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSupport.isEmailSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSupport.isEmailSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isPhoneSupport'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.isPhoneSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSupport.isPhoneSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSupport.isPhoneSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.isPhoneSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSupport.isPhoneSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSupport.isPhoneSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isChatSupport'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.isChatSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSupport.isChatSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSupport.isChatSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.isChatSupport is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSupport.isChatSupport is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSupport.isChatSupport is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isKnowledgeBase'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.isKnowledgeBase is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSupport.isKnowledgeBase is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSupport.isKnowledgeBase is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.isKnowledgeBase is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSupport.isKnowledgeBase is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSupport.isKnowledgeBase is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'knowledgeBaseLanguage'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.knowledgeBaseLanguage == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            {{ softmain1.softSupport.knowledgeBaseLanguage }}
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.knowledgeBaseLanguage == false %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% else %}
+                                            {{ softmain2.softSupport.knowledgeBaseLanguage }}
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isTechnicalDocument'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softSupport.isTechnicalDocument is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softSupport.isTechnicalDocument is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softSupport.isTechnicalDocument is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softSupport.isTechnicalDocument is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softSupport.isTechnicalDocument is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softSupport.isTechnicalDocument is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><h2>Autres fonctionnalités</h2><i class="large material-icons ">arrow_drop_down</i>
+                        </div>
+                        <div class="collapsible-body">
+                            <table class="striped border">
+                                <tr>
+                                    <th>{{ 'isProviderEmailChoice'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isProviderEmailChoice is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isBlogEdition'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOtherFunctionnalities.isBlogEdition is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isBlogEdition is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOtherFunctionnalities.isBlogEdition is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isBlogEdition is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isTouchPad'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOtherFunctionnalities.isTouchPad is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isTouchPad is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOtherFunctionnalities.isTouchPad is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isTouchPad is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isStmtpRelay'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOtherFunctionnalities.isSmtpRelay is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOtherFunctionnalities.isSmtpRelay is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isSmtpRelay is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>{{ 'isRssToEmail'|trans }}</th>
+                                    <td>
+                                        {% if softmain1.softOtherFunctionnalities.isRssToEmail is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain1.softOtherFunctionnalities.isRssToEmail is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                    <td>
+                                        {% if softmain2.softOtherFunctionnalities.isRssToEmail is same as(true) %}
+                                            <i class="small material-icons green-text">check</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(false) %}
+                                            <i class="small material-icons red-text">close</i>
+                                        {% elseif softmain2.softOtherFunctionnalities.isRssToEmail is same as(null) %}
+                                            <i class="small material-icons grey-text">help_outline</i>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

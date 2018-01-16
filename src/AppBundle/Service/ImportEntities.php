@@ -12,7 +12,7 @@ use SplFileObject;
 
 
 /**
- * Class ImportEntities
+ * Class Service
  * @package AppBundle\Service
  *
  * Special service to import 3 CSV files, which can be find in  app/Resources/datas
@@ -68,9 +68,7 @@ class ImportEntities
     private function fileInit(string $fileFromConsole): \SplFileObject
     {
 
-
         $file = new \SplFileObject($fileFromConsole);
-
 
         $file->setFlags(
             SplFileObject::READ_CSV|
@@ -81,7 +79,6 @@ class ImportEntities
 
         return $file;
     }
-
 
     /**
      * @param string $fileName
@@ -101,7 +98,6 @@ class ImportEntities
         }
     }
 
-
     /**
      * @param string $fileName
      * @param int $line
@@ -111,7 +107,6 @@ class ImportEntities
      * Verify correspondance between expected data (here boolean) and effective data, and return error if not matching
      *
      */
-
     private function checkIfBool(string $fileName, int $line, $value, int $column)
     {
 
@@ -120,7 +115,6 @@ class ImportEntities
                 array_push($this->errors, "Fichier " . $fileName . ": Line " . $line . " - Column" . $column . ": " . $value . " is expected to be a boolean");
             }
         }
-
     }
 
     /**
@@ -130,8 +124,7 @@ class ImportEntities
      * To be display online, translate Booleans from true or false to "oui" or "non"
      *
      */
-
-    private function convertToBool(string $value)
+    public function convertToBool(string $value)
     {
 
         $value = strtolower($value);
@@ -151,7 +144,6 @@ class ImportEntities
         }
     }
 
-
     /**
      * @param string $file
      * @param array $row
@@ -159,7 +151,6 @@ class ImportEntities
      * Check if owner of files inconveniently duplicate data
      *
      */
-
     public function searchForDuplicate(string $file, array $row)
     {
 
@@ -183,7 +174,6 @@ class ImportEntities
         }
 
     }
-
 
     /**
      * @param string $softFile
@@ -214,55 +204,46 @@ class ImportEntities
 
                 } else {
 
-                    $stillExists = $this->searchForDuplicate($fileName, $rowFile);
-                    if (null === $stillExists) {
+                        $stillExists = $this->searchForDuplicate($fileName, $rowFile);
+                        if (null === $stillExists) {
 
-                        $line = 1;
-                        foreach ($splSoftFile as $row) {
+                            $line = 1;
+                            foreach ($splSoftFile as $row) {
 
-
-                            /*  foreach ($row as $data) {
-                                  $convertedData[] = $this->convertToBool($data);
-                              }*/
-
-                            //définition des variables de la boucle:
-                            $column = 0;
-
-                            foreach ($softEntitiesYml as $entity) {
-                                $testerror = $this->errors;
-
-                                //parcourt les proprietés de chaque entity
-                                foreach ($entity["fields"] as $property) {
-
-                                    switch ($property) {
-
-                                        case "list-tag":
-                                            break;
-
-                                        case "string":
-                                            break;
-
-                                        case "boolean":
-
-                                            $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
-                                            break;
-
-                                        case "integer":
-
-                                            $this->checkIfInteger($fileName, $line, $row[$column], $column);
-                                            break;
-
-                                    }
-                                    $column++;
-
+                                $column = 0;
+                                if ($row[0] === $this->getConfig()[$fileName]["header"] or implode($row) == null) {
+                                    $splSoftFile->next();
                                 }
+                                foreach ($softEntitiesYml as $entity) {
 
+                                    //parcourt les proprietés de chaque entity
+                                    foreach ($entity["fields"] as $property) {
+
+                                        switch ($property) {
+
+                                            case "list-tag":
+                                                break;
+
+                                            case "string":
+                                                break;
+
+                                            case "boolean":
+
+                                                $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
+                                                break;
+
+                                            case "integer":
+
+                                                $this->checkIfInteger($fileName, $line, $row[$column], $column);
+                                                break;
+
+                                        }
+                                        $column++;
+                                    }
+                                }
+                                $line++;
                             }
-
-                            $line++;
-
                         }
-                    }
 
                 }
             }
@@ -278,18 +259,15 @@ class ImportEntities
      * after verifications
      *
      */
-
     public function import(string $softFile, string $type)
     {
 
         $softEntitiesYml = $this->getConfig()[$type]["entities"];
         $entityKeys = array_keys($softEntitiesYml);
         $splSoftFile = $this->fileInit($softFile);
-        //$totalLines = $this->countLines($splSoftFile);
 
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
-                //if line is empty, continue
 
                 if ($row[0] === $this->getConfig()[$type]["header"] or implode($row) == null) {
                 $splSoftFile->next();
@@ -305,7 +283,6 @@ class ImportEntities
                         $myClass = "AppBundle\\Entity\\" . $entityKeys[$i];
                         $eachEntity[$i] = new $myClass();
                         $listFields = array_keys($entity["fields"]);
-
 
                         // Explore each properties of each entities
                         foreach ($entity["fields"] as $property) {
@@ -397,7 +374,6 @@ class ImportEntities
         }
     }
 
-
     /**
      * @return array
      *
@@ -405,35 +381,10 @@ class ImportEntities
      * See Console Command service in AppBundle/Command/ImportCommand.php
      *
      */
-
     public
     function getErrors()
     {
         return $this->errors;
-    }
-
-
-    /**
-     * @param SplFileObject $file
-     * @return int
-     * Count lines and can be useful to set a progress bar.
-     * Finally not use, but still here
-     *
-     */
-    private
-    function countLines(\SplFileObject $file)
-    {
-
-        // On va à la fin max du fichier
-        $file->seek(PHP_INT_MAX);
-
-        // On récupère le nombre de lignes et on hydrate la propriété avec
-        $totalLines = $file->key() + 1;
-
-        // On remonte le pointeur au début du fichier
-        $file->seek(0);
-
-        return $totalLines;
     }
 
     /**
@@ -451,7 +402,6 @@ class ImportEntities
      *  // TODO : better explanation of this function
      * This function has to be implemented inside a transaction with a commit at the end
      */
-
     public
     function deleteAllContent(Connection $connection, $dbName)
     {

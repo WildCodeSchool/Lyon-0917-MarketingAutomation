@@ -1,12 +1,7 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if softmain.title == true %}
-        {{ softmain.title }}
-    {% else %}
-        {{ softmain.name }} - logiciel de marketing automation
-    {% endif %}
+{% block title %}{% if softmain.title == true %}{{ softmain.title }}{% else %}{{ softmain.name }} - logiciel de marketing automation{% endif %}
 {% endblock %}
-{% block metadesc %}{{ softmain.name }} {{ softmain.description[:60] }}. {% endblock %}
+{% block metadesc %}{{ softmain.name }} - {{ softmain.description| slice(0,350) | raw }}. {% endblock %}
 
             {% block h1 %}
                 <h1 id="softwareh1">{{ softmain.name }}</h1>
@@ -14,7 +9,7 @@
 {% block body %}
     <div id="software">
 
-        <div class="row">
+        <div class="row valign-wrapper">
             <div class="col m3 s12 l3 hide-on-small-only">
                 <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
                      width="250" class="responsive-img">
@@ -23,58 +18,72 @@
                 <p>{{ softmain.description | raw }}</p>
             </div>
         </div>
-        <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
-        <p>{{ softmain.comments }}</p>
+        {% if softmain.comments|length > 1 %}
+            <h2>Notre commentaire sur {{ softmain.name | raw }}</h2>
+            <p>{{ softmain.comments | raw }}</p>
+        {% endif %}
 
+        <ul class="collapsible" data-collapsible="expandable" id="listOfTableSoftSolo">
+            <li>
+                <div class="collapsible-header"><h2>Informations essentielles
+                        sur {{ softmain.name | raw }}</h2><i class="large material-icons ">arrow_drop_down</i></div>
+                <div class="collapsible-body">{% include 'table-softinfo.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Canaux de communication sortants (outbound)
+                    de {{ softmain.name | raw }}</h2><i class="material-icons">arrow_drop_down</i></div>
+                <div class="collapsible-body">{% include 'table-softoutbound.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Supports de communication de {{ softmain.name | raw }} </h2><i class="material-icons">arrow_drop_down</i></div>
 
-        <h2>Informations essentielles sur {{ softmain.name | raw }}</h2>
+                <div class="collapsible-body">{% include 'table-softcommsupport.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Gestion des contacts avec {{ softmain.name | raw }} </h2><i class="material-icons">arrow_drop_down</i></div>
 
-        {% include 'table-softinfo.html.twig' %}
+                <div class="collapsible-body">{% include 'table-softleadsoperation.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Gestion des segments avec {{ softmain.name | raw }} </h2><i class="material-icons">arrow_drop_down</i></div>
 
-        <h2>Canaux de communication sortants (outbound) de {{ softmain.name | raw }} </h2>
+                <div class="collapsible-body">{% include 'table-softsegmentoperation.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Campagnes Marketing Automation avec {{ softmain.name | raw }}</h2><i class="material-icons">arrow_drop_down</i></div>
 
-        {% include 'table-softoutbound.html.twig' %}
+                <div class="collapsible-body">{% include 'table-softmarketingcampaign.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Intégration Social Media {{ softmain.name | raw }} </h2><i class="material-icons">arrow_drop_down</i></div>
 
-        <h2>Supports de communication de {{ softmain.name | raw }} </h2>
+                <div class="collapsible-body">{% include 'table-softsocialmedia.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Rapports {{ softmain.name | raw }}</h2><i class="material-icons">arrow_drop_down</i></div>
 
-        {% include 'table-softcommsupport.html.twig' %}
+                <div class="collapsible-body">{% include 'table-softreport.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Support proposé par {{ softmain.name | raw }}</h2><i class="material-icons">arrow_drop_down</i></div>
 
-        <h2>Gestion des contacts avec {{ softmain.name | raw }} </h2>
-
-        {% include 'table-softleadsoperation.html.twig' %}
-
-        <h2>Gestion des segments avec {{ softmain.name | raw }} </h2>
-
-        {% include 'table-softsegmentoperation.html.twig' %}
-
-        <h2>Campagnes Marketing Automation avec {{ softmain.name | raw }}</h2>
-
-        {% include 'table-softmarketingcampaign.html.twig' %}
-
-        <h2>Intégration Social Media {{ softmain.name | raw }} </h2>
-
-        {% include 'table-softsocialmedia.html.twig' %}
-
-        <h2>Rapports {{ softmain.name | raw }}</h2>
-
-        {% include 'table-softreport.html.twig' %}
-
-        <h2>Support proposé par {{ softmain.name | raw }}</h2>
-
-        {% include 'table-softsupport.html.twig' %}
-
-        <h2>Autres fonctionnalités de {{ softmain.name | raw }}</h2>
-
-        {% include 'table-softothersfunctionnalities.html.twig' %}
-
+                <div class="collapsible-body">{% include 'table-softsupport.html.twig' %}</div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h2>Autres fonctionnalités de {{ softmain.name | raw }}</h2><i class="material-icons">arrow_drop_down</i></div>
+                <div class="collapsible-body">{% include 'table-softothersfunctionnalities.html.twig' %}</div>
+            </li>
+        </ul>
+  
         <h2>Tags associés à {{ softmain.name | raw }}</h2>
 
         <p id="tagOnSoft">
-            {% for tag in softmain.tags  %}
+            {% for tag in softmain.tags %}
                 <a href="{{ path('tagSolo' , { 'slug': tag.slug }) }}">{{ tag.name }}</a>,
             {% endfor %}
             {% for bool in bools %}
-                <a href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>{% if loop.last == false %}, {% endif %}
+                <a
+                href="{{ path('tagSolo', { 'slug': bool.slug }) }}">{{ bool.entitie }}</a>{% if loop.last == false %}, {% endif %}
             {% endfor %}
 
 
@@ -89,7 +98,7 @@
             </div>
         </div>
 
-        <h2>Voir d'autres logiciels de marketing automation</h2>
+        <h2>Découvrir d'autres logiciels similaires de marketing automation</h2>
         <div class="row">
 
             {% for software in softwares %}
@@ -100,13 +109,15 @@
         </div>
         {% if versusList|length > 0 %}
             <div class="row">
-                <h2>Comparer {{ softmain.name }}  avec d'autres logiciels de marketing automation</h2>
+                <h2>Comparer {{ softmain.name }} avec d'autres logiciels de marketing automation</h2>
                 {% for versus in versusList %}
                     <div class="col s6 m3 l2 softwareCard">
                         <div class="card">
                             <div class="marginLogo">
                                 <div class="card-image responsive-img">
-                                    <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"><img class="responsive-img" src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png"></a>
+                                    <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"><img
+                                                class="responsive-img"
+                                                src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png"></a>
 
                                 </div>
                             </div>
@@ -133,7 +144,7 @@
 
     <aside id="share">
         <div class="hide-on-med-and-down">
-            <a href=https://twitter.com/share?url={{ app.request.uri }}&via=Marketing_Automation" rel="nofollow"
+            <a href="https://twitter.com/share?url={{ app.request.uri }}&via=pierre_a" rel="nofollow"
                onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;"
                class="mdi mdi-twitter mdi-36px mdi-light hidden"></a>
             <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" rel="nofollow"
@@ -150,12 +161,12 @@
 
 
         <div class="hide-on-large-only mobile">
-            <a href=https://twitter.com/share?url= {{ app.request.uri }} &via=Marketing_automation" target="_blank"
+            <a href="https://twitter.com/share?url={{ app.request.uri }}&via=pierre_a" target="_blank"
                rel="nofollow"
                class="mdi mdi-twitter mdi-24px mdi-light hidden social"></a>
             <a href="http://www.facebook.com/sharer.php?u={{ app.request.uri }}" target="_blank" rel="nofollow"
                class="mdi mdi-facebook mdi-24px mdi-light hidden"></a>
-            <a href="https://www.linkedin.com/shareArticle?mini=true&url= {{ app.request.uri }}" target="_blank"
+            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ app.request.uri }}" target="_blank"
                rel="nofollow"
                class="mdi mdi-linkedin mdi-24px mdi-light hidden social"></a>
             <a href="https://buffer.com/add?text={{ app.request.uri }}" target="_blank" rel="nofollow"
