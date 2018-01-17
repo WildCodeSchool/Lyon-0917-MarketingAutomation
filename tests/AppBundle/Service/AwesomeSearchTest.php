@@ -25,9 +25,10 @@ class AwesomeSearchTest extends WebTestCase {
 
         $client = static::createClient();
         $search = $client->getContainer()->get("AppBundle\Service\AwesomeSearch");
-        $query = "un logiciel mail";
-        $result = $search->cleanQuery($query);
-        $expected = array("logiciel", "mail");
+        $query = "un megatest inutile sms";
+        $emptyWords = array("un", "megatest", "inutile", "génial");
+        $result = $search->cleanQuery($query, $emptyWords);
+        $expected = array("sms");
         $this->assertEquals(count($expected), count($result));
     }
 
