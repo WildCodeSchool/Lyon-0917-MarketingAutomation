@@ -7148,13 +7148,13 @@ nav {
 
 #table {
   min-height: 100vh; }
-  #table ul li {
-    list-style-type: initial !important; }
-  #table li {
-    text-align: left; }
 
 .striped li {
-  font-size: 1.2em; }
+  font-size: 1.2em;
+  text-align: left; }
+
+.striped ul li {
+  list-style-type: initial !important; }
 
 .striped th {
   font-size: 1.2em; }
