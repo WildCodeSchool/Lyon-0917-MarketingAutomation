@@ -7149,6 +7149,9 @@ nav {
 #table {
   min-height: 100vh; }
 
+.striped ol, .striped ul {
+  padding-left: 15px; }
+
 .striped li {
   font-size: 1.2em;
   text-align: left; }
