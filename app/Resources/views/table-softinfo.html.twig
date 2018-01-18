@@ -28,8 +28,8 @@
     <tr>
         <th>{{ 'drawbacks'|trans }}</th>
         <td>
-            {% if softmain.drawbacks | raw == false %}
-                <p class="center-align">Non communiqué</p>
+            {% if softmain.drawbacks | raw == null %}
+                <i class="small material-icons grey-text">help_outline</i>
             {% else %}
                 <p>{{ softmain.drawbacks | raw }}</p>
             {% endif %}
