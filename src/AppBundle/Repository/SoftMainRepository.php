@@ -254,5 +254,4 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
-
 }
