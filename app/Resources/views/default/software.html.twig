@@ -12,7 +12,7 @@
         <div class="row valign-wrapper">
             <div class="col m3 s12 l3 hide-on-small-only">
                 <img src="{{ asset('assets/img/logo/') }}{{ softmain.slug }}.png" height="250"
-                     width="250" class="responsive-img" alt="software">
+                     width="250" class="responsive-img" alt="logo {{ softmain.name }}">
             </div>
             <div class="col m9 s12">
                 <p>{{ softmain.description | raw }}</p>
@@ -94,7 +94,7 @@
                 <h2>Une question sur {{ softmain.name | raw }}&nbsp;? Contactez-nous&nbsp;!</h2>
             </div>
             <div class="col offset-s3 s6 card">
-                <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
+                <script src="//pam.ammeloot.fr/form/generate.js?id=9"></script>
             </div>
         </div>
 
@@ -117,14 +117,14 @@
                                 <div class="card-image responsive-img">
                                     <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}"><img
                                                 class="responsive-img"
-                                                src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png" alt="comparatif"></a>
+                                                src="{{ asset('assets/img/logo/') }}{% if versus.software1.name == softmain.name %}{{ versus.software2.slug }}{% else %}{{ versus.software1.slug }}{% endif %}.png" alt="logo {% if versus.software1.name == softmain.name %}{{ versus.software2.name }}{% else %}{{ versus.software1.name }}{% endif %}"></a>
 
                                 </div>
                             </div>
                             <div class="card-content">
                                 <a href="{{ path('versus', { 'slug1': versus.software1.slug, 'slug2' : versus.software2.slug }) }}">
                 <span class="card-title">
-                        {{ softmain.name }} comparé à
+                        {{ softmain.name }} vs
                     {% if versus.software1.name == softmain.name %}
                         {{ versus.software2.name }}
                     {% else %}
