@@ -17,55 +17,52 @@
                 </div>
                 Filtres actifs (résultats: ${ sofwarefiltres.length }) :
 
-                <b v-if="mail == true">Mail,</b>
-                <b v-if="sms == true">SMS,</b>
-                <b v-if="popin == true">Popin sur le site,</b>
                 <b v-if="rgpd == true">Conformité RGPD,</b>
+                <b v-if="sms == true">SMS,</b>
+                <b v-if="mail == true">Email,</b>
+                <b v-if="popin == true">Popin sur le site,</b>
                 <b v-if="mailpostal == true">Courrier Postal,</b>
                 <b v-if="callCenter == true">Centre d'appel,</b>
-<b v-if="pushmobile == true">Notifications Push Mobile,</b>
-<b v-if="api == true">Appel API,</b>
-<b v-if="landing == true">Page d'atterissage,</b>
+                <b v-if="pushmobile == true">Notifications Push Mobile,</b>
+                <b v-if="api == true">Appel API,</b>
+                <b v-if="landing == true">Page d'atterissage,</b>
                 <b v-if="formulaire == true">Formulaire,</b>
                 <b v-if="codesuivi == true">Code de suivi,</b>
                 <b v-if="livechat == true">Live Chat,</b>
+                <b v-if="ContactObject == true">Objet Contact,</b>
+                <b v-if="CompanyObject == true">Objet Société,</b>
+                <b v-if="DefinedFields == true">Champs personnalisés,</b>
+                <b v-if="IllimitedFields == true">Champs illimités,</b>
+                <b v-if="ImportCsv == true">Import CSV,</b>
+                <b v-if="AutoDuplicate == true">Déduplication automatique,</b>
+                <b v-if="LeadStages == true">Lead Stages,</b>
+                <b v-if="SegmentCreation == true">Création de segments,</b>
+                <b v-if="IntelligentSegmentCreation == true">Création de segments intelligents,</b>
+                <b v-if="AutoResponder == true">Auto-répondeur,</b>
+                <b v-if="LeadScoring == true">Lead Scoring,</b>
+                <b v-if="CreationCampaign == true">Création de campagnes,</b>
+                <b v-if="DripMarketingCampaign == true">Campagne "Drip Marketing",</b>
+                <b v-if="DragAndDrop == true">Editeur en Drag and Drop,</b>
+                <b v-if="twitterMon == true">Veille Twitter,</b>
+                <b v-if="twitterAuto == true">Publication automatique sur Twitter,</b>
+                <b v-if="linkedinAuto == true">Publication automatique sur Linkedin,</b>
+                <b v-if="linkedinMon == true">Veille Linkedin,</b>
+                <b v-if="facebookMon == true">Veille Facebook,</b>
+                <b v-if="facebookAuto == true">Publication automatique sur Facebook,</b>
+                <b v-if="instagramMon == true">Veille Instagram,</b>
+                <b v-if="instagramAuto == true">Publication automatique sur Instagram,</b>
                 <b v-if="reportcreation == true">Création de rapports d'activité,</b>
-<b v-if="reportperiodic == true">Envoi périodique de rapports,</b>
-<b v-if="emailsupport == true">Support par email,</b>
-<b v-if="phonesupport == true">Support téléphonique,</b>
-<b v-if="chatsupport == true">Support par chat,</b>
-<b v-if="knowledgebase == true">Base de connaissance,</b>
-<b v-if="technicalDoc == true">Documentation technique,</b>
-<b v-if="twitterMon == true">Veille Twitter,</b>
-<b v-if="twitterAuto == true">Publication automatique sur Twitter,</b>
-<b v-if="linkedinAuto == true">Publication automatique sur Linkedin,</b>
-<b v-if="linkedinMon == true">Veille Linkedin,</b>
-<b v-if="instagramMon == true">Veille Instagram,</b>
-<b v-if="instagramAuto == true">Publication automatique sur Instagram,</b>
-<b v-if="facebookMon == true">Veille Facebook,</b>
-<b v-if="facebookAuto == true">Publication automatique sur Facebook,</b>
-<b v-if="SegmentCreation == true">Création de segments,</b>
-<b v-if="IntelligentSegmentCreation == true">Création de segments intelligents,</b>
-<b v-if="AutoResponder == true">Auto-répondeur,</b>
-<b v-if="LeadScoring == true">Lead Scoring,</b>
-<b v-if="CreationCampaign == true">Création de campagnes,</b>
-<b v-if="DripMarketingCampaign == true">Campagne Drip Marketing,</b>
-<b v-if="DragAndDrop == true">Editeur en Drag and Drop,</b>
-<b v-if="ContactObject == true">Objet Contact,</b>
-<b v-if="CompanyObject == true">Objet Société,</b>
-<b v-if="DefinedFields == true">Champs personnalisés,</b>
-<b v-if="IllimitedFields == true">Champs illimités,</b>
-<b v-if="ImportCsv == true">Import CSV,</b>
-<b v-if="AutoDuplicate == true">Déduplication automatique,</b>
-<b v-if="LeadStages == true">Lead Stages,</b>
-<b v-if="ProviderEmailChoice == true">Choix du provider Email,</b>
-<b v-if="BlogEdition == true">Edition d'un blog,</b>
-<b v-if="TouchPad == true">Tablette en magasin,</b>
-<b v-if="RssToEmail == true">RSS to email,</b>
-<b v-if="SmtpRelay == true">SMTP Relais,</b>
-
-
-
+                <b v-if="reportperiodic == true">Envoi périodique de rapports,</b>
+                <b v-if="emailsupport == true">Support par email,</b>
+                <b v-if="phonesupport == true">Support téléphonique,</b>
+                <b v-if="chatsupport == true">Support par chat,</b>
+                <b v-if="knowledgebase == true">Base de connaissance,</b>
+                <b v-if="technicalDoc == true">Documentation technique,</b>
+                <b v-if="ProviderEmailChoice == true">Choix du provider Email,</b>
+                <b v-if="BlogEdition == true">Edition d'un blog,</b>
+                <b v-if="TouchPad == true">Tablette en magasin,</b>
+                <b v-if="SmtpRelay == true">SMTP Relais(email transactionnel),</b>
+                <b v-if="RssToEmail == true">RSS to email,</b>
 
 
 <div v-for="software in sofwarefiltres">
@@ -92,8 +89,6 @@
 </div>
 
 {% include('filters.html.twig') %}
-
-
 
 
 </div>
