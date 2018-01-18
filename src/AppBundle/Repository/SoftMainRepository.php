@@ -254,5 +254,24 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getResult();
     }
 
+    public function findTotalSoftWare($slug) {
+
+        $qb = $this->createQueryBuilder('s')
+            ->join('s.softSupport' , 't')
+            ->join('s.softInfo' , 'i')
+            ->join('s.softReport' , 'r')
+            ->join('s.softSocialMedia' , 'ss')
+            ->join('s.softOutbound' , 'oo')
+            ->join('s.softSegmentOperation' , 'so')
+            ->join('s.softMarketingCampaign' , 'mc')
+            ->join('s.softLeadsOperation' , 'lo')
+            ->join('s.softOtherFunctionnalities' , 'of')
+            ->join('s.softCommSupport' , 'cs')
+            ->where('s.slug LIKE :slug')
+            ->setParameter('slug', $slug)
+
+            ->getQuery();
+        return $qb->getSingleResult();
+    }
 
 }
