@@ -160,7 +160,7 @@ Booleans:
           Synonymous: publication
         isFacebookMonitoring:
           Description: <p></p>
-          Name: Veille facebook
+          Name: Veille Facebook
           Slug: veille-facebook
           Synonymous: veille
         isFacebookAutoPublication:
@@ -180,7 +180,7 @@ Booleans:
           Synonymous: publication
         isInstagramMonitoring:
           Description: <p></p>
-          Name: Veille instagram
+          Name: Veille Instagram
           Slug: veille-instagram
           Synonymous: veille
         isInstagramAutoPublication:
