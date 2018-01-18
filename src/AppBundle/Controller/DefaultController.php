@@ -28,17 +28,17 @@ class DefaultController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param SoftMain $softMain
+     * @param string $slug
      * @param SeeAlso $seeAlso
      * @param BoolsAsTags $boolsAsTags
      * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/logiciels/{slug}", name="softwareSolo")
      */
-    public function softwareSoloAction(Request $request, SoftMain $softMain, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
+    public function softwareSoloAction(string $slug, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
+        /** @var SoftMain $softMain */
+        $softMain = $this->getDoctrine()->getRepository("AppBundle:SoftMain")->findTotalSoftWare($slug);
         $bools = $boolsAsTags->getBoolsBySoftware($softMain);
-        $repository = $this->getDoctrine()->getRepository(SoftMain::class);
 
         $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
         $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);
