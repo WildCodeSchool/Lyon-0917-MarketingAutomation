@@ -269,16 +269,12 @@ class DefaultController extends Controller
         $canonical = array($slug1, $slug2);
         sort($canonical);
 
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine();
 
 
-        $softmain1 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' => $slug1
-        ]);
+        $softmain1 = $em->getRepository("AppBundle:SoftMain")->findTotalSoftWare($slug1);
 
-        $softmain2 = $em->getRepository('AppBundle:SoftMain')->findOneBy([
-            'slug' => $slug2
-        ]);
+        $softmain2 = $em->getRepository("AppBundle:SoftMain")->findTotalSoftWare($slug2);
 
         // Look for existing versus
         $versus = $em->getRepository('AppBundle:Versus')->findWithSoftNames($softmain1->getId(), $softmain2->getId());
