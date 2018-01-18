@@ -1,18 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if versus|length > 0 %}
-        {% for versu in versus %}
-            {% if versu.title == true %}
-                {{ versu.title }}
-            {% else %}
-                Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-
+{% block title %}{% if versus|length > 0 %}{% for versu in versus %}{% if versu.title == true %}{{ versu.title }}{% else %}Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix {% endif %}{% endfor %}{% endif %}
 
 {% endblock %}
-{% block metadesc %}Un doute? Comparez 2 logiciels de marketing automation selon leurs fonctionnalités.{% endblock %}
+{% block metadesc %}
+    <meta name="description"
+          content="Un doute? Comparez {{ softmain1.name }} à {{ softmain2.name }} selon leurs fonctionnalités."/>
+{% endblock %}
 {% block canonical %}
     <link rel="canonical"
           href="{{ app.request.schemeAndHttpHost }}/comparatifs/{{ canonical.0 }}_vs_{{ canonical.1 }}"/> {% endblock %}
@@ -97,7 +90,7 @@
 
                 <ul class="collapsible" data-collapsible="expandable" id="listOfTableSoftSolo">
                     <li>
-                        <div class="collapsible-header"><h2>Informations essentielles sur {{ softmain1.name | raw }}
+                        <div class="collapsible-header active"><h2>Informations essentielles sur {{ softmain1.name | raw }}
                                 et {{ softmain2.name | raw }}</h2><i class="large material-icons ">arrow_drop_down</i>
                         </div>
                         <div class="collapsible-body">
@@ -253,14 +246,14 @@
                                         {% if softmain1.softInfo.trainingCost | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain1.softInfo.trainingCost | raw }}</p>
+                                            {{ softmain1.softInfo.trainingCost | raw }}
                                         {% endif %}
                                     </td>
                                     <td>
                                         {% if softmain2.softInfo.trainingCost | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain2.softInfo.trainingCost | raw }}</p>
+                                            {{ softmain2.softInfo.trainingCost | raw }}
                                         {% endif %}
                                     </td>
                                 </tr>
@@ -279,7 +272,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Canaux de communication sortants (outbound)</h2><i
+                        <div class="collapsible-header active"><h2>Canaux de communication sortants (outbound)</h2><i
                                     class="large material-icons ">arrow_drop_down</i></div>
 
                         <div class="collapsible-body">
@@ -435,7 +428,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Support de communication</h2><i
+                        <div class="collapsible-header active"><h2>Support de communication</h2><i
                                     class="large material-icons ">arrow_drop_down</i></div>
 
                         <div class="collapsible-body">
@@ -528,7 +521,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Gestion des contacts</h2><i class="large material-icons ">arrow_drop_down</i>
+                        <div class="collapsible-header active"><h2>Gestion des contacts</h2><i class="large material-icons ">arrow_drop_down</i>
                         </div>
 
                         <div class="collapsible-body">
@@ -684,7 +677,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Gestion des segments</h2><i class="large material-icons ">arrow_drop_down</i>
+                        <div class="collapsible-header active"><h2>Gestion des segments</h2><i class="large material-icons ">arrow_drop_down</i>
                         </div>
 
                         <div class="collapsible-body">
@@ -735,7 +728,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Campagnes Marketing Automation</h2><i
+                        <div class="collapsible-header active"><h2>Campagnes Marketing Automation</h2><i
                                     class="large material-icons ">arrow_drop_down</i></div>
 
                         <div class="collapsible-body">
@@ -849,7 +842,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Intégration Social Media</h2><i
+                        <div class="collapsible-header active"><h2>Intégration Social Media</h2><i
                                     class="large material-icons ">arrow_drop_down</i></div>
 
                         <div class="collapsible-body">
@@ -1026,7 +1019,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Rapports</h2><i class="large material-icons ">arrow_drop_down</i>
+                        <div class="collapsible-header active"><h2>Rapports</h2><i class="large material-icons ">arrow_drop_down</i>
                         </div>
 
                         <div class="collapsible-body">
@@ -1076,7 +1069,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Support</h2><i
+                        <div class="collapsible-header active"><h2>Support</h2><i
                                     class="large material-icons ">arrow_drop_down</i></div>
 
                         <div class="collapsible-body">
@@ -1207,7 +1200,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="collapsible-header"><h2>Autres fonctionnalités</h2><i class="large material-icons ">arrow_drop_down</i>
+                        <div class="collapsible-header active"><h2>Autres fonctionnalités</h2><i class="large material-icons ">arrow_drop_down</i>
                         </div>
                         <div class="collapsible-body">
                             <table class="striped border">

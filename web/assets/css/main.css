@@ -60,7 +60,7 @@ ol, ul {
   margin: 0; }
 
 li {
-  list-style: none; }
+  /* list-style: none; */ }
 
 /* Text-level semantics */
 a:focus {
@@ -7152,9 +7152,13 @@ nav {
 #table {
   min-height: 100vh; }
 
+.striped ol, .striped ul {
+  padding-left: 15px; }
 .striped li {
-  font-size: 1.2em; }
-
+  font-size: 1.2em;
+  text-align: left; }
+.striped ul li {
+  list-style-type: initial !important; }
 .striped th {
   font-size: 1.2em; }
 
@@ -7266,6 +7270,9 @@ nav {
 
 #software #softwareh1 {
   margin-bottom: 0; }
+#software #listing ul li {
+  list-style-type: initial !important;
+  font-size: 1.2em; }
 
 #listing-tags .chip {
   margin-left: 5px; }

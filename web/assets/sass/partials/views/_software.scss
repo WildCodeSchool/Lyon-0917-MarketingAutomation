@@ -10,8 +10,8 @@
     }
   }
   .collapsible {
-    border: none!important;
-    box-shadow: none!important;
+    border: none !important;
+    box-shadow: none !important;
     margin-bottom: 6vh;
 
   }
@@ -39,5 +39,13 @@
 
   #softwareh1 {
     margin-bottom: 0;
+  }
+  #listing {
+    ul {
+      li {
+        list-style-type: initial !important;
+        font-size: 1.2em;
+      }
+    }
   }
 }
