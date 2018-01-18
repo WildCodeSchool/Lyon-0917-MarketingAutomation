@@ -4,8 +4,17 @@
 }
 
 .striped {
+  ol, ul {
+    padding-left: 15px;
+  }
   li {
     font-size: 1.2em;
+    text-align: left;
+  }
+  ul {
+    li {
+      list-style-type: initial!important;
+    }
   }
   th {
     font-size: 1.2em;

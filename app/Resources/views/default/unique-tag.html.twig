@@ -13,11 +13,7 @@
         {% endif %}
         {% endif %}
 {% endblock %}
-{% block metadesc %}
-{% if tag is defined %}
-{{ tag.description | raw | slice(0,350) }}
-{% elseif softwares is defined %}{{ boolean.description | slice(0,350) | raw}}{% endif %}
-{% endblock %}
+
 
         {% block h1 %}
             {% if tag is defined %}

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 {% block title %}Contactez-nous! {{ parent() }} {% endblock %}
-{% block metadesc %}Pour nous contacter, utilisez notre formulaire de contact.{% endblock %}
+{% block metadesc %}
+    <meta name="description"
+          content="Pour nous contacter, utilisez notre formulaire de contact."/>
+{% endblock %}
 
         {% block h1 %}
             <h1>Contactez-nous&nbsp;!</h1>
@@ -13,7 +16,7 @@
         <div class="row text">
             <div id="formContact">
                 <div class="col m6 s12">
-                    <script type="text/javascript" src="//pam.ammeloot.fr/form/generate.js?id=8"></script>
+                    <script src="//pam.ammeloot.fr/form/generate.js?id=8"></script>
                 </div>
                 <div class="col m6 s12">
                     <figure>

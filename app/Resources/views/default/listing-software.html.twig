@@ -1,9 +1,11 @@
 {% extends 'base.html.twig' %}
 {% block title %}Tous les logiciels de marketing automation {% endblock %}
-{% block metadesc %}Liste de tous les logiciels de marketing automation.{% endblock %}
-
+{% block metadesc %}
+    <meta name="description"
+          content="Liste de tous les logiciels de marketing automation."/>
+{% endblock %}
 {% block h1 %}
-    <h1>Tous les logiciels de marketing automation</h1>
+    <h1>{{ softwares|length }} logiciels de marketing automation</h1>
     <p>Retrouvez ici tous les logiciels de marketing automation qui sont analysés sur comparer.pro&nbsp;! <br/>Il vous suffit de cliquer sur son nom ou son logo pour en savoir plus.</p>
 {% endblock %}
 

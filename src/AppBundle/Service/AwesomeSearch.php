@@ -193,20 +193,16 @@ class AwesomeSearch
      *
      */
 
-    private function cleanQuery(string $query) :array
+    public function cleanQuery(string $query, $emptyWords = "") :array
     {
         $lowerQuery = strtolower($query);
         $arrayOfWords = preg_split("/[\s,+\"'&%().]+/", $lowerQuery);
-        $goodQuery = [];
-        $emptyWords = $this->getDatas()["EmptyWords"];
-        $arrayEmptyWords = explode(" ", $emptyWords);
 
-        foreach ($arrayOfWords as $word) {
-            $isDirtyOrNot = in_array($word, $arrayEmptyWords);
-            if ($isDirtyOrNot === false AND strlen($word) > 2) {
-                $goodQuery[] .= $word;
-            }
+        if(empty($emptyWords)) {
+            $emptyWords = $this->getDatas()["EmptyWords"];
+            $emptyWords = explode(" ", $emptyWords);
         }
+        $goodQuery = array_diff($arrayOfWords, $emptyWords);
 
         return $goodQuery;
     }
