@@ -50,7 +50,10 @@ class DefaultController extends Controller
             'bools' => $bools,
         ]);
     }
-
+    private static function compareSoftNames(SoftMain $softMain1, SoftMain $softMain2)
+    {
+        return strcmp($softMain1->getName(), $softMain2->getName());
+    }
     /**
      * @Route("logiciels", name="listingSoftware")
      */
@@ -59,6 +62,8 @@ class DefaultController extends Controller
 
         $repository = $this->getDoctrine()->getRepository(SoftMain::class);
         $softMains = $repository->findAll();
+        usort($softMains, 'self::compareSoftNames');
+
         return $this->render('default/listing-software.html.twig', [
             'softwares' => $softMains,
         ]);
@@ -186,7 +191,6 @@ class DefaultController extends Controller
     private static function compare(Versus $a, Versus $b)
     {
         return strcmp($a->getSoftware1()->getName(), $b->getSoftware1()->getName());
-
     }
 
     /**
