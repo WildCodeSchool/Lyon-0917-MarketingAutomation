@@ -15,6 +15,7 @@ $(document).ready(function () {
                     'http://www3.pictures.fp.zimbio.com/Nicholas+Cage+David+Letterman+-EtX2RCI91al.jpg',
                                         'http://resources2.news.com.au/images/2009/11/04/1225794/400950-nicolas-cage.jpg',
                     'http://www.topnews.in/uploads/Nicolas-Cage1.jpg',
+                    'https://avatars1.githubusercontent.com/u/4603318?s=400&v=4',
                     'http://starsmedia.ign.com/stars/image/article/908/908074/nicolas-cage-20080905025038648-000.jpg',
                     'http://www.iwatchstuff.com/2012/11/30/nic-cage-in-things.jpg',
                     'http://images.contactmusic.com/newsimages/nicolas_cage_552048.jpg',
