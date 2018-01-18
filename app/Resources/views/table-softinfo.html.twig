@@ -94,7 +94,7 @@
             {% if softmain.softInfo.trainingCost | raw == false %}
                 <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                <p>{{ softmain.softInfo.trainingCost | raw }}</p>
+                {{ softmain.softInfo.trainingCost | raw }}
             {% endif %}
         </td>
     </tr>
