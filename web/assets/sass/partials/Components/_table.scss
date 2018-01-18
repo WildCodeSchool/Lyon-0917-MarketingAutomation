@@ -1,6 +1,16 @@
 #table {
   min-height: 100vh;
 
+  ul {
+    li {
+      list-style-type: initial!important;
+    }
+  }
+
+  li {
+    text-align: left;
+  }
+
 }
 
 .striped {
