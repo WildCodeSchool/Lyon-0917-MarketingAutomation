@@ -32,6 +32,27 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}"/>
     {% block canonical %}  {% endblock %}
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+        window.addEventListener("load", function(){
+            window.cookieconsent.initialise({
+                "palette": {
+                    "popup": {
+                        "background": "#000"
+                    },
+                    "button": {
+                        "background": "#f1d600"
+                    }
+                },
+                "content": {
+                    "message": "En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de cookies pour mieux comprendre vos besoins et permettre l'amélioration continue du service proposé et réaliser des statistiques de visites.\nPour en savoir plus sur les cookies :",
+                    "href": "{{ path('mentionsLegales') }}",
+                    "dismiss": "OK",
+                    "link": "Mentions Légales"
+                }
+            })});
+    </script>
 </head>
 <body>
 {% block navBar %}
