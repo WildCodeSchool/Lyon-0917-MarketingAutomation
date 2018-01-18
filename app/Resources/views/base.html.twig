@@ -30,6 +30,7 @@
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.png') }}"/>
     {% block canonical %}  {% endblock %}
+    {% include('cookieConsent.html.twig') %}
 </head>
 <body>
 {% block navBar %}
