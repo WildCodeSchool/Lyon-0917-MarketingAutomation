@@ -155,18 +155,18 @@ Booleans:
           Synonymous: veille
         isTwitterAutoPublication:
           Description: <p></p>
-          Name: Publication automatique sur Twitter
-          Slug: publication-automatique-twitter
+          Name: Publication Twitter
+          Slug: publication-twitter
           Synonymous: publication
         isFacebookMonitoring:
           Description: <p></p>
-          Name: Veille facebook
+          Name: Veille Facebook
           Slug: veille-facebook
           Synonymous: veille
         isFacebookAutoPublication:
           Description: <p></p>
-          Name: Publication automatique Facebook
-          Slug: publication-automatique-facebook
+          Name: Publication Facebook
+          Slug: publication-facebook
           Synonymous: publication
         isLinkedinMonitoring:
           Description: <p></p>
@@ -175,18 +175,18 @@ Booleans:
           Synonymous: veille
         isLinkedinAutoPublication:
           Description: <p></p>
-          Name: Publication automatique Linkedin
-          Slug: publication-automatique-linkedin
+          Name: Publication Linkedin
+          Slug: publication-linkedin
           Synonymous: publication
         isInstagramMonitoring:
           Description: <p></p>
-          Name: Veille instagram
+          Name: Veille Instagram
           Slug: veille-instagram
           Synonymous: veille
         isInstagramAutoPublication:
           Description: <p></p>
-          Name: Publication automatique instagram
-          Slug: publication-automatique-instagram
+          Name: Publication Instagram
+          Slug: publication-instagram
           Synonymous: publication
     softReport:
         isActivityReportCreation:
