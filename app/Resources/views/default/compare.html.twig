@@ -1,18 +1,11 @@
 {% extends 'base.html.twig' %}
-{% block title %}
-    {% if versus|length > 0 %}
-        {% for versu in versus %}
-            {% if versu.title == true %}
-                {{ versu.title }}
-            {% else %}
-                Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix
-            {% endif %}
-        {% endfor %}
-    {% endif %}
-
+{% block title %}{% if versus|length > 0 %}{% for versu in versus %}{% if versu.title == true %}{{ versu.title }}{% else %}Comparez {{ softmain1.name }} à {{ softmain2.name }} - logiciels de marketing automation pour faire le bon choix {% endif %}{% endfor %}{% endif %}
 
 {% endblock %}
-{% block metadesc %}Un doute? Comparez 2 logiciels de marketing automation selon leurs fonctionnalités.{% endblock %}
+{% block metadesc %}
+    <meta name="description"
+          content="Un doute? Comparez {{ softmain1.name }} à {{ softmain2.name }} selon leurs fonctionnalités."/>
+{% endblock %}
 {% block canonical %}
     <link rel="canonical"
           href="{{ app.request.schemeAndHttpHost }}/comparatifs/{{ canonical.0 }}_vs_{{ canonical.1 }}"/> {% endblock %}
