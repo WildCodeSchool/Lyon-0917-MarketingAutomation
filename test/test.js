@@ -1,0 +1,1 @@
+const {filter} = {require }
