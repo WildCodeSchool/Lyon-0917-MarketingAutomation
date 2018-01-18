@@ -7187,12 +7187,11 @@ nav {
   min-height: 70vh;
   margin-top: 14%; }
 
-#home .homeCard {
-  margin-top: -50%;
-  margin-bottom: 30%;
-  border-radius: 52px;
-  -moz-border-radius: 52px;
-  -webkit-border-radius: 52px; }
+#home #homeCard {
+  margin-top: -30%;
+  margin-bottom: 30%; }
+  #home #homeCard .card-panel {
+    border-radius: 30px; }
 
 #results .card {
   box-shadow: none; }

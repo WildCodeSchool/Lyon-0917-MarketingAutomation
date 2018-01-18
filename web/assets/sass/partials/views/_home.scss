@@ -39,12 +39,12 @@
     min-height: 70vh;
     margin-top: 14%;
   }
-  .homeCard {
-    margin-top: -50%;
+  #homeCard {
+    margin-top: -30%;
     margin-bottom: 30%;
-    border-radius: 52px;
-    -moz-border-radius: 52px;
-    -webkit-border-radius: 52px;
+    .card-panel {
+      border-radius: 30px;
+    }
   }
 }
 
