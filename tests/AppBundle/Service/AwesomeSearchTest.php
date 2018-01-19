@@ -48,4 +48,12 @@ class AwesomeSearchTest extends WebTestCase {
         $this->assertEquals($query, $result);
     }
 
+    public function testCutWordsVirgule1(){
+        $client = static::createClient();
+        $search = $client->getContainer()->get("AppBundle\Service\AwesomeSearch");
+        $query = "Ceci est une description qui fait plus de 160 caractères et l'objectif c'est de la couper proprement et d'ajouter les trois petits points à la fin. Voyons si cette, méthode fonctionne comme on l'attend, quel suspens!";
+        $result = $search->cutQuery($query, 160);
+        $this->assertEquals("Ceci est une description qui fait plus de 160 caractères et l'objectif c'est de la couper proprement et d'ajouter les trois petits points à la fin. Voyons si cette …", $result);
+    }
+
 }

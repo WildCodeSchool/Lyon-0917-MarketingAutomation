@@ -329,24 +329,23 @@ class AwesomeSearch
      */
     public function cutQuery(string $string, int $n):string {
             // Cut a text of  $N chars after a word
-            if( strlen( $string ) < $n ) return $string;
+            if( strlen( $string ) < $n ) {
+             return $string;
+            }
 
         $firstPart = mb_substr($string, 0, $n);
-
         $secondPart = mb_substr($string, $n);
 
         $arraySecondPart = explode(" ", $secondPart);
 
         if(substr($arraySecondPart[0], -1) === "," ) {
             $goodSecondPart = substr($arraySecondPart[0], 0,-1);
-        }elseif(substr($arraySecondPart[0], -1) === "." ) {
+        } elseif (substr($arraySecondPart[0], -1) === "." ) {
             $goodSecondPart = substr($arraySecondPart[0], 0,-1);
-
-        }else{
+        } else {
             $goodSecondPart = $arraySecondPart[0];
         }
 
-        return $firstPart . $goodSecondPart . " ...";
+        return $firstPart . $goodSecondPart . " …";
     }
-
 }
