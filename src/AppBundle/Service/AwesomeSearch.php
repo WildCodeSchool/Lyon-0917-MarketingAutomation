@@ -131,7 +131,7 @@ class AwesomeSearch
             $response[] = array(
                 'name' => $software->getName(),
                 'slug' => $software->getSlug(),
-                'description' => strip_tags(mb_strimwidth($software->getDescription(), 0, 160)),
+                'description' => $this->cutQuery(strip_tags($software->getDescription()), 160),
                 'logo' => $software->getLogoUrl(),
                 'isRgpd' => $software->getSoftInfo()->getRgpd(),
                 'isSms' => $software->getSoftOutBound()->getIsSms(),
@@ -321,6 +321,19 @@ class AwesomeSearch
         $this->addToFinalResult($resultsPoint);
 
         return $resultsPoint;
+
+    }
+
+    /**
+     * Return Description of each software with a good cesure
+     */
+    public function cutQuery(string $string, int $n):string {
+            // Cut a text of  $N chars after a word
+            if( strlen( $string ) < $n ) return $string;
+
+            $str[0] = mb_substr( $string, 0, $n );
+            $str[1] = preg_replace( '/(\s.+)/', '', mb_substr( $string, $n ) );
+            return $str[0] . $str[1] . ' …';
 
     }
 
