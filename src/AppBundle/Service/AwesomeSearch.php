@@ -334,8 +334,6 @@ class AwesomeSearch
             $str[0] = mb_substr( $string, 0, $n );
             $str[1] = preg_replace( '/(\s.+)/', '', mb_substr( $string, $n ) );
             return $str[0] . $str[1] . ' …';
-
     }
-
 
 }
