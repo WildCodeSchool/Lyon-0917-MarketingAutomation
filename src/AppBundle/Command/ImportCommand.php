@@ -74,7 +74,19 @@ class ImportCommand extends ContainerAwareCommand
                 $serviceImport->import($pathSoft, "import-softwares");
                 $serviceImport->import($pathVersus, "import-versus");
                 $connection->commit();
-                $output->writeln("La BDD a bien été importée." . PHP_EOL . '
+
+
+
+            } catch (\Exception $e) {
+              
+                $connection->rollBack();
+
+                $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
+            }
+
+            $serviceImport->addSeeAlsoBySoftwares();
+
+            $output->writeln("La BDD a bien été importée." . PHP_EOL . '
 ____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
 \   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
  \   \/    \/   /  |  |__   |  |     |  |        |  .--.  |  |  |  | |   \|  | |  |__      |  | 
@@ -84,14 +96,6 @@ ____    __    ____  _______  __       __          _______   ______   .__   __.  
                                                                                                 
             
             ');
-
-
-            } catch (\Exception $e) {
-              
-                $connection->rollBack();
-
-                $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
-            }
         }
     }
 }

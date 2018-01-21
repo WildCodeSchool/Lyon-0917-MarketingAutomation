@@ -158,6 +158,13 @@ class SoftMain
     private $softReport;
 
     /**
+     * One SoftMain has One SeeAlso
+     * @ORM\OneToOne(targetEntity="SoftSeeAlso", inversedBy="softMain")
+     * @ORM\JoinColumn(name="softSeeAlsoId", referencedColumnName="id", onDelete="CASCADE")
+
+     */
+    private $softSeeAlso;
+    /**
      * One SoftMain has One SoftSupport.
      * @ORM\OneToOne(targetEntity="SoftSupport", inversedBy="softMain")
      * @ORM\JoinColumn(name="softSupportId", referencedColumnName="id", onDelete="CASCADE")
@@ -184,6 +191,8 @@ class SoftMain
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
+
+
 
     /**
      * Constructor
@@ -792,4 +801,24 @@ class SoftMain
     {
         return $this->softContact;
     }
+
+    /**
+     * @return \AppBundle\Entity\SoftSeeAlso|null
+     */
+    public function getSoftSeeAlso()
+    {
+        return $this->softSeeAlso;
+    }
+
+    /**
+     * @param mixed $softSeeAlso
+     * @return SoftMain
+     */
+    public function setSoftSeeAlso($softSeeAlso)
+    {
+        $this->softSeeAlso = $softSeeAlso;
+        return $this;
+    }
+
+
 }

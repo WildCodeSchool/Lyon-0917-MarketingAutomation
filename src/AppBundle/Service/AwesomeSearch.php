@@ -225,7 +225,7 @@ class AwesomeSearch
         $resultTable = [];
         $j = 0;
         $entityKeys = array_keys($this->getDatas()['Booleans']);
-
+        if(!empty($word)) {
         foreach ( $this->getDatas()['Booleans'] as $table ) {
             $i = 0;
             $booleanKeys = array_keys($table);
@@ -239,7 +239,7 @@ class AwesomeSearch
                 $i++;
             }
             $j++;
-        }
+        }}
         // TODO : Cette function DOIT return uniquement true, mais elle ajoute à final result tous les tableaux trouvés par la query. À LA VERSION FINAL: remplacer par return true
 
         return $resultTable;

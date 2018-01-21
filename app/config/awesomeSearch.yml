@@ -245,7 +245,7 @@ Booleans:
           Description: <p></p>
           Name: SMTP Relais (email transactionnel)
           Slug: relais-smtp
-          Synonymous: relilas
+          Synonymous: relais
         isRssToEmail:
           Description: <p>Permet de transformer un flux RSS en messages envoyés périodiquement.</p>
           Name: RSS to email
