@@ -1,19 +1,17 @@
-<footer class="page-footer">
+<footer id="footer">
     <div class="container">
-        <div class="row center-align">
-            <div class="col s12 m2 l2"><a href="{{ path('homepage') }}">Home</a></div>
-            <div class="col s12 m2 l2"><a href="{{ path('listingSoftware') }}">Logiciels</a></div>
-            <div class="col s12 m2 l2"><a href="{{ path('listingTags') }}">Tags</a></div>
-            <div class="col s12 m2 l2"><a href="{{ path('listingVersus') }}">Comparatifs</a></div>
-            <div class="col s12 m2 l2"><a href="{{ path('contact') }}">Contact</a></div>
-            <div class="col s12 m2 l2"><a href="{{ path('mentionsLegales') }}">Mentions légales</a></div>
+        <div class="flex-container">
+            <div class="flex-item"><a href="{{ path('homepage') }}">Home</a></div>
+            <div class="flex-item"><a href="{{ path('listingSoftware') }}">Logiciels</a></div>
+            <div class="flex-item"><a href="{{ path('listingTags') }}">Tags</a></div>
+            <div class="flex-item"><a href="{{ path('listingVersus') }}">Comparatif</a></div>
+            <div class="flex-item"><a href="{{ path('contact') }}">Contact</a></div>
+            <div class="flex-item"><a href="{{ path('methodologie') }}">Méthodologie</a></div>
+            <div class="flex-item"><a href="{{ path('mentionsLegales') }}">Mentions légales</a></div>
         </div>
-        <div class="row center-align">
-            <div class="col s12">
-                <p class="center-align">© 2017 Pierre Ammeloot</p>
-                <a href="https://wildcodeschool.fr">Created by the Wild Code School</a>
-                <a href="{{ path('methodologie') }}">Méthodologie</a>
-            </div>
+        <div class="flex-container">
+            <div class="flex-item">© 2018 Pierre Ammeloot</div>
+            <div class="flex-item"><a href="https://wildcodeschool.fr">Created by the Wild Code School</a></div>
         </div>
     </div>
 </footer>
