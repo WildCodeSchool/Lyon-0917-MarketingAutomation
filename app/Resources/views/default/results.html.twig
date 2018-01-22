@@ -9,6 +9,10 @@
 
 
             <div class="col s12 m7 l7">
+                <div id="loadingScreen">
+                    <div id="loading" class="loader"></div>
+                </div>
+                <div id ="dynamicResults">
                 <p class="presults">${ softwaresList.length } résultat(s) pour votre mot-clé "{{ research }}".
                 </p>
                 <div class="center-align hide-on-med-and-up">
@@ -87,14 +91,13 @@
     </div>
 </div>
 </div>
-
+            </div>
 {% include('filters.html.twig') %}
 
 
 </div>
 
 
-</div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
@@ -473,6 +476,14 @@
     });
 
 </script>
+    <script>
+        setTimeout(function() {
+            document.getElementById('dynamicResults').style.display = "block";
+        },1000);
+        setTimeout(function() {
+            document.getElementById('loadingScreen').style.display = "none";
+        },1000);
+    </script>
 {% endblock %}
 {% block javascripts %}{{ parent() }}
     <script type="text/javascript" src="{{ asset('assets/js/resultHide.js') }}"></script>
