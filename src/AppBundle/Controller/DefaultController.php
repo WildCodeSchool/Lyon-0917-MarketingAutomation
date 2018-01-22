@@ -177,7 +177,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("aPropos", name="aPropos")
+     * @Route("a-propos", name="a-propos")
      */
     public function  aProposAction(Request $request)
     {
