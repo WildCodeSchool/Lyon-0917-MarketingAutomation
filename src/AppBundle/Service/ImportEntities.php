@@ -191,7 +191,7 @@ class ImportEntities
 
         while (!$splSoftFile->eof()) {
 
-            $totalFields = 0;
+            $totalFields = 1;
             foreach ($softEntitiesYml as $softEntityYml) {
                 $countField = count($softEntityYml["fields"]);
                 $totalFields += $countField;
@@ -210,7 +210,7 @@ class ImportEntities
                             $line = 1;
                             foreach ($splSoftFile as $row) {
 
-                                $column = 0;
+                                $column = 1;
                                 if ($row[0] === $this->getConfig()[$fileName]["header"] or implode($row) == null) {
                                     $splSoftFile->next();
                                 }
@@ -269,9 +269,11 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
 
-                if ($row[0] === $this->getConfig()[$type]["header"] or implode($row) == null) {
+                if ($row[0] !== "ok" or implode($row) == null) {
                 $splSoftFile->next();
                 } else {
+
+                    array_shift($row);
                     $convertedData = [];
                     $caseImport = 0;
                     $i = 0;
