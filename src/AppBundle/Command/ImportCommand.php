@@ -73,6 +73,18 @@ class ImportCommand extends ContainerAwareCommand
                 $serviceImport->import($pathTags, "import-tags");
                 $serviceImport->import($pathSoft, "import-softwares");
                 $serviceImport->import($pathVersus, "import-versus");
+                $serviceImport->addSeeAlsoBySoftwares();
+
+                $output->writeln("La BDD a bien été importée." . PHP_EOL . '
+____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
+\   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
+ \   \/    \/   /  |  |__   |  |     |  |        |  .--.  |  |  |  | |   \|  | |  |__      |  | 
+  \            /   |   __|  |  |     |  |        |  |  |  |  |  |  | |  . `  | |   __|     |  | 
+   \    /\    /    |  |____ |  `----.|  `----.   |  \'--\'  |  `--\'  | |  |\   | |  |____    |__| 
+    \__/  \__/     |_______||_______||_______|   |_______/ \______/  |__| \__| |_______|   (__) 
+                                                                                                
+            
+            ');
                 $connection->commit();
 
 
@@ -84,18 +96,7 @@ class ImportCommand extends ContainerAwareCommand
                 $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
             }
 
-            $serviceImport->addSeeAlsoBySoftwares();
 
-            $output->writeln("La BDD a bien été importée." . PHP_EOL . '
-____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
-\   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
- \   \/    \/   /  |  |__   |  |     |  |        |  .--.  |  |  |  | |   \|  | |  |__      |  | 
-  \            /   |   __|  |  |     |  |        |  |  |  |  |  |  | |  . `  | |   __|     |  | 
-   \    /\    /    |  |____ |  `----.|  `----.   |  \'--\'  |  `--\'  | |  |\   | |  |____    |__| 
-    \__/  \__/     |_______||_______||_______|   |_______/ \______/  |__| \__| |_______|   (__) 
-                                                                                                
-            
-            ');
         }
     }
 }
