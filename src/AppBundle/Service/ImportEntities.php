@@ -3,12 +3,14 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\SoftSeeAlso;
 use AppBundle\Entity\Tag;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use SplFileObject;
+use AppBundle\Service\BoolsAsTags;
 
 
 /**
@@ -47,14 +49,24 @@ class ImportEntities
      */
     private $config;
 
+    /**
+     * @var SeeAlso
+     */
+    private $serviceSeeAlso;
+    /**
+     * @var BoolsAsTags
+     */
+    private $boolsAsTags;
 
-    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir)
+
+    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir, SeeAlso $serviceSeeAlso, BoolsAsTags $boolsAsTags)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
         $this->errors = array();
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/import.yml"));
-
+        $this->serviceSeeAlso = $serviceSeeAlso;
+        $this->boolsAsTags = $boolsAsTags;
     }
 
     /**
@@ -412,6 +424,23 @@ class ImportEntities
             // an implicit commit.
 
         }
-
     }
+
+    public function addSeeAlsoBySoftwares() {
+        $repoSoft = $this->em->getRepository(SoftMain::class);
+        $softwares = $repoSoft->findAll();
+        $repoSeeAlso = $this->em->getRepository(SoftSeeAlso::class);
+        foreach($softwares as $software) {
+
+            $addSeeAlso = new SoftSeeAlso();
+            $addSeeAlso->setSoftMain($software);
+            $listSeeAlso = $this->serviceSeeAlso->getListOfSameSoftwares($software, 6);
+            $bools = $this->boolsAsTags->getBoolsBySoftware($software);
+            $addSeeAlso->setBooleans($bools);
+            $addSeeAlso->setSoftSeeAlsoArray($listSeeAlso);
+            $this->em->persist($addSeeAlso);
+        }
+        $this->em->flush();
+    }
+
 }

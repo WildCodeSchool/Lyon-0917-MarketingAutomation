@@ -268,6 +268,7 @@ class SoftMainRepository extends \Doctrine\ORM\EntityRepository
             ->join('s.softLeadsOperation' , 'lo')
             ->join('s.softOtherFunctionnalities' , 'cz')
             ->join('s.softCommSupport' , 'cs')
+
             ->where('s.slug LIKE :slug')
             ->setParameter('slug', $slug)
 

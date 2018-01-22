@@ -94,8 +94,24 @@
         <h2>Découvrir d'autres logiciels similaires de marketing automation</h2>
         <div class="row">
 
-            {% for software in softwares %}
-                {% include('software-card.html.twig') %}
+            {% for software in seeAlso %}
+                <div class="col s6 m3 l2 softwareCard">
+                    <div class="card">
+                        <div class="marginLogo">
+                            <div class="card-image responsive-img">
+                                <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}"><img class="responsive-img"
+                                                                                                     src="{{ asset('assets/img/logo/') }}{{ software.slug }}.png" alt="logo {{ software.name }}"></a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <a href="{{ path('softwareSolo', { 'slug': software.slug }) }}">
+                <span class="card-title">
+                        {{ software.name }}
+                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             {% endfor %}
 
 
