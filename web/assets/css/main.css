@@ -7492,8 +7492,8 @@ body {
     margin-right: 29px;
     position: fixed;
     text-align: right;
-    bottom: 170px;
-    right: 40px; }
+    bottom: 172px;
+    right: 30px; }
   body #autocomplete_compare_software1, body #autocomplete_compare_software2 {
     cursor: pointer; }
   body ::placeholder {

@@ -9,4 +9,5 @@ Materialize.scrollFire(options);
 
 
 
-{selector: '#image-test', offset: 500, callback: function(el) { Materialize.fadeInImage($(el)); } } ]; Materialize.scrollFire(options);
+{selector: '#image-test', offset: 500, callback: function(el) { Materialize.fadeInImage($(el)); } } ];
+Materialize.scrollFire(options);
