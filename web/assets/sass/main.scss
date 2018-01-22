@@ -77,18 +77,20 @@ body {
   section {
     min-height: 100vh;
   }
-  .top{
-    cursor: pointer;
-    text-align: right;
-    margin-right: 29px;
 
-  }
   #topFixed{
+    background: black;
+    opacity: 0.5;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    margin-right: 29px;
     position: fixed;
     text-align: right;
-    bottom: 0;
-    right:0;
+    bottom: 170px;
+    right: 40px;
   }
+
   #autocomplete_compare_software1, #autocomplete_compare_software2 {
     cursor: pointer;
    }
