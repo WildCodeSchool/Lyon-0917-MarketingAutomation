@@ -165,7 +165,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("mentionsLegales", name="mentionsLegales")
+     * @Route("mentions-legales", name="mentionsLegales")
      */
     public
     function mentionsLegalesAction(Request $request)
