@@ -1,19 +1,27 @@
-.page-footer {
+#footer {
   padding-top: 20px;
   padding-bottom: 5px;
   width: 100%;
   background-color: rgb(21, 31, 48);
   position: relative;
-  bottom:0;
-}
-
-.page-footer a {
+  bottom: 0;
   color: white;
   font-size: 1.1em;
-}
 
-.page-footer p {
-  margin: auto;
-  font-size: 1.1em;
-}
+  a {
+    color: white;
+  }
 
+  .flex-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+  }
+
+  .flex-item {
+    text-align: center;
+    margin: 0.5em;
+
+  }
+
+}

@@ -391,4 +391,19 @@ class DefaultController extends Controller
         $query = $request->query->get('search');
         return $this->redirectToRoute('results', array('researchContent' => $query));
     }
+
+
+    /**
+     * @Route("methodologie", name="methodologie")
+     */
+    public
+    function methologieAction(Request $request)
+    {
+
+        return $this->render('default/methodology.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+
 }
