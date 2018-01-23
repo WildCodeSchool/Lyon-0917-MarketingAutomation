@@ -203,7 +203,7 @@ class ImportEntities
 
         while (!$splSoftFile->eof()) {
 
-            $totalFields = 0;
+            $totalFields = 1;
             foreach ($softEntitiesYml as $softEntityYml) {
                 $countField = count($softEntityYml["fields"]);
                 $totalFields += $countField;
@@ -222,36 +222,40 @@ class ImportEntities
                             $line = 1;
                             foreach ($splSoftFile as $row) {
 
-                                $column = 0;
-                                if ($row[0] === $this->getConfig()[$fileName]["header"] or implode($row) == null) {
+                                $column = 1;
+                                if (strtolower($row[0]) !== "ok") {
                                     $splSoftFile->next();
-                                }
-                                foreach ($softEntitiesYml as $entity) {
+                                } else {
 
-                                    //parcourt les proprietés de chaque entity
-                                    foreach ($entity["fields"] as $property) {
 
-                                        switch ($property) {
+                                    foreach ($softEntitiesYml as $entity) {
 
-                                            case "list-tag":
-                                                break;
+                                        //parcourt les proprietés de chaque entity
+                                        foreach ($entity["fields"] as $property) {
 
-                                            case "string":
-                                                break;
+                                            switch ($property) {
 
-                                            case "boolean":
+                                                case "list-tag":
+                                                    break;
 
-                                                $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
-                                                break;
+                                                case "string":
+                                                    break;
 
-                                            case "integer":
+                                                case "boolean":
 
-                                                $this->checkIfInteger($fileName, $line, $row[$column], $column);
-                                                break;
+                                                    $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
+                                                    break;
 
+                                                case "integer":
+
+                                                    $this->checkIfInteger($fileName, $line, $row[$column], $column);
+                                                    break;
+
+                                            }
+                                            $column++;
                                         }
-                                        $column++;
                                     }
+
                                 }
                                 $line++;
                             }
@@ -281,9 +285,11 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
 
-                if ($row[0] === $this->getConfig()[$type]["header"] or implode($row) == null) {
+                if (strtolower($row[0]) !== "ok") {
                 $splSoftFile->next();
                 } else {
+
+                    array_shift($row);
                     $convertedData = [];
                     $caseImport = 0;
                     $i = 0;
