@@ -123,14 +123,14 @@
                                         {% if softmain1.advantages | raw == null %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain1.advantages | raw }}</p>
+                                            {{ softmain1.advantages | raw }}
                                         {% endif %}
                                     </td>
                                     <td>
                                         {% if softmain2.advantages | raw == null %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain2.advantages | raw }}</p>
+                                            {{ softmain2.advantages | raw }}
                                         {% endif %}
                                     </td>
                                 </tr>
@@ -140,14 +140,14 @@
                                         {% if softmain1.drawbacks | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain1.drawbacks | raw }}</p>
+                                            {{ softmain1.drawbacks | raw }}
                                         {% endif %}
                                     </td>
                                     <td>
                                         {% if softmain2.drawbacks | raw == false %}
                                             <i class="small material-icons grey-text">help_outline</i>
                                         {% else %}
-                                            <p>{{ softmain2.drawbacks | raw }}</p>
+                                            {{ softmain2.drawbacks | raw }}
                                         {% endif %}
                                     </td>
                                 </tr>

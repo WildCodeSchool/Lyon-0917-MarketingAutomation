@@ -1,7 +1,7 @@
 #compare {
   margin-bottom: 5%;
-  li{
-    a{
+  li {
+    a {
       font-size: 1.2em;
     }
   }
@@ -13,10 +13,13 @@
   td {
     width: 33%;
     text-align: center;
-    p{
+    ol {
+      margin: 5px;
+    }
+    p {
       padding: 10px;
       text-align: center;
-      a{
+      a {
         font-size: 1.0em;
       }
     }
@@ -56,14 +59,14 @@
     }
   }
   #autocomplete {
-    position:relative;
+    position: relative;
   }
   #versus-button {
     margin: 20px;
   }
   .collapsible {
-    border: none!important;
-    box-shadow: none!important;
+    border: none !important;
+    box-shadow: none !important;
     margin-bottom: 6vh;
 
   }
