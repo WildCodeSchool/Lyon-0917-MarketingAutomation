@@ -182,6 +182,17 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("a-propos", name="a-propos")
+     */
+    public function  aProposAction(Request $request)
+    {
+
+        return $this->render('default/a-propos.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
      * @Route("contact", name="contact")
      */
     public
