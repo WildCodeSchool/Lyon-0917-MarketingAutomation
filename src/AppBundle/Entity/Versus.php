@@ -32,7 +32,7 @@ class Versus
     /**
      * Many Versus have One Software.
      * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus1")
-     * @ORM\JoinColumn(onDelete="CASCADE")
+     * @ORM\JoinColumn(name="softMain1", referencedColumnName="id", onDelete="CASCADE")
      */
 
     private $software1;
@@ -40,7 +40,7 @@ class Versus
     /**
      * Many Versus have One Software.
      * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus2")
-     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="softMain2", referencedColumnName="id",onDelete="CASCADE")
      */
     private $software2;
 
@@ -48,7 +48,6 @@ class Versus
      * @var string
      *
      * @ORM\Column(name="description", type="text")
-     * @ORM\JoinColumn(name="softMainId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $description;
 
