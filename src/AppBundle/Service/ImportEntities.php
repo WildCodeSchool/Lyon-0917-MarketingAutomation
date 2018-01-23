@@ -211,10 +211,9 @@ class ImportEntities
                             foreach ($splSoftFile as $row) {
 
                                 $column = 1;
-                                if ($row[0] !== "ok") {
+                                if ($row[0] !== "ok" or implode($row) == null) {
                                     $splSoftFile->next();
                                 }
-                                array_shift($row);
                                 foreach ($softEntitiesYml as $entity) {
 
                                     //parcourt les proprietés de chaque entity
