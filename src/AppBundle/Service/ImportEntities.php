@@ -211,7 +211,9 @@ class ImportEntities
                             foreach ($splSoftFile as $row) {
 
                                 $column = 1;
-                                if (strtolower($row[0]) === "ok") {
+                                if (strtolower($row[0]) !== "ok") {
+                                    $splSoftFile->next();
+                                } else {
 
 
                                     foreach ($softEntitiesYml as $entity) {
@@ -241,8 +243,7 @@ class ImportEntities
                                             $column++;
                                         }
                                     }
-                                }else{
-                                    $splSoftFile->next();
+
                                 }
                                 $line++;
                             }
@@ -272,7 +273,7 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
 
-                if (strtolower($row[0]) === "ok" or implode($row) == null) {
+                if (strtolower($row[0]) !== "ok") {
                 $splSoftFile->next();
                 } else {
 
