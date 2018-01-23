@@ -211,35 +211,38 @@ class ImportEntities
                             foreach ($splSoftFile as $row) {
 
                                 $column = 1;
-                                if ($row[0] !== "ok" or implode($row) == null) {
-                                    $splSoftFile->next();
-                                }
-                                foreach ($softEntitiesYml as $entity) {
+                                if ($row[0] === "ok") {
 
-                                    //parcourt les proprietés de chaque entity
-                                    foreach ($entity["fields"] as $property) {
 
-                                        switch ($property) {
+                                    foreach ($softEntitiesYml as $entity) {
 
-                                            case "list-tag":
-                                                break;
+                                        //parcourt les proprietés de chaque entity
+                                        foreach ($entity["fields"] as $property) {
 
-                                            case "string":
-                                                break;
+                                            switch ($property) {
 
-                                            case "boolean":
+                                                case "list-tag":
+                                                    break;
 
-                                                $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
-                                                break;
+                                                case "string":
+                                                    break;
 
-                                            case "integer":
+                                                case "boolean":
 
-                                                $this->checkIfInteger($fileName, $line, $row[$column], $column);
-                                                break;
+                                                    $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
+                                                    break;
 
+                                                case "integer":
+
+                                                    $this->checkIfInteger($fileName, $line, $row[$column], $column);
+                                                    break;
+
+                                            }
+                                            $column++;
                                         }
-                                        $column++;
                                     }
+                                }else{
+                                    $splSoftFile->next();
                                 }
                                 $line++;
                             }
