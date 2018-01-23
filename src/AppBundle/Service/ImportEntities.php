@@ -211,7 +211,7 @@ class ImportEntities
                             foreach ($splSoftFile as $row) {
 
                                 $column = 1;
-                                if ($row[0] === $this->getConfig()[$fileName]["header"] or implode($row) == null) {
+                                if ($row[0] !== "ok" or implode($row) == null) {
                                     $splSoftFile->next();
                                 }
                                 foreach ($softEntitiesYml as $entity) {
