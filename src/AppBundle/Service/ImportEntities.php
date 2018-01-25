@@ -224,7 +224,6 @@ class ImportEntities
 
                                 $column = 1;
                                 if (strtolower($row[0]) !== "ok") {
-                                    $splSoftFile->next();
                                 } else {
 
 
@@ -286,7 +285,6 @@ class ImportEntities
             foreach ($splSoftFile as $row) {
 
                 if (strtolower($row[0]) !== "ok") {
-                $splSoftFile->next();
                 } else {
 
                     array_shift($row);
