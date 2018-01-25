@@ -1,12 +1,16 @@
 <div class="offset-m1 offset-l1 col s12 m4 l4 hide-on-small-only full-label" id="filters">
     <h2>Affinez votre recherche avec des critères</h2>
-
+    <div id="button-result">
+    <a @click="reset" class="waves-effect waves-light btn">Vider les filtres</a>
+    </div>
     <div id="slider"></div>
 
     <ul class="collapsible" data-collapsible="accordion">
         <li>
             <div class="collapsible-header">
+
                 Informations essentielles
+                <i class="material-icons">expand_more</i>
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -25,6 +29,8 @@
         <li>
             <div class="collapsible-header">
                 Canaux de communication sortants
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -64,6 +70,8 @@
         <li>
             <div class="collapsible-header">
                 Supports de communication
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -89,6 +97,8 @@
         <li>
             <div class="collapsible-header">
                 Gestion des contacts
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -128,6 +138,8 @@
         <li>
             <div class="collapsible-header">
                 Gestion des segments
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -147,6 +159,8 @@
         <li>
             <div class="collapsible-header">
                 Campagnes marketing
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -178,6 +192,8 @@
         <li>
             <div class="collapsible-header">
                 Intégration Social Media
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -220,6 +236,8 @@
         <li>
             <div class="collapsible-header">
                 Rapports
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -238,6 +256,8 @@
         <li>
             <div class="collapsible-header">
                 Support proposé
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -267,6 +287,8 @@
         <li>
             <div class="collapsible-header">
                 Autres fonctionnalités
+                <i class="material-icons">expand_more</i>
+
             </div>
             <div class="collapsible-body">
                 <form action="#">
@@ -297,7 +319,6 @@
 
 
     </ul>
-    <a @click="reset" class="waves-effect waves-light btn">Vider les filtres</a>
 
 
 
@@ -615,6 +636,10 @@
 
         </li>
     </div>
+    <div id="button-result">
+
     <a @click="reset" class="waves-effect waves-light btn">Vider les filtres</a>
+
+    </div>
 
 </ul>
