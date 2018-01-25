@@ -4,7 +4,6 @@ namespace AppBundle\Service;
 
 
 use AppBundle\Entity\SoftMain;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
