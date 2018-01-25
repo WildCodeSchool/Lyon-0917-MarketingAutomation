@@ -5,12 +5,11 @@ namespace AppBundle\Service;
 use AppBundle\Entity\SoftMain;
 use AppBundle\Entity\SoftSeeAlso;
 use AppBundle\Entity\Tag;
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use SplFileObject;
-use AppBundle\Service\BoolsAsTags;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 /**
@@ -34,7 +33,7 @@ class ImportEntities
 {
 
 
-    /** @var ObjectManager */
+    /** @var EntityManagerInterface */
     private $em;
     /**
      * @var Slugification
@@ -59,7 +58,7 @@ class ImportEntities
     private $boolsAsTags;
 
 
-    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir, SeeAlso $serviceSeeAlso, BoolsAsTags $boolsAsTags)
+    public function __construct(EntityManagerInterface $em, Slugification $slugificator, $rootDir, SeeAlso $serviceSeeAlso, BoolsAsTags $boolsAsTags)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
