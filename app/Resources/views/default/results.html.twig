@@ -116,5 +116,8 @@
     </script>
 {% endblock %}
 {% block javascripts %}{{ parent() }}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.0.3/vue.js"></script>
+    <script src="{{ asset('assets/js/app.js') }}"> </script>
     <script type="text/javascript" src="{{ asset('assets/js/resultHide.js') }}"></script>
 {% endblock %}

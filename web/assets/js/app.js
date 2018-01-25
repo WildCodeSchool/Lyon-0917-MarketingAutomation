@@ -52,9 +52,10 @@ var app = new Vue({
         price: 0,
     },
     created(){
-        axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        url = $("#results").data("url");
 
-        axios.get('/resultsJson_{{ research }}', {
+        axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+        axios.get(url, {
             headers: {
                 'Content-Type': 'application/json'
             },
