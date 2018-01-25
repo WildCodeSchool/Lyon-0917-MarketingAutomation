@@ -410,10 +410,10 @@ class DefaultController extends Controller
 
 
     /**
-     * @Route("methodologie", name="methodologie")
+     * @Route("bonnes-pratiques", name="goodPractices")
      */
     public
-    function methologieAction(Request $request)
+    function goodPracticesAction(Request $request)
     {
 
         return $this->render('default/methodology.html.twig', [
