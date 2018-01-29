@@ -1,7 +1,7 @@
 Find and compare a marketing automation software
 ==================
 
-A Symfony project for the website [comparer.pro](comparer.pro) created by 4 awesome students in the [Wild Code School](https://wildcodeschool.fr/) - october 2017 to january 2018!
+A Symfony project for the website [comparer.pro](http://comparer.pro) created by 4 awesome students in the [Wild Code School](https://wildcodeschool.fr/) - october 2017 to january 2018!
 Here, the manual to use this app:
 
 - [For user](#for-user)
