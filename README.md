@@ -30,7 +30,7 @@ This web application is an amazing tool, very efficient to find softwares for ma
 - Find softwares by tags. Tags are imagined by site’s owner, to make your search easier with predefined queries. You can access to a list of softwares concerned per tag;
 - Compare two softwares by name if you’re really curious about their properties.
 
-This is a student’s project. We hope you’ll like use this website!
+This is a student’s project. We hope you’ll like using this website!
 
 ## For Project Manager
 
@@ -67,9 +67,11 @@ You can’t just add a column where you want. Refer to the developer section for
 The website development is not perfect. This section will help you to understand it and upgrade-it if you desire.
 
 ### How can I deploy the website? What do I need?
-- This website use PostGresql, PHP 7.2.1 (**avoid 7.2.2**, because there’s an issue when using “moulinette”), Apache and other regular settings.  
+- This website is a Symfony project using PostGresql, PHP 7.2.1 (**avoid 7.2.2**, because there’s an issue when using “moulinette”), Apache and other regular settings (such as composer and doctrine).  
 - Use Git to clone repository, 
-- Use this commands after set database name in config file :
+- Use this commands after set database name in parameters.yml :
+
+    `composer install`
 
     `bin/console doctrine:database:create`
 
@@ -109,7 +111,7 @@ End of transaction if all is going well.
 
 ### How the awesomeSearch’s algorithm works?
 
-AwesomeSearch’s goal is to give to user a list of most relevants softwares. Awesome Search Service receive a request, and this is what happen next :
+AwesomeSearch’s goal is to give to users a list of most relevants softwares. Awesome Search Service receive a request, and this is what happen next :
 
 - Clean query : delete words of two letters, delete empty words (list is in awesomeSearch.yml),
 - For each word, look if it’s in any field of software or in synonyms of each properties in awesomeSearch.yml (see [How add new synonyms](#how-add-new-synonyms)),
@@ -160,9 +162,9 @@ We used the ‘trans’ block to mark parts in the template as translatable.
 
 **Fanny Perret** - <https://github.com/fannyperret>
 
-**Pierrick Reux** - <https://github.com/pireux>
-
 **Andy Razanamazava** - <https://github.com/AR6A>
+
+**Pierrick Reux** - <https://github.com/pireux>
 
 ### Contributor
 
