@@ -4,9 +4,9 @@ namespace AppBundle\Service;
 
 
 use AppBundle\Entity\SoftMain;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Class BoolsAsTags :
@@ -26,10 +26,10 @@ class BoolsAsTags
 
     /**
      * BoolsAsTags constructor.
-     * @param EntityManager $em
+     * @param EntityManagerInterface $em
      * @param $rootDir
      */
-    public function __construct(EntityManager $em, $rootDir)
+    public function __construct(EntityManagerInterface $em, $rootDir)
     {
         $this->em = $em;
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/awesomeSearch.yml"));

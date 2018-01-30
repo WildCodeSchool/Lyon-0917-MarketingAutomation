@@ -131,7 +131,7 @@ class AwesomeSearch
             $response[] = array(
                 'name' => $software->getName(),
                 'slug' => $software->getSlug(),
-                'description' => strip_tags(mb_strimwidth($software->getDescription(), 0, 160)),
+                'description' => $this->cutQuery(strip_tags($software->getDescription()), 160),
                 'logo' => $software->getLogoUrl(),
                 'isRgpd' => $software->getSoftInfo()->getRgpd(),
                 'isSms' => $software->getSoftOutBound()->getIsSms(),
@@ -225,7 +225,7 @@ class AwesomeSearch
         $resultTable = [];
         $j = 0;
         $entityKeys = array_keys($this->getDatas()['Booleans']);
-
+        if(!empty($word)) {
         foreach ( $this->getDatas()['Booleans'] as $table ) {
             $i = 0;
             $booleanKeys = array_keys($table);
@@ -239,7 +239,7 @@ class AwesomeSearch
                 $i++;
             }
             $j++;
-        }
+        }}
         // TODO : Cette function DOIT return uniquement true, mais elle ajoute à final result tous les tableaux trouvés par la query. À LA VERSION FINAL: remplacer par return true
 
         return $resultTable;
@@ -324,5 +324,28 @@ class AwesomeSearch
 
     }
 
+    /**
+     * Return Description of each software with a good cesure
+     */
+    public function cutQuery(string $string, int $n):string {
+            // Cut a text of  $N chars after a word
+            if( strlen( $string ) < $n ) {
+             return $string;
+            }
 
+        $firstPart = mb_substr($string, 0, $n);
+        $secondPart = mb_substr($string, $n);
+
+        $arraySecondPart = explode(" ", $secondPart);
+
+        if(substr($arraySecondPart[0], -1) === "," ) {
+            $goodSecondPart = substr($arraySecondPart[0], 0,-1);
+        } elseif (substr($arraySecondPart[0], -1) === "." ) {
+            $goodSecondPart = substr($arraySecondPart[0], 0,-1);
+        } else {
+            $goodSecondPart = $arraySecondPart[0];
+        }
+
+        return $firstPart . $goodSecondPart . " …";
+    }
 }

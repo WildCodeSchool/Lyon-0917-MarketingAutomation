@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\SoftSeeAlso;
 use AppBundle\Entity\Tag;
 use AppBundle\Entity\Versus;
 use AppBundle\Form\CompareType;
@@ -38,15 +39,19 @@ class DefaultController extends Controller
     {
         /** @var SoftMain $softMain */
         $softMain = $this->getDoctrine()->getRepository("AppBundle:SoftMain")->findTotalSoftWare($slug);
-        $bools = $boolsAsTags->getBoolsBySoftware($softMain);
 
-        $softMains = $seeAlso->getListOfSameSoftwares($softMain, 6);
+        //Fetch see also and booleans
+        $seeAlso = $this->getDoctrine()->getRepository(SoftSeeAlso::class)->findOneBy(array("softMain" => $softMain));
+        $result = $seeAlso->getSoftSeeAlsoArray();
+        $bools = $seeAlso->getBooleans();
+
+        //Fetch Versus list
         $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);
 
         return $this->render('default/software.html.twig', [
             'softmain' => $softMain,
-            'softwares' => $softMains,
             'versusList' => $versusList,
+            'seeAlso' => $result,
             'bools' => $bools,
         ]);
     }
@@ -165,13 +170,24 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("mentionsLegales", name="mentionsLegales")
+     * @Route("mentions-legales", name="mentionsLegales")
      */
     public
     function mentionsLegalesAction(Request $request)
     {
 
         return $this->render('default/mentions-legales.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+    /**
+     * @Route("a-propos", name="a-propos")
+     */
+    public function  aProposAction(Request $request)
+    {
+
+        return $this->render('default/a-propos.html.twig', [
             'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
         ]);
     }
@@ -391,4 +407,19 @@ class DefaultController extends Controller
         $query = $request->query->get('search');
         return $this->redirectToRoute('results', array('researchContent' => $query));
     }
+
+
+    /**
+     * @Route("bonnes-pratiques", name="goodPractices")
+     */
+    public
+    function goodPracticesAction(Request $request)
+    {
+
+        return $this->render('default/methodology.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.project_dir')) . DIRECTORY_SEPARATOR,
+        ]);
+    }
+
+
 }

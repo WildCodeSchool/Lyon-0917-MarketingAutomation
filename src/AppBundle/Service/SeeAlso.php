@@ -76,9 +76,15 @@ class SeeAlso
         $query = $this->getListTagsToString($software->getName());
 
         $result = $this->getAwesomeSearch()->search($query);
-
-
-        return $result = array_slice($result, 1, $nb);
+        $resultCut = array_slice($result, 1, $nb);
+        $list = [];
+        foreach($resultCut as $software) {
+            $seeAlso = [];
+            $seeAlso["name"] = $software["name"];
+            $seeAlso["slug"] = $software["slug"];
+            $list[] = $seeAlso;
+        }
+        return $list;
     }
 
     /**

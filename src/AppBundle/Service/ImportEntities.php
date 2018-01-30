@@ -3,12 +3,13 @@
 namespace AppBundle\Service;
 
 use AppBundle\Entity\SoftMain;
+use AppBundle\Entity\SoftSeeAlso;
 use AppBundle\Entity\Tag;
-use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\DBAL\Connection;
-use Doctrine\ORM\EntityManager;
 use Symfony\Component\Yaml\Yaml;
 use SplFileObject;
+use Doctrine\ORM\EntityManagerInterface;
+
 
 
 /**
@@ -32,7 +33,7 @@ class ImportEntities
 {
 
 
-    /** @var ObjectManager */
+    /** @var EntityManagerInterface */
     private $em;
     /**
      * @var Slugification
@@ -47,14 +48,24 @@ class ImportEntities
      */
     private $config;
 
+    /**
+     * @var SeeAlso
+     */
+    private $serviceSeeAlso;
+    /**
+     * @var BoolsAsTags
+     */
+    private $boolsAsTags;
 
-    public function __construct(EntityManager $em, Slugification $slugificator, $rootDir)
+
+    public function __construct(EntityManagerInterface $em, Slugification $slugificator, $rootDir, SeeAlso $serviceSeeAlso, BoolsAsTags $boolsAsTags)
     {
         $this->slugificator = $slugificator;
         $this->em = $em;
         $this->errors = array();
         $this->config = Yaml::parse(file_get_contents($rootDir . "/config/import.yml"));
-
+        $this->serviceSeeAlso = $serviceSeeAlso;
+        $this->boolsAsTags = $boolsAsTags;
     }
 
     /**
@@ -191,7 +202,7 @@ class ImportEntities
 
         while (!$splSoftFile->eof()) {
 
-            $totalFields = 0;
+            $totalFields = 1;
             foreach ($softEntitiesYml as $softEntityYml) {
                 $countField = count($softEntityYml["fields"]);
                 $totalFields += $countField;
@@ -210,36 +221,39 @@ class ImportEntities
                             $line = 1;
                             foreach ($splSoftFile as $row) {
 
-                                $column = 0;
-                                if ($row[0] === $this->getConfig()[$fileName]["header"] or implode($row) == null) {
-                                    $splSoftFile->next();
-                                }
-                                foreach ($softEntitiesYml as $entity) {
+                                $column = 1;
+                                if (strtolower($row[0]) !== "ok") {
+                                } else {
 
-                                    //parcourt les proprietés de chaque entity
-                                    foreach ($entity["fields"] as $property) {
 
-                                        switch ($property) {
+                                    foreach ($softEntitiesYml as $entity) {
 
-                                            case "list-tag":
-                                                break;
+                                        //parcourt les proprietés de chaque entity
+                                        foreach ($entity["fields"] as $property) {
 
-                                            case "string":
-                                                break;
+                                            switch ($property) {
 
-                                            case "boolean":
+                                                case "list-tag":
+                                                    break;
 
-                                                $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
-                                                break;
+                                                case "string":
+                                                    break;
 
-                                            case "integer":
+                                                case "boolean":
 
-                                                $this->checkIfInteger($fileName, $line, $row[$column], $column);
-                                                break;
+                                                    $this->checkIfBool($fileName, $line, $this->convertToBool($row[$column]), $column);
+                                                    break;
 
+                                                case "integer":
+
+                                                    $this->checkIfInteger($fileName, $line, $row[$column], $column);
+                                                    break;
+
+                                            }
+                                            $column++;
                                         }
-                                        $column++;
                                     }
+
                                 }
                                 $line++;
                             }
@@ -269,9 +283,10 @@ class ImportEntities
         while (!$splSoftFile->eof()) {
             foreach ($splSoftFile as $row) {
 
-                if ($row[0] === $this->getConfig()[$type]["header"] or implode($row) == null) {
-                $splSoftFile->next();
+                if (strtolower($row[0]) !== "ok") {
                 } else {
+
+                    array_shift($row);
                     $convertedData = [];
                     $caseImport = 0;
                     $i = 0;
@@ -412,6 +427,23 @@ class ImportEntities
             // an implicit commit.
 
         }
-
     }
+
+    public function addSeeAlsoBySoftwares() {
+        $repoSoft = $this->em->getRepository(SoftMain::class);
+        $softwares = $repoSoft->findAll();
+        $repoSeeAlso = $this->em->getRepository(SoftSeeAlso::class);
+        foreach($softwares as $software) {
+
+            $addSeeAlso = new SoftSeeAlso();
+            $addSeeAlso->setSoftMain($software);
+            $listSeeAlso = $this->serviceSeeAlso->getListOfSameSoftwares($software, 6);
+            $bools = $this->boolsAsTags->getBoolsBySoftware($software);
+            $addSeeAlso->setBooleans($bools);
+            $addSeeAlso->setSoftSeeAlsoArray($listSeeAlso);
+            $this->em->persist($addSeeAlso);
+        }
+        $this->em->flush();
+    }
+
 }

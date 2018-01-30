@@ -59,4 +59,10 @@
       }
     }
   }
+
+  #footer {
+    .flex-container {
+      flex-direction: column;
+    }
+  }
 }

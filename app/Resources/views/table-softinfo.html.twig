@@ -21,7 +21,7 @@
             {% if softmain.advantages | raw == null %}
                 <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                <p>{{ softmain.advantages | raw }}</p>
+                {{ softmain.advantages | raw }}
             {% endif %}
         </td>
     </tr>
@@ -31,7 +31,7 @@
             {% if softmain.drawbacks | raw == null %}
                 <i class="small material-icons grey-text">help_outline</i>
             {% else %}
-                <p>{{ softmain.drawbacks | raw }}</p>
+                {{ softmain.drawbacks | raw }}
             {% endif %}
         </td>
     </tr>

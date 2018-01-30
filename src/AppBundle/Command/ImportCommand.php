@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Helper\ProgressBar;
 
 class ImportCommand extends ContainerAwareCommand
 
@@ -68,13 +69,23 @@ class ImportCommand extends ContainerAwareCommand
             }
         } else {
             $connection->beginTransaction();
+            $output->writeln(PHP_EOL ."La BDD est en train d'être importée. Cela peut durer quelques minutes." . PHP_EOL . '');
+            $progress = new ProgressBar($output, 60);
+            $progress->start();
             try {
+                $progress->advance(5);
                 $serviceImport->deleteAllContent($connection, $dbName);
+                $progress->advance(5);
                 $serviceImport->import($pathTags, "import-tags");
+                $progress->advance(20);
                 $serviceImport->import($pathSoft, "import-softwares");
+                $progress->advance(10);
                 $serviceImport->import($pathVersus, "import-versus");
-                $connection->commit();
-                $output->writeln("La BDD a bien été importée." . PHP_EOL . '
+                $progress->advance(10);
+                $serviceImport->addSeeAlsoBySoftwares();
+                $progress->advance(10);
+                $progress->finish();
+                $output->writeln(PHP_EOL ."La BDD a bien été importée." . PHP_EOL . '
 ____    __    ____  _______  __       __          _______   ______   .__   __.  _______     __  
 \   \  /  \  /   / |   ____||  |     |  |        |       \ /  __  \  |  \ |  | |   ____|   |  | 
  \   \/    \/   /  |  |__   |  |     |  |        |  .--.  |  |  |  | |   \|  | |  |__      |  | 
@@ -84,6 +95,8 @@ ____    __    ____  _______  __       __          _______   ______   .__   __.  
                                                                                                 
             
             ');
+                $connection->commit();
+
 
 
             } catch (\Exception $e) {
@@ -92,6 +105,8 @@ ____    __    ____  _______  __       __          _______   ______   .__   __.  
 
                 $output->writeln('Exception reçue : ' . $e->getMessage() . PHP_EOL);
             }
+
+
         }
     }
 }
