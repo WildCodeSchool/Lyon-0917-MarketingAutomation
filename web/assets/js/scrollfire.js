@@ -5,7 +5,7 @@ var height = Math.max( body.scrollHeight, body.offsetHeight,
     html.clientHeight, html.scrollHeight, html.offsetHeight );
 
 $(window).scroll(function() {
-    if($(this).scrollTop()>(height/5))
+    if($(this).scrollTop()>(height/6))
     {
         $('#topFixed').fadeIn().removeClass("hide");
     }
