@@ -27,10 +27,10 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
         <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+        <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
     {% block canonical %}  {% endblock %}
-    {% include('cookieConsent.html.twig') %}
 </head>
 <body>
 {% block navBar %}
@@ -61,6 +61,7 @@
     {% include 'footer.html.twig' %}
 {% endblock %}
 {% block javascripts %}
+    {% include('cookieConsent.html.twig') %}
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script src="{{ asset('assets/js/main.js') }}"></script>
