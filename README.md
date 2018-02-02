@@ -163,7 +163,7 @@ We used the ‘trans’ block to mark parts in the template as translatable.
 
 ### Install an SSL certificate
 
-First, go to the root of the server with command: 
+First, go to the root folder with command: 
 
 `cd /`
 
@@ -171,9 +171,7 @@ To get the ssl certificate, we will use automated commands that will directly lo
 
 `git clone https://github.com/letsencrypt/letsencrypt`
 
-It is important that Let's Encrypt is installed at the root of the server, the latter can then identify your different managed domains on the VPS.
-
-Let's Encrypt configuration for your domains installed on the VPS.
+It is important that Let's Encrypt is installed at the root of the server, then it can identify your different managed domains on the VPS.
 
 Go to Let's Encrypt folder and enter the following command:
 
