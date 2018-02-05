@@ -20,6 +20,9 @@ Here, the manual to use this app:
     - [How add new synonyms](#how-add-new-synonyms)
 - [Creators](#creators)
 
+- [Installing or renewing a let's encrypt OVH certificate on a VPS](#installing-or-renewing-a-lets-encrypt-ovh-certificate-on-a-vps)
+    - [Install an SSL certificate](#install-an-ssl-certificate)
+    - [Renew an SSL certificate](#install-an-ssl-certificate)
 
 ## For user
 
@@ -156,7 +159,39 @@ In the repository *app/config/* in config.yml we added => translator: { fallback
 We needed a dictionary. So in the Resources we created a field named *translations* and into this, a file named ‘messages.fr.yml’. 
 We used the ‘trans’ block to mark parts in the template as translatable.
 
-### Creators
+## Installing or renewing a let's encrypt OVH certificate on a VPS
+
+### Install an SSL certificate
+
+First, go to the root folder with command: 
+
+`cd /`
+
+To get the ssl certificate, we will use automated commands that will directly look for it on the GitHub library. Enter the following command to download Let's Encrypt:
+
+`git clone https://github.com/letsencrypt/letsencrypt`
+
+It is important that Let's Encrypt is installed at the root of the server, then it can identify your different managed domains on the VPS.
+
+Go to Let's Encrypt folder and enter the following command:
+
+`./letsencrypt-auto`
+
+The rest of the configuration will simply ask you to confirm the installation of the certificates or to confirm their renewal if another certificate is detected.
+
+Once this action is done, your SSL Let's Encrypt certificates are configured and ready to host in HTTPS world.
+
+### Renew an SSL certificate
+
+SSL certificates have a validity period to allow a better security of your sites. Once the validity is complete, you will have to renew it.
+
+Go to Let's Encrypt folder and enter the following command:
+
+`./letsencrypt-auto renew`
+
+Certificates to be renewed will be detected and you will only need to confirm the action.
+
+## Creators
 
 **Anne-Laure De Boissieu** - <https://github.com/al2b>
 
