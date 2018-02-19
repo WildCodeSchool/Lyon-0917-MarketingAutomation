@@ -18,11 +18,10 @@ Here, the manual to use this app:
     - [How the awesomeSearch’s algorithm works?](#how-the-awesomesearchs-algorithm-works)
     - [How the “filters” in view’s result works?](#how-the-filters-in-views-result-works)
     - [How add new synonyms](#how-add-new-synonyms)
-- [Creators](#creators)
-
 - [Installing or renewing a let's encrypt OVH certificate on a VPS](#installing-or-renewing-a-lets-encrypt-ovh-certificate-on-a-vps)
     - [Install an SSL certificate](#install-an-ssl-certificate)
     - [Renew an SSL certificate](#install-an-ssl-certificate)
+- [Creators](#creators)
 
 ## For user
 
