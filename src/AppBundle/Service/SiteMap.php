@@ -86,7 +86,7 @@ class SiteMap
         foreach($routes as $route) {
             $pattern = '(^(\/_))';
             $path = $route->getPath();
-            if (!preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/slug/', $path)) and (!preg_match('/softmain/', $path)) and (!preg_match('/searchAction/', $path)))
+            if (!preg_match('/\/admin/', $path) and !preg_match($pattern, $path) and (!preg_match('/\/sitemap/', $path)) and (!preg_match('/\/result/', $path)) and (!preg_match('/slug/', $path)) and (!preg_match('/softmain/', $path)) and (!preg_match('/searchAction/', $path)))
             {
                 $urls[] = array(
                     'route' => $path
