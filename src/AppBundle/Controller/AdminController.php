@@ -1,15 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: anne-laure
- * Date: 25/04/18
- * Time: 13:45
- */
 
 namespace AppBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use SensioLabs\Security\Exception\HttpException;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
-class AdminController
+class AdminController extends Controller
 {
+
+    /**
+     * @Route("/admin", name="admin")
+     */
+    public function homeAdminAction(Request $request)
+    {
+        return $this->render(':default:index.html.twig', array());
+    }
 
 }
