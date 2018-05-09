@@ -72,3 +72,13 @@ assetic:
   use_controller: '%kernel.debug%'
   filters:
     cssrewrite: ~
+
+easy_admin:
+    site_name: 'Comparer.pro'
+    entities:
+        User:
+            class: AppBundle\Entity\User
+        Softwares:
+            class: AppBundle\Entity\SoftMain
+        Versus:
+            class: AppBundle\Entity\Versus
