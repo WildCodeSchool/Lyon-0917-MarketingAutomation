@@ -125,9 +125,21 @@ class DefaultController extends Controller
     private static function compareTags(array $a, array $b) {
         return $b['number'] - $a['number'];
     }
-    
+
+
     /**
-     * @Route("listing-tags", name="listingTags")
+     * @Route("listing-tags", name="OldlistingTags")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function oldListingTagsAction(Request $request)
+    {
+        //TODO : passer dans HTAccess
+        return $this->redirectToRoute('listingTags', array(), 301);
+    }
+
+    /**
+     * @Route("tag", name="listingTags")
      * @param Request $request
      * @param BoolsAsTags $boolsAsTags
      * @return \Symfony\Component\HttpFoundation\Response
