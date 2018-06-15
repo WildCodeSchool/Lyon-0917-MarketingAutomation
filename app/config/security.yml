@@ -26,6 +26,17 @@ security:
                 login_path: login
                 check_path: login
                 default_target_path: admin
+            http_basic: ~
+            provider: our_db_provider
+
+            logout:
+                path:   /logout
+                target: /
+
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 31536000 # 1 year
+                path:     /
 
             # activate different ways to authenticate
 

@@ -38,12 +38,19 @@ class DefaultController extends Controller
     public function softwareSoloAction(string $slug, SeeAlso $seeAlso, BoolsAsTags $boolsAsTags)
     {
         /** @var SoftMain $softMain */
-        $softMain = $this->getDoctrine()->getRepository("AppBundle:SoftMain")->findTotalSoftWare($slug);
-
+        $softMain = $this->getDoctrine()->getRepository(SoftMain::class)->findOneBy(array("slug" => $slug));
         //Fetch see also and booleans
-        $seeAlso = $this->getDoctrine()->getRepository(SoftSeeAlso::class)->findOneBy(array("softMain" => $softMain));
-        $result = $seeAlso->getSoftSeeAlsoArray();
-        $bools = $seeAlso->getBooleans();
+        $seeAlso = $softMain->getSoftSeeAlso();
+
+        if ($seeAlso !== null)
+        {
+            $result = $seeAlso->getSoftSeeAlsoArray();
+            $bools = $seeAlso->getBooleans();
+
+        } else {
+            $result = null;
+            $bools = null;
+        }
 
         //Fetch Versus list
         $versusList = $this->getDoctrine()->getRepository(Versus::class)->findVersusByOneSoftware($softMain);

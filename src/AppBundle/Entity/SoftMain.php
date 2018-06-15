@@ -3,7 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * SoftMain
  *
@@ -101,7 +101,7 @@ class SoftMain
 
     /**
      * One SoftMain has One SoftInfo.
-     * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftInfo", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softInfoId", referencedColumnName="id", onDelete="CASCADE")
      */
 
@@ -109,7 +109,7 @@ class SoftMain
 
     /**
      * One SoftMain has One SoftOutbound.
-     * @ORM\OneToOne(targetEntity="SoftOutbound", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftOutbound", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softOutBoundId", referencedColumnName="id",onDelete="CASCADE")
      */
 
@@ -117,70 +117,70 @@ class SoftMain
 
     /**
      * One SoftMain has One SoftCommSupport.
-     * @ORM\OneToOne(targetEntity="SoftCommSupport", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftCommSupport", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softCommSupportId", referencedColumnName="id",onDelete="CASCADE")
      */
     private $softCommSupport;
 
     /**
      * One SoftMain has One SoftCommSupport.
-     * @ORM\OneToOne(targetEntity="SoftLeadsOperation", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftLeadsOperation", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softLeadsOperationId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softLeadsOperation;
 
     /**
      * One SoftMain has One SoftSegmentOperation.
-     * @ORM\OneToOne(targetEntity="SoftSegmentOperation", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftSegmentOperation", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softSegmentOperationId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softSegmentOperation;
 
     /**
      * One SoftMain has One SoftMarketingCampaign.
-     * @ORM\OneToOne(targetEntity="SoftMarketingCampaign", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftMarketingCampaign", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softMarketingCampaignId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softMarketingCampaign;
 
     /**
      * One SoftMain has One SoftSocialMedia.
-     * @ORM\OneToOne(targetEntity="SoftSocialMedia", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftSocialMedia", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softSocialMedia", referencedColumnName="id",onDelete="CASCADE")
      */
     private $softSocialMedia;
 
     /**
      * One SoftMain has One SoftReport.
-     * @ORM\OneToOne(targetEntity="SoftReport", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftReport", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softReportId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softReport;
 
     /**
      * One SoftMain has One SeeAlso
-     * @ORM\OneToOne(targetEntity="SoftSeeAlso", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftSeeAlso", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softSeeAlsoId", referencedColumnName="id", onDelete="CASCADE")
 
      */
     private $softSeeAlso;
     /**
      * One SoftMain has One SoftSupport.
-     * @ORM\OneToOne(targetEntity="SoftSupport", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftSupport", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softSupportId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softSupport;
 
     /**
      * One SoftMain has One SoftOtherFunctionnalities.
-     * @ORM\OneToOne(targetEntity="SoftOtherFunctionnalities", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftOtherFunctionnalities", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softOtherFunctionnalitiesId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softOtherFunctionnalities;
 
     /**
      * One SoftMain has One SoftContact.
-     * @ORM\OneToOne(targetEntity="SoftContact", inversedBy="softMain")
+     * @ORM\OneToOne(targetEntity="SoftContact", inversedBy="softMain", cascade={"persist"})
      * @ORM\JoinColumn(name="softContactId", referencedColumnName="id", onDelete="CASCADE")
      */
     private $softContact;
@@ -192,6 +192,11 @@ class SoftMain
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\File(mimeTypes={ "image/png" })
+     */
+    private $logo;
 
 
     /**
@@ -202,7 +207,27 @@ class SoftMain
         $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
         $this->versus1 = new \Doctrine\Common\Collections\ArrayCollection();
         $this->versus2 = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
+
+    /**
+     * @return mixed
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param mixed $logo
+     * @return SoftMain
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
 
     /**
      * Get id.
@@ -440,6 +465,7 @@ class SoftMain
     public function addTag(\AppBundle\Entity\Tag $tag)
     {
         $this->tags[] = $tag;
+
 
         return $this;
     }
@@ -820,5 +846,9 @@ class SoftMain
         return $this;
     }
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
 }

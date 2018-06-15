@@ -32,7 +32,7 @@ class Versus
     /**
      * Many Versus have One Software.
      * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus1")
-     * @ORM\JoinColumn(name="softMain1", referencedColumnName="id", onDelete="CASCADE")
+     * @ORM\JoinColumn(name="softMain1", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      */
 
     private $software1;
@@ -40,7 +40,7 @@ class Versus
     /**
      * Many Versus have One Software.
      * @ORM\ManyToOne(targetEntity="SoftMain", inversedBy="versus2")
-     * @ORM\JoinColumn(name="softMain2", referencedColumnName="id",onDelete="CASCADE")
+     * @ORM\JoinColumn(name="softMain2", referencedColumnName="id",onDelete="CASCADE", nullable=false)
      */
     private $software2;
 
@@ -155,5 +155,11 @@ class Versus
     public function getSoftware2()
     {
         return $this->software2;
+    }
+
+    public function __toString()
+    {
+        return $this->getSoftware1() . ' - ' . $this->getSoftware2();
+        // TODO: Implement __toString() method.
     }
 }

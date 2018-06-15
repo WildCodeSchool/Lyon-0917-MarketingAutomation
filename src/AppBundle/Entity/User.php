@@ -67,6 +67,18 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @param mixed $username
+     * @return User
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+
+
+    /**
      * @return null
      */
     public function getSalt()
@@ -86,7 +98,6 @@ class User implements UserInterface, \Serializable
         $this->plainPassword = $password;
     }
 
-
     /**
      * @return mixed
      */
@@ -94,6 +105,17 @@ class User implements UserInterface, \Serializable
     {
         return $this->password;
     }
+
+    /**
+     * @param mixed $password
+     * @return User
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
+        return $this;
+    }
+
 
     /**
      * @return array
@@ -166,7 +188,7 @@ class User implements UserInterface, \Serializable
     /**
      * @return mixed
      */
-    public function getisActive()
+    public function getIsActive()
     {
         return $this->isActive;
     }
