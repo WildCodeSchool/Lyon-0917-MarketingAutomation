@@ -207,4 +207,10 @@ class Tag
     {
         return $this->softMains;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }

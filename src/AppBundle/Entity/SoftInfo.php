@@ -281,4 +281,5 @@ class SoftInfo
     {
         return $this->softMain;
     }
+
 }

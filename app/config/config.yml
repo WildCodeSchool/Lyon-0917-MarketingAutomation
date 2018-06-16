@@ -7,6 +7,7 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    logo_directory: '%kernel.root_dir%/../web/assets/img/logo'
 
 framework:
     #esi: ~
@@ -72,3 +73,74 @@ assetic:
   use_controller: '%kernel.debug%'
   filters:
     cssrewrite: ~
+
+easy_admin:
+    site_name: 'Comparer.pro'
+
+    entities:
+
+        User:
+            class: AppBundle\Entity\User
+            form:
+              fields:
+                - username
+                - { property: 'username', label: 'Nom du user' }
+                - { property: 'email', label: 'E-mail', type: 'email', type_options: { trim: true } }
+                - { property: 'plainPassword', type: 'repeated', type_options: { first_options: {label: 'Mot de passe'}, second_options: {label: 'Mot de passe à répéter'} } }
+
+        Softwares:
+            class: AppBundle\Entity\SoftMain
+            form:
+              fields:
+                - name
+                - { property: 'name', label: 'Nom du logiciel :' }
+                - title
+                - { property: 'title', label: 'Title (SEO) :' }
+                - type
+                - { property: 'type', label: 'Type de logiciel :' }
+                - description
+                - { property: 'description', label: 'Description :' }
+                - comments
+                - { property: 'comments', label: 'Commentaire neutre :' }
+                - advantages
+                - { property: 'advantages', label: 'Les avantages du logiciel :' }
+                - drawbacks
+                - { property: 'drawbacks', label: 'Les désavantages du logiciel :' }
+                - tags
+                - { property: 'tags', label: 'Les tags :', type_options: { 'by_reference': false }, allow_delete: true, allow_add: true, prototype: true  }
+                - logo
+                - { property: 'logo', label: 'logo en PNG :', type: 'file', type_options: {data_class: null} }
+                - softInfo
+                - { property: 'softInfo', label: 'Les infos principales :', type: 'AppBundle\Form\SoftInfoType', type_options: { data_class: 'AppBundle\Entity\SoftInfo', by_reference: true } }
+                - softOutbound
+                - { property: 'softOutbound', label: 'Canaux de communication sortants (outbound) :', type: 'AppBundle\Form\SoftOutboundType', type_options: { data_class: 'AppBundle\Entity\SoftOutbound', by_reference: true } }
+                - softCommSupport
+                - { property: 'softCommSupport', label: 'Support de Communication :', type: 'AppBundle\Form\SoftCommSupportType', type_options: { data_class: 'AppBundle\Entity\SoftCommSupport', by_reference: true } }
+                - softLeadsOperation
+                - { property: 'softLeadsOperation', label: 'Gestion des contacts :', type: 'AppBundle\Form\SoftLeadsOperationType', type_options: { data_class: 'AppBundle\Entity\SoftLeadsOperation', by_reference: true } }
+                - softSegmentOperation
+                - { property: 'softSegmentOperation', label: 'Gestion des segments :', type: 'AppBundle\Form\SoftSegmentOperationType', type_options: { data_class: 'AppBundle\Entity\SoftSegmentOperation', by_reference: true } }
+                - softMarketingCampaign
+                - { property: 'softMarketingCampaign', label: 'Campagnes marketing', type: 'AppBundle\Form\SoftMarketingCampaignType', type_options: { data_class: 'AppBundle\Entity\SoftMarketingCampaign', by_reference: true } }
+                - softSocialMedia
+                - { property: 'softSocialMedia', label: 'Intégration social média :', type: 'AppBundle\Form\SoftSocialMediaType', type_options: { data_class: 'AppBundle\Entity\SoftSocialMedia', by_reference: true } }
+                - softReport
+                - { property: 'softReport', label: 'Rapports :', type: 'AppBundle\Form\SoftReportType', type_options: { data_class: 'AppBundle\Entity\SoftReport', by_reference: true } }
+                - softOtherFunctionnalities
+                - { property: 'softOtherFunctionnalities', label: 'Autres fonctionnalités :', type: 'AppBundle\Form\SoftOtherFunctionnalitiesType', type_options: { data_class: 'AppBundle\Entity\SoftOtherFunctionnalities', by_reference: true } }
+                - softSupport
+                - { property: 'softSupport', label: 'Support client :', type: 'AppBundle\Form\SoftSupportType', type_options: { data_class: 'AppBundle\Entity\SoftSupport', by_reference: true } }
+                - softContact
+                - { property: 'softContact', label: 'Personne à contacter (non public) :', type: 'AppBundle\Form\SoftContactType', type_options: { data_class: 'AppBundle\Entity\SoftContact', by_reference: true } }
+        Versus:
+            class: AppBundle\Entity\Versus
+        Tag:
+            class: AppBundle\Entity\Tag
+            form:
+              fields:
+                - name
+                - { property: 'name', label: 'Nom :' }
+                - title
+                - { property: 'title', label: 'Title (SEO) :' }
+                - description
+                - { property: 'softMains', label: 'Liste des logiciels :', type_options: { by_reference: false }, allow_delete: true, allow_add: true, prototype: true }

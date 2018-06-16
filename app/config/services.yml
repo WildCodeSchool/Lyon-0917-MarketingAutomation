@@ -51,3 +51,7 @@ services:
         public:   true
         arguments:
             $rootDir: '%root_dir%'
+
+    AppBundle\Service\FileUploader:
+        arguments:
+            $targetDir: '%logo_directory%'
